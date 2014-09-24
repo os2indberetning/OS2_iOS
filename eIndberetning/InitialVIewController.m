@@ -22,6 +22,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    //Check if we have a code
+    
+    //If not, ask for one
+    
+    //Otherwise, launch the application
 }
 
 @end
