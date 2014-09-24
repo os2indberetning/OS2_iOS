@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  InitialVIewController.m
 //  eIndberetning
 //
 //  Created by Jacob Hansen on 24/09/14.
 //  Copyright (c) 2014 IT-Minds. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "InitialVIewController.h"
 
-@interface ViewController ()
+@interface InitialVIewController ()
 
 @end
 
-@implementation ViewController
+@implementation InitialVIewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
