@@ -188,7 +188,7 @@
         <!--Ny Kørsel-->
         <scene sceneID="BMT-jb-Rxk">
             <objects>
-                <tableViewController id="k14-AB-31x" sceneMemberID="viewController">
+                <tableViewController id="k14-AB-31x" customClass="StartDriveTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="foD-DU-IMe">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -654,19 +654,41 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdb-Cw-iqX">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                    <color key="backgroundColor" red="0.6832496500466273" green="0.81236046549999996" blue="0.55909753218678904" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.85882352941176465" green="0.50588235294117645" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="Pch-JV-pEj"/>
+                                                        <constraint firstAttribute="width" constant="198" id="RzF-jS-ZFn">
+                                                            <variation key="widthClass=compact" constant="300"/>
+                                                        </constraint>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <state key="normal" title="Start Kørsel">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Pch-JV-pEj"/>
+                                                            <exclude reference="RzF-jS-ZFn"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="Pch-JV-pEj"/>
+                                                            <include reference="RzF-jS-ZFn"/>
+                                                        </mask>
+                                                    </variation>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wdb-Cw-iqX" firstAttribute="top" secondItem="F2v-Hj-atZ" secondAttribute="top" id="5IZ-k6-2Q3">
                                                     <variation key="widthClass=compact" constant="8"/>
                                                 </constraint>
+                                                <constraint firstAttribute="centerY" secondItem="wdb-Cw-iqX" secondAttribute="centerY" constant="0.5" id="DgB-Dc-FYl"/>
                                                 <constraint firstItem="wdb-Cw-iqX" firstAttribute="leading" secondItem="F2v-Hj-atZ" secondAttribute="leading" id="FRc-vo-MC1">
                                                     <variation key="widthClass=compact" constant="16"/>
                                                 </constraint>
+                                                <constraint firstAttribute="centerX" secondItem="wdb-Cw-iqX" secondAttribute="centerX" id="PMk-Lw-g0y"/>
                                                 <constraint firstAttribute="bottom" secondItem="wdb-Cw-iqX" secondAttribute="bottom" id="Qjt-SD-MJN">
                                                     <variation key="widthClass=compact" constant="8"/>
                                                 </constraint>
@@ -680,7 +702,9 @@
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="5IZ-k6-2Q3"/>
+                                                    <exclude reference="DgB-Dc-FYl"/>
                                                     <exclude reference="FRc-vo-MC1"/>
+                                                    <exclude reference="PMk-Lw-g0y"/>
                                                     <exclude reference="Qjt-SD-MJN"/>
                                                     <exclude reference="lZQ-BY-NcU"/>
                                                 </mask>
@@ -690,10 +714,12 @@
                                                     <include reference="wdb-Cw-iqX"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="5IZ-k6-2Q3"/>
-                                                    <include reference="FRc-vo-MC1"/>
-                                                    <include reference="Qjt-SD-MJN"/>
-                                                    <include reference="lZQ-BY-NcU"/>
+                                                    <exclude reference="5IZ-k6-2Q3"/>
+                                                    <include reference="DgB-Dc-FYl"/>
+                                                    <exclude reference="FRc-vo-MC1"/>
+                                                    <include reference="PMk-Lw-g0y"/>
+                                                    <exclude reference="Qjt-SD-MJN"/>
+                                                    <exclude reference="lZQ-BY-NcU"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -710,7 +736,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbq-Ml-2jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="237" y="-2"/>
+            <point key="canvasLocation" x="237" y="-3"/>
         </scene>
     </scenes>
 </document>
