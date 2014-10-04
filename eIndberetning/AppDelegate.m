@@ -16,7 +16,23 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if(false){
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"coupleViewController"];
+        self.window.rootViewController = viewController;
+    } else {
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"startViewController"];
+        self.window.rootViewController = viewController;
+    }
+    
+    [self.window makeKeyAndVisible];
+    
     // Override point for customization after application launch.
+    
     return YES;
 }
 
