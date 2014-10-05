@@ -18,6 +18,8 @@
 		F56E0A4119D2A40C00B6CA1F /* eIndberetningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A4019D2A40C00B6CA1F /* eIndberetningTests.m */; };
 		F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5824DF819E09F6C00F51353 /* StartDriveTableViewController.m */; };
 		F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5824DFB19E09FB000F51353 /* UIColor+CustomColor.m */; };
+		F5AF892219E1BD0F00016826 /* DriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AF892119E1BD0F00016826 /* DriveViewController.m */; };
+		F5AF892519E1C5CA00016826 /* FinishDriveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AF892419E1C5CA00016826 /* FinishDriveTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		F5824DF819E09F6C00F51353 /* StartDriveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartDriveTableViewController.m; sourceTree = "<group>"; };
 		F5824DFA19E09FB000F51353 /* UIColor+CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColor.h"; sourceTree = "<group>"; };
 		F5824DFB19E09FB000F51353 /* UIColor+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
+		F5AF892019E1BD0F00016826 /* DriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveViewController.h; sourceTree = "<group>"; };
+		F5AF892119E1BD0F00016826 /* DriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveViewController.m; sourceTree = "<group>"; };
+		F5AF892319E1C5CA00016826 /* FinishDriveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishDriveTableViewController.h; sourceTree = "<group>"; };
+		F5AF892419E1C5CA00016826 /* FinishDriveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishDriveTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,10 @@
 				F56E0A2C19D2A40C00B6CA1F /* InitialVIewController.m */,
 				F5824DF719E09F6C00F51353 /* StartDriveTableViewController.h */,
 				F5824DF819E09F6C00F51353 /* StartDriveTableViewController.m */,
+				F5AF892019E1BD0F00016826 /* DriveViewController.h */,
+				F5AF892119E1BD0F00016826 /* DriveViewController.m */,
+				F5AF892319E1C5CA00016826 /* FinishDriveTableViewController.h */,
+				F5AF892419E1C5CA00016826 /* FinishDriveTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -307,10 +317,12 @@
 			files = (
 				F56E0A2719D2A40C00B6CA1F /* AppDelegate.m in Sources */,
 				F56E0A2419D2A40C00B6CA1F /* main.m in Sources */,
+				F5AF892519E1C5CA00016826 /* FinishDriveTableViewController.m in Sources */,
 				F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */,
 				F56E0A2D19D2A40C00B6CA1F /* InitialVIewController.m in Sources */,
 				F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */,
 				F56E0A2A19D2A40C00B6CA1F /* eIndberetning.xcdatamodeld in Sources */,
+				F5AF892219E1BD0F00016826 /* DriveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
