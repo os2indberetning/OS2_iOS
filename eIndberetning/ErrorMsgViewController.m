@@ -9,12 +9,12 @@
 #import "ErrorMsgViewController.h"
 
 @interface ErrorMsgViewController ()
-@property (retain, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
 
-@property (strong, nonatomic) NSString* titleString;
-@property (strong, nonatomic) NSString* errorString;
+@property (strong, nonatomic)NSString *titelString;
+@property (strong, nonatomic)NSString *errorString;
 @end
 
 @implementation ErrorMsgViewController
@@ -28,10 +28,10 @@
     self.popUpView.layer.shadowOpacity = 0.8;
     self.popUpView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
     self.okButton.layer.cornerRadius = 2;
-    
-    self.titleLabel.text = self.titleString;
-    self.errorLabel.text = self.errorString;
 
+    self.titleLabel.text = self.titelString;
+    self.errorLabel.text = self.errorString;
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -42,8 +42,6 @@
 
 - (void)showInView:(UIView *)aView animated:(BOOL)animated
 {
-
-    
     [aView addSubview:self.view];
     
 
@@ -84,7 +82,7 @@
 
 - (void)setTitle:(NSString*)title
 {
-    self.titleString = title;
+    self.titelString = title;
 }
 
 - (void)setError:(NSString*)error

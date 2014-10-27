@@ -47,9 +47,10 @@
     //SelectListTableViewController *viewController=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
     //[self.navigationController pushViewController:viewController animated:true];
     
-    self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"PopupViewController" bundle:nil];
+    self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
     [self.errorMsg setTitle:@"Du mangler at udfylde"];
     [self.errorMsg setError:@"Test"];
+    self.errorMsg.view.frame = [UIApplication sharedApplication].keyWindow.frame;
     
     [self.errorMsg showInView:[UIApplication sharedApplication].keyWindow  animated:YES];
 }
