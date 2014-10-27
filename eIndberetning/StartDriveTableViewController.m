@@ -9,14 +9,14 @@
 #import "StartDriveTableViewController.h"
 #import "UIColor+CustomColor.h"
 #import "SelectListTableViewController.h"
-#import "PopupViewController.h"
+#import "ErrorMsgViewController.h"
 
 @interface StartDriveTableViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UILabel *taskTextField;
 @property (weak, nonatomic) IBOutlet UILabel *purposeTextField;
 @property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTextField;
-
+@property (strong, nonatomic) ErrorMsgViewController *errorMsg;
 @end
 
 @implementation StartDriveTableViewController
@@ -47,10 +47,11 @@
     //SelectListTableViewController *viewController=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
     //[self.navigationController pushViewController:viewController animated:true];
     
-    PopupViewController *popViewController = [[PopupViewController alloc] initWithNibName:@"PopupViewController" bundle:nil];
-    //[self.popViewController setTitle:@"This is a popup view"];
+    self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"PopupViewController" bundle:nil];
+    [self.errorMsg setTitle:@"Du mangler at udfylde"];
+    [self.errorMsg setError:@"Test"];
     
-    [popViewController showInView:self.view animated:YES];
+    [self.errorMsg showInView:[UIApplication sharedApplication].keyWindow  animated:YES];
 }
 
 #pragma mark - Table view data source

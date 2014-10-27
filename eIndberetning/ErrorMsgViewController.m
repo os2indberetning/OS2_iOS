@@ -6,21 +6,32 @@
 //  Copyright (c) 2014 IT-Minds. All rights reserved.
 //
 
-#import "PopupViewController.h"
+#import "ErrorMsgViewController.h"
 
-@interface PopupViewController ()
+@interface ErrorMsgViewController ()
+@property (retain, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
 
+@property (strong, nonatomic) NSString* titleString;
+@property (strong, nonatomic) NSString* errorString;
 @end
 
-@implementation PopupViewController
+@implementation ErrorMsgViewController
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     self.view.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:.6];
-    self.popUpView.layer.cornerRadius = 5;
+    self.popUpView.layer.cornerRadius = 2;
     self.popUpView.layer.shadowOpacity = 0.8;
     self.popUpView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-    [super viewDidLoad];
+    self.okButton.layer.cornerRadius = 2;
+    
+    self.titleLabel.text = self.titleString;
+    self.errorLabel.text = self.errorString;
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -31,7 +42,12 @@
 
 - (void)showInView:(UIView *)aView animated:(BOOL)animated
 {
+
+    
     [aView addSubview:self.view];
+    
+
+    
     if (animated) {
         [self showAnimate];
     }
@@ -45,6 +61,8 @@
     [UIView animateWithDuration:.25 animations:^{
         self.view.alpha = 1;
         self.view.transform = CGAffineTransformMakeScale(1, 1);
+        
+
     }];
 }
 
@@ -60,6 +78,19 @@
     }];
 }
 
+- (IBAction)buttonPressed:(id)sender {
+    [self removeAnimate];
+}
+
+- (void)setTitle:(NSString*)title
+{
+    self.titleString = title;
+}
+
+- (void)setError:(NSString*)error
+{
+    self.errorString = error;
+}
 /*
 #pragma mark - Navigation
 

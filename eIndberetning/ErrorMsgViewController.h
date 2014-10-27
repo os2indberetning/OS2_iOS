@@ -1,5 +1,5 @@
 //
-//  PopupViewController.h
+//  ErrorMsgViewController.h
 //  eIndberetning
 //
 //  Created by Jacob Hansen on 27/10/14.
@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface PopupViewController : UIViewController
+@interface ErrorMsgViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *popUpView;
 - (void)showInView:(UIView *)aView animated:(BOOL)animated;
+- (void)setTitle:(NSString*)title;
+- (void)setError:(NSString*)error;
 @end
