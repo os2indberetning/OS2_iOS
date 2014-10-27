@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopupViewController">
+            <connections>
+                <outlet property="view" destination="JDE-vY-9hD" id="mWT-5b-j84"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="JDE-vY-9hD">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fejlbesked" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLo-F3-t8Z">
+                            <rect key="frame" x="8" y="68" width="584" height="448"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcl-W5-adS">
+                            <rect key="frame" x="239" y="524" width="123" height="68"/>
+                            <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="kPq-1X-Eox"/>
+                                <constraint firstAttribute="width" constant="100" id="m5T-N9-5Z5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="kPq-1X-Eox"/>
+                                    <exclude reference="m5T-N9-5Z5"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="kPq-1X-Eox"/>
+                                    <include reference="m5T-N9-5Z5"/>
+                                </mask>
+                            </variation>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du har ikke udfyldt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddX-hh-BYi">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="wXe-dw-TiB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Kcl-W5-adS" firstAttribute="top" secondItem="PLo-F3-t8Z" secondAttribute="bottom" constant="8" id="9eY-pC-d71"/>
+                        <constraint firstItem="PLo-F3-t8Z" firstAttribute="top" secondItem="ddX-hh-BYi" secondAttribute="bottom" constant="8" id="GZR-6H-zYg"/>
+                        <constraint firstItem="ddX-hh-BYi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PIU-Gt-g2j"/>
+                        <constraint firstAttribute="bottom" secondItem="Kcl-W5-adS" secondAttribute="bottom" constant="8" id="eEJ-q9-GRy"/>
+                        <constraint firstItem="PLo-F3-t8Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="fXn-LK-a6t"/>
+                        <constraint firstAttribute="height" constant="400" id="gKE-LT-ARi">
+                            <variation key="widthClass=compact" constant="250"/>
+                        </constraint>
+                        <constraint firstAttribute="centerX" secondItem="Kcl-W5-adS" secondAttribute="centerX" id="hU0-BI-cTK"/>
+                        <constraint firstAttribute="trailing" secondItem="PLo-F3-t8Z" secondAttribute="trailing" constant="8" id="iIK-fl-0Vw"/>
+                        <constraint firstAttribute="width" constant="350" id="pS2-C1-zLw">
+                            <variation key="widthClass=compact" constant="200"/>
+                        </constraint>
+                        <constraint firstAttribute="trailing" secondItem="ddX-hh-BYi" secondAttribute="trailing" id="usq-Gu-Ahp"/>
+                        <constraint firstItem="ddX-hh-BYi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vhB-ri-rlA"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="gKE-LT-ARi"/>
+                            <exclude reference="pS2-C1-zLw"/>
+                            <exclude reference="GZR-6H-zYg"/>
+                            <exclude reference="fXn-LK-a6t"/>
+                            <exclude reference="iIK-fl-0Vw"/>
+                            <exclude reference="9eY-pC-d71"/>
+                            <exclude reference="eEJ-q9-GRy"/>
+                            <exclude reference="hU0-BI-cTK"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="gKE-LT-ARi"/>
+                            <include reference="pS2-C1-zLw"/>
+                            <include reference="GZR-6H-zYg"/>
+                            <include reference="fXn-LK-a6t"/>
+                            <include reference="iIK-fl-0Vw"/>
+                            <include reference="9eY-pC-d71"/>
+                            <include reference="eEJ-q9-GRy"/>
+                            <include reference="hU0-BI-cTK"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pCO-n7-nAm"/>
+                <constraint firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yXY-Vj-Yn7"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="i5M-Pr-FkT"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="pCO-n7-nAm"/>
+                    <exclude reference="yXY-Vj-Yn7"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="i5M-Pr-FkT"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="pCO-n7-nAm"/>
+                    <include reference="yXY-Vj-Yn7"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="377" y="525"/>
+        </view>
+    </objects>
+</document>

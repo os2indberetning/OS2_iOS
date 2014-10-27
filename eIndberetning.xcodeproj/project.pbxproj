@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		285C398763EB493EB3BACB37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7BD0598834CACA9C13197 /* libPods.a */; };
+		F537B4DE19FE4F5000D06892 /* SelectListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4DC19FE4F5000D06892 /* SelectListTableViewController.m */; };
+		F537B4DF19FE4F5000D06892 /* SelectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4DD19FE4F5000D06892 /* SelectListTableViewController.xib */; };
+		F537B4E319FE530A00D06892 /* SelectListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4E119FE530A00D06892 /* SelectListTableViewCell.m */; };
+		F537B4E419FE530A00D06892 /* SelectListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4E219FE530A00D06892 /* SelectListTableViewCell.xib */; };
+		F537B4E919FE614600D06892 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4E719FE614600D06892 /* PopupViewController.m */; };
+		F537B4EA19FE614600D06892 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4E819FE614600D06892 /* PopupViewController.xib */; };
 		F56E0A2419D2A40C00B6CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2319D2A40C00B6CA1F /* main.m */; };
 		F56E0A2719D2A40C00B6CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2619D2A40C00B6CA1F /* AppDelegate.m */; };
 		F56E0A2A19D2A40C00B6CA1F /* eIndberetning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2819D2A40C00B6CA1F /* eIndberetning.xcdatamodeld */; };
@@ -35,6 +41,15 @@
 /* Begin PBXFileReference section */
 		7BB7BD0598834CACA9C13197 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A2A0BD089C4227969763E8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F537B4DB19FE4F5000D06892 /* SelectListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectListTableViewController.h; sourceTree = "<group>"; };
+		F537B4DC19FE4F5000D06892 /* SelectListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectListTableViewController.m; sourceTree = "<group>"; };
+		F537B4DD19FE4F5000D06892 /* SelectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectListTableViewController.xib; sourceTree = "<group>"; };
+		F537B4E019FE530A00D06892 /* SelectListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectListTableViewCell.h; path = ../SelectListTableViewCell.h; sourceTree = "<group>"; };
+		F537B4E119FE530A00D06892 /* SelectListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectListTableViewCell.m; path = ../SelectListTableViewCell.m; sourceTree = "<group>"; };
+		F537B4E219FE530A00D06892 /* SelectListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectListTableViewCell.xib; path = ../SelectListTableViewCell.xib; sourceTree = "<group>"; };
+		F537B4E619FE614600D06892 /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
+		F537B4E719FE614600D06892 /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
+		F537B4E819FE614600D06892 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		F56E0A1E19D2A40C00B6CA1F /* eIndberetning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eIndberetning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56E0A2219D2A40C00B6CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F56E0A2319D2A40C00B6CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +99,19 @@
 				7BB7BD0598834CACA9C13197 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F537B4E519FE531600D06892 /* Select List */ = {
+			isa = PBXGroup;
+			children = (
+				F537B4DB19FE4F5000D06892 /* SelectListTableViewController.h */,
+				F537B4DC19FE4F5000D06892 /* SelectListTableViewController.m */,
+				F537B4DD19FE4F5000D06892 /* SelectListTableViewController.xib */,
+				F537B4E019FE530A00D06892 /* SelectListTableViewCell.h */,
+				F537B4E119FE530A00D06892 /* SelectListTableViewCell.m */,
+				F537B4E219FE530A00D06892 /* SelectListTableViewCell.xib */,
+			);
+			name = "Select List";
 			sourceTree = "<group>";
 		};
 		F56E0A1519D2A40C00B6CA1F = {
@@ -159,6 +187,10 @@
 				F5AF892119E1BD0F00016826 /* DriveViewController.m */,
 				F5AF892319E1C5CA00016826 /* FinishDriveTableViewController.h */,
 				F5AF892419E1C5CA00016826 /* FinishDriveTableViewController.m */,
+				F537B4E519FE531600D06892 /* Select List */,
+				F537B4E619FE614600D06892 /* PopupViewController.h */,
+				F537B4E719FE614600D06892 /* PopupViewController.m */,
+				F537B4E819FE614600D06892 /* PopupViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -231,6 +263,11 @@
 				TargetAttributes = {
 					F56E0A1D19D2A40C00B6CA1F = {
 						CreatedOnToolsVersion = 6.0.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					F56E0A3919D2A40C00B6CA1F = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -262,9 +299,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F537B4E419FE530A00D06892 /* SelectListTableViewCell.xib in Resources */,
 				F56E0A3019D2A40C00B6CA1F /* Main.storyboard in Resources */,
 				F56E0A3519D2A40C00B6CA1F /* LaunchScreen.xib in Resources */,
 				F56E0A3219D2A40C00B6CA1F /* Images.xcassets in Resources */,
+				F537B4DF19FE4F5000D06892 /* SelectListTableViewController.xib in Resources */,
+				F537B4EA19FE614600D06892 /* PopupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +357,10 @@
 			files = (
 				F56E0A2719D2A40C00B6CA1F /* AppDelegate.m in Sources */,
 				F56E0A2419D2A40C00B6CA1F /* main.m in Sources */,
+				F537B4DE19FE4F5000D06892 /* SelectListTableViewController.m in Sources */,
+				F537B4E319FE530A00D06892 /* SelectListTableViewCell.m in Sources */,
 				F5AF892519E1C5CA00016826 /* FinishDriveTableViewController.m in Sources */,
+				F537B4E919FE614600D06892 /* PopupViewController.m in Sources */,
 				F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */,
 				F56E0A2D19D2A40C00B6CA1F /* InitialVIewController.m in Sources */,
 				F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */,

@@ -1,39 +1,35 @@
 //
-//  StartDriveTableViewController.m
+//  SelectListTableViewController.m
 //  eIndberetning
 //
-//  Created by Jacob Hansen on 04/10/14.
+//  Created by Jacob Hansen on 27/10/14.
 //  Copyright (c) 2014 IT-Minds. All rights reserved.
 //
 
-#import "StartDriveTableViewController.h"
-#import "UIColor+CustomColor.h"
 #import "SelectListTableViewController.h"
-#import "PopupViewController.h"
+#import "SelectListTableViewCell.h"
 
-@interface StartDriveTableViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *commentTextView;
-@property (weak, nonatomic) IBOutlet UILabel *taskTextField;
-@property (weak, nonatomic) IBOutlet UILabel *purposeTextField;
-@property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTextField;
-
+@interface SelectListTableViewController ()
+@property (nonatomic, strong) NSArray* items;
 @end
 
-@implementation StartDriveTableViewController
+@implementation SelectListTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.items = @[@"One", @"Two", @"Three"];
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [self.navigationController.navigationBar setTranslucent:NO];
-    [self.navigationController.navigationBar setBarTintColor:[UIColor favrGreenColor]];
-    [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    //self.clearsSelectionOnViewWillAppear = NO;
+
+    UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add)];
+    self.navigationItem.rightBarButtonItem = btn;
+}
+
+// Used for adding a purpose
+-(void) add
+{
+    NSLog(@"Add");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,30 +37,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //SelectListTableViewController *viewController=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
-    //[self.navigationController pushViewController:viewController animated:true];
-    
-    PopupViewController *popViewController = [[PopupViewController alloc] initWithNibName:@"PopupViewController" bundle:nil];
-    //[self.popViewController setTitle:@"This is a popup view"];
-    
-    [popViewController showInView:self.view animated:YES];
-}
-
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
 
-/*
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.items.count;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
     
+    SelectListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectListTableViewCell"];
+    
+    if (cell == nil){
+        NSLog(@"New Cell Made");
+        
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SelectListTableViewCell" owner:self options:nil];
+        // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+        cell = [topLevelObjects objectAtIndex:0];
+    }
+    
+    cell.textLabel.text = self.items[indexPath.row];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -97,6 +99,22 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
+}
+*/
+
+/*
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    
+    // Pass the selected object to the new view controller.
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 */
 
