@@ -8,9 +8,13 @@
 
 #import "SelectListTableViewController.h"
 #import "SelectListTableViewCell.h"
+#import "Rate.h"
+#import "Employment.h"
+#import "UIViewController+BackButton.h"
+#import "AddPurposeTableViewCell.h"
 
 @interface SelectListTableViewController ()
-@property (nonatomic, strong) NSArray* items;
+@property (nonatomic) BOOL isAddingPurpose;
 @end
 
 @implementation SelectListTableViewController
@@ -18,18 +22,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.items = @[@"One", @"Two", @"Three"];
-    // Uncomment the following line to preserve selection between presentations.
-    //self.clearsSelectionOnViewWillAppear = NO;
-
-    UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add)];
-    self.navigationItem.rightBarButtonItem = btn;
+    [self AddBackButton];
+    
+    self.isAddingPurpose = false;
+    
+    switch (self.listType ) {
+        case PurposeList:
+        {
+            self.navigationItem.title = @"Vælg Formål";
+            
+            UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add)];
+            self.navigationItem.rightBarButtonItem = btn;
+            
+            break;
+        }
+        case RateList:
+        {
+            self.navigationItem.title = @"Vælg Takst";
+            break;
+        }
+        case EmploymentList:
+        {
+            self.navigationItem.title = @"Vælg Organsatorisk Placering";
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 // Used for adding a purpose
 -(void) add
 {
     NSLog(@"Add");
+    
+    self.isAddingPurpose = true;
+    
+    self.navigationItem.rightBarButtonItem.enabled = false;
+    
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[path] withRowAnimation:(UITableViewRowAnimationTop)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,34 +69,141 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if(textField.text.length > 0)
+    {
+        [self.items insertObject:textField.text atIndex:0];
+        self.report.purpose = textField.text;
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    return NO;
+}
+
 #pragma mark - Table view data source
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (self.listType ) {
+        case PurposeList:
+        {
+            self.report.purpose = self.items[indexPath.row-self.isAddingPurpose];
+            break;
+        }
+        case RateList:
+        {
+            Rate *r = self.items[indexPath.row];
+            self.report.rate = r;
+            break;
+        }
+        case EmploymentList:
+        {
+            Employment *e = self.items[indexPath.row];
+            self.report.employment = e;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return self.items.count;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.items.count + self.isAddingPurpose;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    SelectListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectListTableViewCell"];
-    
-    if (cell == nil){
-        NSLog(@"New Cell Made");
+    if(self.listType == PurposeList && self.isAddingPurpose && indexPath.row == 0)
+    {
+        AddPurposeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddPurposeTableViewCell"];
         
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SelectListTableViewCell" owner:self options:nil];
-        // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
-        cell = [topLevelObjects objectAtIndex:0];
+        if (cell == nil){
+            NSLog(@"New Cell Made");
+            
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"AddPurposeTableViewCell" owner:self options:nil];
+            // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+            cell = [topLevelObjects objectAtIndex:0];
+        }
+        
+        cell.purposeTextField.text = @"";
+        [cell.purposeTextField becomeFirstResponder];
+        cell.purposeTextField.delegate = self;
+        return cell;
     }
-    
-    cell.textLabel.text = self.items[indexPath.row];
-    return cell;
+    else
+    {
+        
+        SelectListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectListTableViewCell"];
+     
+        if (cell == nil){
+            NSLog(@"New Cell Made");
+            
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SelectListTableViewCell" owner:self options:nil];
+            // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+            cell = [topLevelObjects objectAtIndex:0];
+        }
+     
+        NSString* str = @"";
+        
+        switch (self.listType ) {
+            case PurposeList:
+            {
+                str = self.items[indexPath.row+self.isAddingPurpose];
+                
+                if([str isEqualToString:self.report.purpose])
+                {
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+                
+                break;
+            }
+            case RateList:
+            {
+                Rate *r = self.items[indexPath.row];
+                str = r.type;
+                
+                if([r.type isEqualToString:self.report.rate.type])
+                {
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+                
+                break;
+            }
+            case EmploymentList:
+            {
+                Employment *e = self.items[indexPath.row];
+                str = e.title;
+                
+                if([e.title isEqualToString:self.report.employment.title])
+                {
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+                
+                break;
+            }
+            default:
+                break;
+        }
+        
+        cell.textLabel.text = str;
+        return cell;
+    }
 }
 
 

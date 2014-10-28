@@ -8,6 +8,7 @@
 
 #import "DriveViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "FinishDriveTableViewController.h"
 
 @interface DriveViewController ()  <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
@@ -114,15 +115,13 @@
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"%@", error.localizedDescription);
 }
-/*
-#pragma mark - Navigation
 
+#pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    FinishDriveTableViewController *vc = [segue destinationViewController];
+    vc.report = self.report;
 }
-*/
 
 #pragma mark - GPS Permission
 - (void)requestAuthorization

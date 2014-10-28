@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DriveReport.h"
 
 @interface FinishDriveTableViewController : UITableViewController
-
+@property (nonatomic,strong) DriveReport* report;
 @end

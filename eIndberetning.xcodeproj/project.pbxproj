@@ -14,6 +14,11 @@
 		F537B4E419FE530A00D06892 /* SelectListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4E219FE530A00D06892 /* SelectListTableViewCell.xib */; };
 		F537B4E919FE614600D06892 /* ErrorMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4E719FE614600D06892 /* ErrorMsgViewController.m */; };
 		F537B4EA19FE614600D06892 /* ErrorMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */; };
+		F5690EB819FF758B00B9C3B4 /* UIViewController+BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EB719FF758B00B9C3B4 /* UIViewController+BackButton.m */; };
+		F5690EBB19FF7A5800B9C3B4 /* Purpose.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EBA19FF7A5800B9C3B4 /* Purpose.m */; };
+		F5690EC019FF7C7500B9C3B4 /* AddPurposeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EBE19FF7C7500B9C3B4 /* AddPurposeTableViewCell.m */; };
+		F5690EC119FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5690EBF19FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib */; };
+		F5690EC419FFAE5D00B9C3B4 /* EditKmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EC319FFAE5D00B9C3B4 /* EditKmViewController.m */; };
 		F56E0A2419D2A40C00B6CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2319D2A40C00B6CA1F /* main.m */; };
 		F56E0A2719D2A40C00B6CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2619D2A40C00B6CA1F /* AppDelegate.m */; };
 		F56E0A2A19D2A40C00B6CA1F /* eIndberetning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2819D2A40C00B6CA1F /* eIndberetning.xcdatamodeld */; };
@@ -24,6 +29,14 @@
 		F56E0A4119D2A40C00B6CA1F /* eIndberetningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A4019D2A40C00B6CA1F /* eIndberetningTests.m */; };
 		F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5824DF819E09F6C00F51353 /* StartDriveTableViewController.m */; };
 		F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5824DFB19E09FB000F51353 /* UIColor+CustomColor.m */; };
+		F58EC09F19FE96C10010AC96 /* Rate.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC09E19FE96C10010AC96 /* Rate.m */; };
+		F58EC0A219FE975D0010AC96 /* Employment.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0A119FE975D0010AC96 /* Employment.m */; };
+		F58EC0A519FE97BA0010AC96 /* DriveReport.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0A419FE97BA0010AC96 /* DriveReport.m */; };
+		F58EC0A819FE98600010AC96 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0A719FE98600010AC96 /* Route.m */; };
+		F58EC0AB19FE98C60010AC96 /* GpsCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */; };
+		F58EC0AE19FE99DC0010AC96 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AD19FE99DC0010AC96 /* UserInfo.m */; };
+		F58EC0B219FEBEFF0010AC96 /* ManualEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0B019FEBEFF0010AC96 /* ManualEntryViewController.m */; };
+		F58EC0B319FEBEFF0010AC96 /* ManualEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58EC0B119FEBEFF0010AC96 /* ManualEntryViewController.xib */; };
 		F5AF892219E1BD0F00016826 /* DriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AF892119E1BD0F00016826 /* DriveViewController.m */; };
 		F5AF892519E1C5CA00016826 /* FinishDriveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AF892419E1C5CA00016826 /* FinishDriveTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -50,6 +63,15 @@
 		F537B4E619FE614600D06892 /* ErrorMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorMsgViewController.h; sourceTree = "<group>"; };
 		F537B4E719FE614600D06892 /* ErrorMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorMsgViewController.m; sourceTree = "<group>"; };
 		F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorMsgViewController.xib; sourceTree = "<group>"; };
+		F5690EB619FF758B00B9C3B4 /* UIViewController+BackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButton.h"; sourceTree = "<group>"; };
+		F5690EB719FF758B00B9C3B4 /* UIViewController+BackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButton.m"; sourceTree = "<group>"; };
+		F5690EB919FF7A5800B9C3B4 /* Purpose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Purpose.h; sourceTree = "<group>"; };
+		F5690EBA19FF7A5800B9C3B4 /* Purpose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Purpose.m; sourceTree = "<group>"; };
+		F5690EBD19FF7C7500B9C3B4 /* AddPurposeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPurposeTableViewCell.h; sourceTree = "<group>"; };
+		F5690EBE19FF7C7500B9C3B4 /* AddPurposeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPurposeTableViewCell.m; sourceTree = "<group>"; };
+		F5690EBF19FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPurposeTableViewCell.xib; sourceTree = "<group>"; };
+		F5690EC219FFAE5D00B9C3B4 /* EditKmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditKmViewController.h; sourceTree = "<group>"; };
+		F5690EC319FFAE5D00B9C3B4 /* EditKmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditKmViewController.m; sourceTree = "<group>"; };
 		F56E0A1E19D2A40C00B6CA1F /* eIndberetning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eIndberetning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56E0A2219D2A40C00B6CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F56E0A2319D2A40C00B6CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,6 +90,21 @@
 		F5824DF819E09F6C00F51353 /* StartDriveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartDriveTableViewController.m; sourceTree = "<group>"; };
 		F5824DFA19E09FB000F51353 /* UIColor+CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColor.h"; sourceTree = "<group>"; };
 		F5824DFB19E09FB000F51353 /* UIColor+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
+		F58EC09D19FE96C10010AC96 /* Rate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rate.h; sourceTree = "<group>"; };
+		F58EC09E19FE96C10010AC96 /* Rate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rate.m; sourceTree = "<group>"; };
+		F58EC0A019FE975D0010AC96 /* Employment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employment.h; sourceTree = "<group>"; };
+		F58EC0A119FE975D0010AC96 /* Employment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employment.m; sourceTree = "<group>"; };
+		F58EC0A319FE97BA0010AC96 /* DriveReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveReport.h; sourceTree = "<group>"; };
+		F58EC0A419FE97BA0010AC96 /* DriveReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveReport.m; sourceTree = "<group>"; };
+		F58EC0A619FE98600010AC96 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		F58EC0A719FE98600010AC96 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		F58EC0A919FE98C60010AC96 /* GpsCoordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsCoordinates.h; sourceTree = "<group>"; };
+		F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsCoordinates.m; sourceTree = "<group>"; };
+		F58EC0AC19FE99DC0010AC96 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		F58EC0AD19FE99DC0010AC96 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		F58EC0AF19FEBEFF0010AC96 /* ManualEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualEntryViewController.h; sourceTree = "<group>"; };
+		F58EC0B019FEBEFF0010AC96 /* ManualEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualEntryViewController.m; sourceTree = "<group>"; };
+		F58EC0B119FEBEFF0010AC96 /* ManualEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManualEntryViewController.xib; sourceTree = "<group>"; };
 		F5AF892019E1BD0F00016826 /* DriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveViewController.h; sourceTree = "<group>"; };
 		F5AF892119E1BD0F00016826 /* DriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveViewController.m; sourceTree = "<group>"; };
 		F5AF892319E1C5CA00016826 /* FinishDriveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishDriveTableViewController.h; sourceTree = "<group>"; };
@@ -110,8 +147,29 @@
 				F537B4E019FE530A00D06892 /* SelectListTableViewCell.h */,
 				F537B4E119FE530A00D06892 /* SelectListTableViewCell.m */,
 				F537B4E219FE530A00D06892 /* SelectListTableViewCell.xib */,
+				F5690EBD19FF7C7500B9C3B4 /* AddPurposeTableViewCell.h */,
+				F5690EBE19FF7C7500B9C3B4 /* AddPurposeTableViewCell.m */,
+				F5690EBF19FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib */,
 			);
 			name = "Select List";
+			sourceTree = "<group>";
+		};
+		F5690EB219FF737000B9C3B4 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				F5690EB619FF758B00B9C3B4 /* UIViewController+BackButton.h */,
+				F5690EB719FF758B00B9C3B4 /* UIViewController+BackButton.m */,
+			);
+			name = Custom;
+			sourceTree = "<group>";
+		};
+		F5690EBC19FF7A6000B9C3B4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F5690EB919FF7A5800B9C3B4 /* Purpose.h */,
+				F5690EBA19FF7A5800B9C3B4 /* Purpose.m */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		F56E0A1519D2A40C00B6CA1F = {
@@ -137,6 +195,8 @@
 		F56E0A2019D2A40C00B6CA1F /* eIndberetning */ = {
 			isa = PBXGroup;
 			children = (
+				F5690EB219FF737000B9C3B4 /* Custom */,
+				F58EC09C19FE96A80010AC96 /* Model */,
 				F56E0A4A19D2A43800B6CA1F /* ViewControllers */,
 				F56E0A2E19D2A40C00B6CA1F /* Main.storyboard */,
 				F56E0A4B19D2A44500B6CA1F /* Images */,
@@ -191,6 +251,11 @@
 				F537B4E619FE614600D06892 /* ErrorMsgViewController.h */,
 				F537B4E719FE614600D06892 /* ErrorMsgViewController.m */,
 				F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */,
+				F58EC0AF19FEBEFF0010AC96 /* ManualEntryViewController.h */,
+				F58EC0B019FEBEFF0010AC96 /* ManualEntryViewController.m */,
+				F58EC0B119FEBEFF0010AC96 /* ManualEntryViewController.xib */,
+				F5690EC219FFAE5D00B9C3B4 /* EditKmViewController.h */,
+				F5690EC319FFAE5D00B9C3B4 /* EditKmViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +275,26 @@
 				F5824DFB19E09FB000F51353 /* UIColor+CustomColor.m */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		F58EC09C19FE96A80010AC96 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F5690EBC19FF7A6000B9C3B4 /* CoreData */,
+				F58EC09D19FE96C10010AC96 /* Rate.h */,
+				F58EC09E19FE96C10010AC96 /* Rate.m */,
+				F58EC0A019FE975D0010AC96 /* Employment.h */,
+				F58EC0A119FE975D0010AC96 /* Employment.m */,
+				F58EC0A319FE97BA0010AC96 /* DriveReport.h */,
+				F58EC0A419FE97BA0010AC96 /* DriveReport.m */,
+				F58EC0A619FE98600010AC96 /* Route.h */,
+				F58EC0A719FE98600010AC96 /* Route.m */,
+				F58EC0A919FE98C60010AC96 /* GpsCoordinates.h */,
+				F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */,
+				F58EC0AC19FE99DC0010AC96 /* UserInfo.h */,
+				F58EC0AD19FE99DC0010AC96 /* UserInfo.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,8 +387,10 @@
 				F537B4E419FE530A00D06892 /* SelectListTableViewCell.xib in Resources */,
 				F56E0A3019D2A40C00B6CA1F /* Main.storyboard in Resources */,
 				F56E0A3519D2A40C00B6CA1F /* LaunchScreen.xib in Resources */,
+				F58EC0B319FEBEFF0010AC96 /* ManualEntryViewController.xib in Resources */,
 				F56E0A3219D2A40C00B6CA1F /* Images.xcassets in Resources */,
 				F537B4DF19FE4F5000D06892 /* SelectListTableViewController.xib in Resources */,
+				F5690EC119FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib in Resources */,
 				F537B4EA19FE614600D06892 /* ErrorMsgViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,16 +442,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F58EC0AB19FE98C60010AC96 /* GpsCoordinates.m in Sources */,
+				F58EC0AE19FE99DC0010AC96 /* UserInfo.m in Sources */,
+				F58EC0A819FE98600010AC96 /* Route.m in Sources */,
 				F56E0A2719D2A40C00B6CA1F /* AppDelegate.m in Sources */,
 				F56E0A2419D2A40C00B6CA1F /* main.m in Sources */,
 				F537B4DE19FE4F5000D06892 /* SelectListTableViewController.m in Sources */,
+				F5690EBB19FF7A5800B9C3B4 /* Purpose.m in Sources */,
 				F537B4E319FE530A00D06892 /* SelectListTableViewCell.m in Sources */,
 				F5AF892519E1C5CA00016826 /* FinishDriveTableViewController.m in Sources */,
 				F537B4E919FE614600D06892 /* ErrorMsgViewController.m in Sources */,
+				F58EC0A219FE975D0010AC96 /* Employment.m in Sources */,
 				F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */,
+				F5690EC019FF7C7500B9C3B4 /* AddPurposeTableViewCell.m in Sources */,
+				F58EC0B219FEBEFF0010AC96 /* ManualEntryViewController.m in Sources */,
 				F56E0A2D19D2A40C00B6CA1F /* InitialVIewController.m in Sources */,
 				F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */,
+				F58EC0A519FE97BA0010AC96 /* DriveReport.m in Sources */,
+				F58EC09F19FE96C10010AC96 /* Rate.m in Sources */,
 				F56E0A2A19D2A40C00B6CA1F /* eIndberetning.xcdatamodeld in Sources */,
+				F5690EB819FF758B00B9C3B4 /* UIViewController+BackButton.m in Sources */,
+				F5690EC419FFAE5D00B9C3B4 /* EditKmViewController.m in Sources */,
 				F5AF892219E1BD0F00016826 /* DriveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
