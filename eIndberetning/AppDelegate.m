@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @interface AppDelegate ()
 
@@ -28,6 +29,8 @@
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"startViewController"];
         self.window.rootViewController = viewController;
     }
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     [self.window makeKeyAndVisible];
     

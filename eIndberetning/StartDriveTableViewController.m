@@ -15,6 +15,7 @@
 #import "Rate.h"
 #import "ManualEntryViewController.h"
 #import "DriveViewController.h"
+#import "eMobilityHTTPSClient.h"
 
 #import "DriveReport.h"
 
@@ -71,6 +72,11 @@
     [self.navigationController.navigationBar setTintColor:[UIColor favrOrangeColor]];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    /*eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedWeatherHTTPClient];
+    client
+    API *api = [[API alloc] init];
+    [api getWeatherData];*/
     
     [self loadReport];
     

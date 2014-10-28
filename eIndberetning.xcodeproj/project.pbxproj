@@ -19,6 +19,7 @@
 		F5690EC019FF7C7500B9C3B4 /* AddPurposeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EBE19FF7C7500B9C3B4 /* AddPurposeTableViewCell.m */; };
 		F5690EC119FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5690EBF19FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib */; };
 		F5690EC419FFAE5D00B9C3B4 /* EditKmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EC319FFAE5D00B9C3B4 /* EditKmViewController.m */; };
+		F5690ECA19FFC96200B9C3B4 /* eMobilityHTTPSClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EC919FFC96200B9C3B4 /* eMobilityHTTPSClient.m */; };
 		F56E0A2419D2A40C00B6CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2319D2A40C00B6CA1F /* main.m */; };
 		F56E0A2719D2A40C00B6CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2619D2A40C00B6CA1F /* AppDelegate.m */; };
 		F56E0A2A19D2A40C00B6CA1F /* eIndberetning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2819D2A40C00B6CA1F /* eIndberetning.xcdatamodeld */; };
@@ -72,6 +73,8 @@
 		F5690EBF19FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPurposeTableViewCell.xib; sourceTree = "<group>"; };
 		F5690EC219FFAE5D00B9C3B4 /* EditKmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditKmViewController.h; sourceTree = "<group>"; };
 		F5690EC319FFAE5D00B9C3B4 /* EditKmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditKmViewController.m; sourceTree = "<group>"; };
+		F5690EC819FFC96200B9C3B4 /* eMobilityHTTPSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eMobilityHTTPSClient.h; sourceTree = "<group>"; };
+		F5690EC919FFC96200B9C3B4 /* eMobilityHTTPSClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eMobilityHTTPSClient.m; sourceTree = "<group>"; };
 		F56E0A1E19D2A40C00B6CA1F /* eIndberetning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eIndberetning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56E0A2219D2A40C00B6CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F56E0A2319D2A40C00B6CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */,
 				F58EC0AC19FE99DC0010AC96 /* UserInfo.h */,
 				F58EC0AD19FE99DC0010AC96 /* UserInfo.m */,
+				F5690EC819FFC96200B9C3B4 /* eMobilityHTTPSClient.h */,
+				F5690EC919FFC96200B9C3B4 /* eMobilityHTTPSClient.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -451,6 +456,7 @@
 				F5690EBB19FF7A5800B9C3B4 /* Purpose.m in Sources */,
 				F537B4E319FE530A00D06892 /* SelectListTableViewCell.m in Sources */,
 				F5AF892519E1C5CA00016826 /* FinishDriveTableViewController.m in Sources */,
+				F5690ECA19FFC96200B9C3B4 /* eMobilityHTTPSClient.m in Sources */,
 				F537B4E919FE614600D06892 /* ErrorMsgViewController.m in Sources */,
 				F58EC0A219FE975D0010AC96 /* Employment.m in Sources */,
 				F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */,
