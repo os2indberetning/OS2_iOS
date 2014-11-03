@@ -14,6 +14,9 @@
 		F537B4E419FE530A00D06892 /* SelectListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4E219FE530A00D06892 /* SelectListTableViewCell.xib */; };
 		F537B4E919FE614600D06892 /* ErrorMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4E719FE614600D06892 /* ErrorMsgViewController.m */; };
 		F537B4EA19FE614600D06892 /* ErrorMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */; };
+		F556A1061A081220007A17F3 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A1051A081220007A17F3 /* Profile.m */; };
+		F556A1091A08135B007A17F3 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A1081A08135B007A17F3 /* Token.m */; };
+		F556A10C1A082C26007A17F3 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
 		F5690EB819FF758B00B9C3B4 /* UIViewController+BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EB719FF758B00B9C3B4 /* UIViewController+BackButton.m */; };
 		F5690EBB19FF7A5800B9C3B4 /* Purpose.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EBA19FF7A5800B9C3B4 /* Purpose.m */; };
 		F5690EC019FF7C7500B9C3B4 /* AddPurposeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EBE19FF7C7500B9C3B4 /* AddPurposeTableViewCell.m */; };
@@ -64,6 +67,12 @@
 		F537B4E619FE614600D06892 /* ErrorMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorMsgViewController.h; sourceTree = "<group>"; };
 		F537B4E719FE614600D06892 /* ErrorMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorMsgViewController.m; sourceTree = "<group>"; };
 		F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorMsgViewController.xib; sourceTree = "<group>"; };
+		F556A1041A081220007A17F3 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		F556A1051A081220007A17F3 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		F556A1071A08135B007A17F3 /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		F556A1081A08135B007A17F3 /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
+		F556A10A1A082C26007A17F3 /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
+		F556A10B1A082C26007A17F3 /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
 		F5690EB619FF758B00B9C3B4 /* UIViewController+BackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButton.h"; sourceTree = "<group>"; };
 		F5690EB719FF758B00B9C3B4 /* UIViewController+BackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButton.m"; sourceTree = "<group>"; };
 		F5690EB919FF7A5800B9C3B4 /* Purpose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Purpose.h; sourceTree = "<group>"; };
@@ -259,6 +268,8 @@
 				F58EC0B119FEBEFF0010AC96 /* ManualEntryViewController.xib */,
 				F5690EC219FFAE5D00B9C3B4 /* EditKmViewController.h */,
 				F5690EC319FFAE5D00B9C3B4 /* EditKmViewController.m */,
+				F556A10A1A082C26007A17F3 /* SyncViewController.h */,
+				F556A10B1A082C26007A17F3 /* SyncViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -296,6 +307,10 @@
 				F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */,
 				F58EC0AC19FE99DC0010AC96 /* UserInfo.h */,
 				F58EC0AD19FE99DC0010AC96 /* UserInfo.m */,
+				F556A1041A081220007A17F3 /* Profile.h */,
+				F556A1051A081220007A17F3 /* Profile.m */,
+				F556A1071A08135B007A17F3 /* Token.h */,
+				F556A1081A08135B007A17F3 /* Token.m */,
 				F5690EC819FFC96200B9C3B4 /* eMobilityHTTPSClient.h */,
 				F5690EC919FFC96200B9C3B4 /* eMobilityHTTPSClient.m */,
 			);
@@ -448,6 +463,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F58EC0AB19FE98C60010AC96 /* GpsCoordinates.m in Sources */,
+				F556A10C1A082C26007A17F3 /* SyncViewController.m in Sources */,
+				F556A1091A08135B007A17F3 /* Token.m in Sources */,
 				F58EC0AE19FE99DC0010AC96 /* UserInfo.m in Sources */,
 				F58EC0A819FE98600010AC96 /* Route.m in Sources */,
 				F56E0A2719D2A40C00B6CA1F /* AppDelegate.m in Sources */,
@@ -468,6 +485,7 @@
 				F58EC09F19FE96C10010AC96 /* Rate.m in Sources */,
 				F56E0A2A19D2A40C00B6CA1F /* eIndberetning.xcdatamodeld in Sources */,
 				F5690EB819FF758B00B9C3B4 /* UIViewController+BackButton.m in Sources */,
+				F556A1061A081220007A17F3 /* Profile.m in Sources */,
 				F5690EC419FFAE5D00B9C3B4 /* EditKmViewController.m in Sources */,
 				F5AF892219E1BD0F00016826 /* DriveViewController.m in Sources */,
 			);

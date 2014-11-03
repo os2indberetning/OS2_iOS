@@ -10,4 +10,18 @@
 
 @implementation DriveReport
 
+- (NSDictionary *) transformToDictionary
+{
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString = [dateFormatter stringFromDate:self.date];
+    
+    NSDictionary *body = [NSMutableDictionary
+                          dictionaryWithObjectsAndKeys: dateString, @"date", self.purpose, @"purpose",
+                          self.manuelentryremark, @"manuelentryremark", @(self.didstarthome), @"didstarthome",
+                          @(self.didendhome), @"didendhome", [self.route transformToDictionary], @"route", nil];
+    
+    return body;
+}
+
 @end

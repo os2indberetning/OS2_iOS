@@ -12,5 +12,8 @@
 @property (nonatomic, strong) NSNumber* totalDistanceMeasure;
 @property (nonatomic, strong) NSNumber* totalDistanceEdit;
 
-@property (nonatomic, strong) NSArray* coordinates;
+@property (nonatomic, strong) NSMutableArray* coordinates;
+
+- (NSDictionary *) transformToDictionary;
+
 @end

@@ -11,4 +11,5 @@
 
 @interface GpsCoordinates : NSObject
 @property (nonatomic, strong) CLLocation* loc;
+- (NSDictionary *) transformToDictionary;
 @end

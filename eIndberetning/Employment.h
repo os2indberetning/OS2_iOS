@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Employment : NSObject
-@property (nonatomic, strong) NSString* title;
-@property (nonatomic, strong) NSNumber* employmentNumber;
+@property (nonatomic, strong) NSString* employmentPosition;
+@property (nonatomic, strong) NSNumber* employmentId;
+
++ (NSArray *) initFromJsonDic:(NSDictionary*)dic;
 @end

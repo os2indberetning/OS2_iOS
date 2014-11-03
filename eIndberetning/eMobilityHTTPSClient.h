@@ -8,6 +8,7 @@
 
 #import "AFHTTPSessionManager.h"
 #import <CoreLocation/CoreLocation.h>
+#import "DriveReport.h"
 
 @protocol WeatherHTTPClientDelegate;
 
@@ -15,10 +16,11 @@
 @interface eMobilityHTTPSClient : AFHTTPSessionManager
 @property (nonatomic, weak) id<WeatherHTTPClientDelegate>delegate;
 
-+ (eMobilityHTTPSClient *)sharedWeatherHTTPClient;
++ (eMobilityHTTPSClient *)sharedeMobilityHTTPSClient;
 - (instancetype)initWithBaseURL:(NSURL *)url;
+-(void)getUserDataWithBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 - (void)updateWeatherAtLocation:(CLLocation *)location forNumberOfDays:(NSUInteger)number;
-
+- (void)postDriveReport:(DriveReport *)report forToken:(NSString*)token;
 @end
 
 @protocol WeatherHTTPClientDelegate <NSObject>

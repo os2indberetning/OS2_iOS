@@ -12,5 +12,8 @@
 @property (nonatomic, strong) NSDate* year;
 @property (nonatomic, strong) NSNumber* kmrate;
 @property (nonatomic,strong) NSNumber* tfcode;
+@property (nonatomic,strong) NSNumber* rateid;
 @property (nonatomic, strong) NSString* type;
+
++ (NSArray *) initFromJsonDic:(NSDictionary*)dic;
 @end

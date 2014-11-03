@@ -24,4 +24,6 @@
 @property (nonatomic, strong) Employment* employment;
 @property (nonatomic, strong) Route* route;
 
+- (NSDictionary *) transformToDictionary;
+
 @end

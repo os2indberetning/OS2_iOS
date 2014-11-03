@@ -188,9 +188,9 @@
             case EmploymentList:
             {
                 Employment *e = self.items[indexPath.row];
-                str = e.title;
+                str = e.employmentPosition;
                 
-                if([e.title isEqualToString:self.report.employment.title])
+                if([e.employmentPosition isEqualToString:self.report.employment.employmentPosition])
                 {
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 }

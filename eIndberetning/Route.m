@@ -7,7 +7,34 @@
 //
 
 #import "Route.h"
+#import "GpsCoordinates.h"
 
 @implementation Route
+
+-(NSMutableArray*)coordinates
+{
+    if(_coordinates == nil)
+        _coordinates = [[NSMutableArray alloc] init];
+    
+    return _coordinates;
+}
+
+- (NSDictionary *) transformToDictionary
+{
+    NSMutableArray *gpsArray = [[NSMutableArray alloc] initWithCapacity:[self.coordinates count]];
+    
+    for (int i = 0; i < [self.coordinates count]; i++) {
+        GpsCoordinates *g = [self.coordinates objectAtIndex:i];
+        [gpsArray addObject:[g transformToDictionary]];
+    }
+    
+    NSDictionary *body = [NSMutableDictionary
+                                 dictionaryWithObjectsAndKeys:
+                                 self.totalDistanceEdit, @"distance",
+                                 gpsArray, @"coordinates", nil];
+    
+    return body;
+}
+
 
 @end

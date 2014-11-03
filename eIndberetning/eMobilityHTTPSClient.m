@@ -8,21 +8,22 @@
 
 #import "eMobilityHTTPSClient.h"
 
+
 static NSString * const WorldWeatherOnlineAPIKey = @"PASTE YOUR API KEY HERE";
-static NSString * const WorldWeatherOnlineURLString = @"http://api.worldweatheronline.com/free/v1/";
+static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAPI/api/";
 
 @implementation eMobilityHTTPSClient
 
-+ (eMobilityHTTPSClient *)sharedWeatherHTTPClient
++ (eMobilityHTTPSClient *)sharedeMobilityHTTPSClient 
 {
-    static eMobilityHTTPSClient *_sharedWeatherHTTPClient = nil;
+    static eMobilityHTTPSClient *_eMobilityHTTPSClient = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedWeatherHTTPClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:WorldWeatherOnlineURLString]];
+        _eMobilityHTTPSClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
     });
     
-    return _sharedWeatherHTTPClient;
+    return _eMobilityHTTPSClient;
 }
 
 - (instancetype)initWithBaseURL:(NSURL *)url
@@ -35,6 +36,11 @@ static NSString * const WorldWeatherOnlineURLString = @"http://api.worldweathero
     }
     
     return self;
+}
+
+-(void)getUserDataWithBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
+{
+    [self POST:@"UserData" parameters:nil success:succes failure:failure];
 }
 
 - (void)updateWeatherAtLocation:(CLLocation *)location forNumberOfDays:(NSUInteger)number
@@ -54,6 +60,25 @@ static NSString * const WorldWeatherOnlineURLString = @"http://api.worldweathero
         if ([self.delegate respondsToSelector:@selector(weatherHTTPClient:didFailWithError:)]) {
             [self.delegate weatherHTTPClient:self didFailWithError:error];
         }
+    }];
+}
+
+- (void)postDriveReport:(DriveReport *)report forToken:(NSString*)token
+{
+    NSMutableDictionary* dic = [[report transformToDictionary] mutableCopy];
+    
+    [dic setObject:token forKey:@"token"];
+    
+    NSLog(@"dic: %@", dic);
+    
+    [self POST:@"SubmitDrive" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+        NSLog(@"Succes: %@", responseObject);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+
+        NSLog(@"Fail!: %@", error);
+        
     }];
 }
 

@@ -10,4 +10,21 @@
 
 @implementation Rate
 
++ (NSArray *) initFromJsonDic:(NSDictionary*)dic;
+{
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary* rate in dic) {
+        Rate* r = [[Rate alloc] init];
+        
+        r.kmrate = @([[rate objectForKey:@"KmRate"] integerValue]);
+        r.tfcode = @([[rate objectForKey:@"TFCode"] integerValue]);
+        r.rateid = @([[rate objectForKey:@"id"] integerValue]);
+        
+        r.type = [[rate objectForKey:@"Type"] description];
+        [array insertObject:r atIndex:0];
+    }
+    
+    return array;
+}
 @end

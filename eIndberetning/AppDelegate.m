@@ -22,7 +22,7 @@
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    if(false){
+    if(true){
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"coupleViewController"];
         self.window.rootViewController = viewController;
     } else {

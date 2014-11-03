@@ -9,6 +9,7 @@
 #import "DriveViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "FinishDriveTableViewController.h"
+#import "GpsCoordinates.h"
 
 @interface DriveViewController ()  <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
@@ -84,7 +85,7 @@
         
         if(!self.locA)
         {
-        self.locA = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+            self.locA = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
         }
         else
         {
@@ -100,6 +101,11 @@
             
             self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.2f m", self.totalDistance];
         }
+        
+        GpsCoordinates *cor = [[GpsCoordinates alloc] init];
+        cor.loc = self.locA;
+        
+        [self.report.route.coordinates insertObject:cor atIndex:0];
         
         // If the event is recent, do something with it.
         /*NSLog(@"latitude %+.6f, longitude %+.6f\n",
@@ -119,6 +125,10 @@
 #pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    self.report.route.totalDistanceEdit = @(self.totalDistance);
+    self.report.route.totalDistanceMeasure = @(self.totalDistance);
+    
     FinishDriveTableViewController *vc = [segue destinationViewController];
     vc.report = self.report;
 }

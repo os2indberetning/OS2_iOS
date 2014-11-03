@@ -11,6 +11,7 @@
 #import "ErrorMsgViewController.h"
 #import "ManualEntryViewController.h"
 #import "EditKmViewController.h"
+#import "eMobilityHTTPSClient.h"
 
 @interface FinishDriveTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *purposeTextLabel;
@@ -54,7 +55,7 @@
     self.purposeTextLabel.text = self.report.purpose;
     self.rateTextLabel.text = self.report.rate.type;
     self.commentTextLabel.text = self.report.manuelentryremark;
-    self.organisationalPlaceTextLabel.text = self.report.employment.title;
+    self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
     
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -131,6 +132,11 @@
 }
 
 - (IBAction)submitButton:(id)sender {
+    
+    eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
+    
+    [client postDriveReport:self.report forToken:@"Token" ];
+
 }
 
 #pragma mark - Navigation

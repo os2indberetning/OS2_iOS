@@ -11,4 +11,18 @@
 
 @implementation GpsCoordinates
 
+- (NSDictionary *) transformToDictionary
+{
+    //TODO: Change this!
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:ss"];
+    NSString *timeString = [dateFormatter stringFromDate:self.loc.timestamp];
+    
+    NSDictionary *body = [NSMutableDictionary
+                                 dictionaryWithObjectsAndKeys: [NSString stringWithFormat:@"%f",self.loc.coordinate.latitude], @"lat", [NSString stringWithFormat:@"%f",self.loc.coordinate.longitude], @"lng",
+                                 timeString, @"time", nil];
+    
+    return body;
+}
+
 @end

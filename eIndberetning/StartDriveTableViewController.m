@@ -15,7 +15,8 @@
 #import "Rate.h"
 #import "ManualEntryViewController.h"
 #import "DriveViewController.h"
-#import "eMobilityHTTPSClient.h"
+#import "Profile.h"
+#import "Rate.h"
 
 #import "DriveReport.h"
 
@@ -28,11 +29,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
-@property (strong, nonatomic) NSMutableArray *rates;
-@property (strong, nonatomic) NSMutableArray *employments;
+@property (strong, nonatomic) NSArray *rates;
+@property (strong, nonatomic) NSArray *employments;
 @property (strong, nonatomic) NSMutableArray *purposes;
-@property (strong,nonatomic) DriveReport* report;
 
+@property (strong,nonatomic) DriveReport* report;
+@property (strong,nonatomic) Profile* profile;
 @end
 
 @implementation StartDriveTableViewController
@@ -41,7 +43,7 @@
     [super viewDidLoad];
     
     //This information should be fetched from coredata or the webservice
-    Rate* r1 = [[Rate alloc] init];
+    /*Rate* r1 = [[Rate alloc] init];
     r1.type = @"Cykel";
     
     Rate* r2 = [[Rate alloc] init];
@@ -53,17 +55,17 @@
     self.rates = [@[r1, r2, r3] mutableCopy];
     
     Employment *e1 = [[Employment alloc] init];
-    e1.title = @"Byrådsmedlem";
-    e1.employmentNumber = @1;
+    e1.employmentPosition = @"Byrådsmedlem";
+    e1.employmentId = @1;
     
     Employment *e2 = [[Employment alloc] init];
-    e2.title = @"Borgmester";
-    e2.employmentNumber = @2;
+    e2.employmentPosition = @"Borgmester";
+    e2.employmentId = @2;
     
     Employment *e3 = [[Employment alloc] init];
-    e3.title = @"Hjemmehjælper";
-    e3.employmentNumber = @3;
-    self.employments = [@[e1, e2, e3] mutableCopy];
+    e3.employmentPosition = @"Hjemmehjælper";
+    e3.employmentId = @3;
+    self.employments = [@[e1, e2, e3] mutableCopy];*/
     
     self.purposes = [@[@"Et eller andet", @"Noget tredje"] mutableCopy];
     
@@ -72,13 +74,12 @@
     [self.navigationController.navigationBar setTintColor:[UIColor favrOrangeColor]];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    
-    /*eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedWeatherHTTPClient];
-    client
-    API *api = [[API alloc] init];
-    [api getWeatherData];*/
+
+    [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
     
     [self loadReport];
+    
+    //[client postDriveReport:self.report forToken:@"Token" ];
     
     /*UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
@@ -118,7 +119,7 @@
     self.purposeTextField.text = self.report.purpose;
     self.taskTextField.text = self.report.rate.type;
     self.commentTextView.text = self.report.manuelentryremark;
-    self.organisationalPlaceTextField.text = self.report.employment.title;
+    self.organisationalPlaceTextField.text = self.report.employment.employmentPosition;
     
     NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
     self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
@@ -155,13 +156,13 @@
             case 2:
             {
                 vc.listType = EmploymentList;
-                vc.items = self.employments;
+                vc.items = [self.employments mutableCopy];
                 break;
             }
             case 3:
             {
                 vc.listType = RateList;
-                vc.items = self.rates;
+                vc.items = [self.rates mutableCopy];
                 break;
             }
             default:
@@ -190,8 +191,22 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    DriveViewController *vc = [segue destinationViewController];
-    vc.report = self.report;
+
+    if ([[segue identifier] isEqualToString:@"DriveViewSegue"])
+    {
+        // Get reference to the destination view controller
+        DriveViewController *vc = [segue destinationViewController];
+        vc.report = self.report;
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowSyncSegue"])
+    {
+        // Get reference to the destination view controller
+        // YourViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        //[vc setMyObjectHere:object];
+    }
+    //
 }
 
 
