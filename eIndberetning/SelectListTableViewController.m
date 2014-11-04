@@ -11,11 +11,9 @@
 #import "Rate.h"
 #import "Employment.h"
 #import "UIViewController+BackButton.h"
-#import "AddPurposeTableViewCell.h"
 #import "UserInfo.h"
 
 @interface SelectListTableViewController ()
-@property (nonatomic) BOOL isAddingPurpose;
 @end
 
 @implementation SelectListTableViewController
@@ -25,18 +23,7 @@
     
     [self AddBackButton];
     
-    self.isAddingPurpose = false;
-    
     switch (self.listType ) {
-        case PurposeList:
-        {
-            self.navigationItem.title = @"Vælg Formål";
-            
-            UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add)];
-            self.navigationItem.rightBarButtonItem = btn;
-            
-            break;
-        }
         case RateList:
         {
             self.navigationItem.title = @"Vælg Takst";
@@ -52,35 +39,9 @@
     }
 }
 
-// Used for adding a purpose
--(void) add
-{
-    NSLog(@"Add");
-    
-    self.isAddingPurpose = true;
-    
-    self.navigationItem.rightBarButtonItem.enabled = false;
-    
-    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[path] withRowAnimation:(UITableViewRowAnimationTop)];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    if(textField.text.length > 0)
-    {
-        [self.items insertObject:textField.text atIndex:0];
-        self.report.purpose = textField.text;
-    }
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    return NO;
 }
 
 #pragma mark - Table view data source
@@ -90,12 +51,6 @@
     UserInfo* info = [UserInfo sharedManager];
     
     switch (self.listType ) {
-        case PurposeList:
-        {
-            self.report.purpose = self.items[indexPath.row-self.isAddingPurpose];
-            info.last_purpose = self.items[indexPath.row-self.isAddingPurpose];
-            break;
-        }
         case RateList:
         {
             Rate *r = self.items[indexPath.row];
@@ -131,86 +86,55 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.items.count + self.isAddingPurpose;
+    return self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if(self.listType == PurposeList && self.isAddingPurpose && indexPath.row == 0)
-    {
-        AddPurposeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddPurposeTableViewCell"];
+    SelectListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectListTableViewCell"];
+ 
+    if (cell == nil){
+        NSLog(@"New Cell Made");
         
-        if (cell == nil){
-            NSLog(@"New Cell Made");
-            
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"AddPurposeTableViewCell" owner:self options:nil];
-            // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
-            cell = [topLevelObjects objectAtIndex:0];
-        }
-        
-        cell.purposeTextField.text = @"";
-        [cell.purposeTextField becomeFirstResponder];
-        cell.purposeTextField.delegate = self;
-        return cell;
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SelectListTableViewCell" owner:self options:nil];
+        // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+        cell = [topLevelObjects objectAtIndex:0];
     }
-    else
-    {
-        
-        SelectListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectListTableViewCell"];
-     
-        if (cell == nil){
-            NSLog(@"New Cell Made");
+ 
+    NSString* str = @"";
+    
+    switch (self.listType ) {
+        case RateList:
+        {
+            Rate *r = self.items[indexPath.row];
+            str = r.type;
             
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SelectListTableViewCell" owner:self options:nil];
-            // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
-            cell = [topLevelObjects objectAtIndex:0];
+            if([r.type isEqualToString:self.report.rate.type])
+            {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }
+            
+            break;
         }
-     
-        NSString* str = @"";
-        
-        switch (self.listType ) {
-            case PurposeList:
+        case EmploymentList:
+        {
+            Employment *e = self.items[indexPath.row];
+            str = e.employmentPosition;
+            
+            if([e.employmentPosition isEqualToString:self.report.employment.employmentPosition])
             {
-                str = self.items[indexPath.row+self.isAddingPurpose];
-                
-                if([str isEqualToString:self.report.purpose])
-                {
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                }
-                
-                break;
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
             }
-            case RateList:
-            {
-                Rate *r = self.items[indexPath.row];
-                str = r.type;
-                
-                if([r.type isEqualToString:self.report.rate.type])
-                {
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                }
-                
-                break;
-            }
-            case EmploymentList:
-            {
-                Employment *e = self.items[indexPath.row];
-                str = e.employmentPosition;
-                
-                if([e.employmentPosition isEqualToString:self.report.employment.employmentPosition])
-                {
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                }
-                
-                break;
-            }
-            default:
-                break;
+            
+            break;
         }
-        
-        cell.textLabel.text = str;
-        return cell;
+        default:
+            break;
     }
+    
+    cell.textLabel.text = str;
+    return cell;
+    
 }
 
 

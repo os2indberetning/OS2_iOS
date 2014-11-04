@@ -13,6 +13,7 @@
 #import "CDRate.h"
 #import "Employment.h"
 #import "Rate.h"
+#import "CDPurpose.h"
 #import "Purpose.h"
 
 @interface CoreDataManager : NSObject
@@ -21,8 +22,13 @@
 - (void) deleteAllObjects: (NSString *) entityDescription;
 - (void) insertEmployments: (NSArray*)employments;
 - (void) insertRates: (NSArray*) rates;
+- (void) insertPurpose: (Purpose*)purpose;
+- (void) updatePurpose:(Purpose*)purpose;
+
+-( void)saveContext;
 
 - (NSArray *) fetchEmployments;
 - (NSArray *) fetchRates;
 - (NSArray *) fetchPurposes;
+
 @end

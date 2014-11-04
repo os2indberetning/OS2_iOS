@@ -10,13 +10,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Employment.h"
 #import "Rate.h"
+#import "Purpose.h"
 
 @interface UserInfo : NSObject
 @property (nonatomic, strong) NSString* token;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) CLLocation* home_loc;
 
-@property (nonatomic, strong) NSString* last_purpose;
+@property (nonatomic, strong) Purpose* last_purpose;
 @property (nonatomic, strong) Employment* last_employment;
 @property (nonatomic, strong) Rate* last_rate;
 

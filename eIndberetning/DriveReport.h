@@ -10,10 +10,11 @@
 #import "Rate.h"
 #import "Employment.h"
 #import "Route.h"
+#import "Purpose.h"
 
 @interface DriveReport : NSObject
 @property (nonatomic,strong) NSDate *date;
-@property (nonatomic, strong) NSString* purpose;
+@property (nonatomic, strong) Purpose* purpose;
 @property (nonatomic, strong) NSString* manuelentryremark;
 
 @property (nonatomic) BOOL didstarthome;

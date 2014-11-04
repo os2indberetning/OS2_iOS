@@ -142,21 +142,21 @@
 
 - (NSArray *) fetchPurposes
 {
-    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Purpose" inManagedObjectContext:self.managedObjectContext];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastusedate" ascending:true];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDPurpose" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     NSError *error;
     NSArray *CDArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    NSMutableArray* purposeArray = [[NSMutableArray alloc] initWithCapacity:CDArray.count];
+    NSArray* purposeArray = nil;
     
     if (!error)
     {
-        for (Purpose *p in CDArray) {
-            [purposeArray insertObject:p.purpose atIndex:0];
-        }
+        purposeArray = [Purpose initFromCoreDataArray:CDArray];
     }
     else
     {
@@ -165,4 +165,55 @@
     
     return purposeArray;
 }
+
+- (void) insertPurpose: (Purpose*)purpose;
+{
+    NSError *error;
+    
+    //Save purpose to coredata
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"CDPurpose" inManagedObjectContext:self.managedObjectContext];
+    CDPurpose* p = [[CDPurpose alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+    
+    p.purpose = purpose.purpose;
+    p.lastusedate = purpose.lastusedate;
+    
+    [self.managedObjectContext insertObject:p];
+    
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error inserting %@ - error:%@",@"purpose",error);
+    }
+    
+    [self.managedObjectContext save:nil];
+}
+
+- (void)updatePurpose:(Purpose*)purpose
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"purpose = %@", purpose.purpose];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDPurpose" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *CDArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if (!error)
+    {
+        CDPurpose* p = (CDPurpose*)CDArray[0];
+        p.lastusedate = [NSDate date];
+        [self.managedObjectContext save:nil];
+    }
+    else
+    {
+        NSLog(@"Error updating %@ - error:%@",@"purpose",error);
+    }
+
+}
+
+-(void)saveContext
+{
+    [self.managedObjectContext save:nil];
+}
+
 @end

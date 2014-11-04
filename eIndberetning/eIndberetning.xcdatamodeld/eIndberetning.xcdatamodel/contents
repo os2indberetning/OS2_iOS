@@ -4,19 +4,19 @@
         <attribute name="employmentid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="employmentposition" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="CDPurpose" representedClassName="CDPurpose" syncable="YES">
+        <attribute name="lastusedate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="purpose" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="CDRate" representedClassName="CDRate" syncable="YES">
         <attribute name="kmrate" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="rateid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="tfcode" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Purpose" representedClassName="Purpose" syncable="YES">
-        <attribute name="lastusedat" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="purpose" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
-        <element name="Purpose" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="CDRate" positionX="-63" positionY="0" width="128" height="103"/>
         <element name="CDEmployment" positionX="-54" positionY="9" width="128" height="73"/>
+        <element name="CDRate" positionX="-63" positionY="0" width="128" height="103"/>
+        <element name="CDPurpose" positionX="-63" positionY="-18" width="128" height="73"/>
     </elements>
 </model>

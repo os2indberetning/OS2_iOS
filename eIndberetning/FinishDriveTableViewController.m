@@ -12,6 +12,8 @@
 #import "ManualEntryViewController.h"
 #import "EditKmViewController.h"
 #import "eMobilityHTTPSClient.h"
+#import "SelectPurposeListTableViewController.h"
+#import "UserInfo.h"
 
 @interface FinishDriveTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *purposeTextLabel;
@@ -21,18 +23,22 @@
 @property (weak, nonatomic) IBOutlet UIImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UIImageView *endAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *kmDrivenLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userTextLabel;
 
 @property (strong, nonatomic) NSMutableArray *rates;
 @property (strong, nonatomic) NSMutableArray *employments;
 @property (strong, nonatomic) NSMutableArray *purposes;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
+@property (strong,nonatomic) UserInfo* info;
 @end
 
 @implementation FinishDriveTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.info = [UserInfo sharedManager];
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationItem setHidesBackButton:YES];
@@ -52,10 +58,13 @@
 {
     [super viewWillAppear:animated];
     
-    self.purposeTextLabel.text = self.report.purpose;
+    self.purposeTextLabel.text = self.report.purpose.purpose;
     self.rateTextLabel.text = self.report.rate.type;
     self.commentTextLabel.text = self.report.manuelentryremark;
     self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
+    
+    
+    self.userTextLabel.text = [NSString stringWithFormat:@"Bruger: %@", self.info.name];
     
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -75,19 +84,18 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    if(indexPath.row < 4)
+    if(indexPath.row == 1)
+    {
+        SelectPurposeListTableViewController *vc=[[SelectPurposeListTableViewController alloc]initWithNibName:@"SelectPurposeListTableViewController" bundle:nil];
+        vc.report = self.report;
+        [self.navigationController pushViewController:vc animated:true];
+    }
+    else if(indexPath.row < 4)
     {
         SelectListTableViewController *vc=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
         vc.report = self.report;
         
         switch (indexPath.row) {
-            case 1:
-            {
-                vc.listType = PurposeList;
-                vc.items = self.purposes;
-                break;
-            }
             case 2:
             {
                 vc.listType = EmploymentList;

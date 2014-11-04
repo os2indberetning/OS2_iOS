@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DriveReport.h"
 
-enum ListTypes {PurposeList, RateList, EmploymentList};
+enum ListTypes {RateList, EmploymentList};
 
-@interface SelectListTableViewController : UITableViewController <UITextFieldDelegate>
+@interface SelectListTableViewController : UITableViewController
 @property (nonatomic, strong) NSMutableArray* items;
 @property (nonatomic, strong) DriveReport* report;
 @property (nonatomic) enum ListTypes listType;

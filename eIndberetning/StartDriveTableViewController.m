@@ -18,7 +18,7 @@
 #import "Profile.h"
 #import "Rate.h"
 #import "CoreDataManager.h"
-
+#import "SelectPurposeListTableViewController.h"
 #import "DriveReport.h"
 
 @interface StartDriveTableViewController ()
@@ -53,9 +53,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //This information should be fetched from coredata or the webservice
-    self.purposes = [@[@"Et eller andet", @"Noget tredje"] mutableCopy];
-    
     [self.navigationController.navigationBar setTranslucent:NO];
     [self.navigationController.navigationBar setBarTintColor:[UIColor favrGreenColor]];
     [self.navigationController.navigationBar setTintColor:[UIColor favrOrangeColor]];
@@ -69,31 +66,37 @@
     NSDate *lastSync = [self.info.last_sync_date copy];
     NSDate *curDate = [NSDate date];
     
-    float sysVer = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if(sysVer >= 8.0)
+    if(lastSync != nil)
     {
-        [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&lastSync interval:NULL forDate:lastSync];
-        [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&curDate interval:NULL forDate:curDate];
+        float sysVer = [[[UIDevice currentDevice] systemVersion] floatValue];
+        if(sysVer >= 8.0)
+        {
+            [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&lastSync interval:NULL forDate:lastSync];
+            [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&curDate interval:NULL forDate:curDate];
+        }
+        else
+        {
+            [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&lastSync interval:NULL forDate:lastSync];
+            [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&curDate interval:NULL forDate:curDate];
+        }
+        
+        NSComparisonResult result = [lastSync compare:curDate];
+        if (result == NSOrderedSame) {
+            //Did sync today - so load from coredata
+            
+            self.rates = [self.CDManager fetchRates];
+            self.employments = [self.CDManager fetchEmployments];
+            [self loadReport];
+            
+        } else
+        {
+            //Did not sync today
+            self.shouldSync = true;
+        }
     }
     else
     {
-        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&lastSync interval:NULL forDate:lastSync];
-        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&curDate interval:NULL forDate:curDate];
-    }
-    
-    self.purposes = [[self.CDManager fetchPurposes] mutableCopy];
-    
-    NSComparisonResult result = [lastSync compare:curDate];
-    if (result == NSOrderedSame && lastSync != nil) {
-        //Did sync today - so load from coredata
-        
-        self.rates = [self.CDManager fetchRates];
-        self.employments = [self.CDManager fetchEmployments];
-        [self loadReport];
-        
-    } else
-    {
-        //Did not sync today
+        //Sync first time
         self.shouldSync = true;
     }
     
@@ -109,6 +112,8 @@
     route.totalDistanceEdit = @200;
     route.totalDistanceMeasure = @200;
     self.report.route = route;
+    
+    self.purposes = [[self.CDManager fetchPurposes] mutableCopy];
     
     //TODO: Load default report setttings
     if([self.purposes containsObject:self.info.last_purpose])
@@ -136,7 +141,7 @@
         [self loadReport];
     
     if(self.report.purpose)
-        self.purposeTextField.text = self.report.purpose;
+        self.purposeTextField.text = self.report.purpose.purpose;
     else
         self.purposeTextField.text = @"Vælg Formål";
     
@@ -186,19 +191,18 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    if(indexPath.row < 4)
+    if(indexPath.row == 1)
+    {
+        SelectPurposeListTableViewController *vc=[[SelectPurposeListTableViewController alloc]initWithNibName:@"SelectPurposeListTableViewController" bundle:nil];
+        vc.report = self.report;
+        [self.navigationController pushViewController:vc animated:true];
+    }
+    else if(indexPath.row < 4)
     {
         SelectListTableViewController *vc=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
         vc.report = self.report;
         
         switch (indexPath.row) {
-            case 1:
-            {
-                vc.listType = PurposeList;
-                vc.items = self.purposes;
-                break;
-            }
             case 2:
             {
                 vc.listType = EmploymentList;
