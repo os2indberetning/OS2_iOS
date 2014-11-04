@@ -13,4 +13,5 @@
 @property (nonatomic, strong) NSNumber* employmentId;
 
 + (NSArray *) initFromJsonDic:(NSDictionary*)dic;
++ (NSArray *) initFromCoreDataArray:(NSArray*)CDArray;
 @end

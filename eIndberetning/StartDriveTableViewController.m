@@ -17,6 +17,7 @@
 #import "DriveViewController.h"
 #import "Profile.h"
 #import "Rate.h"
+#import "CoreDataManager.h"
 
 #import "DriveReport.h"
 
@@ -35,38 +36,24 @@
 
 @property (strong,nonatomic) DriveReport* report;
 @property (strong,nonatomic) Profile* profile;
+
+@property (strong,nonatomic) UserInfo* info;
+
+@property (nonatomic) BOOL shouldSync;
+@property (nonatomic,strong) CoreDataManager* CDManager;
 @end
 
 @implementation StartDriveTableViewController
+
+-(CoreDataManager*)CDManager
+{
+    return [CoreDataManager sharedeCoreDataManager];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //This information should be fetched from coredata or the webservice
-    /*Rate* r1 = [[Rate alloc] init];
-    r1.type = @"Cykel";
-    
-    Rate* r2 = [[Rate alloc] init];
-    r2.type = @"Bil, Høj Takst";
-    
-    Rate* r3 = [[Rate alloc] init];
-    r3.type = @"Bil, Lav Takst";
-
-    self.rates = [@[r1, r2, r3] mutableCopy];
-    
-    Employment *e1 = [[Employment alloc] init];
-    e1.employmentPosition = @"Byrådsmedlem";
-    e1.employmentId = @1;
-    
-    Employment *e2 = [[Employment alloc] init];
-    e2.employmentPosition = @"Borgmester";
-    e2.employmentId = @2;
-    
-    Employment *e3 = [[Employment alloc] init];
-    e3.employmentPosition = @"Hjemmehjælper";
-    e3.employmentId = @3;
-    self.employments = [@[e1, e2, e3] mutableCopy];*/
-    
     self.purposes = [@[@"Et eller andet", @"Noget tredje"] mutableCopy];
     
     [self.navigationController.navigationBar setTranslucent:NO];
@@ -75,15 +62,42 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
-    [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
+    //Compare last sync date and current date, to see if we should sync, or simply load from coredata
+    self.info = [UserInfo sharedManager];
+    [self.info loadInfo];
     
-    [self loadReport];
+    NSDate *lastSync = [self.info.last_sync_date copy];
+    NSDate *curDate = [NSDate date];
+    
+    float sysVer = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if(sysVer >= 8.0)
+    {
+        [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&lastSync interval:NULL forDate:lastSync];
+        [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&curDate interval:NULL forDate:curDate];
+    }
+    else
+    {
+        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&lastSync interval:NULL forDate:lastSync];
+        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&curDate interval:NULL forDate:curDate];
+    }
+    
+    self.purposes = [[self.CDManager fetchPurposes] mutableCopy];
+    
+    NSComparisonResult result = [lastSync compare:curDate];
+    if (result == NSOrderedSame && lastSync != nil) {
+        //Did sync today - so load from coredata
+        
+        self.rates = [self.CDManager fetchRates];
+        self.employments = [self.CDManager fetchEmployments];
+        [self loadReport];
+        
+    } else
+    {
+        //Did not sync today
+        self.shouldSync = true;
+    }
     
     //[client postDriveReport:self.report forToken:@"Token" ];
-    
-    /*UserInfo* info = [UserInfo sharedManager];
-    [info loadInfo];
-    [info saveInfo];*/
 }
 
 -(void)loadReport
@@ -96,11 +110,16 @@
     route.totalDistanceMeasure = @200;
     self.report.route = route;
     
-    //Load default report setttings
-    self.report.rate = self.rates[0];
-    self.report.employment = self.employments[0];
-    self.report.purpose = self.purposes[0];
-    self.report.manuelentryremark = @"Test Description";
+    //TODO: Load default report setttings
+    if([self.purposes containsObject:self.info.last_purpose])
+        self.report.purpose = self.info.last_purpose;
+
+    if([self.employments containsObject:self.info.last_employment])
+        self.report.employment = self.info.last_employment;
+
+    if([self.rates containsObject:self.info.last_rate])
+        self.report.rate = self.info.last_rate;
+    
     self.report.date = [NSDate date];
     
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
@@ -116,13 +135,40 @@
     if(self.report.shouldReset)
         [self loadReport];
     
-    self.purposeTextField.text = self.report.purpose;
-    self.taskTextField.text = self.report.rate.type;
-    self.commentTextView.text = self.report.manuelentryremark;
-    self.organisationalPlaceTextField.text = self.report.employment.employmentPosition;
+    if(self.report.purpose)
+        self.purposeTextField.text = self.report.purpose;
+    else
+        self.purposeTextField.text = @"Vælg Formål";
+    
+    if(self.report.rate)
+        self.taskTextField.text = self.report.rate.type;
+    else
+        self.taskTextField.text = @"Vælg Takst";
+
+    if(self.report.manuelentryremark)
+        self.commentTextView.text = self.report.manuelentryremark;
+    else
+        self.commentTextView.text = @"Indtast Bemærkning";
+
+    if(self.report.employment)
+        self.organisationalPlaceTextField.text = self.report.employment.employmentPosition;
+    else
+        self.organisationalPlaceTextField.text  = @"Vælg Placering";
+    
     
     NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
     self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if(self.shouldSync)
+    {
+        self.shouldSync = false;
+        [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -186,6 +232,28 @@
 
 }
 
+-(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
+{
+    self.rates = rates;
+    self.profile = profile;
+    self.employments = profile.employments;
+    
+    //Insert into coredate
+    [self.CDManager deleteAllObjects:@"CDRate"];
+    [self.CDManager deleteAllObjects:@"CDEmployment"];
+    
+    [self.CDManager insertEmployments:self.employments];
+    [self.CDManager insertRates:self.rates];
+
+    //Transfer userdata to local userinfo object
+    self.info.last_sync_date = [NSDate date];
+    self.info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
+    self.info.home_loc = profile.homeCoordinate;
+    self.info.token = profile.token.token;
+    [self.info saveInfo];
+    
+    [self loadReport];
+}
 
 #pragma mark - Navigation
 
@@ -201,8 +269,8 @@
     else if ([[segue identifier] isEqualToString:@"ShowSyncSegue"])
     {
         // Get reference to the destination view controller
-        // YourViewController *vc = [segue destinationViewController];
-        
+        SyncViewController *vc = [segue destinationViewController];
+        vc.delegate = self;
         // Pass any objects to the view controller here, like...
         //[vc setMyObjectHere:object];
     }

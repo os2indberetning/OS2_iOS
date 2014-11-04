@@ -12,6 +12,7 @@
 #import "Employment.h"
 #import "UIViewController+BackButton.h"
 #import "AddPurposeTableViewCell.h"
+#import "UserInfo.h"
 
 @interface SelectListTableViewController ()
 @property (nonatomic) BOOL isAddingPurpose;
@@ -86,28 +87,34 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UserInfo* info = [UserInfo sharedManager];
+    
     switch (self.listType ) {
         case PurposeList:
         {
             self.report.purpose = self.items[indexPath.row-self.isAddingPurpose];
+            info.last_purpose = self.items[indexPath.row-self.isAddingPurpose];
             break;
         }
         case RateList:
         {
             Rate *r = self.items[indexPath.row];
             self.report.rate = r;
+            info.last_rate = r;
             break;
         }
         case EmploymentList:
         {
             Employment *e = self.items[indexPath.row];
             self.report.employment = e;
+            info.last_employment = e;
             break;
         }
         default:
             break;
     }
     
+    [info saveInfo];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

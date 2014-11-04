@@ -36,6 +36,12 @@
     self.token = object.token;
     self.name = object.name;
     self.home_loc = object.home_loc;
+    
+    self.last_purpose = object.last_purpose;
+    self.last_employment = object.last_employment;
+    self.last_rate = object.last_rate;
+    
+    self.last_sync_date = object.last_sync_date;
 }
 
 -(void)encodeWithCoder:(NSCoder *)encoder {
@@ -43,6 +49,12 @@
     [encoder encodeObject:self.token forKey:@"token"];
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:self.home_loc forKey:@"home_loc"];
+    
+    [encoder encodeObject:self.last_purpose forKey:@"last_purpose"];
+    [encoder encodeObject:self.last_employment forKey:@"last_employment"];
+    [encoder encodeObject:self.last_rate forKey:@"last_rate"];
+    
+    [encoder encodeObject:self.last_sync_date forKey:@"last_sync_date"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -51,6 +63,12 @@
         self.token = [decoder decodeObjectForKey:@"token"];
         self.name = [decoder decodeObjectForKey:@"name"];
         self.home_loc = [decoder decodeObjectForKey:@"home_loc"];
+        
+        self.last_purpose = [decoder decodeObjectForKey:@"last_purpose"];
+        self.last_employment = [decoder decodeObjectForKey:@"last_employment"];
+        self.last_rate = [decoder decodeObjectForKey:@"last_rate"];
+        
+        self.last_sync_date = [decoder decodeObjectForKey:@"last_sync_date"];
     }
     return self;
 }

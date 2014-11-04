@@ -16,4 +16,6 @@
 @property (nonatomic, strong) NSString* type;
 
 + (NSArray *) initFromJsonDic:(NSDictionary*)dic;
++ (NSArray *) initFromCoreDataArray:(NSArray*)CDArray;
+
 @end

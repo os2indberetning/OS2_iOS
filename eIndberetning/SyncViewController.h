@@ -11,10 +11,15 @@
 #import "Profile.h"
 #import "Rate.h"
 
+@protocol DidSyncDelegate
+-(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
+@end
+
 @interface SyncViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *rates;
-@property (strong, nonatomic) NSArray *employments;
 @property (strong,nonatomic) Profile* profile;
+
+@property (strong,nonatomic) id <DidSyncDelegate> delegate;
 
 @end

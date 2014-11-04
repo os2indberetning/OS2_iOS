@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SyncViewController.h"
 
-@interface StartDriveTableViewController : UITableViewController
+@interface StartDriveTableViewController : UITableViewController <DidSyncDelegate>
 
 @end
