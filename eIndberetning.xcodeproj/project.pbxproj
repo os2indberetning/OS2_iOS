@@ -176,9 +176,6 @@
 				F537B4E019FE530A00D06892 /* SelectListTableViewCell.h */,
 				F537B4E119FE530A00D06892 /* SelectListTableViewCell.m */,
 				F537B4E219FE530A00D06892 /* SelectListTableViewCell.xib */,
-				F5690EBD19FF7C7500B9C3B4 /* AddPurposeTableViewCell.h */,
-				F5690EBE19FF7C7500B9C3B4 /* AddPurposeTableViewCell.m */,
-				F5690EBF19FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib */,
 			);
 			name = "Select List";
 			sourceTree = "<group>";
@@ -274,6 +271,7 @@
 			children = (
 				F56E0A2B19D2A40C00B6CA1F /* InitialVIewController.h */,
 				F56E0A2C19D2A40C00B6CA1F /* InitialVIewController.m */,
+				F537B4E519FE531600D06892 /* Select List */,
 				F5C26DFC1A09620E004ACDA4 /* Select Purpose List */,
 				F556A10A1A082C26007A17F3 /* SyncViewController.h */,
 				F556A10B1A082C26007A17F3 /* SyncViewController.m */,
@@ -283,7 +281,6 @@
 				F5AF892119E1BD0F00016826 /* DriveViewController.m */,
 				F5AF892319E1C5CA00016826 /* FinishDriveTableViewController.h */,
 				F5AF892419E1C5CA00016826 /* FinishDriveTableViewController.m */,
-				F537B4E519FE531600D06892 /* Select List */,
 				F537B4E619FE614600D06892 /* ErrorMsgViewController.h */,
 				F537B4E719FE614600D06892 /* ErrorMsgViewController.m */,
 				F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */,
@@ -349,6 +346,9 @@
 				F5C26DFD1A09624E004ACDA4 /* SelectPurposeListTableViewController.h */,
 				F5C26DFE1A09624E004ACDA4 /* SelectPurposeListTableViewController.m */,
 				F5C26DFF1A09624E004ACDA4 /* SelectPurposeListTableViewController.xib */,
+				F5690EBD19FF7C7500B9C3B4 /* AddPurposeTableViewCell.h */,
+				F5690EBE19FF7C7500B9C3B4 /* AddPurposeTableViewCell.m */,
+				F5690EBF19FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib */,
 			);
 			name = "Select Purpose List";
 			sourceTree = "<group>";

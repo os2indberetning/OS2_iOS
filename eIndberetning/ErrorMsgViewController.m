@@ -29,7 +29,7 @@
     self.popUpView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
     self.okButton.layer.cornerRadius = 2;
 
-    self.titleLabel.text = self.titelString;
+    //self.titleLabel.text = self.titelString;
     self.errorLabel.text = self.errorString;
     
     // Do any additional setup after loading the view from its nib.

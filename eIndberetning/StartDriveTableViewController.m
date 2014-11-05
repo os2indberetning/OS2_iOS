@@ -100,7 +100,25 @@
         self.shouldSync = true;
     }
     
+    self.tableView.rowHeight = 44;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor favrOrangeColor];
+    self.refreshControl.tintColor = [UIColor favrGreenColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(manualRefresh)
+                  forControlEvents:UIControlEventValueChanged];
+    
+     
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     //[client postDriveReport:self.report forToken:@"Token" ];
+}
+
+-(void)manualRefresh
+{
+    [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
+    [self.refreshControl endRefreshing];
 }
 
 -(void)loadReport
@@ -109,13 +127,11 @@
     self.report = [[DriveReport alloc] init];
     
     Route *route = [[Route alloc] init];
-    route.totalDistanceEdit = @200;
-    route.totalDistanceMeasure = @200;
     self.report.route = route;
     
     self.purposes = [[self.CDManager fetchPurposes] mutableCopy];
     
-    //TODO: Load default report setttings
+    //TODO: Load default report settings
     if([self.purposes containsObject:self.info.last_purpose])
         self.report.purpose = self.info.last_purpose;
 
@@ -182,11 +198,18 @@
 }
 
 - (IBAction)startDrivingButton:(id)sender {
-    /*self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-     [self.errorMsg setTitle:@"Du mangler at udfylde"];
-     [self.errorMsg setError:@"Test"];
-     self.errorMsg.view.frame = [UIApplication sharedApplication].keyWindow.frame;
-     [self.errorMsg showInView:[UIApplication sharedApplication].keyWindow  animated:YES];*/
+    
+    if(!self.report.purpose)
+    {
+         self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+         [self.errorMsg setError:@"Du mangler at vælge\net formål"];
+         self.errorMsg.view.frame = [UIApplication sharedApplication].keyWindow.frame;
+         [self.errorMsg showInView:[UIApplication sharedApplication].keyWindow  animated:YES];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"DriveViewSegue" sender:self];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
