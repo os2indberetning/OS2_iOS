@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DriveReport.h"
+#import "SyncViewController.h"
+#import "ConfirmDeleteViewController.h"
 
-@interface FinishDriveTableViewController : UITableViewController
+@interface FinishDriveTableViewController : UITableViewController <DidSyncDelegate,ConfirmDeletePopupDelegate>
 @property (nonatomic,strong) DriveReport* report;
 @end

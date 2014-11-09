@@ -7,12 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
+#import "PopupBaseViewController.h"
 
-@interface ErrorMsgViewController : UIViewController
+@interface ErrorMsgViewController : PopupBaseViewController
 
-@property (weak, nonatomic) IBOutlet UIView *popUpView;
-- (void)showInView:(UIView *)aView animated:(BOOL)animated;
-- (void)setTitle:(NSString*)title;
-- (void)setError:(NSString*)error;
+-(void)showErrorMsg:(NSString*)error;
 @end

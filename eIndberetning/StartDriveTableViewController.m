@@ -21,18 +21,20 @@
 #import "SelectPurposeListTableViewController.h"
 #import "DriveReport.h"
 
+#import "ConfirmDeleteViewController.h"
+
 @interface StartDriveTableViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UILabel *taskTextField;
 @property (weak, nonatomic) IBOutlet UILabel *purposeTextField;
 @property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTextField;
-@property (strong, nonatomic) ErrorMsgViewController *errorMsg;
 @property (weak, nonatomic) IBOutlet UIImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
+@property (strong, nonatomic) ErrorMsgViewController* errorMsg;
 @property (strong, nonatomic) NSArray *rates;
 @property (strong, nonatomic) NSArray *employments;
-@property (strong, nonatomic) NSMutableArray *purposes;
+
 
 @property (strong,nonatomic) DriveReport* report;
 @property (strong,nonatomic) Profile* profile;
@@ -63,41 +65,15 @@
     self.info = [UserInfo sharedManager];
     [self.info loadInfo];
     
-    NSDate *lastSync = [self.info.last_sync_date copy];
-    NSDate *curDate = [NSDate date];
-    
-    if(lastSync != nil)
+    if([self.info isLastSyncDateNotToday])
     {
-        float sysVer = [[[UIDevice currentDevice] systemVersion] floatValue];
-        if(sysVer >= 8.0)
-        {
-            [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&lastSync interval:NULL forDate:lastSync];
-            [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&curDate interval:NULL forDate:curDate];
-        }
-        else
-        {
-            [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&lastSync interval:NULL forDate:lastSync];
-            [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&curDate interval:NULL forDate:curDate];
-        }
-        
-        NSComparisonResult result = [lastSync compare:curDate];
-        if (result == NSOrderedSame) {
-            //Did sync today - so load from coredata
-            
-            self.rates = [self.CDManager fetchRates];
-            self.employments = [self.CDManager fetchEmployments];
-            [self loadReport];
-            
-        } else
-        {
-            //Did not sync today
-            self.shouldSync = true;
-        }
+        self.shouldSync = true;
     }
     else
     {
-        //Sync first time
-        self.shouldSync = true;
+        self.rates = [self.CDManager fetchRates];
+        self.employments = [self.CDManager fetchEmployments];
+        [self loadReport];
     }
     
     self.tableView.rowHeight = 44;
@@ -129,10 +105,12 @@
     Route *route = [[Route alloc] init];
     self.report.route = route;
     
-    self.purposes = [[self.CDManager fetchPurposes] mutableCopy];
+    self.report.profileId = self.info.profileId;
     
-    //TODO: Load default report settings
-    if([self.purposes containsObject:self.info.last_purpose])
+    NSArray* purposes = [self.CDManager fetchPurposes];
+    
+    //Load default report settings
+    if([purposes containsObject:self.info.last_purpose])
         self.report.purpose = self.info.last_purpose;
 
     if([self.employments containsObject:self.info.last_employment])
@@ -145,7 +123,6 @@
     
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM-YY"];
-    
     self.dateLabel.text = [@"Dato: " stringByAppendingString:[formatter stringFromDate:self.report.date]];
 }
 
@@ -176,7 +153,6 @@
     else
         self.organisationalPlaceTextField.text  = @"Vælg Placering";
     
-    
     NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
     self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
 }
@@ -201,10 +177,8 @@
     
     if(!self.report.purpose)
     {
-         self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-         [self.errorMsg setError:@"Du mangler at vælge\net formål"];
-         self.errorMsg.view.frame = [UIApplication sharedApplication].keyWindow.frame;
-         [self.errorMsg showInView:[UIApplication sharedApplication].keyWindow  animated:YES];
+        self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+        [self.errorMsg showErrorMsg: @"Du mangler at vælge\net formål"];
     }
     else
     {
@@ -229,13 +203,13 @@
             case 2:
             {
                 vc.listType = EmploymentList;
-                vc.items = [self.employments mutableCopy];
+                vc.items = self.employments;
                 break;
             }
             case 3:
             {
                 vc.listType = RateList;
-                vc.items = [self.rates mutableCopy];
+                vc.items = self.rates;
                 break;
             }
             default:
@@ -277,6 +251,8 @@
     self.info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
     self.info.home_loc = profile.homeCoordinate;
     self.info.token = profile.token.token;
+    self.info.profileId = profile.profileId;
+    
     [self.info saveInfo];
     
     [self loadReport];
@@ -289,17 +265,13 @@
 
     if ([[segue identifier] isEqualToString:@"DriveViewSegue"])
     {
-        // Get reference to the destination view controller
         DriveViewController *vc = [segue destinationViewController];
         vc.report = self.report;
     }
     else if ([[segue identifier] isEqualToString:@"ShowSyncSegue"])
     {
-        // Get reference to the destination view controller
         SyncViewController *vc = [segue destinationViewController];
         vc.delegate = self;
-        // Pass any objects to the view controller here, like...
-        //[vc setMyObjectHere:object];
     }
     //
 }

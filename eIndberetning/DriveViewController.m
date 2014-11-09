@@ -14,10 +14,16 @@
 @interface DriveViewController ()  <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *distanceDrivenLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
+
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic)  CLLocation *locA;
 @property (weak, nonatomic) IBOutlet UILabel *gpsAccuaryLabel;
+@property (strong, nonatomic) NSDateFormatter *timeFormatter;
+
 @property (nonatomic) float totalDistance;
+
+@property (strong, nonatomic) ConfirmEndDriveViewController* confirmPopup;
 @end
 
 @implementation DriveViewController
@@ -26,12 +32,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.finishButton.layer.cornerRadius = 2.0f;
+    self.finishButton.layer.cornerRadius = 1.5f;
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     [self startGPS];
     
+    self.distanceDrivenLabel.text = @"- km";
+    self.lastUpdatedLabel.text = @"Venter på gyldigt GPS signal";
     self.totalDistance = 0;
+    
+    self.timeFormatter = [[NSDateFormatter alloc] init];
+    [self.timeFormatter setDateFormat:@"HH.mm.ss"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +51,28 @@
 }
 
 - (IBAction)finishButtonPressed:(id)sender {
+    
+    self.confirmPopup = [[ConfirmEndDriveViewController alloc] initWithNibName:@"ConfirmEndDriveViewController" bundle:nil];
+    self.confirmPopup.delegate = self;
+    
+    //Set this value based on user home coordinaets, and the current location
+    self.report.didendhome = false;
+    self.confirmPopup.isSelected = self.report.didendhome;
+    
+    [self.confirmPopup showPopup];
+}
+
+#pragma mark - EndDrivePopupDelegate
+
+-(void)endDrive
+{
     [self stopGPS];
+    [self performSegueWithIdentifier:@"EndDriveSegue" sender:self];
+}
+
+-(void)changeSelectedState:(BOOL)selectedState
+{
+    self.report.didendhome = selectedState;
 }
 
 #pragma mark - GPS Handling
@@ -76,7 +108,7 @@
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     
-    self.gpsAccuaryLabel.text = [NSString stringWithFormat:@"%.2f m", location.horizontalAccuracy];
+    self.gpsAccuaryLabel.text = [NSString stringWithFormat:@"GPS nøjagtighed: %.2f m", location.horizontalAccuracy];
     
     if (abs(howRecent) < 15.0 && location.horizontalAccuracy < 50) {
         
@@ -99,8 +131,11 @@
             
             NSLog(@"Distance: %f", self.totalDistance );
             
-            self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.2f m", self.totalDistance];
+            self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.2f Km", self.totalDistance/1000.0f];
         }
+        
+        NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
+        self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Sidst opdateret kl: %@", timeString];
         
         GpsCoordinates *cor = [[GpsCoordinates alloc] init];
         cor.loc = self.locA;
@@ -114,7 +149,6 @@
     }
     else
     {
-         self.distanceDrivenLabel.text = @"0.0 Km";
     }
 }
 
@@ -126,11 +160,14 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    self.report.route.totalDistanceEdit = @(self.totalDistance);
-    self.report.route.totalDistanceMeasure = @(self.totalDistance);
-    
-    FinishDriveTableViewController *vc = [segue destinationViewController];
-    vc.report = self.report;
+    if ([[segue identifier] isEqualToString:@"EndDriveSegue"])
+    {
+        self.report.route.totalDistanceEdit = @(ceil(self.totalDistance/1000.0f));
+        self.report.route.totalDistanceMeasure = @(ceil(self.totalDistance/1000.0f));
+        
+        FinishDriveTableViewController *vc = [segue destinationViewController];
+        vc.report = self.report;
+    }
 }
 
 #pragma mark - GPS Permission

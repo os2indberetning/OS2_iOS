@@ -63,23 +63,19 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     }];
 }
 
-- (void)postDriveReport:(DriveReport *)report forToken:(NSString*)token
+- (void)postDriveReport:(DriveReport *)report forToken:(NSString*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
 {
     NSMutableDictionary* dic = [[report transformToDictionary] mutableCopy];
     
     [dic setObject:token forKey:@"token"];
     
-    NSLog(@"dic: %@", dic);
+    NSError * err;
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&err];
+    NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    [self POST:@"SubmitDrive" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"dic: %@", myString);
     
-        NSLog(@"Succes: %@", responseObject);
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-
-        NSLog(@"Fail!: %@", error);
-        
-    }];
+    [self POST:@"SubmitDrive" parameters:dic success:succes failure:failure];
 }
 
 @end

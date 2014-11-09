@@ -30,8 +30,8 @@
     
     NSDictionary *body = [NSMutableDictionary
                                  dictionaryWithObjectsAndKeys:
-                                 self.totalDistanceEdit, @"distance",
-                                 gpsArray, @"coordinates", nil];
+                                 self.totalDistanceEdit, @"TotalDistance",
+                                 gpsArray, @"GPSCoordinates", nil];
     
     return body;
 }

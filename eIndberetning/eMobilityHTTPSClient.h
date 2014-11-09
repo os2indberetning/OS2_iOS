@@ -20,7 +20,7 @@
 - (instancetype)initWithBaseURL:(NSURL *)url;
 -(void)getUserDataWithBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 - (void)updateWeatherAtLocation:(CLLocation *)location forNumberOfDays:(NSUInteger)number;
-- (void)postDriveReport:(DriveReport *)report forToken:(NSString*)token;
+- (void)postDriveReport:(DriveReport *)report forToken:(NSString*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 @end
 
 @protocol WeatherHTTPClientDelegate <NSObject>

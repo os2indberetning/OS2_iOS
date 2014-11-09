@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSString* token;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) CLLocation* home_loc;
+@property (nonatomic, strong) NSNumber* profileId;
+
 
 @property (nonatomic, strong) Purpose* last_purpose;
 @property (nonatomic, strong) Employment* last_employment;
@@ -26,4 +28,6 @@
 + (id)sharedManager;
 -(void)saveInfo;
 -(void)loadInfo;
+-(BOOL)isLastSyncDateNotToday;
+
 @end

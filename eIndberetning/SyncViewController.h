@@ -21,5 +21,4 @@
 @property (strong,nonatomic) Profile* profile;
 
 @property (strong,nonatomic) id <DidSyncDelegate> delegate;
-
 @end

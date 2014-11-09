@@ -19,8 +19,8 @@
     NSString *timeString = [dateFormatter stringFromDate:self.loc.timestamp];
     
     NSDictionary *body = [NSMutableDictionary
-                                 dictionaryWithObjectsAndKeys: [NSString stringWithFormat:@"%f",self.loc.coordinate.latitude], @"lat", [NSString stringWithFormat:@"%f",self.loc.coordinate.longitude], @"lng",
-                                 timeString, @"time", nil];
+                                 dictionaryWithObjectsAndKeys: [NSString stringWithFormat:@"%f",self.loc.coordinate.latitude], @"Latitude", [NSString stringWithFormat:@"%f",self.loc.coordinate.longitude], @"Longitude",
+                                 timeString, @"TimeStamp", nil];
     
     return body;
 }

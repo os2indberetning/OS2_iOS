@@ -26,6 +26,7 @@
     p.token = [Token initFromJsonDic:[dic objectForKey:@"token"]];
     p.employments = [Employment initFromJsonDic:[dic objectForKey:@"Employments"]];
     
+    p.profileId = @([[dic objectForKey:@"id"] integerValue]);
     return p;
 }
 

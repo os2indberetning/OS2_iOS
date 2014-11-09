@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		285C398763EB493EB3BACB37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7BD0598834CACA9C13197 /* libPods.a */; };
+		F51B35201A0F995D0098D76E /* PopupBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */; };
+		F51B35241A0F9C8A0098D76E /* ConfirmDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B35221A0F9C8A0098D76E /* ConfirmDeleteViewController.m */; };
+		F51B35251A0F9C8A0098D76E /* ConfirmDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51B35231A0F9C8A0098D76E /* ConfirmDeleteViewController.xib */; };
+		F51B35291A0FA34A0098D76E /* ConfirmEndDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B35271A0FA34A0098D76E /* ConfirmEndDriveViewController.m */; };
+		F51B352A1A0FA34A0098D76E /* ConfirmEndDriveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51B35281A0FA34A0098D76E /* ConfirmEndDriveViewController.xib */; };
 		F537B4DE19FE4F5000D06892 /* SelectListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4DC19FE4F5000D06892 /* SelectListTableViewController.m */; };
 		F537B4DF19FE4F5000D06892 /* SelectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4DD19FE4F5000D06892 /* SelectListTableViewController.xib */; };
 		F537B4E319FE530A00D06892 /* SelectListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4E119FE530A00D06892 /* SelectListTableViewCell.m */; };
@@ -17,6 +22,7 @@
 		F556A1061A081220007A17F3 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A1051A081220007A17F3 /* Profile.m */; };
 		F556A1091A08135B007A17F3 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A1081A08135B007A17F3 /* Token.m */; };
 		F556A10C1A082C26007A17F3 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
+		F55932031A0FB42500C8139F /* UploadDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F55932021A0FB42500C8139F /* UploadDriveViewController.m */; };
 		F5690EB819FF758B00B9C3B4 /* UIViewController+BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EB719FF758B00B9C3B4 /* UIViewController+BackButton.m */; };
 		F5690EC019FF7C7500B9C3B4 /* AddPurposeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EBE19FF7C7500B9C3B4 /* AddPurposeTableViewCell.m */; };
 		F5690EC119FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5690EBF19FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib */; };
@@ -64,6 +70,14 @@
 /* Begin PBXFileReference section */
 		7BB7BD0598834CACA9C13197 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A2A0BD089C4227969763E8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F51B351E1A0F995D0098D76E /* PopupBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupBaseViewController.h; sourceTree = "<group>"; };
+		F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupBaseViewController.m; sourceTree = "<group>"; };
+		F51B35211A0F9C8A0098D76E /* ConfirmDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmDeleteViewController.h; sourceTree = "<group>"; };
+		F51B35221A0F9C8A0098D76E /* ConfirmDeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmDeleteViewController.m; sourceTree = "<group>"; };
+		F51B35231A0F9C8A0098D76E /* ConfirmDeleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmDeleteViewController.xib; sourceTree = "<group>"; };
+		F51B35261A0FA34A0098D76E /* ConfirmEndDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmEndDriveViewController.h; sourceTree = "<group>"; };
+		F51B35271A0FA34A0098D76E /* ConfirmEndDriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmEndDriveViewController.m; sourceTree = "<group>"; };
+		F51B35281A0FA34A0098D76E /* ConfirmEndDriveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmEndDriveViewController.xib; sourceTree = "<group>"; };
 		F537B4DB19FE4F5000D06892 /* SelectListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectListTableViewController.h; sourceTree = "<group>"; };
 		F537B4DC19FE4F5000D06892 /* SelectListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectListTableViewController.m; sourceTree = "<group>"; };
 		F537B4DD19FE4F5000D06892 /* SelectListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectListTableViewController.xib; sourceTree = "<group>"; };
@@ -79,6 +93,8 @@
 		F556A1081A08135B007A17F3 /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
 		F556A10A1A082C26007A17F3 /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
 		F556A10B1A082C26007A17F3 /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
+		F55932011A0FB42500C8139F /* UploadDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadDriveViewController.h; sourceTree = "<group>"; };
+		F55932021A0FB42500C8139F /* UploadDriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadDriveViewController.m; sourceTree = "<group>"; };
 		F5690EB619FF758B00B9C3B4 /* UIViewController+BackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButton.h"; sourceTree = "<group>"; };
 		F5690EB719FF758B00B9C3B4 /* UIViewController+BackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButton.m"; sourceTree = "<group>"; };
 		F5690EBD19FF7C7500B9C3B4 /* AddPurposeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPurposeTableViewCell.h; sourceTree = "<group>"; };
@@ -165,6 +181,24 @@
 				7BB7BD0598834CACA9C13197 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F51B351D1A0F98BB0098D76E /* PopupMessage */ = {
+			isa = PBXGroup;
+			children = (
+				F537B4E619FE614600D06892 /* ErrorMsgViewController.h */,
+				F537B4E719FE614600D06892 /* ErrorMsgViewController.m */,
+				F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */,
+				F51B351E1A0F995D0098D76E /* PopupBaseViewController.h */,
+				F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */,
+				F51B35211A0F9C8A0098D76E /* ConfirmDeleteViewController.h */,
+				F51B35221A0F9C8A0098D76E /* ConfirmDeleteViewController.m */,
+				F51B35231A0F9C8A0098D76E /* ConfirmDeleteViewController.xib */,
+				F51B35261A0FA34A0098D76E /* ConfirmEndDriveViewController.h */,
+				F51B35271A0FA34A0098D76E /* ConfirmEndDriveViewController.m */,
+				F51B35281A0FA34A0098D76E /* ConfirmEndDriveViewController.xib */,
+			);
+			name = PopupMessage;
 			sourceTree = "<group>";
 		};
 		F537B4E519FE531600D06892 /* Select List */ = {
@@ -281,9 +315,9 @@
 				F5AF892119E1BD0F00016826 /* DriveViewController.m */,
 				F5AF892319E1C5CA00016826 /* FinishDriveTableViewController.h */,
 				F5AF892419E1C5CA00016826 /* FinishDriveTableViewController.m */,
-				F537B4E619FE614600D06892 /* ErrorMsgViewController.h */,
-				F537B4E719FE614600D06892 /* ErrorMsgViewController.m */,
-				F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */,
+				F55932011A0FB42500C8139F /* UploadDriveViewController.h */,
+				F55932021A0FB42500C8139F /* UploadDriveViewController.m */,
+				F51B351D1A0F98BB0098D76E /* PopupMessage */,
 				F58EC0AF19FEBEFF0010AC96 /* ManualEntryViewController.h */,
 				F58EC0B019FEBEFF0010AC96 /* ManualEntryViewController.m */,
 				F58EC0B119FEBEFF0010AC96 /* ManualEntryViewController.xib */,
@@ -448,6 +482,8 @@
 				F56E0A3219D2A40C00B6CA1F /* Images.xcassets in Resources */,
 				F537B4DF19FE4F5000D06892 /* SelectListTableViewController.xib in Resources */,
 				F5690EC119FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib in Resources */,
+				F51B35251A0F9C8A0098D76E /* ConfirmDeleteViewController.xib in Resources */,
+				F51B352A1A0FA34A0098D76E /* ConfirmEndDriveViewController.xib in Resources */,
 				F537B4EA19FE614600D06892 /* ErrorMsgViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +537,7 @@
 			files = (
 				F58EC0AB19FE98C60010AC96 /* GpsCoordinates.m in Sources */,
 				F556A10C1A082C26007A17F3 /* SyncViewController.m in Sources */,
+				F51B35201A0F995D0098D76E /* PopupBaseViewController.m in Sources */,
 				F5E87BFD1A08C7780092E350 /* CDRate.m in Sources */,
 				F556A1091A08135B007A17F3 /* Token.m in Sources */,
 				F58EC0AE19FE99DC0010AC96 /* UserInfo.m in Sources */,
@@ -521,8 +558,11 @@
 				F58EC0B219FEBEFF0010AC96 /* ManualEntryViewController.m in Sources */,
 				F56E0A2D19D2A40C00B6CA1F /* InitialVIewController.m in Sources */,
 				F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */,
+				F51B35241A0F9C8A0098D76E /* ConfirmDeleteViewController.m in Sources */,
+				F55932031A0FB42500C8139F /* UploadDriveViewController.m in Sources */,
 				F58EC0A519FE97BA0010AC96 /* DriveReport.m in Sources */,
 				F58EC09F19FE96C10010AC96 /* Rate.m in Sources */,
+				F51B35291A0FA34A0098D76E /* ConfirmEndDriveViewController.m in Sources */,
 				F5E87BFA1A08C7230092E350 /* CDEmployment.m in Sources */,
 				F56E0A2A19D2A40C00B6CA1F /* eIndberetning.xcdatamodeld in Sources */,
 				F5690EB819FF758B00B9C3B4 /* UIViewController+BackButton.m in Sources */,

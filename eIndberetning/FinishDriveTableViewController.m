@@ -14,6 +14,10 @@
 #import "eMobilityHTTPSClient.h"
 #import "SelectPurposeListTableViewController.h"
 #import "UserInfo.h"
+#import "UIColor+CustomColor.h"
+#import "CoreDataManager.h"
+#import "ErrorMsgViewController.h"
+#import "UploadDriveViewController.h"
 
 @interface FinishDriveTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *purposeTextLabel;
@@ -25,15 +29,26 @@
 @property (weak, nonatomic) IBOutlet UILabel *kmDrivenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userTextLabel;
 
-@property (strong, nonatomic) NSMutableArray *rates;
-@property (strong, nonatomic) NSMutableArray *employments;
-@property (strong, nonatomic) NSMutableArray *purposes;
+
+@property (strong, nonatomic) NSArray *rates;
+@property (strong, nonatomic) NSArray *employments;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (strong,nonatomic) UserInfo* info;
+@property (strong,nonatomic) Profile* profile;
+
+@property (nonatomic,strong) CoreDataManager* CDManager;
+
+@property (strong, nonatomic) ErrorMsgViewController* errorMsg;
+@property (strong, nonatomic) ConfirmDeleteViewController* confirmPopup;
 @end
 
 @implementation FinishDriveTableViewController
+
+-(CoreDataManager*)CDManager
+{
+    return [CoreDataManager sharedeCoreDataManager];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,11 +57,26 @@
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationItem setHidesBackButton:YES];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.rowHeight = 44;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor favrOrangeColor];
+    self.refreshControl.tintColor = [UIColor favrGreenColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(manualRefresh)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.rates = [self.CDManager fetchRates];
+    self.employments = [self.CDManager fetchEmployments];
+}
+
+-(void)manualRefresh
+{
+    [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
+    [self.refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,12 +88,7 @@
 {
     [super viewWillAppear:animated];
     
-    self.purposeTextLabel.text = self.report.purpose.purpose;
-    self.rateTextLabel.text = self.report.rate.type;
-    self.commentTextLabel.text = self.report.manuelentryremark;
-    self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
-    
-    
+    //Fill in the selected data in the forms
     self.userTextLabel.text = [NSString stringWithFormat:@"Bruger: %@", self.info.name];
     
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
@@ -77,9 +102,26 @@
     NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
     self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
     
-    
     NSString *checkState2 = (self.report.didendhome) ? @"checkBox_checked" : @"checkBox_unchecked";
     self.endAtHomeCheckbox.image = [UIImage imageNamed:checkState2];
+    
+    //Set selected or default values
+    self.purposeTextLabel.text = self.report.purpose.purpose;
+    
+    if(self.report.rate)
+        self.rateTextLabel.text = self.report.rate.type;
+    else
+        self.rateTextLabel.text = @"Vælg Takst";
+    
+    if(self.report.manuelentryremark)
+        self.commentTextLabel.text = self.report.manuelentryremark;
+    else
+        self.commentTextLabel.text = @"Indtast Bemærkning";
+    
+    if(self.report.employment)
+        self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
+    else
+        self.organisationalPlaceTextLabel.text  = @"Vælg Placering";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,12 +142,14 @@
             {
                 vc.listType = EmploymentList;
                 vc.items = self.employments;
+                vc.report = self.report;
                 break;
             }
             case 3:
             {
                 vc.listType = RateList;
                 vc.items = self.rates;
+                vc.report = self.report;
                 break;
             }
             default:
@@ -134,17 +178,93 @@
     }
     
 }
-- (IBAction)cancelAndDeleteButton:(id)sender {
+- (IBAction)cancelAndDeleteButton:(id)sender
+{
+    self.confirmPopup = [[ConfirmDeleteViewController alloc] initWithNibName:@"ConfirmDeleteViewController" bundle:nil];
+    self.confirmPopup.delegate = self;
+    [self.confirmPopup showPopup];
+}
+
+- (void)confirmDelete
+{
     self.report.shouldReset = true;
     [self.navigationController popToRootViewControllerAnimated:true];
 }
 
 - (IBAction)submitButton:(id)sender {
     
-    eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
-    
-    [client postDriveReport:self.report forToken:@"Token" ];
+    if([self.info isLastSyncDateNotToday])
+    {
+        [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
+    }
+    else
+    {
+        if(!self.report.purpose)
+        {
+            self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+            [self.errorMsg showErrorMsg: @"Du mangler at vælge\net formål"];
+        }
+        else if(!self.report.rate)
+        {
+            self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+            [self.errorMsg showErrorMsg: @"Du mangler at vælge\nen takst"];
+        }
+        else if(!self.report.employment)
+        {
+            self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+            [self.errorMsg showErrorMsg: @"Du mangler at vælge\nen stilling"];
+        }
+        else
+        {
+            [self performSegueWithIdentifier:@"UploadDriveSegue" sender:self];
+        }
+    }
+}
 
+#pragma mark - Sync
+
+-(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
+{
+    self.rates = rates;
+    self.profile = profile;
+    self.employments = profile.employments;
+    
+    //Insert into coredate
+    [self.CDManager deleteAllObjects:@"CDRate"];
+    [self.CDManager deleteAllObjects:@"CDEmployment"];
+    
+    [self.CDManager insertEmployments:self.employments];
+    [self.CDManager insertRates:self.rates];
+    
+    //Transfer userdata to local userinfo object
+    self.info.last_sync_date = [NSDate date];
+    self.info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
+    self.info.home_loc = profile.homeCoordinate;
+    self.info.token = profile.token.token;
+    [self.info saveInfo];
+    
+    [self reloadReport];
+}
+
+-(void)reloadReport
+{
+    //Confirm employments and rates ares till the same
+    if([self.employments containsObject:self.info.last_employment])
+        self.report.employment = self.info.last_employment;
+    else
+        self.report.employment = nil;
+    
+    if([self.rates containsObject:self.info.last_rate])
+        self.report.rate = self.info.last_rate;
+    else
+        self.report.rate = nil;
+    
+    self.report.date = [NSDate date];
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM-YY"];
+    
+    self.dateLabel.text = [@"Dato: " stringByAppendingString:[formatter stringFromDate:self.report.date]];
 }
 
 #pragma mark - Navigation
@@ -155,6 +275,16 @@
     {
         EditKmViewController *vc = [segue destinationViewController];
         vc.route = self.report.route;
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowSyncSegue"])
+    {
+        SyncViewController *vc = [segue destinationViewController];
+        vc.delegate = self;
+    }
+    else if ([[segue identifier] isEqualToString:@"UploadDriveSegue"])
+    {
+        UploadDriveViewController *vc = [segue destinationViewController];
+        vc.report = self.report;
     }
 }
 

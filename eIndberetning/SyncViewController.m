@@ -19,12 +19,11 @@
 
 @implementation SyncViewController
 
-const double MIN_WAIT_TIME_S = 3;
+const double MIN_WAIT_TIME_S = 2;
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     self.client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
     [self doSync];

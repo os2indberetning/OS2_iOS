@@ -18,6 +18,7 @@
 @property (nonatomic, strong) CLLocation* homeCoordinate;
 @property (nonatomic, strong) Token* token;
 @property (nonatomic, strong) NSArray* employments;
+@property (nonatomic, strong) NSNumber* profileId;
 
 + (Profile *) initFromJsonDic:(NSDictionary*)dic;
 

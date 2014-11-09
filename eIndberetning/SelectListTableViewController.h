@@ -12,7 +12,7 @@
 enum ListTypes {RateList, EmploymentList};
 
 @interface SelectListTableViewController : UITableViewController
-@property (nonatomic, strong) NSMutableArray* items;
+@property (nonatomic, strong) NSArray* items;
 @property (nonatomic, strong) DriveReport* report;
 @property (nonatomic) enum ListTypes listType;
 @end

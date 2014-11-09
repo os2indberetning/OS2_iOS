@@ -16,10 +16,15 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateString = [dateFormatter stringFromDate:self.date];
     
+    if(self.manuelentryremark == nil)
+        self.manuelentryremark = @"";
+    
     NSDictionary *body = [NSMutableDictionary
-                          dictionaryWithObjectsAndKeys: dateString, @"date", self.purpose, @"purpose",
-                          self.manuelentryremark, @"manuelentryremark", @(self.didstarthome), @"didstarthome",
-                          @(self.didendhome), @"didendhome", [self.route transformToDictionary], @"route", nil];
+                          dictionaryWithObjectsAndKeys: dateString, @"Date", self.purpose.purpose, @"Purpose",
+                          self.manuelentryremark, @"ManualEntryRemark", @(self.didstarthome), @"didstarthome",
+                          @(self.didendhome), @"didendhome", [self.route transformToDictionary], @"route",
+                          self.employment.employmentId, @"EmploymentId", self.profileId, @"ProfileId",
+                          self.rate.rateid, @"RateId", nil];
     
     return body;
 }
