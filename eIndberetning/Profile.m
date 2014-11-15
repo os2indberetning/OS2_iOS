@@ -20,10 +20,17 @@
     p.FirstName = [[dic objectForKey:@"FirstName"] description];
     p.LastName = [[dic objectForKey:@"LastName"] description];
     
-    CLLocation* homeLoc = [[CLLocation alloc] initWithLatitude:[[dic objectForKey:@"HomeLatitude"] doubleValue] longitude:[[dic objectForKey:@"HomeLongitude"] doubleValue]];
-    p.homeCoordinate = homeLoc;
+    if([[dic objectForKey:@"HomeLatitude"] respondsToSelector:@selector (doubleValue)]  && [[dic objectForKey:@"HomeLongitude"] respondsToSelector:@selector (doubleValue)])
+    {
+        CLLocation* homeLoc = [[CLLocation alloc] initWithLatitude:[[dic objectForKey:@"HomeLatitude"] doubleValue] longitude:[[dic objectForKey:@"HomeLongitude"] doubleValue]];
+        p.homeCoordinate = homeLoc;
+    }
+    else
+    {
+        p.homeCoordinate = nil;
+    }
     
-    p.token = [Token initFromJsonDic:[dic objectForKey:@"token"]];
+    p.tokens = [Token initFromJsonDic:[dic objectForKey:@"Tokens"]];
     p.employments = [Employment initFromJsonDic:[dic objectForKey:@"Employments"]];
     
     p.profileId = @([[dic objectForKey:@"id"] integerValue]);

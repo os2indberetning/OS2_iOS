@@ -10,9 +10,10 @@
 
 @interface Token : NSObject
 
-@property (nonatomic, strong) NSString* token;
+@property (nonatomic, strong) NSString* guid;
+@property (nonatomic, strong) NSString* tokenString;
 @property (nonatomic, strong) NSString* status;
 
-+ (Token *) initFromJsonDic:(NSDictionary*)dic;
++ (NSArray *) initFromJsonDic:(NSDictionary*)dic;
 
 @end

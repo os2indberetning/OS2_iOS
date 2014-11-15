@@ -7,6 +7,7 @@
 //
 
 #import "SyncViewController.h"
+#import "UserInfo.h"
 
 @interface SyncViewController()
 
@@ -31,31 +32,35 @@ const double MIN_WAIT_TIME_S = 2;
 
 -(void) doSync
 {
+    UserInfo* info = [UserInfo sharedManager];
     self.syncStartTime = [NSDate date];
-    [self.client getUserDataWithBlock:^(NSURLSessionTask *task, id resonseObject)
+    
+    __weak SyncViewController *safeSelf = self;
+    
+    [self.client getUserDataForGuid:info.guid withBlock:^(NSURLSessionTask *task, id resonseObject)
     {
         NSLog(@"%@", resonseObject);
         
         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
         
-        self.profile = [Profile initFromJsonDic:profileDic];
-        self.rates = [Rate initFromJsonDic:rateDic];
+        safeSelf.profile = [Profile initFromJsonDic:profileDic];
+        safeSelf.rates = [Rate initFromJsonDic:rateDic];
         
-        if([[NSDate date] timeIntervalSinceDate:self.syncStartTime] > MIN_WAIT_TIME_S)
+        if([[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime] > MIN_WAIT_TIME_S)
         {
-            [self succesSync];
+            [safeSelf succesSync];
         }
         else
         {
-            [NSTimer scheduledTimerWithTimeInterval:MIN_WAIT_TIME_S-[[NSDate date] timeIntervalSinceDate:self.syncStartTime]  target:self selector:@selector(succesSync) userInfo:nil repeats:NO];
+            [NSTimer scheduledTimerWithTimeInterval:MIN_WAIT_TIME_S-[[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime]  target:safeSelf selector:@selector(succesSync) userInfo:nil repeats:NO];
         }
         
     }
     failBlock:^(NSURLSessionTask * task, NSError *Error)
     {
         NSLog(@"%@", Error);
-        [self failSync];
+        [safeSelf failSync];
          
     }];
 }

@@ -20,6 +20,7 @@
 #import "CoreDataManager.h"
 #import "SelectPurposeListTableViewController.h"
 #import "DriveReport.h"
+#import "AppDelegate.h"
 
 #import "ConfirmDeleteViewController.h"
 
@@ -132,6 +133,12 @@
     
     if(self.report.shouldReset)
         [self loadReport];
+    
+    if(!self.info.guid)
+    {
+        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+        [del changeToLoginView];
+    }
     
     if(self.report.purpose)
         self.purposeTextField.text = self.report.purpose.purpose;
@@ -250,13 +257,26 @@
     self.info.last_sync_date = [NSDate date];
     self.info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
     self.info.home_loc = profile.homeCoordinate;
-    self.info.token = profile.token.token;
     self.info.profileId = profile.profileId;
+    
+    for (Token* tkn in profile.tokens) {
+        if([tkn.guid isEqualToString:self.info.guid])
+        {
+            if(![tkn.status isEqualToString:@"1"])
+            {
+                self.info.guid = nil;
+            }
+            
+            break;
+        }
+    }
     
     [self.info saveInfo];
     
+
     [self loadReport];
 }
+
 
 #pragma mark - Navigation
 

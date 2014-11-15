@@ -38,29 +38,28 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     return self;
 }
 
--(void)getUserDataWithBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
-{
-    [self POST:@"UserData" parameters:nil success:succes failure:failure];
-}
-
-- (void)updateWeatherAtLocation:(CLLocation *)location forNumberOfDays:(NSUInteger)number
+-(void)syncWithToken:(NSString*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
 {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"Token"] = token;
     
-    parameters[@"num_of_days"] = @(number);
-    parameters[@"q"] = [NSString stringWithFormat:@"%f,%f",location.coordinate.latitude,location.coordinate.longitude];
-    parameters[@"format"] = @"json";
-    parameters[@"key"] = WorldWeatherOnlineAPIKey;
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+    NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"dic: %@", myString);
     
-    [self GET:@"weather.ashx" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        if ([self.delegate respondsToSelector:@selector(weatherHTTPClient:didUpdateWithWeather:)]) {
-            [self.delegate weatherHTTPClient:self didUpdateWithWeather:responseObject];
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        if ([self.delegate respondsToSelector:@selector(weatherHTTPClient:didFailWithError:)]) {
-            [self.delegate weatherHTTPClient:self didFailWithError:error];
-        }
-    }];
+    [self POST:@"syncWithToken" parameters:parameters success:succes failure:failure];
+}
+
+-(void)getUserDataForGuid:(NSString*)guid withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"guid"] = guid;
+    
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+    NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"dic: %@", myString);
+    
+    [self POST:@"UserData" parameters:parameters success:succes failure:failure];
 }
 
 - (void)postDriveReport:(DriveReport *)report forToken:(NSString*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure

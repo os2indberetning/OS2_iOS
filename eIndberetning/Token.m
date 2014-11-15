@@ -10,14 +10,21 @@
 
 @implementation Token
 
-+ (Token *) initFromJsonDic:(NSDictionary*)dic
-{
-    Token *t = [[Token alloc] init];
-    
-    t.token = [[dic objectForKey:@"TokenString"] description];
-    t.status = [[dic objectForKey:@"Status"] description];
 
-    return t;
++ (NSArray *) initFromJsonDic:(NSDictionary*)dic
+{
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary* token in dic) {
+        Token *t = [[Token alloc] init];
+        t.tokenString = [[token objectForKey:@"TokenString"] description];
+        t.status = [[token objectForKey:@"Status"] description];
+        t.guid = [[token objectForKey:@"GuId"] description];
+        
+        [array insertObject:t atIndex:0];
+    }
+    
+    return array;
 }
 
 @end

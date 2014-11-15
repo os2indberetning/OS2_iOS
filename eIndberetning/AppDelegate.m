@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "UserInfo.h"
 
 @interface AppDelegate ()
 
@@ -20,15 +21,7 @@
 
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    if(false){
-        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"coupleViewController"];
-        self.window.rootViewController = viewController;
-    } else {
-        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"startViewController"];
-        self.window.rootViewController = viewController;
-    }
+    [self chooseFirstView];
     
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -38,6 +31,38 @@
     // Override point for customization after application launch.
     
     return YES;
+}
+
+-(void)chooseFirstView
+{
+     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UserInfo* info = [UserInfo sharedManager];
+    
+    if(!info.guid){
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"coupleViewController"];
+        self.window.rootViewController = viewController;
+    } else {
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"startViewController"];
+        self.window.rootViewController = viewController;
+    }
+}
+
+-(void)changeToLoginView
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"coupleViewController"];
+    
+    for (id obj in [self.window subviews])
+    {
+        [obj removeFromSuperview];
+    }
+    
+    [UIView transitionWithView:self.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{ self.window.rootViewController = viewController; }
+                    completion:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

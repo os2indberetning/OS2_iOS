@@ -13,7 +13,7 @@
 #import "Purpose.h"
 
 @interface UserInfo : NSObject
-@property (nonatomic, strong) NSString* token;
+@property (nonatomic, strong) NSString* guid;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) CLLocation* home_loc;
 @property (nonatomic, strong) NSNumber* profileId;

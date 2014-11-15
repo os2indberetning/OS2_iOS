@@ -18,13 +18,7 @@
 
 + (eMobilityHTTPSClient *)sharedeMobilityHTTPSClient;
 - (instancetype)initWithBaseURL:(NSURL *)url;
--(void)getUserDataWithBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
-- (void)updateWeatherAtLocation:(CLLocation *)location forNumberOfDays:(NSUInteger)number;
+-(void)getUserDataForGuid:(NSString*)guid withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
+-(void)syncWithToken:(NSString*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 - (void)postDriveReport:(DriveReport *)report forToken:(NSString*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
-@end
-
-@protocol WeatherHTTPClientDelegate <NSObject>
-@optional
--(void)weatherHTTPClient:(eMobilityHTTPSClient *)client didUpdateWithWeather:(id)weather;
--(void)weatherHTTPClient:(eMobilityHTTPSClient *)client didFailWithError:(NSError *)error;
 @end
