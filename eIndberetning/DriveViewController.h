@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "DriveReport.h"
 #import "ConfirmEndDriveViewController.h"
+#import "GPSManager.h"
 
-@interface DriveViewController : UIViewController <EndDrivePopupDelegate>
+@interface DriveViewController : UIViewController <EndDrivePopupDelegate, GPSUpdateDelegate>
 @property (nonatomic,strong) DriveReport* report;
 @end

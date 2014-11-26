@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "DriveReport.h"
 
+@protocol DidUploadDelegate
+-(void)didFinishUpload;
+@end
+
 @interface UploadDriveViewController : UIViewController
 @property (nonatomic,strong) DriveReport* report;
+@property (strong,nonatomic) id <DidUploadDelegate> delegate;
 @end

@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
-
+@property (nonatomic, strong) NSString* errorString;
 @end
 
 @implementation ErrorMsgViewController
@@ -20,6 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.titleLabel.text = @"Fejl";
+    self.errorLabel.text = self.errorString;
     
     self.okButton.layer.cornerRadius = 2;
 }
@@ -35,9 +37,7 @@
 
 -(void)showErrorMsg:(NSString*)error
 {
-    self.errorLabel.text = error;
-    self.titleLabel.text = @"Fejl";
-    
+    self.errorString= error;
     [self showInView:[UIApplication sharedApplication].keyWindow  animated:YES];
 }
 

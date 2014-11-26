@@ -20,9 +20,18 @@
     p.FirstName = [[dic objectForKey:@"FirstName"] description];
     p.LastName = [[dic objectForKey:@"LastName"] description];
     
-    if([[dic objectForKey:@"HomeLatitude"] respondsToSelector:@selector (doubleValue)]  && [[dic objectForKey:@"HomeLongitude"] respondsToSelector:@selector (doubleValue)])
+    
+    
+    if([[dic objectForKey:@"HomeLatitude"] respondsToSelector:@selector (floatValue)]  && [[dic objectForKey:@"HomeLongitude"] respondsToSelector:@selector (floatValue)])
     {
-        CLLocation* homeLoc = [[CLLocation alloc] initWithLatitude:[[dic objectForKey:@"HomeLatitude"] doubleValue] longitude:[[dic objectForKey:@"HomeLongitude"] doubleValue]];
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [formatter setDecimalSeparator:@","];
+        
+        NSNumber *lat = [formatter numberFromString:[[dic valueForKey:@"HomeLatitude"] description] ];
+        NSNumber *lng = [formatter numberFromString:[[dic valueForKey:@"HomeLongitude"] description] ];
+        
+        CLLocation* homeLoc = [[CLLocation alloc] initWithLatitude:[lat floatValue] longitude:[lng floatValue]];
         p.homeCoordinate = homeLoc;
     }
     else
@@ -33,7 +42,7 @@
     p.tokens = [Token initFromJsonDic:[dic objectForKey:@"Tokens"]];
     p.employments = [Employment initFromJsonDic:[dic objectForKey:@"Employments"]];
     
-    p.profileId = @([[dic objectForKey:@"id"] integerValue]);
+    p.profileId = @([[dic objectForKey:@"Id"] integerValue]);
     return p;
 }
 

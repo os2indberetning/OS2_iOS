@@ -18,7 +18,7 @@
     for (NSDictionary* employment in dic) {
         Employment* e = [[Employment alloc] init];
         e.employmentPosition = [[employment objectForKey:@"EmploymentPosition"] description];
-        e.employmentId = @([[employment objectForKey:@"id"] integerValue]);
+        e.employmentId = @([[employment objectForKey:@"Id"] integerValue]);
         [array insertObject:e atIndex:0];
     }
     

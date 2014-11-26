@@ -62,11 +62,11 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     [self POST:@"UserData" parameters:parameters success:succes failure:failure];
 }
 
-- (void)postDriveReport:(DriveReport *)report forToken:(NSString*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
+- (void)postDriveReport:(DriveReport *)report forGuid:(NSString*)guid withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
 {
     NSMutableDictionary* dic = [[report transformToDictionary] mutableCopy];
     
-    [dic setObject:token forKey:@"token"];
+    [dic setObject:guid forKey:@"guid"];
     
     NSError * err;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&err];

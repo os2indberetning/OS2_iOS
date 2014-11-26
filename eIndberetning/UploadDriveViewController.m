@@ -31,7 +31,7 @@ const double WAIT_TIME_S = 1.5;
     UserInfo* info = [UserInfo sharedManager];
     eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
     
-    [client postDriveReport:self.report forToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
+    [client postDriveReport:self.report forGuid:info.guid withBlock:^(NSURLSessionTask *task, id resonseObject)
      {
         self.infoText.text = @"Din indberetning er modtaget.";
         [NSTimer scheduledTimerWithTimeInterval:WAIT_TIME_S target:self selector:@selector(succesSync) userInfo:nil repeats:NO];
@@ -45,7 +45,9 @@ const double WAIT_TIME_S = 1.5;
 
 -(void) succesSync
 {
-    [self.navigationController popToRootViewControllerAnimated:true];
+    //TODO: delgate that send us back!
+    [self dismissViewControllerAnimated:true completion:nil];
+    [self.delegate didFinishUpload];
 }
 
 - (void) failSync

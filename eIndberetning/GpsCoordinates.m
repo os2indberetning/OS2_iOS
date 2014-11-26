@@ -13,9 +13,9 @@
 
 - (NSDictionary *) transformToDictionary
 {
-    //TODO: Change this!
+    //TODO: reduce data drastically by making timestring, lat, and lng int types...
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *timeString = [dateFormatter stringFromDate:self.loc.timestamp];
     
     NSDictionary *body = [NSMutableDictionary

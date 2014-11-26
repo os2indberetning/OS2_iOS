@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TXz-8M-f9l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TXz-8M-f9l">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -17,14 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YpA-jw-KCg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.0" green="0.40000000596046448" blue="0.37254902720451355" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bZ-Nv-7KL">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="ozb-k2-wEi"/>
+                                    <constraint firstAttribute="height" constant="46" id="ozb-k2-wEi">
+                                        <variation key="widthClass=compact" constant="50"/>
+                                    </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
-                                <state key="normal" title="OK">
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                <state key="normal" title="Par Telefon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -42,14 +48,14 @@
                                     <action selector="okButtonPressed:" destination="TXz-8M-f9l" eventType="touchUpInside" id="3Zy-8t-Ssg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="07860557" borderStyle="bezel" placeholder="Parringskode" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-SB-gLn" userLabel="TextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tast Parringskode" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-SB-gLn" userLabel="TextField">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8Tw-AA-at4">
-                                        <variation key="widthClass=compact" constant="44"/>
+                                        <variation key="widthClass=compact" constant="55"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -62,19 +68,22 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Detaljeret forklaring af hvordan der oprettes en parringskode" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4E-CS-dtX">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4E-CS-dtX">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                <mutableString key="text">For at bruge appen skal du parre din telefon med din bruger på eindbertning.
+
+For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på eIndberetning med din telefon.  Du laver et token ved at gå ind under din brugerprofil og trykke "Tilføj Token".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</mutableString>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indtast Token" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef9-6F-WQl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parring af Telefon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef9-6F-WQl">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RS9-Jh-pne"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -93,29 +102,43 @@
                             <constraint firstAttribute="centerY" secondItem="MHD-SB-gLn" secondAttribute="centerY" id="3R3-zh-rHd"/>
                             <constraint firstItem="h4E-CS-dtX" firstAttribute="leading" secondItem="e80-D8-uHZ" secondAttribute="leading" constant="16" id="AI3-Bi-xs7"/>
                             <constraint firstAttribute="trailing" secondItem="MHD-SB-gLn" secondAttribute="trailing" constant="16" id="Fwv-wl-auD"/>
+                            <constraint firstItem="YpA-jw-KCg" firstAttribute="top" secondItem="e80-D8-uHZ" secondAttribute="top" id="NM4-rK-ZZF"/>
                             <constraint firstAttribute="trailing" secondItem="ef9-6F-WQl" secondAttribute="trailing" constant="8" id="PqK-TB-LRK"/>
                             <constraint firstItem="7bZ-Nv-7KL" firstAttribute="top" secondItem="MHD-SB-gLn" secondAttribute="bottom" constant="16" id="RIw-In-Bx7"/>
                             <constraint firstItem="MHD-SB-gLn" firstAttribute="top" secondItem="h4E-CS-dtX" secondAttribute="bottom" constant="16" id="Stj-nV-SJ3"/>
                             <constraint firstItem="ef9-6F-WQl" firstAttribute="leading" secondItem="e80-D8-uHZ" secondAttribute="leading" constant="8" id="W1T-gL-YqZ"/>
                             <constraint firstItem="7bZ-Nv-7KL" firstAttribute="leading" secondItem="e80-D8-uHZ" secondAttribute="leading" constant="16" id="YRt-qg-O1W"/>
-                            <constraint firstItem="h4E-CS-dtX" firstAttribute="top" secondItem="MHD-SB-gLn" secondAttribute="bottom" constant="16" id="Ybn-Pc-wnm"/>
+                            <constraint firstItem="h4E-CS-dtX" firstAttribute="top" secondItem="MHD-SB-gLn" secondAttribute="bottom" constant="16" id="Ybn-Pc-wnm">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
                             <constraint firstItem="MHD-SB-gLn" firstAttribute="leading" secondItem="e80-D8-uHZ" secondAttribute="leading" constant="16" id="bK8-k8-A5V"/>
+                            <constraint firstItem="YpA-jw-KCg" firstAttribute="leading" secondItem="e80-D8-uHZ" secondAttribute="leading" id="bw9-0a-1Oo"/>
                             <constraint firstItem="7bZ-Nv-7KL" firstAttribute="top" secondItem="h4E-CS-dtX" secondAttribute="bottom" constant="16" id="c0u-d2-3zd"/>
                             <constraint firstAttribute="centerX" secondItem="MHD-SB-gLn" secondAttribute="centerX" id="c6M-Hu-yvt"/>
                             <constraint firstItem="iiT-iZ-1z4" firstAttribute="top" secondItem="7bZ-Nv-7KL" secondAttribute="bottom" constant="16" id="d7d-Sm-BTg"/>
                             <constraint firstAttribute="trailing" secondItem="h4E-CS-dtX" secondAttribute="trailing" constant="16" id="elc-XI-39W"/>
                             <constraint firstAttribute="trailing" secondItem="7bZ-Nv-7KL" secondAttribute="trailing" constant="16" id="nyl-Zs-frB"/>
                             <constraint firstItem="ef9-6F-WQl" firstAttribute="top" secondItem="vhQ-G8-rpH" secondAttribute="bottom" constant="8" id="pLC-yU-ImE"/>
-                            <constraint firstItem="MHD-SB-gLn" firstAttribute="top" secondItem="ef9-6F-WQl" secondAttribute="bottom" constant="16" id="wka-XE-75M"/>
+                            <constraint firstAttribute="trailing" secondItem="YpA-jw-KCg" secondAttribute="trailing" id="s0V-7Q-mJj"/>
+                            <constraint firstItem="MHD-SB-gLn" firstAttribute="top" secondItem="ef9-6F-WQl" secondAttribute="bottom" constant="16" id="wka-XE-75M">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="MHD-SB-gLn" firstAttribute="top" secondItem="YpA-jw-KCg" secondAttribute="bottom" constant="16" id="z1D-CL-YpH">
+                                <variation key="widthClass=compact" constant="16"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="YpA-jw-KCg"/>
                                 <exclude reference="7bZ-Nv-7KL"/>
                                 <exclude reference="MHD-SB-gLn"/>
                                 <exclude reference="h4E-CS-dtX"/>
                                 <exclude reference="ef9-6F-WQl"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="NM4-rK-ZZF"/>
+                                <exclude reference="bw9-0a-1Oo"/>
+                                <exclude reference="s0V-7Q-mJj"/>
                                 <exclude reference="PqK-TB-LRK"/>
                                 <exclude reference="W1T-gL-YqZ"/>
                                 <exclude reference="pLC-yU-ImE"/>
@@ -125,6 +148,7 @@
                                 <exclude reference="bK8-k8-A5V"/>
                                 <exclude reference="c6M-Hu-yvt"/>
                                 <exclude reference="wka-XE-75M"/>
+                                <exclude reference="z1D-CL-YpH"/>
                                 <exclude reference="AI3-Bi-xs7"/>
                                 <exclude reference="Ybn-Pc-wnm"/>
                                 <exclude reference="elc-XI-39W"/>
@@ -137,12 +161,16 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="YpA-jw-KCg"/>
                                 <include reference="7bZ-Nv-7KL"/>
                                 <include reference="MHD-SB-gLn"/>
                                 <include reference="h4E-CS-dtX"/>
                                 <include reference="ef9-6F-WQl"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="NM4-rK-ZZF"/>
+                                <include reference="bw9-0a-1Oo"/>
+                                <include reference="s0V-7Q-mJj"/>
                                 <include reference="PqK-TB-LRK"/>
                                 <include reference="W1T-gL-YqZ"/>
                                 <include reference="pLC-yU-ImE"/>
@@ -152,6 +180,7 @@
                                 <include reference="bK8-k8-A5V"/>
                                 <exclude reference="c6M-Hu-yvt"/>
                                 <include reference="wka-XE-75M"/>
+                                <include reference="z1D-CL-YpH"/>
                                 <include reference="AI3-Bi-xs7"/>
                                 <include reference="Ybn-Pc-wnm"/>
                                 <include reference="elc-XI-39W"/>
@@ -166,6 +195,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="Dan-aY-4b6"/>
                     <connections>
+                        <outlet property="couplePhoneButton" destination="7bZ-Nv-7KL" id="X8d-Y1-tev"/>
                         <outlet property="textField" destination="MHD-SB-gLn" id="t8J-SQ-dc0"/>
                         <segue destination="zml-au-bYr" kind="presentation" identifier="ShowStartViewSegue" id="XOD-OP-EGL"/>
                     </connections>
@@ -482,7 +512,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voldssag i hjemmet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-sD-uU4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-sD-uU4">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Yvg-72-UTG"/>
@@ -568,7 +598,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sygeplejeske" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8e-Ea-PMP">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8e-Ea-PMP">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="YpR-Fc-v7A"/>
@@ -654,7 +684,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volvo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buc-cq-Bwh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buc-cq-Bwh">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="aY1-Nh-Mxd"/>
@@ -744,7 +774,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -976,6 +1006,7 @@
                         <outlet property="organisationalPlaceTextField" destination="n8e-Ea-PMP" id="0tG-7O-eYb"/>
                         <outlet property="purposeTextField" destination="Xo4-sD-uU4" id="zk8-Jy-stF"/>
                         <outlet property="startAtHomeCheckbox" destination="Uiv-AI-pmf" id="mnM-Y0-l8M"/>
+                        <outlet property="startDriveButton" destination="wdb-Cw-iqX" id="Y0q-O8-Ye1"/>
                         <outlet property="taskTextField" destination="buc-cq-Bwh" id="N77-pt-5Tx"/>
                         <segue destination="GgH-KL-Jqi" kind="presentation" identifier="ShowSyncSegue" modalTransitionStyle="flipHorizontal" id="RaB-t6-Xcm"/>
                         <segue destination="sc4-T7-ILl" kind="show" identifier="DriveViewSegue" id="xs8-c1-WzO"/>
@@ -983,7 +1014,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbq-Ml-2jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-211.5" y="156"/>
+            <point key="canvasLocation" x="-208.5" y="163"/>
         </scene>
         <!--Drive View Controller-->
         <scene sceneID="YR7-jW-L4z">
@@ -1192,7 +1223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9z-rN-b4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="141"/>
+            <point key="canvasLocation" x="633" y="163"/>
         </scene>
         <!--Afslut Kørsel-->
         <scene sceneID="cFe-b4-CRB">
@@ -1326,7 +1357,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voldssag i hjemmet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCB-sy-Bgi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCB-sy-Bgi">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="p9I-15-cKG"/>
@@ -1414,7 +1445,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sygeplejekse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-mn-aeX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-mn-aeX">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="sfX-DB-uJc"/>
@@ -1502,7 +1533,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bil, Høj Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQQ-d6-mim">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQQ-d6-mim">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="nHa-ax-qJz"/>
@@ -1678,7 +1709,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyf-1u-ogh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyf-1u-ogh">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Upu-Sz-gc9"/>
@@ -2062,12 +2093,14 @@
                     <connections>
                         <outlet property="commentTextLabel" destination="fep-SP-cmS" id="XrT-mY-549"/>
                         <outlet property="dateLabel" destination="zIi-Kr-0FQ" id="Np4-4r-QfF"/>
+                        <outlet property="deleteButton" destination="hZa-j1-WXp" id="qaF-zd-v3j"/>
                         <outlet property="endAtHomeCheckbox" destination="OHp-y7-Z0l" id="jr7-gU-b2T"/>
                         <outlet property="kmDrivenLabel" destination="kyf-1u-ogh" id="Oxb-OB-E2n"/>
                         <outlet property="organisationalPlaceTextLabel" destination="7qg-mn-aeX" id="zJK-m6-TD2"/>
                         <outlet property="purposeTextLabel" destination="YCB-sy-Bgi" id="f2V-7s-8SC"/>
                         <outlet property="rateTextLabel" destination="FQQ-d6-mim" id="WFN-KS-Svl"/>
                         <outlet property="startAtHomeCheckbox" destination="7lI-NR-kBx" id="fQ6-1a-dYh"/>
+                        <outlet property="uploadButton" destination="OJv-Sx-mnR" id="bhJ-48-9bS"/>
                         <outlet property="userTextLabel" destination="9nq-AO-Xvk" id="6Ag-tk-yNT"/>
                         <segue destination="GgH-KL-Jqi" kind="presentation" identifier="ShowSyncSegue" modalTransitionStyle="flipHorizontal" id="FW7-xU-rGU"/>
                         <segue destination="0bn-hB-d0x" kind="presentation" identifier="UploadDriveSegue" id="jDN-0C-tSe"/>

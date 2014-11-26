@@ -55,6 +55,7 @@
 		F5E87BFA1A08C7230092E350 /* CDEmployment.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E87BF91A08C7230092E350 /* CDEmployment.m */; };
 		F5E87BFD1A08C7780092E350 /* CDRate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E87BFC1A08C7780092E350 /* CDRate.m */; };
 		F5E87C001A08D1100092E350 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E87BFF1A08D1100092E350 /* CoreDataManager.m */; };
+		F5F55B2A1A266D3E00F193D0 /* GPSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F55B291A266D3E00F193D0 /* GPSManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,8 @@
 		F5E87BFC1A08C7780092E350 /* CDRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDRate.m; sourceTree = "<group>"; };
 		F5E87BFE1A08D1100092E350 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		F5E87BFF1A08D1100092E350 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		F5F55B281A266D3E00F193D0 /* GPSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSManager.h; sourceTree = "<group>"; };
+		F5F55B291A266D3E00F193D0 /* GPSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +373,8 @@
 				F5690EC919FFC96200B9C3B4 /* eMobilityHTTPSClient.m */,
 				F5E87BFE1A08D1100092E350 /* CoreDataManager.h */,
 				F5E87BFF1A08D1100092E350 /* CoreDataManager.m */,
+				F5F55B281A266D3E00F193D0 /* GPSManager.h */,
+				F5F55B291A266D3E00F193D0 /* GPSManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 				F58EC0A219FE975D0010AC96 /* Employment.m in Sources */,
 				F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */,
 				F5690EC019FF7C7500B9C3B4 /* AddPurposeTableViewCell.m in Sources */,
+				F5F55B2A1A266D3E00F193D0 /* GPSManager.m in Sources */,
 				F58EC0B219FEBEFF0010AC96 /* ManualEntryViewController.m in Sources */,
 				F56E0A2D19D2A40C00B6CA1F /* InitialVIewController.m in Sources */,
 				F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */,

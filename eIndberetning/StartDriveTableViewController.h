@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "SyncViewController.h"
+#import "GPSManager.h"
 
-@interface StartDriveTableViewController : UITableViewController <DidSyncDelegate>
+@interface StartDriveTableViewController : UITableViewController <DidSyncDelegate,GPSUpdateDelegate>
 
 @end

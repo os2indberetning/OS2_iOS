@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *startDriveButton;
 
 @property (strong, nonatomic) ErrorMsgViewController* errorMsg;
 @property (strong, nonatomic) NSArray *rates;
@@ -43,6 +44,7 @@
 @property (strong,nonatomic) UserInfo* info;
 
 @property (nonatomic) BOOL shouldSync;
+@property (nonatomic, strong) GPSManager* gpsManager;
 @property (nonatomic,strong) CoreDataManager* CDManager;
 @end
 
@@ -62,6 +64,8 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
+    self.startDriveButton.layer.cornerRadius = 1.5f;
+    
     //Compare last sync date and current date, to see if we should sync, or simply load from coredata
     self.info = [UserInfo sharedManager];
     [self.info loadInfo];
@@ -138,6 +142,14 @@
     {
         AppDelegate* del =  [[UIApplication sharedApplication] delegate];
         [del changeToLoginView];
+    }
+    
+    self.gpsManager = [GPSManager sharedGPSManager];
+    
+    if(![self.gpsManager.delegate isEqual:self])
+    {
+        self.gpsManager.delegate = self;
+        [self.gpsManager startGPS];
     }
     
     if(self.report.purpose)
@@ -275,6 +287,57 @@
     
 
     [self loadReport];
+}
+
+#pragma mark GPSUpdateDelegate
+
+-(void)showGPSPermissionDenied
+{
+    NSString* title = @"Lokation er ikke tilgængelig";
+    NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig";
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:@"Afbryd"
+                                              otherButtonTitles:@"Indstillinger", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        // Send the user to the Settings for this app
+        NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        [[UIApplication sharedApplication] openURL:settingsURL];
+    }
+    else
+    {
+        [self.navigationController popToRootViewControllerAnimated:true];
+    }
+}
+
+-(void)gotNewGPSCoordinate:(CLLocation *)location
+{
+    if (location.horizontalAccuracy < 200)
+    {
+        NSLog(@"Accuracy %f", location.horizontalAccuracy);
+        
+        if([location distanceFromLocation:self.info.home_loc] < 500)
+        {
+           self.report.didstarthome = true;
+           NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
+           self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
+           
+           NSLog(@"Is close to home");
+        }
+        else
+        {
+           NSLog(@"Is not close to home");
+        }
+    
+        [self.gpsManager stopGPS];
+    }
 }
 
 

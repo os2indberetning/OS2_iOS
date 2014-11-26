@@ -20,7 +20,7 @@
         
         r.kmrate = @([[rate objectForKey:@"KmRate"] integerValue]);
         r.tfcode = @([[rate objectForKey:@"TFCode"] integerValue]);
-        r.rateid = @([[rate objectForKey:@"id"] integerValue]);
+        r.rateid = @([[rate objectForKey:@"Id"] integerValue]);
         
         r.type = [[rate objectForKey:@"Type"] description];
         [array insertObject:r atIndex:0];

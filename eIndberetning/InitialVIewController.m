@@ -14,6 +14,7 @@
 
 @interface InitialVIewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIButton *couplePhoneButton;
 @property (strong, nonatomic) eMobilityHTTPSClient *client;
 @end
 
@@ -22,7 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-        
+    
+    self.couplePhoneButton.layer.cornerRadius = 1.5f;
+    
     self.textField.delegate = self;
     self.client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
 }
@@ -65,8 +68,14 @@
      }
      failBlock:^(NSURLSessionTask * task, NSError *Error)
      {
-         NSLog(@"%@", Error);
+         CAKeyframeAnimation * anim = [ CAKeyframeAnimation animationWithKeyPath:@"transform" ] ;
+         anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-5.0f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(5.0f, 0.0f, 0.0f) ] ] ;
+         anim.autoreverses = YES ;
+         anim.repeatCount = 2.0f ;
+         anim.duration = 0.07f ;
          
+         [ self.textField.layer addAnimation:anim forKey:nil ] ;
+         NSLog(@"%@", Error);
      }];
     
 }

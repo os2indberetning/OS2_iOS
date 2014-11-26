@@ -10,17 +10,21 @@
 #import <CoreLocation/CoreLocation.h>
 #import "FinishDriveTableViewController.h"
 #import "GpsCoordinates.h"
+#import "UserInfo.h"
+
 
 @interface DriveViewController ()  <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *distanceDrivenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
 
-@property (strong, nonatomic) CLLocationManager* locationManager;
+@property (nonatomic, strong) GPSManager* gpsManager;
+@property (nonatomic, strong) UserInfo* ui;
+
 @property (strong, nonatomic)  CLLocation *locA;
 @property (weak, nonatomic) IBOutlet UILabel *gpsAccuaryLabel;
 @property (strong, nonatomic) NSDateFormatter *timeFormatter;
-
+@property (nonatomic) BOOL isCloseToHome;
 @property (nonatomic) float totalDistance;
 
 @property (strong, nonatomic) ConfirmEndDriveViewController* confirmPopup;
@@ -35,14 +39,19 @@
     self.finishButton.layer.cornerRadius = 1.5f;
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
-    [self startGPS];
+    self.gpsManager = [GPSManager sharedGPSManager];
+    self.gpsManager.delegate = self;
+    [self.gpsManager startGPS];
     
     self.distanceDrivenLabel.text = @"- km";
     self.lastUpdatedLabel.text = @"Venter på gyldigt GPS signal";
     self.totalDistance = 0;
+    self.isCloseToHome = false;
     
     self.timeFormatter = [[NSDateFormatter alloc] init];
     [self.timeFormatter setDateFormat:@"HH.mm.ss"];
+    
+    self.ui = [UserInfo sharedManager];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +75,7 @@
 
 -(void)endDrive
 {
-    [self stopGPS];
+    [self.gpsManager stopGPS];
     [self performSegueWithIdentifier:@"EndDriveSegue" sender:self];
 }
 
@@ -75,43 +84,63 @@
     self.report.didendhome = selectedState;
 }
 
-#pragma mark - GPS Handling
-- (void)startGPS
-{
-    if (nil == self.locationManager)
-        self.locationManager = [[CLLocationManager alloc] init];
+#pragma mark - Navigation
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    [self requestAuthorization];
-    
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-    
-    self.locationManager.pausesLocationUpdatesAutomatically = YES;
-    self.locationManager.activityType = CLActivityTypeAutomotiveNavigation;
-    
-    // Set a movement threshold for new events.
-    self.locationManager.distanceFilter = 50; // meters
-    
-    [self.locationManager startUpdatingLocation];
+    if ([[segue identifier] isEqualToString:@"EndDriveSegue"])
+    {
+        self.report.route.totalDistanceEdit = @(ceil(self.totalDistance/1000.0f));
+        self.report.route.totalDistanceMeasure = @(ceil(self.totalDistance/1000.0f));
+        
+        FinishDriveTableViewController *vc = [segue destinationViewController];
+        vc.report = self.report;
+    }
 }
 
-- (void)stopGPS
+
+
+
+#pragma mark GPSUpdateDelegate
+
+-(void)showGPSPermissionDenied
 {
-    [self.locationManager stopUpdatingLocation];
+    NSString* title = @"Lokation er ikke tilgængelig";
+    NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig";
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:@"Afbryd"
+                                              otherButtonTitles:@"Indstillinger", nil];
+    [alertView show];
 }
 
-// Delegate method from the CLLocationManagerDelegate protocol.
-- (void)locationManager:(CLLocationManager *)manager
-     didUpdateLocations:(NSArray *)locations {
-    // If it's a relatively recent event, turn off updates to save power.
-    CLLocation* location = [locations lastObject];
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        // Send the user to the Settings for this app
+        NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        [[UIApplication sharedApplication] openURL:settingsURL];
+    }
+    else
+    {
+        [self.navigationController popToRootViewControllerAnimated:true];
+    }
+}
+
+-(void)didUpdatePrecision:(float)precision
+{
+    self.gpsAccuaryLabel.text = [NSString stringWithFormat:@"GPS nøjagtighed: %.2f m", precision];
+}
+
+-(void)gotNewGPSCoordinate:(CLLocation *)location
+{
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     
-    self.gpsAccuaryLabel.text = [NSString stringWithFormat:@"GPS nøjagtighed: %.2f m", location.horizontalAccuracy];
-    
-    if (abs(howRecent) < 15.0 && location.horizontalAccuracy < 50) {
-        
+    if (abs(howRecent) < 15.0 && location.horizontalAccuracy < 50)
+    {
         CLLocationDegrees lat = location.coordinate.latitude;
         CLLocationDegrees lng = location.coordinate.longitude;
         
@@ -142,71 +171,9 @@
         
         [self.report.route.coordinates insertObject:cor atIndex:0];
         
-        // If the event is recent, do something with it.
-        /*NSLog(@"latitude %+.6f, longitude %+.6f\n",
-              location.coordinate.latitude,
-              location.coordinate.longitude);*/
-    }
-    else
-    {
+        //Set if we are currently close to home
+        self.isCloseToHome = ([self.locA distanceFromLocation:self.ui.home_loc] < 500);
     }
 }
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"%@", error.localizedDescription);
-}
-
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"EndDriveSegue"])
-    {
-        self.report.route.totalDistanceEdit = @(ceil(self.totalDistance/1000.0f));
-        self.report.route.totalDistanceMeasure = @(ceil(self.totalDistance/1000.0f));
-        
-        FinishDriveTableViewController *vc = [segue destinationViewController];
-        vc.report = self.report;
-    }
-}
-
-#pragma mark - GPS Permission
-- (void)requestAuthorization
-{
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    
-    // If the status is denied display an alert
-    if (status == kCLAuthorizationStatusDenied) {
-        NSString *title;
-        
-        title = @"Lokation er ikke tilgængelig";
-        NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig";
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                            message:message
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Afbryd"
-                                                  otherButtonTitles:@"Indstillinger", nil];
-        [alertView show];
-    }
-    // The user has not enabled any location services. Request background authorization.
-    else if (status == kCLAuthorizationStatusNotDetermined) {
-        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-            [self.locationManager requestAlwaysAuthorization];
-        }
-    }
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        // Send the user to the Settings for this app
-        NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-        [[UIApplication sharedApplication] openURL:settingsURL];
-    }
-    else
-    {
-        [self.navigationController popToRootViewControllerAnimated:true];
-    }
-}
 @end

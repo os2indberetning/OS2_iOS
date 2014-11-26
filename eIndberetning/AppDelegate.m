@@ -37,6 +37,7 @@
 {
      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
     
     if(!info.guid){
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"coupleViewController"];

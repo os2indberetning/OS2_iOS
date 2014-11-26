@@ -17,7 +17,7 @@
 #import "UIColor+CustomColor.h"
 #import "CoreDataManager.h"
 #import "ErrorMsgViewController.h"
-#import "UploadDriveViewController.h"
+
 
 @interface FinishDriveTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *purposeTextLabel;
@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *endAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *kmDrivenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userTextLabel;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 
 
 @property (strong, nonatomic) NSArray *rates;
@@ -58,6 +60,9 @@
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationItem setHidesBackButton:YES];
     self.tableView.rowHeight = 44;
+    
+    self.deleteButton.layer.cornerRadius = 1.5f;
+    self.uploadButton.layer.cornerRadius = 1.5f;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor favrOrangeColor];
@@ -221,6 +226,14 @@
     }
 }
 
+#pragma mark - Finish Upload
+
+-(void)didFinishUpload
+{
+    self.report.shouldReset = true;
+    [self.navigationController popToRootViewControllerAnimated:true];
+}
+
 #pragma mark - Sync
 
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
@@ -240,7 +253,19 @@
     self.info.last_sync_date = [NSDate date];
     self.info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
     self.info.home_loc = profile.homeCoordinate;
-    self.info.token = profile.token.token;
+
+    for (Token* tkn in profile.tokens) {
+        if([tkn.guid isEqualToString:self.info.guid])
+        {
+            if(![tkn.status isEqualToString:@"1"])
+            {
+                self.info.guid = nil;
+            }
+            
+            break;
+        }
+    }
+    
     [self.info saveInfo];
     
     [self reloadReport];
@@ -285,6 +310,7 @@
     {
         UploadDriveViewController *vc = [segue destinationViewController];
         vc.report = self.report;
+        vc.delegate = self;
     }
 }
 
