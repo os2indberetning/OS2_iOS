@@ -71,9 +71,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4E-CS-dtX">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">For at bruge appen skal du parre din telefon med din bruger på eindbertning.
+                                <string key="text">For at bruge appen skal du parre din telefon med din bruger på eindbertning.
 
-For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på eIndberetning med din telefon.  Du laver et token ved at gå ind under din brugerprofil og trykke "Tilføj Token".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</mutableString>
+For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på eIndberetning med din telefon.  Du laver et token ved at gå ind under din brugerprofil og trykke "Tilføj Token".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</string>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -136,12 +136,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <exclude reference="ef9-6F-WQl"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="NM4-rK-ZZF"/>
-                                <exclude reference="bw9-0a-1Oo"/>
-                                <exclude reference="s0V-7Q-mJj"/>
-                                <exclude reference="PqK-TB-LRK"/>
-                                <exclude reference="W1T-gL-YqZ"/>
-                                <exclude reference="pLC-yU-ImE"/>
                                 <exclude reference="3R3-zh-rHd"/>
                                 <exclude reference="Fwv-wl-auD"/>
                                 <exclude reference="Stj-nV-SJ3"/>
@@ -149,14 +143,20 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <exclude reference="c6M-Hu-yvt"/>
                                 <exclude reference="wka-XE-75M"/>
                                 <exclude reference="z1D-CL-YpH"/>
-                                <exclude reference="AI3-Bi-xs7"/>
-                                <exclude reference="Ybn-Pc-wnm"/>
-                                <exclude reference="elc-XI-39W"/>
+                                <exclude reference="PqK-TB-LRK"/>
+                                <exclude reference="W1T-gL-YqZ"/>
+                                <exclude reference="pLC-yU-ImE"/>
+                                <exclude reference="d7d-Sm-BTg"/>
                                 <exclude reference="RIw-In-Bx7"/>
                                 <exclude reference="YRt-qg-O1W"/>
                                 <exclude reference="c0u-d2-3zd"/>
                                 <exclude reference="nyl-Zs-frB"/>
-                                <exclude reference="d7d-Sm-BTg"/>
+                                <exclude reference="AI3-Bi-xs7"/>
+                                <exclude reference="Ybn-Pc-wnm"/>
+                                <exclude reference="elc-XI-39W"/>
+                                <exclude reference="NM4-rK-ZZF"/>
+                                <exclude reference="bw9-0a-1Oo"/>
+                                <exclude reference="s0V-7Q-mJj"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -168,12 +168,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <include reference="ef9-6F-WQl"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="NM4-rK-ZZF"/>
-                                <include reference="bw9-0a-1Oo"/>
-                                <include reference="s0V-7Q-mJj"/>
-                                <include reference="PqK-TB-LRK"/>
-                                <include reference="W1T-gL-YqZ"/>
-                                <include reference="pLC-yU-ImE"/>
                                 <exclude reference="3R3-zh-rHd"/>
                                 <include reference="Fwv-wl-auD"/>
                                 <exclude reference="Stj-nV-SJ3"/>
@@ -181,14 +175,20 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <exclude reference="c6M-Hu-yvt"/>
                                 <include reference="wka-XE-75M"/>
                                 <include reference="z1D-CL-YpH"/>
-                                <include reference="AI3-Bi-xs7"/>
-                                <include reference="Ybn-Pc-wnm"/>
-                                <include reference="elc-XI-39W"/>
+                                <include reference="PqK-TB-LRK"/>
+                                <include reference="W1T-gL-YqZ"/>
+                                <include reference="pLC-yU-ImE"/>
+                                <include reference="d7d-Sm-BTg"/>
                                 <exclude reference="RIw-In-Bx7"/>
                                 <include reference="YRt-qg-O1W"/>
                                 <include reference="c0u-d2-3zd"/>
                                 <include reference="nyl-Zs-frB"/>
-                                <include reference="d7d-Sm-BTg"/>
+                                <include reference="AI3-Bi-xs7"/>
+                                <include reference="Ybn-Pc-wnm"/>
+                                <include reference="elc-XI-39W"/>
+                                <include reference="NM4-rK-ZZF"/>
+                                <include reference="bw9-0a-1Oo"/>
+                                <include reference="s0V-7Q-mJj"/>
                             </mask>
                         </variation>
                     </view>
@@ -316,10 +316,14 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                             <constraint firstItem="2b1-Nj-Q1J" firstAttribute="top" secondItem="ixG-OO-7EF" secondAttribute="bottom" constant="16" id="2Bx-eW-UJ6"/>
                             <constraint firstItem="ixG-OO-7EF" firstAttribute="top" secondItem="YzU-tt-c5h" secondAttribute="bottom" constant="8" id="3Kd-yx-7XM"/>
                             <constraint firstItem="CSu-cE-7au" firstAttribute="centerY" secondItem="YzU-tt-c5h" secondAttribute="centerY" id="62I-Ph-xbO"/>
-                            <constraint firstItem="soS-dm-bov" firstAttribute="top" secondItem="i7u-aP-AXO" secondAttribute="bottom" constant="8" id="BzB-BS-RXl"/>
+                            <constraint firstItem="soS-dm-bov" firstAttribute="top" secondItem="i7u-aP-AXO" secondAttribute="bottom" constant="8" id="BzB-BS-RXl">
+                                <variation key="widthClass=compact" constant="40"/>
+                            </constraint>
                             <constraint firstAttribute="centerY" secondItem="CSu-cE-7au" secondAttribute="centerY" id="JUn-EV-ZzU"/>
                             <constraint firstItem="ixG-OO-7EF" firstAttribute="top" secondItem="CSu-cE-7au" secondAttribute="bottom" constant="8" id="KvI-60-Ay1"/>
-                            <constraint firstAttribute="centerY" secondItem="soS-dm-bov" secondAttribute="bottom" id="MVs-rc-gwj"/>
+                            <constraint firstAttribute="centerY" secondItem="soS-dm-bov" secondAttribute="bottom" id="MVs-rc-gwj">
+                                <variation key="widthClass=compact" constant="-40"/>
+                            </constraint>
                             <constraint firstItem="YzU-tt-c5h" firstAttribute="leading" secondItem="tRX-dZ-9Ow" secondAttribute="leading" constant="50" id="Nod-go-1Oy"/>
                             <constraint firstAttribute="trailing" secondItem="YzU-tt-c5h" secondAttribute="trailing" constant="50" id="Oqd-rm-eoM"/>
                             <constraint firstItem="soS-dm-bov" firstAttribute="leading" secondItem="tRX-dZ-9Ow" secondAttribute="leading" constant="50" id="P5z-Js-2lJ"/>
@@ -853,16 +857,18 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starter du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyS-ac-2mi">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Uiv-AI-pmf" secondAttribute="trailing" constant="16" id="6ZC-gc-5gA"/>
                                                 <constraint firstItem="Uiv-AI-pmf" firstAttribute="leading" secondItem="cCc-kO-koM" secondAttribute="leading" constant="8" id="E8i-G7-ofh">
                                                     <variation key="widthClass=compact" constant="16"/>
                                                 </constraint>
                                                 <constraint firstItem="LyS-ac-2mi" firstAttribute="top" secondItem="cCc-kO-koM" secondAttribute="top" constant="8" id="GBm-at-WMN"/>
+                                                <constraint firstItem="LyS-ac-2mi" firstAttribute="leading" secondItem="cCc-kO-koM" secondAttribute="leading" constant="16" id="PpM-7c-ali"/>
                                                 <constraint firstItem="LyS-ac-2mi" firstAttribute="leading" secondItem="cCc-kO-koM" secondAttribute="leading" constant="8" id="QDo-C3-fK2"/>
                                                 <constraint firstAttribute="bottom" secondItem="LyS-ac-2mi" secondAttribute="bottom" constant="8" id="Xsi-h9-oY6"/>
                                                 <constraint firstAttribute="trailing" secondItem="LyS-ac-2mi" secondAttribute="trailing" constant="8" id="Ycl-mP-SCZ"/>
@@ -882,10 +888,12 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="GBm-at-WMN"/>
+                                                    <exclude reference="PpM-7c-ali"/>
                                                     <exclude reference="QDo-C3-fK2"/>
                                                     <exclude reference="Xsi-h9-oY6"/>
                                                     <exclude reference="Ycl-mP-SCZ"/>
                                                     <exclude reference="ugs-tc-IdJ"/>
+                                                    <exclude reference="6ZC-gc-5gA"/>
                                                     <exclude reference="E8i-G7-ofh"/>
                                                     <exclude reference="awT-e3-5qT"/>
                                                     <exclude reference="hz1-zh-9oV"/>
@@ -899,11 +907,13 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="GBm-at-WMN"/>
+                                                    <include reference="PpM-7c-ali"/>
                                                     <exclude reference="QDo-C3-fK2"/>
                                                     <include reference="Xsi-h9-oY6"/>
                                                     <exclude reference="Ycl-mP-SCZ"/>
-                                                    <include reference="ugs-tc-IdJ"/>
-                                                    <include reference="E8i-G7-ofh"/>
+                                                    <exclude reference="ugs-tc-IdJ"/>
+                                                    <include reference="6ZC-gc-5gA"/>
+                                                    <exclude reference="E8i-G7-ofh"/>
                                                     <exclude reference="awT-e3-5qT"/>
                                                     <include reference="hz1-zh-9oV"/>
                                                     <exclude reference="tpk-9g-OdQ"/>
@@ -1690,7 +1700,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aQM-Gw-Hsm" id="VRl-RD-Rgv">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal Kørte Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOe-GY-U5g">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOe-GY-U5g">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="AzU-le-ByA"/>
@@ -1781,12 +1791,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pCA-lx-s3p" id="ZHU-TM-OAi">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starter du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mu-xR-RDv">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox_checked" translatesAutoresizingMaskIntoConstraints="NO" id="7lI-NR-kBx">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
@@ -1808,6 +1812,12 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                         </mask>
                                                     </variation>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Startede du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mu-xR-RDv">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="7lI-NR-kBx" secondAttribute="centerY" id="2xN-YR-D0v"/>
@@ -1817,7 +1827,9 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                 </constraint>
                                                 <constraint firstAttribute="trailing" secondItem="1Mu-xR-RDv" secondAttribute="trailing" constant="8" id="NCc-45-Bwv"/>
                                                 <constraint firstAttribute="bottom" secondItem="1Mu-xR-RDv" secondAttribute="bottom" constant="8" id="Xd5-E1-Df3"/>
+                                                <constraint firstAttribute="trailing" secondItem="7lI-NR-kBx" secondAttribute="trailing" constant="16" id="bFi-jK-mqw"/>
                                                 <constraint firstItem="1Mu-xR-RDv" firstAttribute="leading" secondItem="7lI-NR-kBx" secondAttribute="trailing" constant="8" id="cLG-6U-oqu"/>
+                                                <constraint firstItem="1Mu-xR-RDv" firstAttribute="leading" secondItem="ZHU-TM-OAi" secondAttribute="leading" constant="16" id="cvU-56-vS9"/>
                                                 <constraint firstAttribute="bottom" secondItem="7lI-NR-kBx" secondAttribute="bottom" constant="4" id="iC5-5Z-lmv">
                                                     <variation key="widthClass=compact" constant="9"/>
                                                 </constraint>
@@ -1828,34 +1840,38 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="1Mu-xR-RDv"/>
                                                     <exclude reference="7lI-NR-kBx"/>
+                                                    <exclude reference="1Mu-xR-RDv"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="Lrv-NE-5OT"/>
                                                     <exclude reference="NCc-45-Bwv"/>
                                                     <exclude reference="Xd5-E1-Df3"/>
                                                     <exclude reference="cLG-6U-oqu"/>
+                                                    <exclude reference="cvU-56-vS9"/>
                                                     <exclude reference="jmy-oy-Wad"/>
                                                     <exclude reference="2xN-YR-D0v"/>
                                                     <exclude reference="M6D-O3-8aB"/>
+                                                    <exclude reference="bFi-jK-mqw"/>
                                                     <exclude reference="iC5-5Z-lmv"/>
                                                     <exclude reference="u3b-wT-72o"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="1Mu-xR-RDv"/>
                                                     <include reference="7lI-NR-kBx"/>
+                                                    <include reference="1Mu-xR-RDv"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="Lrv-NE-5OT"/>
                                                     <exclude reference="NCc-45-Bwv"/>
                                                     <include reference="Xd5-E1-Df3"/>
-                                                    <include reference="cLG-6U-oqu"/>
+                                                    <exclude reference="cLG-6U-oqu"/>
+                                                    <include reference="cvU-56-vS9"/>
                                                     <include reference="jmy-oy-Wad"/>
                                                     <include reference="2xN-YR-D0v"/>
-                                                    <include reference="M6D-O3-8aB"/>
+                                                    <exclude reference="M6D-O3-8aB"/>
+                                                    <include reference="bFi-jK-mqw"/>
                                                     <exclude reference="iC5-5Z-lmv"/>
                                                     <exclude reference="u3b-wT-72o"/>
                                                 </mask>
@@ -1867,12 +1883,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QwJ-jT-i7d" id="lDl-bV-lQT">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sluttede du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZF-2D-632">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox_unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="OHp-y7-Z0l">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
@@ -1894,6 +1904,12 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                         </mask>
                                                     </variation>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sluttede du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZF-2D-632">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="PZF-2D-632" secondAttribute="bottom" constant="8" id="6GT-70-pyP"/>
@@ -1904,45 +1920,51 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <variation key="widthClass=compact" constant="9"/>
                                                 </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="OHp-y7-Z0l" secondAttribute="centerY" id="cZ5-8r-BeQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="OHp-y7-Z0l" secondAttribute="trailing" constant="16" id="mbc-Kf-vlL"/>
                                                 <constraint firstItem="PZF-2D-632" firstAttribute="leading" secondItem="OHp-y7-Z0l" secondAttribute="trailing" constant="8" id="sIX-jf-gA3"/>
                                                 <constraint firstItem="OHp-y7-Z0l" firstAttribute="top" secondItem="lDl-bV-lQT" secondAttribute="top" constant="4" id="sNU-Lm-ktZ">
                                                     <variation key="widthClass=compact" constant="9"/>
                                                 </constraint>
+                                                <constraint firstItem="PZF-2D-632" firstAttribute="leading" secondItem="lDl-bV-lQT" secondAttribute="leading" constant="16" id="ttS-Wf-wEP"/>
                                                 <constraint firstAttribute="trailing" secondItem="PZF-2D-632" secondAttribute="trailing" constant="8" id="uXv-R9-RYK"/>
                                                 <constraint firstItem="PZF-2D-632" firstAttribute="top" secondItem="lDl-bV-lQT" secondAttribute="top" constant="8" id="uhR-hS-Dcn"/>
                                                 <constraint firstItem="PZF-2D-632" firstAttribute="leading" secondItem="lDl-bV-lQT" secondAttribute="leading" constant="8" id="yze-JS-3oC"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="PZF-2D-632"/>
                                                     <exclude reference="OHp-y7-Z0l"/>
+                                                    <exclude reference="PZF-2D-632"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="6GT-70-pyP"/>
                                                     <exclude reference="sIX-jf-gA3"/>
+                                                    <exclude reference="ttS-Wf-wEP"/>
                                                     <exclude reference="uXv-R9-RYK"/>
                                                     <exclude reference="uhR-hS-Dcn"/>
                                                     <exclude reference="yze-JS-3oC"/>
                                                     <exclude reference="JNH-fA-uKl"/>
                                                     <exclude reference="PVD-em-BYr"/>
                                                     <exclude reference="cZ5-8r-BeQ"/>
+                                                    <exclude reference="mbc-Kf-vlL"/>
                                                     <exclude reference="sNU-Lm-ktZ"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="PZF-2D-632"/>
                                                     <include reference="OHp-y7-Z0l"/>
+                                                    <include reference="PZF-2D-632"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="6GT-70-pyP"/>
-                                                    <include reference="sIX-jf-gA3"/>
+                                                    <exclude reference="sIX-jf-gA3"/>
+                                                    <include reference="ttS-Wf-wEP"/>
                                                     <exclude reference="uXv-R9-RYK"/>
                                                     <include reference="uhR-hS-Dcn"/>
                                                     <exclude reference="yze-JS-3oC"/>
-                                                    <include reference="JNH-fA-uKl"/>
+                                                    <exclude reference="JNH-fA-uKl"/>
                                                     <exclude reference="PVD-em-BYr"/>
                                                     <include reference="cZ5-8r-BeQ"/>
+                                                    <include reference="mbc-Kf-vlL"/>
                                                     <exclude reference="sNU-Lm-ktZ"/>
                                                 </mask>
                                             </variation>
@@ -2108,7 +2130,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAQ-h2-r7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453.5" y="156"/>
+            <point key="canvasLocation" x="1434" y="156"/>
         </scene>
         <!--Rediger effektive Km-->
         <scene sceneID="emc-lI-ujd">

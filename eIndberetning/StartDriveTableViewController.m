@@ -81,6 +81,8 @@
         [self loadReport];
     }
     
+    self.gpsManager = [GPSManager sharedGPSManager];
+    
     self.tableView.rowHeight = 44;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -98,6 +100,10 @@
 
 -(void)manualRefresh
 {
+    //Stop gps, and remove delegate (cause we need to refresh with the new information)
+    [self.gpsManager stopGPS];
+    self.gpsManager.delegate = nil;
+    
     [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
     [self.refreshControl endRefreshing];
 }
@@ -144,14 +150,6 @@
         [del changeToLoginView];
     }
     
-    self.gpsManager = [GPSManager sharedGPSManager];
-    
-    if(![self.gpsManager.delegate isEqual:self])
-    {
-        self.gpsManager.delegate = self;
-        [self.gpsManager startGPS];
-    }
-    
     if(self.report.purpose)
         self.purposeTextField.text = self.report.purpose.purpose;
     else
@@ -184,6 +182,15 @@
     {
         self.shouldSync = false;
         [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
+    }
+    else
+    {
+        //If we are not syncing, check home address - but only if we are not the delegate yet
+        if(![self.gpsManager.delegate isEqual:self])
+        {
+            self.gpsManager.delegate = self;
+            [self.gpsManager startGPS];
+        }
     }
 }
 
@@ -284,7 +291,6 @@
     }
     
     [self.info saveInfo];
-    
 
     [self loadReport];
 }

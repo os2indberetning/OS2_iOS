@@ -17,19 +17,16 @@
     
     Profile *p = [[Profile alloc] init];
     
-    p.FirstName = [[dic objectForKey:@"FirstName"] description];
-    p.LastName = [[dic objectForKey:@"LastName"] description];
+    p.FirstName = [[dic objectForKey:@"Firstname"] description];
+    p.LastName = [[dic objectForKey:@"Lastname"] description];
     
     
     
     if([[dic objectForKey:@"HomeLatitude"] respondsToSelector:@selector (floatValue)]  && [[dic objectForKey:@"HomeLongitude"] respondsToSelector:@selector (floatValue)])
     {
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        [formatter setDecimalSeparator:@","];
         
-        NSNumber *lat = [formatter numberFromString:[[dic valueForKey:@"HomeLatitude"] description] ];
-        NSNumber *lng = [formatter numberFromString:[[dic valueForKey:@"HomeLongitude"] description] ];
+        NSNumber *lat = [dic valueForKey:@"HomeLatitude"];
+        NSNumber *lng = [dic valueForKey:@"HomeLongitude"];
         
         CLLocation* homeLoc = [[CLLocation alloc] initWithLatitude:[lat floatValue] longitude:[lng floatValue]];
         p.homeCoordinate = homeLoc;

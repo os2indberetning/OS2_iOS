@@ -65,7 +65,7 @@
     self.confirmPopup.delegate = self;
     
     //Set this value based on user home coordinaets, and the current location
-    self.report.didendhome = false;
+    self.report.didendhome = self.isCloseToHome;
     self.confirmPopup.isSelected = self.report.didendhome;
     
     [self.confirmPopup showPopup];
