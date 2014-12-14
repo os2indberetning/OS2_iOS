@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "DriveReport.h"
+#import "Profile.h"
 
 @protocol DidUploadDelegate
 -(void)didFinishUpload;
 -(void)tokenNotFound;
+-(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
 @end
 
 @interface UploadDriveViewController : UIViewController

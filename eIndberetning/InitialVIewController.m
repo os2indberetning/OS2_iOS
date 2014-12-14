@@ -6,21 +6,28 @@
 //  Copyright (c) 2014 IT-Minds. All rights reserved.
 //
 
-#import "InitialVIewController.h"
+#import "InitialViewController.h"
 #import "eMobilityHTTPSClient.h"
 #import "Profile.h"
 #import "UserInfo.h"
 #import "AppDelegate.h"
 #import "ErrorMsgViewController.h"
+#import "CoreDataManager.h"
 
-@interface InitialVIewController ()
+@interface InitialViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *couplePhoneButton;
 @property (strong, nonatomic) eMobilityHTTPSClient *client;
 @property (nonatomic, strong) ErrorMsgViewController* errorMsg;
+@property (nonatomic,strong) CoreDataManager* CDManager;
 @end
 
-@implementation InitialVIewController
+@implementation InitialViewController
+
+-(CoreDataManager*)CDManager
+{
+    return [CoreDataManager sharedeCoreDataManager];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,28 +46,36 @@
 
 - (IBAction)okButtonPressed:(id)sender {
     
-    [self.client syncWithToken:self.textField.text withBlock:^(NSURLSessionTask *task, id resonseObject)
+    [self.client syncWithTokenString:self.textField.text withBlock:^(NSURLSessionTask *task, id resonseObject)
      {
          NSLog(@"%@", resonseObject);
          
-         NSDictionary *profileDic = resonseObject;
-         
-         Profile* profile = [Profile initFromJsonDic:profileDic];
          UserInfo* info = [UserInfo sharedManager];
          
+         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
+         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
+         
+         Profile* profile = [Profile initFromJsonDic:profileDic];
+         NSArray* rates = [Rate initFromJsonDic:rateDic];
+         
+         [self.CDManager deleteAllObjects:@"CDRate"];
+         [self.CDManager deleteAllObjects:@"CDEmployment"];
+         
+         [self.CDManager insertEmployments:profile.employments];
+         [self.CDManager insertRates:rates];
          
          //Search through the tokens
          for (Token* token in profile.tokens) {
-             if([token.tokenString isEqualToString: self.textField.text]) //And something with status!
+             if([token.tokenString isEqualToString: self.textField.text])
              {
-                 info.guid = token.guid;
+                 info.token = token;
                  break;
              }
          }
          
          [info saveInfo];
          
-         if(info.guid)
+         if(info.token)
          {
              AppDelegate* del =  [[UIApplication sharedApplication] delegate];
              [del changeToStartView];

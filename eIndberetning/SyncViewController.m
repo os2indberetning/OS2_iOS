@@ -27,6 +27,8 @@ const double MIN_WAIT_TIME_S = 2;
 {
     [super viewDidLoad];
     
+    self.tryAgianButton.layer.cornerRadius = 1.5f;
+    
     self.client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
     [self doSync];
 }
@@ -38,7 +40,7 @@ const double MIN_WAIT_TIME_S = 2;
     
     __weak SyncViewController *safeSelf = self;
     
-    [self.client getUserDataForGuid:info.guid withBlock:^(NSURLSessionTask *task, id resonseObject)
+    [self.client getUserDataForToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
     {
         NSLog(@"%@", resonseObject);
         
@@ -79,7 +81,7 @@ const double MIN_WAIT_TIME_S = 2;
     if(errorCode == UnknownError)
     {
         //Change text, hide spinner, show retry-button
-        self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen";
+        self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen?";
         self.spinner.hidden = true;
         self.tryAgianButton.hidden = false;
     }

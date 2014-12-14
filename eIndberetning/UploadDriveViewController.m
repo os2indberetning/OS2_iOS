@@ -12,8 +12,12 @@
 
 @interface UploadDriveViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *tryAgianButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UILabel *infoText;
+
+@property (strong, nonatomic) NSArray *rates;
+@property (strong,nonatomic) Profile* profile;
 @end
 
 @implementation UploadDriveViewController
@@ -23,6 +27,10 @@ const double WAIT_TIME_S = 1.5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.tryAgianButton.layer.cornerRadius = 1.5f;
+    self.cancelButton.layer.cornerRadius = 1.5f;
+    
     [self doSync];
 }
 
@@ -31,8 +39,16 @@ const double WAIT_TIME_S = 1.5;
     UserInfo* info = [UserInfo sharedManager];
     eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
     
-    [client postDriveReport:self.report forGuid:info.guid withBlock:^(NSURLSessionTask *task, id resonseObject)
+    [client postDriveReport:self.report forToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
      {
+         //Optional: also sync userdata on succesfull submit
+         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
+         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
+         
+         self.profile = [Profile initFromJsonDic:profileDic];
+         self.rates = [Rate initFromJsonDic:rateDic];
+         //Optional
+         
         self.infoText.text = @"Din indberetning er modtaget.";
         [NSTimer scheduledTimerWithTimeInterval:WAIT_TIME_S target:self selector:@selector(succesSync) userInfo:nil repeats:NO];
      }
@@ -47,8 +63,11 @@ const double WAIT_TIME_S = 1.5;
 
 -(void) succesSync
 {
-    [self.delegate didFinishUpload];
+    //Optional: also sync userdata on succesfull submit
+    [self.delegate didFinishSyncWithProfile:self.profile AndRate:self.rates];
+    //Optional
     [self dismissViewControllerAnimated:true completion:nil];
+    [self.delegate didFinishUpload];
 }
 
 - (void) failSyncWithErrorCode:(NSInteger)errorCode
@@ -61,18 +80,24 @@ const double WAIT_TIME_S = 1.5;
     else
     {
         //Change text, hide spinner, show button
-        self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen";
+        self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen?";
         self.spinner.hidden = true;
         self.tryAgianButton.hidden = false;
-    
+        self.cancelButton.hidden = false;
     }
 }
 
 - (IBAction)tryAgianButtonPressed:(id)sender {
     self.spinner.hidden = false;
     self.tryAgianButton.hidden = true;
+    self.cancelButton.hidden = true;
+    
     self.infoText.text = @"Uploader kørselsdata";
     [self doSync];
+}
+
+- (IBAction)cancelButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

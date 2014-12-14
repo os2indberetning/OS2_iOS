@@ -21,7 +21,7 @@
 
 -(void)resetInfo
 {
-    self.guid = nil;
+    self.token = nil;
     self.name = nil;
     self.home_loc = nil;
     self.profileId = nil;
@@ -47,7 +47,7 @@
     NSData *encodedObject = [defaults objectForKey:@"userinfo"];
     UserInfo *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
     
-    self.guid = object.guid;
+    self.token = object.token;
     self.name = object.name;
     self.home_loc = object.home_loc;
     self.profileId = object.profileId;
@@ -61,7 +61,7 @@
 
 -(void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
-    [encoder encodeObject:self.guid forKey:@"guid"];
+    [encoder encodeObject:self.token forKey:@"token"];
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:self.home_loc forKey:@"home_loc"];
     [encoder encodeObject:self.profileId forKey:@"profile_id"];
@@ -76,7 +76,7 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties, other class vars
-        self.guid = [decoder decodeObjectForKey:@"guid"];
+        self.token = [decoder decodeObjectForKey:@"token"];
         self.name = [decoder decodeObjectForKey:@"name"];
         self.home_loc = [decoder decodeObjectForKey:@"home_loc"];
         self.profileId = [decoder decodeObjectForKey:@"profile_id"];
@@ -92,6 +92,8 @@
 
 -(BOOL)isLastSyncDateNotToday
 {
+    return false;
+    
     NSDate *lastSync = [self.last_sync_date copy];
     NSDate *curDate = [NSDate date];
     

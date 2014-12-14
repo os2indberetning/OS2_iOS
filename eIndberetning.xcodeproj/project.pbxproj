@@ -33,7 +33,7 @@
 		F56E0A2419D2A40C00B6CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2319D2A40C00B6CA1F /* main.m */; };
 		F56E0A2719D2A40C00B6CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2619D2A40C00B6CA1F /* AppDelegate.m */; };
 		F56E0A2A19D2A40C00B6CA1F /* eIndberetning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2819D2A40C00B6CA1F /* eIndberetning.xcdatamodeld */; };
-		F56E0A2D19D2A40C00B6CA1F /* InitialVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2C19D2A40C00B6CA1F /* InitialVIewController.m */; };
+		F56E0A2D19D2A40C00B6CA1F /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2C19D2A40C00B6CA1F /* InitialViewController.m */; };
 		F56E0A3019D2A40C00B6CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56E0A2E19D2A40C00B6CA1F /* Main.storyboard */; };
 		F56E0A3219D2A40C00B6CA1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F56E0A3119D2A40C00B6CA1F /* Images.xcassets */; };
 		F56E0A3519D2A40C00B6CA1F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56E0A3319D2A40C00B6CA1F /* LaunchScreen.xib */; };
@@ -117,8 +117,8 @@
 		F56E0A2519D2A40C00B6CA1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F56E0A2619D2A40C00B6CA1F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F56E0A2919D2A40C00B6CA1F /* eIndberetning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eIndberetning.xcdatamodel; sourceTree = "<group>"; };
-		F56E0A2B19D2A40C00B6CA1F /* InitialVIewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialVIewController.h; sourceTree = "<group>"; };
-		F56E0A2C19D2A40C00B6CA1F /* InitialVIewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialVIewController.m; sourceTree = "<group>"; };
+		F56E0A2B19D2A40C00B6CA1F /* InitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		F56E0A2C19D2A40C00B6CA1F /* InitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		F56E0A2F19D2A40C00B6CA1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F56E0A3119D2A40C00B6CA1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F56E0A3419D2A40C00B6CA1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -310,8 +310,8 @@
 		F56E0A4A19D2A43800B6CA1F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F56E0A2B19D2A40C00B6CA1F /* InitialVIewController.h */,
-				F56E0A2C19D2A40C00B6CA1F /* InitialVIewController.m */,
+				F56E0A2B19D2A40C00B6CA1F /* InitialViewController.h */,
+				F56E0A2C19D2A40C00B6CA1F /* InitialViewController.m */,
 				F537B4E519FE531600D06892 /* Select List */,
 				F5C26DFC1A09620E004ACDA4 /* Select Purpose List */,
 				F5824DF719E09F6C00F51353 /* StartDriveTableViewController.h */,
@@ -569,7 +569,7 @@
 				F5690EC019FF7C7500B9C3B4 /* AddPurposeTableViewCell.m in Sources */,
 				F5F55B2A1A266D3E00F193D0 /* GPSManager.m in Sources */,
 				F58EC0B219FEBEFF0010AC96 /* ManualEntryViewController.m in Sources */,
-				F56E0A2D19D2A40C00B6CA1F /* InitialVIewController.m in Sources */,
+				F56E0A2D19D2A40C00B6CA1F /* InitialViewController.m in Sources */,
 				F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */,
 				F51B35241A0F9C8A0098D76E /* ConfirmDeleteViewController.m in Sources */,
 				F55932031A0FB42500C8139F /* UploadDriveViewController.m in Sources */,

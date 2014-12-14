@@ -9,11 +9,10 @@
 #import "eMobilityHTTPSClient.h"
 
 
+
 static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAPI/api/";
 
 @implementation eMobilityHTTPSClient
-
-
 
 + (eMobilityHTTPSClient *)sharedeMobilityHTTPSClient 
 {
@@ -59,10 +58,10 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     return self;
 }
 
--(void)syncWithToken:(NSString*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
+-(void)syncWithTokenString:(NSString*)tokenString withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
 {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"Token"] = token;
+    parameters[@"TokenString"] = tokenString;
     
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
     NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -71,10 +70,10 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     [self POST:@"syncWithToken" parameters:parameters success:succes failure:failure];
 }
 
--(void)getUserDataForGuid:(NSString*)guid withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
+-(void)getUserDataForToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
 {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"guid"] = guid;
+    parameters[@"guid"] = token.guid;
     
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
     NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -83,11 +82,12 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     [self POST:@"UserData" parameters:parameters success:succes failure:failure];
 }
 
-- (void)postDriveReport:(DriveReport *)report forGuid:(NSString*)guid withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
+- (void)postDriveReport:(DriveReport *)report forToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
 {
-    NSMutableDictionary* dic = [[report transformToDictionary] mutableCopy];
+    NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
     
-    [dic setObject:guid forKey:@"guid"];
+    [dic setObject:[[report transformToDictionary] mutableCopy] forKey:@"DriveReport"];
+    [dic setObject:[[token transformToDictionary] mutableCopy] forKey:@"Token"];
     
     NSError * err;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&err];

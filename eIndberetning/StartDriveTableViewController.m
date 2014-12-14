@@ -39,7 +39,6 @@
 
 
 @property (strong,nonatomic) DriveReport* report;
-@property (strong,nonatomic) Profile* profile;
 
 @property (strong,nonatomic) UserInfo* info;
 
@@ -76,8 +75,6 @@
     }
     else
     {
-        self.rates = [self.CDManager fetchRates];
-        self.employments = [self.CDManager fetchEmployments];
         [self loadReport];
     }
     
@@ -108,6 +105,9 @@
 
 -(void)loadReport
 {
+    self.rates = [self.CDManager fetchRates];
+    self.employments = [self.CDManager fetchEmployments];
+    
     //Create new drive report
     self.report = [[DriveReport alloc] init];
     
@@ -139,7 +139,7 @@
 {
     [super viewWillAppear:animated];
     
-    if(!self.info.guid)
+    if(!self.info.token)
     {
         if(self.gpsManager)
         {
@@ -274,16 +274,12 @@
 
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
 {
-    self.rates = rates;
-    self.profile = profile;
-    self.employments = profile.employments;
-    
-    //Insert into coredate
+    //Insert into coredata
     [self.CDManager deleteAllObjects:@"CDRate"];
     [self.CDManager deleteAllObjects:@"CDEmployment"];
     
-    [self.CDManager insertEmployments:self.employments];
-    [self.CDManager insertRates:self.rates];
+    [self.CDManager insertEmployments:profile.employments];
+    [self.CDManager insertRates:rates];
 
     //Transfer userdata to local userinfo object
     self.info.last_sync_date = [NSDate date];
@@ -292,11 +288,11 @@
     self.info.profileId = profile.profileId;
     
     for (Token* tkn in profile.tokens) {
-        if([tkn.guid isEqualToString:self.info.guid])
+        if([tkn.guid isEqualToString:self.info.token.guid])
         {
             if(![tkn.status isEqualToString:@"1"])
             {
-                self.info.guid = nil;
+                self.info.token = nil;
             }
             
             break;

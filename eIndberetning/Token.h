@@ -15,5 +15,5 @@
 @property (nonatomic, strong) NSString* status;
 
 + (NSArray *) initFromJsonDic:(NSDictionary*)dic;
-
+- (NSDictionary *) transformToDictionary;
 @end

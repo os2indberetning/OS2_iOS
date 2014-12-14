@@ -37,7 +37,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (strong,nonatomic) UserInfo* info;
-@property (strong,nonatomic) Profile* profile;
 
 @property (nonatomic,strong) CoreDataManager* CDManager;
 
@@ -74,6 +73,7 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    //Load employments and rates
     self.rates = [self.CDManager fetchRates];
     self.employments = [self.CDManager fetchEmployments];
 }
@@ -93,7 +93,7 @@
 {
     [super viewWillAppear:animated];
     
-    if(!self.info.guid)
+    if(!self.info.token)
     {
         AppDelegate* del =  [[UIApplication sharedApplication] delegate];
         [del changeToLoginView];
@@ -251,16 +251,12 @@
 
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
 {
-    self.rates = rates;
-    self.profile = profile;
-    self.employments = profile.employments;
-    
     //Insert into coredate
     [self.CDManager deleteAllObjects:@"CDRate"];
     [self.CDManager deleteAllObjects:@"CDEmployment"];
     
-    [self.CDManager insertEmployments:self.employments];
-    [self.CDManager insertRates:self.rates];
+    [self.CDManager insertEmployments:profile.employments];
+    [self.CDManager insertRates:rates];
     
     //Transfer userdata to local userinfo object
     self.info.last_sync_date = [NSDate date];
@@ -268,11 +264,11 @@
     self.info.home_loc = profile.homeCoordinate;
 
     for (Token* tkn in profile.tokens) {
-        if([tkn.guid isEqualToString:self.info.guid])
+        if([tkn.guid isEqualToString:self.info.token.guid])
         {
             if(![tkn.status isEqualToString:@"1"])
             {
-                self.info.guid = nil;
+                self.info.token = nil;
             }
             
             break;
@@ -285,7 +281,11 @@
 
 -(void)reloadReport
 {
-    //Confirm employments and rates ares till the same
+    //Reload employments and rates
+    self.rates = [self.CDManager fetchRates];
+    self.employments = [self.CDManager fetchEmployments];
+    
+    //Confirm employments and rates ares still the same
     if([self.employments containsObject:self.info.last_employment])
         self.report.employment = self.info.last_employment;
     else

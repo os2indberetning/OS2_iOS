@@ -10,12 +10,17 @@
 #import <CoreLocation/CoreLocation.h>
 #import "DriveReport.h"
 #import "JSONResponseSerializerWithData.h"
+#import "Token.h"
 
-enum ErrorCodes : NSInteger {
+enum ErrorCodes : NSInteger
+{
     UnknownError = 600,
-    TokenNotFound = 601,
-    TokenAllreadyActivated = 602,
-    SaveError = 603
+    TokenNotFound = 610,
+    TokenAllreadyActivated = 620,
+    TokenAllreadyExists = 630,
+    SaveError = 640,
+    BadPassword = 650,
+    UserNotFound = 660
 };
 
 @protocol WeatherHTTPClientDelegate;
@@ -27,8 +32,8 @@ enum ErrorCodes : NSInteger {
 + (NSString*)getErrorString:(NSInteger)errorcode;
 
 - (instancetype)initWithBaseURL:(NSURL *)url;
--(void)getUserDataForGuid:(NSString*)guid withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
--(void)syncWithToken:(NSString*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
-- (void)postDriveReport:(DriveReport *)report forGuid:(NSString*)guid withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
+-(void)getUserDataForToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
+-(void)syncWithTokenString:(NSString*)tokenString withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
+- (void)postDriveReport:(DriveReport *)report forToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 
 @end

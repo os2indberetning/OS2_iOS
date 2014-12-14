@@ -13,7 +13,7 @@
 - (NSDictionary *) transformToDictionary
 {
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:self.date];
     
     if(self.manuelentryremark == nil)

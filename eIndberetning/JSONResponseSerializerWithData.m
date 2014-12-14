@@ -7,6 +7,7 @@
 //
 
 #import "JSONResponseSerializerWithData.h"
+#import "eMobilityHTTPSClient.h"
 
 @implementation JSONResponseSerializerWithData
 
@@ -19,7 +20,7 @@
         NSMutableDictionary *userInfo = [(*error).userInfo mutableCopy];
         if (data == nil) {
 
-            userInfo[ErrorCodeKey] = @"600";
+            userInfo[ErrorCodeKey] = [NSString stringWithFormat:@"%i", (int)UnknownError];
 
         } else {
 
@@ -29,13 +30,13 @@
                                             options: NSJSONReadingMutableContainers
                                               error: &e];
             
-            if(!e)
+            if(e == nil && JSON[@"ErrorCode"] != nil)
             {
                 userInfo[ErrorCodeKey] = JSON[@"ErrorCode"];
             }
             else
             {
-                userInfo[ErrorCodeKey] = @"600";
+                userInfo[ErrorCodeKey] = [NSString stringWithFormat:@"%i", (int)UnknownError];
             }
         }
         NSError *newError = [NSError errorWithDomain:(*error).domain code:(*error).code userInfo:userInfo];

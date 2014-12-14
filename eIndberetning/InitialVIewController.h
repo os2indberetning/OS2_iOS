@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InitialVIewController : UIViewController <UITextFieldDelegate>
+@interface InitialViewController : UIViewController <UITextFieldDelegate>
 
 
 @end

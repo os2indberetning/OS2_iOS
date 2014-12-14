@@ -39,7 +39,7 @@
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    if(!info.guid){
+    if(!info.token){
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"coupleViewController"];
         self.window.rootViewController = viewController;
     } else {

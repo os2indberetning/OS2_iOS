@@ -5,10 +5,10 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--InitialV Iew Controller-->
+        <!--Initial View Controller-->
         <scene sceneID="Czy-bU-lgh">
             <objects>
-                <viewController storyboardIdentifier="coupleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TXz-8M-f9l" customClass="InitialVIewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="coupleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TXz-8M-f9l" customClass="InitialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vhQ-G8-rpH"/>
                         <viewControllerLayoutGuide type="bottom" id="iiT-iZ-1z4"/>
@@ -774,7 +774,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="onDrag" editable="NO" text="Indtast Bemærkning" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkT-41-Etu">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="onDrag" editable="NO" text="Indtast Bemærkning" translatesAutoresizingMaskIntoConstraints="NO" id="lkT-41-Etu">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2369,17 +2369,56 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                                 <color key="color" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBF-r1-WVN">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="BXH-Ws-2ki">
+                                        <variation key="widthClass=compact" constant="300"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="43" id="Orx-DX-kPU"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="Txt-He-Amm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Fortryd">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BXH-Ws-2ki"/>
+                                        <exclude reference="Orx-DX-kPU"/>
+                                        <exclude reference="Txt-He-Amm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="BXH-Ws-2ki"/>
+                                        <include reference="Orx-DX-kPU"/>
+                                        <include reference="Txt-He-Amm"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="0bn-hB-d0x" eventType="touchUpInside" id="Q4d-r6-ckJ"/>
+                                    <action selector="startDrivingButton:" destination="k14-AB-31x" eventType="touchUpInside" id="MLD-qA-Nnk"/>
+                                    <action selector="tryAgianButtonPressed:" destination="0bn-hB-d0x" eventType="touchUpInside" id="7b8-Za-hox"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5fr-w8-qMh" firstAttribute="top" secondItem="P3i-34-KuG" secondAttribute="bottom" constant="8" id="0U8-Z6-3Rs"/>
                             <constraint firstItem="P3i-34-KuG" firstAttribute="leading" secondItem="xcT-rw-bHy" secondAttribute="leading" constant="50" id="5bA-TT-sHt"/>
                             <constraint firstAttribute="centerY" secondItem="cfy-ie-FcM" secondAttribute="centerY" id="6IF-ec-iN8"/>
+                            <constraint firstAttribute="trailing" secondItem="PBF-r1-WVN" secondAttribute="trailing" constant="50" id="7Y6-Tm-xoQ"/>
                             <constraint firstItem="cfy-ie-FcM" firstAttribute="top" secondItem="P3i-34-KuG" secondAttribute="bottom" constant="8" id="8dc-QW-7eX"/>
                             <constraint firstItem="5MK-L3-c2O" firstAttribute="top" secondItem="cfy-ie-FcM" secondAttribute="bottom" constant="20" id="9EJ-BG-Idz"/>
                             <constraint firstItem="bJv-0m-tw9" firstAttribute="top" secondItem="P3i-34-KuG" secondAttribute="bottom" constant="88" id="Bw3-Oe-wR7"/>
-                            <constraint firstItem="5MK-L3-c2O" firstAttribute="top" secondItem="5fr-w8-qMh" secondAttribute="bottom" constant="20" id="FgT-RO-wm3"/>
+                            <constraint firstItem="5MK-L3-c2O" firstAttribute="top" secondItem="5fr-w8-qMh" secondAttribute="bottom" constant="20" id="FgT-RO-wm3">
+                                <variation key="widthClass=compact" constant="60"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="5fr-w8-qMh" secondAttribute="trailing" constant="50" id="Fsr-tt-bc7"/>
+                            <constraint firstItem="PBF-r1-WVN" firstAttribute="leading" secondItem="xcT-rw-bHy" secondAttribute="leading" constant="50" id="HEj-df-WbW"/>
                             <constraint firstItem="5fr-w8-qMh" firstAttribute="top" secondItem="bJv-0m-tw9" secondAttribute="bottom" id="Iv6-sA-2hQ"/>
                             <constraint firstItem="cfy-ie-FcM" firstAttribute="centerY" secondItem="5fr-w8-qMh" secondAttribute="centerY" id="MkR-sA-fgj"/>
                             <constraint firstItem="bJv-0m-tw9" firstAttribute="top" secondItem="5fr-w8-qMh" secondAttribute="bottom" constant="8" id="Qzx-Tw-6At"/>
@@ -2393,8 +2432,10 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                             <constraint firstItem="bJv-0m-tw9" firstAttribute="top" secondItem="cfy-ie-FcM" secondAttribute="bottom" constant="8" id="iHO-dx-vW6"/>
                             <constraint firstAttribute="trailing" secondItem="P3i-34-KuG" secondAttribute="trailing" constant="50" id="ie3-D6-QHR"/>
                             <constraint firstItem="5MK-L3-c2O" firstAttribute="centerY" secondItem="P3i-34-KuG" secondAttribute="bottom" id="o5S-P5-w2m"/>
+                            <constraint firstItem="5MK-L3-c2O" firstAttribute="top" secondItem="PBF-r1-WVN" secondAttribute="bottom" constant="20" id="qAQ-73-7wh"/>
                             <constraint firstAttribute="centerX" secondItem="cfy-ie-FcM" secondAttribute="centerX" id="s74-dX-1mk"/>
                             <constraint firstItem="P3i-34-KuG" firstAttribute="top" secondItem="fN4-nd-JwM" secondAttribute="bottom" constant="8" id="tb3-aN-M8C"/>
+                            <constraint firstItem="PBF-r1-WVN" firstAttribute="top" secondItem="5fr-w8-qMh" secondAttribute="bottom" constant="8" id="uCD-L4-q08"/>
                             <constraint firstItem="bJv-0m-tw9" firstAttribute="leading" secondItem="xcT-rw-bHy" secondAttribute="leading" constant="16" id="xXi-5h-f5L"/>
                             <constraint firstAttribute="centerY" secondItem="P3i-34-KuG" secondAttribute="bottom" id="yjL-Jl-ZCt"/>
                             <constraint firstItem="5MK-L3-c2O" firstAttribute="top" secondItem="bJv-0m-tw9" secondAttribute="bottom" constant="16" id="zPx-cT-GDu"/>
@@ -2405,11 +2446,13 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <exclude reference="P3i-34-KuG"/>
                                 <exclude reference="bJv-0m-tw9"/>
                                 <exclude reference="cfy-ie-FcM"/>
+                                <exclude reference="PBF-r1-WVN"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="9EJ-BG-Idz"/>
                                 <exclude reference="FgT-RO-wm3"/>
                                 <exclude reference="o5S-P5-w2m"/>
+                                <exclude reference="qAQ-73-7wh"/>
                                 <exclude reference="zPx-cT-GDu"/>
                                 <exclude reference="Bw3-Oe-wR7"/>
                                 <exclude reference="Qzx-Tw-6At"/>
@@ -2427,6 +2470,9 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <exclude reference="Iv6-sA-2hQ"/>
                                 <exclude reference="cOn-YZ-ppc"/>
                                 <exclude reference="guz-1E-ILT"/>
+                                <exclude reference="7Y6-Tm-xoQ"/>
+                                <exclude reference="HEj-df-WbW"/>
+                                <exclude reference="uCD-L4-q08"/>
                                 <exclude reference="5bA-TT-sHt"/>
                                 <exclude reference="ie3-D6-QHR"/>
                                 <exclude reference="tb3-aN-M8C"/>
@@ -2439,11 +2485,13 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <include reference="P3i-34-KuG"/>
                                 <include reference="bJv-0m-tw9"/>
                                 <include reference="cfy-ie-FcM"/>
+                                <include reference="PBF-r1-WVN"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="9EJ-BG-Idz"/>
-                                <include reference="FgT-RO-wm3"/>
+                                <exclude reference="FgT-RO-wm3"/>
                                 <exclude reference="o5S-P5-w2m"/>
+                                <include reference="qAQ-73-7wh"/>
                                 <exclude reference="zPx-cT-GDu"/>
                                 <exclude reference="Bw3-Oe-wR7"/>
                                 <exclude reference="Qzx-Tw-6At"/>
@@ -2461,6 +2509,9 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <include reference="Iv6-sA-2hQ"/>
                                 <include reference="cOn-YZ-ppc"/>
                                 <exclude reference="guz-1E-ILT"/>
+                                <include reference="7Y6-Tm-xoQ"/>
+                                <include reference="HEj-df-WbW"/>
+                                <include reference="uCD-L4-q08"/>
                                 <include reference="5bA-TT-sHt"/>
                                 <include reference="ie3-D6-QHR"/>
                                 <include reference="tb3-aN-M8C"/>
@@ -2470,6 +2521,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                     </view>
                     <navigationItem key="navigationItem" id="bdo-fy-dOA"/>
                     <connections>
+                        <outlet property="cancelButton" destination="PBF-r1-WVN" id="Wte-ll-YHl"/>
                         <outlet property="infoText" destination="bJv-0m-tw9" id="yLv-2W-efn"/>
                         <outlet property="spinner" destination="cfy-ie-FcM" id="ZUX-Iq-aYb"/>
                         <outlet property="tryAgianButton" destination="5fr-w8-qMh" id="i2u-3z-U0i"/>
@@ -2486,6 +2538,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
         <image name="checkBox_unchecked" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FW7-xU-rGU"/>
+        <segue reference="RaB-t6-Xcm"/>
     </inferredMetricsTieBreakers>
 </document>
