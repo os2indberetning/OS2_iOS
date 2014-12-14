@@ -18,7 +18,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (void)changeToLoginView;
-
+- (void)changeToStartView;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

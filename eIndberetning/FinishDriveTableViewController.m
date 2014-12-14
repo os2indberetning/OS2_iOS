@@ -93,6 +93,12 @@
 {
     [super viewWillAppear:animated];
     
+    if(!self.info.guid)
+    {
+        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+        [del changeToLoginView];
+    }
+    
     //Fill in the selected data in the forms
     self.userTextLabel.text = [NSString stringWithFormat:@"Bruger: %@", self.info.name];
     
@@ -236,6 +242,13 @@
 
 #pragma mark - Sync
 
+-(void)tokenNotFound
+{
+    [self.info resetInfo];
+    [self.info saveInfo];
+    //ViewWillAppear takes care of the rest
+}
+
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
 {
     self.rates = rates;
@@ -267,7 +280,6 @@
     }
     
     [self.info saveInfo];
-    
     [self reloadReport];
 }
 

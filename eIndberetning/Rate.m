@@ -15,15 +15,25 @@
 {
     NSMutableArray* array = [[NSMutableArray alloc] init];
     
+    NSDateFormatter *ydf = [[NSDateFormatter alloc] init];
+    [ydf setDateFormat:@"yyyy"];
+    
     for (NSDictionary* rate in dic) {
         Rate* r = [[Rate alloc] init];
         
-        r.kmrate = @([[rate objectForKey:@"KmRate"] integerValue]);
-        r.tfcode = @([[rate objectForKey:@"TFCode"] integerValue]);
-        r.rateid = @([[rate objectForKey:@"Id"] integerValue]);
+        NSString *year = [[rate objectForKey:@"Year"] description];
+        r.year = [ydf dateFromString:year ];
         
-        r.type = [[rate objectForKey:@"Type"] description];
-        [array insertObject:r atIndex:0];
+        //Only show rates from this year
+        if([[ydf stringFromDate:r.year] isEqualToString:[ydf stringFromDate:[NSDate date]]])
+        {
+            r.kmrate = @([[rate objectForKey:@"KmRate"] integerValue]);
+            r.tfcode = @([[rate objectForKey:@"TFCode"] integerValue]);
+            r.rateid = @([[rate objectForKey:@"Id"] integerValue]);
+            
+            r.type = [[rate objectForKey:@"Type"] description];
+            [array insertObject:r atIndex:0];
+        }
     }
     
     return array;
@@ -31,18 +41,28 @@
 
 + (NSArray *) initFromCoreDataArray:(NSArray*)CDArray
 {
+    
     NSMutableArray* array = [[NSMutableArray alloc] initWithCapacity: CDArray.count];
+ 
+    NSDateFormatter *ydf = [[NSDateFormatter alloc] init];
+    [ydf setDateFormat:@"yyyy"];
     
     for (CDRate *CDr in CDArray)
     {
+        
         Rate* rate = [[Rate alloc] init];
         
-        rate.kmrate = CDr.kmrate;
-        rate.tfcode = CDr.tfcode;
-        rate.type = CDr.type;
-        rate.rateid = CDr.rateid;
+        rate.year = CDr.year;
         
-        [array insertObject:rate atIndex:0];
+        //Only show rates from this year
+        if([[ydf stringFromDate:rate.year] isEqualToString:[ydf stringFromDate:[NSDate date]]])
+        {
+            rate.kmrate = CDr.kmrate;
+            rate.tfcode = CDr.tfcode;
+            rate.type = CDr.type;
+            rate.rateid = CDr.rateid;
+            [array insertObject:rate atIndex:0];
+        }
     }
     
     return array;
@@ -54,6 +74,7 @@
     [encoder encodeObject:self.tfcode forKey:@"tfcode"];
     [encoder encodeObject:self.rateid forKey:@"rateid"];
     [encoder encodeObject:self.type forKey:@"type"];
+    [encoder encodeObject:self.year forKey:@"year"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -63,6 +84,7 @@
         self.tfcode = [decoder decodeObjectForKey:@"tfcode"];
         self.rateid = [decoder decodeObjectForKey:@"rateid"];
         self.type = [decoder decodeObjectForKey:@"type"];
+        self.year = [decoder decodeObjectForKey:@"year"];
     }
     return self;
 }
@@ -72,6 +94,7 @@
     return( [self.type isEqualToString:object.type] &&
            [self.kmrate isEqualToNumber:object.kmrate] &&
            [self.tfcode isEqualToNumber:object.tfcode] &&
-           [self.rateid isEqualToNumber:object.rateid] );
+           [self.rateid isEqualToNumber:object.rateid] &&
+           [self.year isEqualToDate:object.year]);
 }
 @end

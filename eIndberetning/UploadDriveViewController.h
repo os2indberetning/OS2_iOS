@@ -11,6 +11,7 @@
 
 @protocol DidUploadDelegate
 -(void)didFinishUpload;
+-(void)tokenNotFound;
 @end
 
 @interface UploadDriveViewController : UIViewController

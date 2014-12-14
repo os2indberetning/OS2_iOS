@@ -71,9 +71,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4E-CS-dtX">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">For at bruge appen skal du parre din telefon med din bruger på eindbertning.
+                                <string key="text">For at bruge appen skal du parre din telefon med din bruger på eIndbertning.
 
-For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på eIndberetning med din telefon.  Du laver et token ved at gå ind under din brugerprofil og trykke "Tilføj Token".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</string>
+For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på eIndberetning med din telefon.  Du laver et token ved at gå ind under "Min eIndberetning" og trykke "Mine Tokens".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</string>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

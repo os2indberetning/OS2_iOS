@@ -94,8 +94,6 @@
     
      
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    //[client postDriveReport:self.report forToken:@"Token" ];
 }
 
 -(void)manualRefresh
@@ -141,14 +139,20 @@
 {
     [super viewWillAppear:animated];
     
-    if(self.report.shouldReset)
-        [self loadReport];
-    
     if(!self.info.guid)
     {
+        if(self.gpsManager)
+        {
+            [self.gpsManager stopGPS];
+            self.gpsManager.delegate = nil;
+        }
+        
         AppDelegate* del =  [[UIApplication sharedApplication] delegate];
         [del changeToLoginView];
     }
+    
+    if(self.report.shouldReset)
+        [self loadReport];
     
     if(self.report.purpose)
         self.purposeTextField.text = self.report.purpose.purpose;
@@ -257,6 +261,15 @@
         self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
     }
 
+}
+
+#pragma mark Sync
+
+-(void)tokenNotFound
+{
+    [self.info resetInfo];
+    [self.info saveInfo];
+    //ViewWillAppear takes care of the rest
 }
 
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;

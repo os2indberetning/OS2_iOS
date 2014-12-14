@@ -82,6 +82,7 @@
         CDr.tfcode = r.tfcode;
         CDr.type = r.type;
         CDr.rateid = r.rateid;
+        CDr.year = r.year;
         
         [self.managedObjectContext insertObject:CDr];
     }

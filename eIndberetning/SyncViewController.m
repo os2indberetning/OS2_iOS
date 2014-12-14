@@ -8,6 +8,7 @@
 
 #import "SyncViewController.h"
 #import "UserInfo.h"
+#import "JSONResponseSerializerWithData.h"
 
 @interface SyncViewController()
 
@@ -60,7 +61,9 @@ const double MIN_WAIT_TIME_S = 2;
     failBlock:^(NSURLSessionTask * task, NSError *Error)
     {
         NSLog(@"%@", Error);
-        [safeSelf failSync];
+        
+        NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
+        [safeSelf failSyncWithErrorCode:(NSInteger)errorCode];
          
     }];
 }
@@ -71,12 +74,21 @@ const double MIN_WAIT_TIME_S = 2;
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
--(void) failSync
+-(void) failSyncWithErrorCode:(NSInteger)errorCode
 {
-    self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen";
-    self.spinner.hidden = true;
-    self.tryAgianButton.hidden = false;
-    //Change text, hide spinner, show button
+    if(errorCode == UnknownError)
+    {
+        //Change text, hide spinner, show retry-button
+        self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen";
+        self.spinner.hidden = true;
+        self.tryAgianButton.hidden = false;
+    }
+    else if(errorCode == TokenNotFound)
+    {
+        //Boot user back to token screen
+        [self.delegate tokenNotFound];
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
 }
 
 - (IBAction)tryAgianButtonPressed:(id)sender {

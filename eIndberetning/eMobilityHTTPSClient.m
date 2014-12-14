@@ -9,10 +9,11 @@
 #import "eMobilityHTTPSClient.h"
 
 
-static NSString * const WorldWeatherOnlineAPIKey = @"PASTE YOUR API KEY HERE";
 static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAPI/api/";
 
 @implementation eMobilityHTTPSClient
+
+
 
 + (eMobilityHTTPSClient *)sharedeMobilityHTTPSClient 
 {
@@ -26,12 +27,32 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     return _eMobilityHTTPSClient;
 }
 
++ (NSString*)getErrorString:(NSInteger)errorcode
+{
+    switch (errorcode) {
+        case TokenNotFound:
+        {
+            return @"Dit token blev ikke fundet på serveren";
+            break;
+        }
+        case TokenAllreadyActivated:
+        {
+            return @"Dit token er allerede aktiveret";
+            break;
+        }
+            
+        default:
+            return @"Der opstod en ukendt fejl";
+            break;
+    }
+}
+
 - (instancetype)initWithBaseURL:(NSURL *)url
 {
     self = [super initWithBaseURL:url];
     
     if (self) {
-        self.responseSerializer = [AFJSONResponseSerializer serializer];
+        self.responseSerializer = [JSONResponseSerializerWithData serializer];
         self.requestSerializer = [AFJSONRequestSerializer serializer];
     }
     
@@ -76,5 +97,4 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     
     [self POST:@"SubmitDrive" parameters:dic success:succes failure:failure];
 }
-
 @end

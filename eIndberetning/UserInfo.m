@@ -19,6 +19,20 @@
     return sharedMyManager;
 }
 
+-(void)resetInfo
+{
+    self.guid = nil;
+    self.name = nil;
+    self.home_loc = nil;
+    self.profileId = nil;
+    
+    
+    self.last_purpose = nil;
+    self.last_employment = nil;
+    self.last_rate = nil;
+    self.last_sync_date = nil;
+}
+
 -(void)saveInfo
 {
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:self];

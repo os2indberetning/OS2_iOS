@@ -11,11 +11,13 @@
 #import "Profile.h"
 #import "UserInfo.h"
 #import "AppDelegate.h"
+#import "ErrorMsgViewController.h"
 
 @interface InitialVIewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *couplePhoneButton;
 @property (strong, nonatomic) eMobilityHTTPSClient *client;
+@property (nonatomic, strong) ErrorMsgViewController* errorMsg;
 @end
 
 @implementation InitialVIewController
@@ -46,6 +48,7 @@
          Profile* profile = [Profile initFromJsonDic:profileDic];
          UserInfo* info = [UserInfo sharedManager];
          
+         
          //Search through the tokens
          for (Token* token in profile.tokens) {
              if([token.tokenString isEqualToString: self.textField.text]) //And something with status!
@@ -59,7 +62,9 @@
          
          if(info.guid)
          {
-             [self performSegueWithIdentifier:@"ShowStartViewSegue" sender:self];
+             AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+             [del changeToStartView];
+             //[self performSegueWithIdentifier:@"ShowStartViewSegue" sender:self];
          }
          else
          {
@@ -68,6 +73,12 @@
      }
      failBlock:^(NSURLSessionTask * task, NSError *Error)
      {
+         NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
+         NSString* errorString = [eMobilityHTTPSClient getErrorString:errorCode];
+         
+         self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+         [self.errorMsg showErrorMsg: errorString];
+         
          CAKeyframeAnimation * anim = [ CAKeyframeAnimation animationWithKeyPath:@"transform" ] ;
          anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-5.0f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(5.0f, 0.0f, 0.0f) ] ] ;
          anim.autoreverses = YES ;

@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSDate* last_sync_date;
 
 + (id)sharedManager;
+-(void)resetInfo;
 -(void)saveInfo;
 -(void)loadInfo;
 -(BOOL)isLastSyncDateNotToday;

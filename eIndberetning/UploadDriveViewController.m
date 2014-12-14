@@ -39,23 +39,33 @@ const double WAIT_TIME_S = 1.5;
      failBlock:^(NSURLSessionTask * task, NSError *Error)
      {
          NSLog(@"%@", Error);
-         [self failSync];
+         
+         NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
+         [self failSyncWithErrorCode:(NSInteger)errorCode];
      }];
 }
 
 -(void) succesSync
 {
-    //TODO: delgate that send us back!
-    [self dismissViewControllerAnimated:true completion:nil];
     [self.delegate didFinishUpload];
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
-- (void) failSync
+- (void) failSyncWithErrorCode:(NSInteger)errorCode
 {
-    self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen";
-    self.spinner.hidden = true;
-    self.tryAgianButton.hidden = false;
-    //Change text, hide spinner, show button
+    if(errorCode == TokenNotFound)
+    {
+        [self.delegate tokenNotFound];
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
+    else
+    {
+        //Change text, hide spinner, show button
+        self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen";
+        self.spinner.hidden = true;
+        self.tryAgianButton.hidden = false;
+    
+    }
 }
 
 - (IBAction)tryAgianButtonPressed:(id)sender {
