@@ -262,7 +262,8 @@
     self.info.last_sync_date = [NSDate date];
     self.info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
     self.info.home_loc = profile.homeCoordinate;
-
+    self.info.profileId = profile.profileId;
+    
     for (Token* tkn in profile.tokens) {
         if([tkn.guid isEqualToString:self.info.token.guid])
         {
