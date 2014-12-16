@@ -31,6 +31,11 @@ const double MIN_WAIT_TIME_S = 2;
     self.tryAgianButton.layer.cornerRadius = 1.5f;
     
     self.client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self doSync];
 }
 
@@ -88,9 +93,8 @@ const double MIN_WAIT_TIME_S = 2;
     }
     else if(errorCode == TokenNotFound)
     {
-        //Boot user back to token screen
         [self.delegate tokenNotFound];
-        [self dismissViewControllerAnimated:true completion:nil];
+        [self dismissViewControllerAnimated:false completion:nil];
     }
 }
 

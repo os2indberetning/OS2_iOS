@@ -35,7 +35,7 @@
 
 -(void)chooseFirstView
 {
-     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     

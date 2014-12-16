@@ -139,18 +139,6 @@
 {
     [super viewWillAppear:animated];
     
-    if(!self.info.token)
-    {
-        if(self.gpsManager)
-        {
-            [self.gpsManager stopGPS];
-            self.gpsManager.delegate = nil;
-        }
-        
-        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
-        [del changeToLoginView];
-    }
-    
     if(self.report.shouldReset)
         [self loadReport];
     
@@ -181,6 +169,19 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    if(!self.info.token)
+    {
+        if(self.gpsManager)
+        {
+            [self.gpsManager stopGPS];
+            self.gpsManager.delegate = nil;
+        }
+        
+        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+        [del changeToLoginView];
+        return;
+    }
     
     if(self.shouldSync)
     {

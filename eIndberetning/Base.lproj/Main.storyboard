@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TXz-8M-f9l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TXz-8M-f9l">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -15,15 +15,15 @@
                         <viewControllerLayoutGuide type="bottom" id="iiT-iZ-1z4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e80-D8-uHZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YpA-jw-KCg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
                                 <color key="backgroundColor" red="0.0" green="0.40000000596046448" blue="0.37254902720451355" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bZ-Nv-7KL">
-                                <rect key="frame" x="16" y="502" width="288" height="50"/>
+                                <rect key="frame" x="16" y="534" width="568" height="50"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ozb-k2-wEi"/>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tast Parringskode" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-SB-gLn" userLabel="TextField">
-                                <rect key="frame" x="16" y="88" width="288" height="55"/>
+                                <rect key="frame" x="16" y="88" width="568" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="8Tw-AA-at4"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4E-CS-dtX">
-                                <rect key="frame" x="16" y="151" width="288" height="335"/>
+                                <rect key="frame" x="16" y="151" width="568" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">For at bruge appen skal du parre din telefon med din bruger på eIndbertning.
 
@@ -55,7 +55,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parring af Telefon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef9-6F-WQl">
-                                <rect key="frame" x="8" y="28" width="304" height="40"/>
+                                <rect key="frame" x="8" y="28" width="584" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RS9-Jh-pne"/>
                                 </constraints>
@@ -90,12 +90,12 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                     <connections>
                         <outlet property="couplePhoneButton" destination="7bZ-Nv-7KL" id="X8d-Y1-tev"/>
                         <outlet property="textField" destination="MHD-SB-gLn" id="t8J-SQ-dc0"/>
-                        <segue destination="zml-au-bYr" kind="modal" identifier="ShowStartViewSegue" id="XOD-OP-EGL"/>
+                        <segue destination="zml-au-bYr" kind="presentation" identifier="ShowStartViewSegue" id="XOD-OP-EGL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nT-qS-cNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-974.39999999999998" y="154.30666666666667"/>
+            <point key="canvasLocation" x="-1827" y="163"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cty-Bs-YJ6">
@@ -112,7 +112,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydk-N9-u3j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-564.79999999999995" y="154.30666666666667"/>
+            <point key="canvasLocation" x="-1059" y="163"/>
         </scene>
         <!--Sync View Controller-->
         <scene sceneID="Q2c-UW-ryZ">
@@ -123,11 +123,11 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <viewControllerLayoutGuide type="bottom" id="2b1-Nj-Q1J"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tRX-dZ-9Ow">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzU-tt-c5h">
-                                <rect key="frame" x="50" y="505" width="220" height="43"/>
+                                <rect key="frame" x="50" y="537" width="500" height="43"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="1Mj-sc-OKR"/>
@@ -143,10 +143,10 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="soS-dm-bov">
-                                <rect key="frame" x="50" y="60" width="220" height="264"/>
+                                <rect key="frame" x="50" y="60" width="500" height="280"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synkroniserer stamdata" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixG-OO-7EF">
-                                <rect key="frame" x="16" y="425" width="288" height="80"/>
+                                <rect key="frame" x="16" y="457" width="568" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="wO0-mQ-UPZ"/>
                                 </constraints>
@@ -155,7 +155,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CSu-cE-7au">
-                                <rect key="frame" x="141" y="380" width="37" height="37"/>
+                                <rect key="frame" x="281" y="412" width="37" height="37"/>
                                 <color key="color" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -184,14 +184,14 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oA4-ji-oTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348.80000000000001" y="862.4133333333333"/>
+            <point key="canvasLocation" x="654" y="910.99999999999989"/>
         </scene>
         <!--Ny Kørsel-->
         <scene sceneID="BMT-jb-Rxk">
             <objects>
                 <tableViewController id="k14-AB-31x" customClass="StartDriveTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="foD-DU-IMe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -203,7 +203,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dato: 31/5-14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsM-Wa-eDH">
-                                                    <rect key="frame" x="8" y="8.5" width="304" height="27"/>
+                                                    <rect key="frame" x="8" y="8" width="584" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="01B-NZ-rbT"/>
                                                     </constraints>
@@ -225,7 +225,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1SY-4o-0Og">
-                                                    <rect key="frame" x="16" y="8" width="263" height="25"/>
+                                                    <rect key="frame" x="16" y="8" width="543" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="eMF-z0-wqT"/>
                                                     </constraints>
@@ -234,7 +234,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-sD-uU4">
-                                                    <rect key="frame" x="16" y="40" width="263" height="21"/>
+                                                    <rect key="frame" x="16" y="40" width="543" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Yvg-72-UTG"/>
                                                     </constraints>
@@ -259,7 +259,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organisatorisk placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgO-iO-HTE">
-                                                    <rect key="frame" x="16" y="8" width="263" height="25"/>
+                                                    <rect key="frame" x="16" y="8" width="543" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="FnD-kN-4s0"/>
                                                     </constraints>
@@ -268,7 +268,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8e-Ea-PMP">
-                                                    <rect key="frame" x="16" y="40" width="263" height="21"/>
+                                                    <rect key="frame" x="16" y="40" width="543" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="YpR-Fc-v7A"/>
                                                     </constraints>
@@ -293,7 +293,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H96-Gc-1ft">
-                                                    <rect key="frame" x="16" y="8" width="263" height="25"/>
+                                                    <rect key="frame" x="16" y="8" width="543" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="4tc-pJ-rnB"/>
                                                     </constraints>
@@ -302,7 +302,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buc-cq-Bwh">
-                                                    <rect key="frame" x="16" y="40" width="263" height="21"/>
+                                                    <rect key="frame" x="16" y="40" width="543" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="aY1-Nh-Mxd"/>
                                                     </constraints>
@@ -327,7 +327,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ekstra Bemærkning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-QY-hmc">
-                                                    <rect key="frame" x="16" y="8" width="263" height="25"/>
+                                                    <rect key="frame" x="16" y="8" width="543" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="tXx-Aj-b7F"/>
                                                     </constraints>
@@ -336,7 +336,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="onDrag" editable="NO" text="Indtast Bemærkning" translatesAutoresizingMaskIntoConstraints="NO" id="lkT-41-Etu">
-                                                    <rect key="frame" x="12" y="33" width="267" height="78.5"/>
+                                                    <rect key="frame" x="12" y="33" width="547" height="78"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -360,14 +360,14 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox_unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="Uiv-AI-pmf">
-                                                    <rect key="frame" x="279" y="9.5" width="25" height="25"/>
+                                                    <rect key="frame" x="559" y="9" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="JRN-ad-eft"/>
                                                         <constraint firstAttribute="height" constant="25" id="h2z-kS-UEf"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starter du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyS-ac-2mi">
-                                                    <rect key="frame" x="16" y="8" width="155" height="27.5"/>
+                                                    <rect key="frame" x="16" y="8" width="155" height="27"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -388,7 +388,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdb-Cw-iqX">
-                                                    <rect key="frame" x="10" y="8" width="300" height="43"/>
+                                                    <rect key="frame" x="150" y="8" width="300" height="43"/>
                                                     <color key="backgroundColor" red="0.85882352941176465" green="0.50588235294117645" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="Pch-JV-pEj"/>
@@ -427,13 +427,13 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <outlet property="startAtHomeCheckbox" destination="Uiv-AI-pmf" id="mnM-Y0-l8M"/>
                         <outlet property="startDriveButton" destination="wdb-Cw-iqX" id="Y0q-O8-Ye1"/>
                         <outlet property="taskTextField" destination="buc-cq-Bwh" id="N77-pt-5Tx"/>
-                        <segue destination="GgH-KL-Jqi" kind="modal" identifier="ShowSyncSegue" modalTransitionStyle="flipHorizontal" id="RaB-t6-Xcm"/>
-                        <segue destination="sc4-T7-ILl" kind="push" identifier="DriveViewSegue" id="xs8-c1-WzO"/>
+                        <segue destination="GgH-KL-Jqi" kind="presentation" identifier="ShowSyncSegue" modalTransitionStyle="flipHorizontal" id="RaB-t6-Xcm"/>
+                        <segue destination="sc4-T7-ILl" kind="show" identifier="DriveViewSegue" id="xs8-c1-WzO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbq-Ml-2jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-111.2" y="154.30666666666667"/>
+            <point key="canvasLocation" x="-208.5" y="163"/>
         </scene>
         <!--Drive View Controller-->
         <scene sceneID="YR7-jW-L4z">
@@ -444,11 +444,11 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <viewControllerLayoutGuide type="bottom" id="eS5-bQ-pEz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CnS-YQ-7XT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8d-vQ-mgv">
-                                <rect key="frame" x="50" y="413" width="220" height="55"/>
+                                <rect key="frame" x="50" y="445" width="500" height="55"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="Aos-r2-Sjj"/>
@@ -463,7 +463,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du har nu kørt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13h-xJ-JEK">
-                                <rect key="frame" x="16" y="134" width="288" height="34"/>
+                                <rect key="frame" x="16" y="134" width="568" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="cgK-7H-Ca2"/>
                                 </constraints>
@@ -472,7 +472,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1H-Cj-sDG">
-                                <rect key="frame" x="16" y="176" width="288" height="34"/>
+                                <rect key="frame" x="16" y="176" width="568" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="2BB-9d-ihe"/>
                                 </constraints>
@@ -481,7 +481,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sidst opdateret kl 14.35.27" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayZ-zG-Phb">
-                                <rect key="frame" x="16" y="218" width="288" height="21"/>
+                                <rect key="frame" x="16" y="218" width="568" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Wxt-fu-cta"/>
                                 </constraints>
@@ -490,7 +490,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS Nøjagtighed: 100 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkJ-wr-Tdv">
-                                <rect key="frame" x="16" y="105" width="288" height="21"/>
+                                <rect key="frame" x="16" y="105" width="568" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="zAz-Nh-l6Y"/>
                                 </constraints>
@@ -526,19 +526,19 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <outlet property="finishButton" destination="P8d-vQ-mgv" id="fux-SF-xiT"/>
                         <outlet property="gpsAccuaryLabel" destination="YkJ-wr-Tdv" id="N7i-8Q-dBk"/>
                         <outlet property="lastUpdatedLabel" destination="ayZ-zG-Phb" id="8kJ-dJ-zZ9"/>
-                        <segue destination="Ck8-fh-DPc" kind="push" identifier="EndDriveSegue" id="Uj2-lE-498"/>
+                        <segue destination="Ck8-fh-DPc" kind="show" identifier="EndDriveSegue" id="Uj2-lE-498"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9z-rN-b4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="337.60000000000002" y="154.30666666666667"/>
+            <point key="canvasLocation" x="633" y="163"/>
         </scene>
         <!--Afslut Kørsel-->
         <scene sceneID="cFe-b4-CRB">
             <objects>
                 <tableViewController id="Ck8-fh-DPc" customClass="FinishDriveTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="b1W-Vk-oiv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -550,7 +550,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dato: 31/5-14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIi-Kr-0FQ">
-                                                    <rect key="frame" x="8" y="8" width="304" height="21"/>
+                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="MpZ-Hw-PxA"/>
                                                     </constraints>
@@ -559,7 +559,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bruger: Else Hansen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nq-AO-Xvk">
-                                                    <rect key="frame" x="8" y="30" width="304" height="21"/>
+                                                    <rect key="frame" x="8" y="30" width="584" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="JRj-5w-rYg"/>
                                                     </constraints>
@@ -585,7 +585,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKu-jz-p6V">
-                                                    <rect key="frame" x="16" y="4" width="263" height="25"/>
+                                                    <rect key="frame" x="16" y="4" width="543" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="ChW-6o-AXD"/>
                                                     </constraints>
@@ -594,7 +594,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCB-sy-Bgi">
-                                                    <rect key="frame" x="16" y="25" width="263" height="21"/>
+                                                    <rect key="frame" x="16" y="25" width="543" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="p9I-15-cKG"/>
                                                     </constraints>
@@ -619,7 +619,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organisatorisk Placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaM-9J-wRf">
-                                                    <rect key="frame" x="16" y="4" width="263" height="25"/>
+                                                    <rect key="frame" x="16" y="4" width="543" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="J55-bg-JOO"/>
                                                     </constraints>
@@ -628,7 +628,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-mn-aeX">
-                                                    <rect key="frame" x="16" y="25" width="263" height="21"/>
+                                                    <rect key="frame" x="16" y="25" width="543" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="sfX-DB-uJc"/>
                                                     </constraints>
@@ -653,7 +653,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyE-rC-uL7">
-                                                    <rect key="frame" x="16" y="4" width="263" height="25"/>
+                                                    <rect key="frame" x="16" y="4" width="543" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="h6F-7e-1VD"/>
                                                     </constraints>
@@ -662,7 +662,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQQ-d6-mim">
-                                                    <rect key="frame" x="16" y="25" width="263" height="21"/>
+                                                    <rect key="frame" x="16" y="25" width="543" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="nHa-ax-qJz"/>
                                                     </constraints>
@@ -687,7 +687,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bemærkning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOh-Yn-zsf">
-                                                    <rect key="frame" x="16" y="4" width="263" height="25"/>
+                                                    <rect key="frame" x="16" y="4" width="543" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="6AO-ds-gvl"/>
                                                     </constraints>
@@ -696,7 +696,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bemærkning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fep-SP-cmS">
-                                                    <rect key="frame" x="16" y="25" width="263" height="21"/>
+                                                    <rect key="frame" x="16" y="25" width="543" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="aTU-YG-ypL"/>
                                                     </constraints>
@@ -721,7 +721,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOe-GY-U5g">
-                                                    <rect key="frame" x="16" y="4" width="263" height="25"/>
+                                                    <rect key="frame" x="16" y="4" width="543" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="AzU-le-ByA"/>
                                                     </constraints>
@@ -730,7 +730,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyf-1u-ogh">
-                                                    <rect key="frame" x="16" y="25" width="263" height="21"/>
+                                                    <rect key="frame" x="16" y="25" width="543" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Upu-Sz-gc9"/>
                                                     </constraints>
@@ -749,7 +749,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="afb-k4-iXG" kind="push" identifier="EditKmSegue" id="abQ-ZL-WHR"/>
+                                            <segue destination="afb-k4-iXG" kind="show" identifier="EditKmSegue" id="abQ-ZL-WHR"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="pCA-lx-s3p">
@@ -758,14 +758,14 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox_checked" translatesAutoresizingMaskIntoConstraints="NO" id="7lI-NR-kBx">
-                                                    <rect key="frame" x="279" y="12.5" width="25" height="25"/>
+                                                    <rect key="frame" x="559" y="12" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="H1b-Va-f1I"/>
                                                         <constraint firstAttribute="width" constant="25" id="eb4-y5-r5F"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Startede du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mu-xR-RDv">
-                                                    <rect key="frame" x="16" y="8" width="169" height="33.5"/>
+                                                    <rect key="frame" x="16" y="8" width="169" height="33"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -786,14 +786,14 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox_unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="OHp-y7-Z0l">
-                                                    <rect key="frame" x="279" y="12.5" width="25" height="25"/>
+                                                    <rect key="frame" x="559" y="12" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="JdG-mM-Dqz"/>
                                                         <constraint firstAttribute="width" constant="25" id="nk6-6P-Cte"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sluttede du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZF-2D-632">
-                                                    <rect key="frame" x="16" y="8" width="167.5" height="33.5"/>
+                                                    <rect key="frame" x="16" y="8" width="168" height="33"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -814,7 +814,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJv-Sx-mnR">
-                                                    <rect key="frame" x="170" y="8" width="134" height="43"/>
+                                                    <rect key="frame" x="310" y="8" width="274" height="43"/>
                                                     <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="ddp-XK-JBd"/>
@@ -829,7 +829,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-j1-WXp">
-                                                    <rect key="frame" x="16" y="8" width="134" height="43"/>
+                                                    <rect key="frame" x="16" y="8" width="274" height="43"/>
                                                     <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="zr0-n2-nS8"/>
@@ -876,13 +876,13 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <outlet property="startAtHomeCheckbox" destination="7lI-NR-kBx" id="fQ6-1a-dYh"/>
                         <outlet property="uploadButton" destination="OJv-Sx-mnR" id="bhJ-48-9bS"/>
                         <outlet property="userTextLabel" destination="9nq-AO-Xvk" id="6Ag-tk-yNT"/>
-                        <segue destination="GgH-KL-Jqi" kind="modal" identifier="ShowSyncSegue" modalTransitionStyle="flipHorizontal" id="FW7-xU-rGU"/>
-                        <segue destination="0bn-hB-d0x" kind="modal" identifier="UploadDriveSegue" id="jDN-0C-tSe"/>
+                        <segue destination="GgH-KL-Jqi" kind="presentation" identifier="ShowSyncSegue" modalTransitionStyle="flipHorizontal" id="FW7-xU-rGU"/>
+                        <segue destination="0bn-hB-d0x" kind="presentation" identifier="UploadDriveSegue" id="jDN-0C-tSe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAQ-h2-r7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764.79999999999995" y="147.68000000000001"/>
+            <point key="canvasLocation" x="1434" y="156"/>
         </scene>
         <!--Rediger effektive Km-->
         <scene sceneID="emc-lI-ujd">
@@ -893,11 +893,11 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <viewControllerLayoutGuide type="bottom" id="3sg-zl-Kbb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j40-yd-tRF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Afmålte km:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wk-Tm-cJ1">
-                                <rect key="frame" x="16" y="72" width="288" height="40"/>
+                                <rect key="frame" x="16" y="72" width="568" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="mMv-ND-IEN"/>
                                 </constraints>
@@ -906,12 +906,12 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="19" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oB5-mC-CPx">
-                                <rect key="frame" x="16" y="120" width="140" height="164"/>
+                                <rect key="frame" x="16" y="120" width="280" height="180"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-EJ-7ZU">
-                                <rect key="frame" x="164" y="120" width="140" height="164"/>
+                                <rect key="frame" x="304" y="120" width="280" height="180"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -948,7 +948,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFi-sE-psS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035.2" y="862.4133333333333"/>
+            <point key="canvasLocation" x="1941" y="910.99999999999989"/>
         </scene>
         <!--Upload Drive View Controller-->
         <scene sceneID="3OM-Mb-ffe">
@@ -959,11 +959,11 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <viewControllerLayoutGuide type="bottom" id="5MK-L3-c2O"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xcT-rw-bHy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fr-w8-qMh">
-                                <rect key="frame" x="50" y="454" width="220" height="43"/>
+                                <rect key="frame" x="50" y="486" width="500" height="43"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="ZDp-Qh-znr"/>
@@ -979,10 +979,10 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
-                                <rect key="frame" x="50" y="28" width="220" height="256"/>
+                                <rect key="frame" x="50" y="28" width="500" height="272"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploader kørselsdata" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJv-0m-tw9">
-                                <rect key="frame" x="16" y="374" width="288" height="80"/>
+                                <rect key="frame" x="16" y="406" width="568" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="fgR-ea-7qK"/>
                                 </constraints>
@@ -991,11 +991,11 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-ie-FcM">
-                                <rect key="frame" x="141" y="329" width="37" height="37"/>
+                                <rect key="frame" x="281" y="361" width="37" height="37"/>
                                 <color key="color" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBF-r1-WVN">
-                                <rect key="frame" x="50" y="505" width="220" height="43"/>
+                                <rect key="frame" x="50" y="537" width="500" height="43"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="Orx-DX-kPU"/>
@@ -1042,7 +1042,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eux-tf-RMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220.8" y="154.30666666666667"/>
+            <point key="canvasLocation" x="2289" y="163"/>
         </scene>
     </scenes>
     <resources>
@@ -1050,11 +1050,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
         <image name="checkBox_checked" width="75" height="75"/>
         <image name="checkBox_unchecked" width="75" height="75"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="RaB-t6-Xcm"/>
     </inferredMetricsTieBreakers>
