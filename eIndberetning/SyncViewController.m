@@ -27,6 +27,7 @@ const double MIN_WAIT_TIME_S = 2;
 {
     [super viewDidLoad];
     
+    self.infoText.numberOfLines = 2;
     self.tryAgianButton.layer.cornerRadius = 1.5f;
     
     self.client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];

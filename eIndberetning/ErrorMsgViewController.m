@@ -22,6 +22,7 @@
     [super viewDidLoad];
     self.titleLabel.text = @"Fejl";
     self.errorLabel.text = self.errorString;
+    self.errorLabel.numberOfLines = 2;
     
     self.okButton.layer.cornerRadius = 2;
 }

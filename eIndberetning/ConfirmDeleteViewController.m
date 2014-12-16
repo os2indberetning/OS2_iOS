@@ -22,7 +22,7 @@
     // Do any additional setup after loading the view from its nib.
     self.errorLabel.text = @"Kørslen vil ikke blive gemt";
     self.titleLabel.text = @"Bekræft Sletning";
-    
+    self.errorLabel.numberOfLines = 2;
     self.okButton.layer.cornerRadius = 2;
     self.cancelButton.layer.cornerRadius = 2;
 }

@@ -64,6 +64,12 @@
          [self.CDManager insertEmployments:profile.employments];
          [self.CDManager insertRates:rates];
          
+         //Transfer userdata to local userinfo object
+         info.last_sync_date = [NSDate date];
+         info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
+         info.home_loc = profile.homeCoordinate;
+         info.profileId = profile.profileId;
+         
          //Search through the tokens
          for (Token* token in profile.tokens) {
              if([token.tokenString isEqualToString: self.textField.text])

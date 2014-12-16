@@ -27,7 +27,7 @@ const double WAIT_TIME_S = 1.5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.infoText.numberOfLines = 2;
     self.tryAgianButton.layer.cornerRadius = 1.5f;
     self.cancelButton.layer.cornerRadius = 1.5f;
     
