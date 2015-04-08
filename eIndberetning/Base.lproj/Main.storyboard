@@ -498,12 +498,29 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBg-tu-pRl">
+                                <rect key="frame" x="51" y="374" width="500" height="55"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="Ufo-UB-v9X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Pause Kørsel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseButtonPressed:" destination="sc4-T7-ILl" eventType="touchUpInside" id="Oz6-8G-6uK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="P8d-vQ-mgv" firstAttribute="top" secondItem="rBg-tu-pRl" secondAttribute="bottom" constant="16" id="09x-wL-0PL"/>
                             <constraint firstItem="ayZ-zG-Phb" firstAttribute="leading" secondItem="CnS-YQ-7XT" secondAttribute="leading" constant="16" id="0HI-7k-oRE"/>
                             <constraint firstItem="P8d-vQ-mgv" firstAttribute="leading" secondItem="CnS-YQ-7XT" secondAttribute="leading" constant="50" id="2CK-5d-UoV"/>
                             <constraint firstItem="ayZ-zG-Phb" firstAttribute="top" secondItem="b1H-Cj-sDG" secondAttribute="bottom" constant="8" id="64D-KT-YKN"/>
+                            <constraint firstAttribute="trailing" secondItem="rBg-tu-pRl" secondAttribute="trailing" constant="50" id="Bmv-fm-hAF"/>
                             <constraint firstAttribute="trailing" secondItem="P8d-vQ-mgv" secondAttribute="trailing" constant="50" id="OBi-CK-SqM"/>
                             <constraint firstItem="b1H-Cj-sDG" firstAttribute="leading" secondItem="CnS-YQ-7XT" secondAttribute="leading" constant="16" id="QF0-XD-9SI"/>
                             <constraint firstItem="YkJ-wr-Tdv" firstAttribute="leading" secondItem="CnS-YQ-7XT" secondAttribute="leading" constant="16" id="Qnk-Mj-e8L"/>
@@ -515,6 +532,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                             <constraint firstAttribute="trailing" secondItem="YkJ-wr-Tdv" secondAttribute="trailing" constant="16" id="kmX-Qd-aJj"/>
                             <constraint firstItem="13h-xJ-JEK" firstAttribute="top" secondItem="YkJ-wr-Tdv" secondAttribute="bottom" constant="8" id="lC4-Y8-BMO"/>
                             <constraint firstAttribute="trailing" secondItem="b1H-Cj-sDG" secondAttribute="trailing" constant="16" id="qqe-hQ-FVm"/>
+                            <constraint firstItem="rBg-tu-pRl" firstAttribute="leading" secondItem="CnS-YQ-7XT" secondAttribute="leading" constant="50" id="r60-Ra-q3a"/>
                             <constraint firstItem="eS5-bQ-pEz" firstAttribute="top" secondItem="P8d-vQ-mgv" secondAttribute="bottom" constant="100" id="vcc-fo-Y3u"/>
                             <constraint firstAttribute="centerX" secondItem="YkJ-wr-Tdv" secondAttribute="centerX" id="vom-VT-Tkp"/>
                         </constraints>
@@ -526,6 +544,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <outlet property="finishButton" destination="P8d-vQ-mgv" id="fux-SF-xiT"/>
                         <outlet property="gpsAccuaryLabel" destination="YkJ-wr-Tdv" id="N7i-8Q-dBk"/>
                         <outlet property="lastUpdatedLabel" destination="ayZ-zG-Phb" id="8kJ-dJ-zZ9"/>
+                        <outlet property="pauseButton" destination="rBg-tu-pRl" id="JtS-oU-FLa"/>
                         <segue destination="Ck8-fh-DPc" kind="show" identifier="EndDriveSegue" id="Uj2-lE-498"/>
                     </connections>
                 </viewController>

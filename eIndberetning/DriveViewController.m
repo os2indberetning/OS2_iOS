@@ -28,6 +28,9 @@
 @property (nonatomic) float totalDistance;
 
 @property (strong, nonatomic) ConfirmEndDriveViewController* confirmPopup;
+
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (nonatomic) BOOL isPaused;
 @end
 
 @implementation DriveViewController
@@ -52,6 +55,7 @@
     [self.timeFormatter setDateFormat:@"HH.mm.ss"];
     
     self.ui = [UserInfo sharedManager];
+    self.isPaused = false;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +73,24 @@
     self.confirmPopup.isSelected = self.report.didendhome;
     
     [self.confirmPopup showPopup];
+}
+
+- (IBAction)pauseButtonPressed:(id)sender {
+ 
+    if(self.isPaused == true)
+    {
+        [self.gpsManager startGPS];
+        [self.pauseButton setTitle:@"Pause Kørsel" forState:UIControlStateNormal];
+    }
+    else
+    {
+        self.locA = nil;
+        [self.gpsManager stopGPS];
+        self.gpsAccuaryLabel.text = @"GPS sat på pause";
+        [self.pauseButton setTitle:@"Genoptag Kørsel" forState:UIControlStateNormal];
+    }
+    
+    self.isPaused = !self.isPaused;
 }
 
 #pragma mark - EndDrivePopupDelegate
