@@ -327,5 +327,15 @@
     }
 }
 
+#pragma mark State Preservation
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.report forKey:@"DriveReport"];
+    [super encodeRestorableStateWithCoder:coder];
+}
 
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.report = [coder decodeObjectForKey:@"DriveReport"];
+}
 @end

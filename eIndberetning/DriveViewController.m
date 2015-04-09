@@ -36,26 +36,36 @@
 @implementation DriveViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
-    
     self.finishButton.layer.cornerRadius = 1.5f;
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    
+
     self.gpsManager = [GPSManager sharedGPSManager];
     self.gpsManager.delegate = self;
-    [self.gpsManager startGPS];
-    
-    self.distanceDrivenLabel.text = @"- km";
-    self.lastUpdatedLabel.text = @"Venter på gyldigt GPS signal";
-    self.totalDistance = 0;
-    self.isCloseToHome = false;
     
     self.timeFormatter = [[NSDateFormatter alloc] init];
     [self.timeFormatter setDateFormat:@"HH.mm.ss"];
     
     self.ui = [UserInfo sharedManager];
     self.isPaused = false;
+    
+    self.lastUpdatedLabel.text = @"Venter på gyldigt GPS signal";
+    self.totalDistance = 0;
+    self.distanceDrivenLabel.text = @"- km";
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    //Primarily used to load from state restore
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+    if(!self.isPaused)
+    {
+        [self.gpsManager startGPS];
+
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,6 +206,29 @@
         //Set if we are currently close to home
         self.isCloseToHome = ([self.locA distanceFromLocation:self.ui.home_loc] < 500);
     }
+}
+
+#pragma mark State Preservation
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:@(self.totalDistance) forKey:@"TotalDistance"];
+    [coder encodeObject:self.report forKey:@"DriveReport"];
+    [coder encodeObject:@(YES) forKey:@"isPaused"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.totalDistance = [[coder decodeObjectForKey:@"TotalDistance"] floatValue];
+    self.report = [coder decodeObjectForKey:@"DriveReport"];
+    self.isPaused = [[coder decodeObjectForKey:@"isPaused"] boolValue];
+    [super decodeRestorableStateWithCoder:coder];
+    
+    self.gpsAccuaryLabel.text = @"GPS sat på pause";
+    [self.pauseButton setTitle:@"Genoptag Kørsel" forState:UIControlStateNormal];
+    self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.2f Km", self.totalDistance/1000.0f];
+    self.lastUpdatedLabel.text = @"Venter på gyldigt GPS signal";
+    self.isCloseToHome = self.report.didendhome;
 }
 
 @end

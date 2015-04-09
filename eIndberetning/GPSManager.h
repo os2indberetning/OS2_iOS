@@ -20,6 +20,7 @@
 
 @interface GPSManager : NSObject <CLLocationManagerDelegate>
 
+@property (nonatomic) BOOL isRunning;
 
 + (GPSManager *)sharedGPSManager;
 - (void)startGPS;

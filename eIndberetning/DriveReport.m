@@ -29,4 +29,39 @@
     return body;
 }
 
+-(void)encodeWithCoder:(NSCoder *)encoder {
+    //Encode properties, other class variables, etc
+    [encoder encodeObject:self.date forKey:@"date"];
+    [encoder encodeObject:self.purpose forKey:@"purpose"];
+    [encoder encodeObject:self.manuelentryremark forKey:@"manuelentryremark"];
+    [encoder encodeObject:@(self.didstarthome) forKey:@"didstarthome"];
+    
+    [encoder encodeObject:@(self.didendhome) forKey:@"didendhome"];
+    [encoder encodeObject:@(self.shouldReset) forKey:@"shouldReset"];
+    [encoder encodeObject:self.profileId forKey:@"profileId"];
+    
+    [encoder encodeObject:self.rate forKey:@"rate"];
+    [encoder encodeObject:self.employment forKey:@"employment"];
+    [encoder encodeObject:self.route forKey:@"route"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        self.date = [decoder decodeObjectForKey:@"date"];
+        self.purpose = [decoder decodeObjectForKey:@"purpose"];
+        self.manuelentryremark = [decoder decodeObjectForKey:@"manuelentryremark"];
+        self.didstarthome = [[decoder decodeObjectForKey:@"didstarthome"] boolValue];
+        
+        self.didendhome = [[decoder decodeObjectForKey:@"didendhome"] boolValue];
+        self.shouldReset = [[decoder decodeObjectForKey:@"shouldReset"] boolValue];
+        self.profileId = [decoder decodeObjectForKey:@"profileId"];
+        
+        self.rate = [decoder decodeObjectForKey:@"rate"];
+        self.employment = [decoder decodeObjectForKey:@"employment"];
+        self.route = [decoder decodeObjectForKey:@"route"];
+    }
+    return self;
+}
+
 @end

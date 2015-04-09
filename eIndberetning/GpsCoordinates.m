@@ -25,4 +25,17 @@
     return body;
 }
 
+-(void)encodeWithCoder:(NSCoder *)encoder {
+    //Encode properties, other class variables, etc
+    [encoder encodeObject:self.loc forKey:@"loc"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        self.loc = [decoder decodeObjectForKey:@"loc"];
+    }
+    return self;
+}
+
 @end

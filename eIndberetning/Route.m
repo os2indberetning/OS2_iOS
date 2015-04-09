@@ -37,4 +37,21 @@
 }
 
 
+-(void)encodeWithCoder:(NSCoder *)encoder {
+    //Encode properties, other class variables, etc
+    [encoder encodeObject:self.totalDistanceMeasure forKey:@"totalDistanceMeasure"];
+    [encoder encodeObject:self.totalDistanceEdit forKey:@"totalDistanceEdit"];
+    [encoder encodeObject:self.coordinates forKey:@"coordinates"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        self.totalDistanceMeasure = [decoder decodeObjectForKey:@"totalDistanceMeasure"];
+        self.totalDistanceEdit = [decoder decodeObjectForKey:@"totalDistanceEdit"];
+        self.coordinates = [decoder decodeObjectForKey:@"coordinates"];
+    }
+    return self;
+}
+
 @end

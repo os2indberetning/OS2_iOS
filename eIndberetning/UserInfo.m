@@ -93,7 +93,6 @@
 -(BOOL)isLastSyncDateNotToday
 {
     return false;
-    
     NSDate *lastSync = [self.last_sync_date copy];
     NSDate *curDate = [NSDate date];
     

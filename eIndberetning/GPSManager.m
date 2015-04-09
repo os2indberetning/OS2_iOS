@@ -11,7 +11,7 @@
 
 @interface GPSManager ()
 @property (strong, nonatomic) CLLocationManager* locationManager;
-@property (nonatomic) BOOL isRunning;
+
 @end
 
 @implementation GPSManager
