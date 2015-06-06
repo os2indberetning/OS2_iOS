@@ -35,13 +35,26 @@
 
 @implementation DriveViewController
 
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.finishButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.finishButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.finishButton.layer.cornerRadius = 1.5f;
+
+    [self.pauseButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.pauseButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.pauseButton.layer.cornerRadius = 1.5f;
+    
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-    self.finishButton.layer.cornerRadius = 1.5f;
-
     self.gpsManager = [GPSManager sharedGPSManager];
     self.gpsManager.delegate = self;
     
@@ -54,6 +67,7 @@
     self.lastUpdatedLabel.text = @"Venter på gyldigt GPS signal";
     self.totalDistance = 0;
     self.distanceDrivenLabel.text = @"- km";
+    [self setupVisuals];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -171,7 +185,7 @@
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     
-    if (abs(howRecent) < 15.0 && location.horizontalAccuracy < 50)
+    if (fabs(howRecent) < 15.0 && location.horizontalAccuracy < 50)
     {
         CLLocationDegrees lat = location.coordinate.latitude;
         CLLocationDegrees lng = location.coordinate.longitude;

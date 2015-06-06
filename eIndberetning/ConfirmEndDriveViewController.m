@@ -7,10 +7,12 @@
 //
 
 #import "ConfirmEndDriveViewController.h"
+#import "UserInfo.h"
 
 @interface ConfirmEndDriveViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *checkButtonImage;
@@ -18,16 +20,31 @@
 
 @implementation ConfirmEndDriveViewController
 
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.okButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.okButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.okButton.layer.cornerRadius = 2.0f;
+    
+    [self.cancelButton setBackgroundColor:info.appInfo.ButtonTextColor];
+    [self.cancelButton setTitleColor:info.appInfo.ButtonColor forState:UIControlStateNormal];
+    self.cancelButton.layer.cornerRadius = 2.0f;
+    
+    self.titleLabel.textColor = info.appInfo.HeaderTextColor;
+    self.headerView.backgroundColor = info.appInfo.HeaderColor;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.okButton.layer.cornerRadius = 2;
-    self.cancelButton.layer.cornerRadius = 2;
-    
     self.titleLabel.text = @"Afslut Kørsel?";
     
     [self checkImage];
+    [self setupVisuals];
 }
 
 - (void)checkImage

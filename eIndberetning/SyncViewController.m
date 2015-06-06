@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *tryAgianButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UILabel *infoText;
+@property (weak, nonatomic) IBOutlet UIImageView *municipalityLogoImageView;
 @property (strong, nonatomic) eMobilityHTTPSClient *client;
 @end
 
@@ -23,12 +24,25 @@
 
 const double MIN_WAIT_TIME_S = 2;
 
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.tryAgianButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.tryAgianButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.tryAgianButton.layer.cornerRadius = 1.5f;
+    
+    [self.municipalityLogoImageView setImage:info.appInfo.ImgData];
+    
+    self.spinner.color = info.appInfo.SpinnerColor;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.infoText.numberOfLines = 2;
-    self.tryAgianButton.layer.cornerRadius = 1.5f;
     
     self.client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
 }

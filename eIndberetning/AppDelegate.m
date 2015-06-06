@@ -44,7 +44,7 @@
     [info loadInfo];
     
     if(!info.token){
-        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"coupleViewController"];
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"selectMunicipalityNavigationViewController"];
         self.window.rootViewController = viewController;
     } else {
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"startViewController"];
@@ -56,7 +56,7 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"coupleViewController"];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"selectMunicipalityNavigationViewController"];
     
     for (id obj in [self.window subviews])
     {

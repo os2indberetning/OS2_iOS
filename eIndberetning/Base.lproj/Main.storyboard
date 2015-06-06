@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TXz-8M-f9l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nf4-sF-hXJ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -15,15 +15,15 @@
                         <viewControllerLayoutGuide type="bottom" id="iiT-iZ-1z4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e80-D8-uHZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YpA-jw-KCg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
-                                <color key="backgroundColor" red="0.0" green="0.40000000596046448" blue="0.37254902720451355" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="52"/>
+                                <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bZ-Nv-7KL">
-                                <rect key="frame" x="16" y="534" width="568" height="50"/>
+                                <rect key="frame" x="16" y="470" width="568" height="50"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ozb-k2-wEi"/>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tast Parringskode" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-SB-gLn" userLabel="TextField">
-                                <rect key="frame" x="16" y="88" width="568" height="55"/>
+                                <rect key="frame" x="16" y="68" width="568" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="8Tw-AA-at4"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4E-CS-dtX">
-                                <rect key="frame" x="16" y="151" width="568" height="367"/>
+                                <rect key="frame" x="16" y="131" width="568" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">For at bruge appen skal du parre din telefon med din bruger på eIndbertning.
 
@@ -55,7 +55,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parring af Telefon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef9-6F-WQl">
-                                <rect key="frame" x="8" y="28" width="584" height="40"/>
+                                <rect key="frame" x="8" y="8" width="584" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RS9-Jh-pne"/>
                                 </constraints>
@@ -89,13 +89,97 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                     <navigationItem key="navigationItem" id="Dan-aY-4b6"/>
                     <connections>
                         <outlet property="couplePhoneButton" destination="7bZ-Nv-7KL" id="X8d-Y1-tev"/>
+                        <outlet property="headerLabel" destination="ef9-6F-WQl" id="NDO-1X-36x"/>
+                        <outlet property="headerView" destination="YpA-jw-KCg" id="usY-we-5K6"/>
                         <outlet property="textField" destination="MHD-SB-gLn" id="t8J-SQ-dc0"/>
                         <segue destination="zml-au-bYr" kind="presentation" identifier="ShowStartViewSegue" id="XOD-OP-EGL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nT-qS-cNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1827" y="163"/>
+            <point key="canvasLocation" x="-1713" y="163"/>
+        </scene>
+        <!--OS2Indberetning-->
+        <scene sceneID="ucS-DO-EAX">
+            <objects>
+                <tableViewController storyboardIdentifier="selectMunicipalityViewController" id="vXj-gY-2A5" customClass="SelectMunicipalityViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SVb-Dx-MgL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="qlw-vs-C4Q">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qlw-vs-C4Q" id="TkO-LD-7mr">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bEy-BS-gtu">
+                                            <rect key="frame" x="572" y="12" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="9wX-Ot-Fvs"/>
+                                                <constraint firstAttribute="width" constant="20" id="qHo-z3-7cu"/>
+                                            </constraints>
+                                        </activityIndicatorView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henter Kommuner" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRP-J1-bKX">
+                                            <rect key="frame" x="16" y="12" width="548" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bEy-BS-gtu" firstAttribute="leading" secondItem="cRP-J1-bKX" secondAttribute="trailing" constant="8" id="9sr-wj-0eG"/>
+                                        <constraint firstItem="cRP-J1-bKX" firstAttribute="leading" secondItem="TkO-LD-7mr" secondAttribute="leading" constant="16" id="QIA-sE-bsi"/>
+                                        <constraint firstAttribute="centerY" secondItem="cRP-J1-bKX" secondAttribute="centerY" id="Sgc-Ug-uo6"/>
+                                        <constraint firstAttribute="centerY" secondItem="bEy-BS-gtu" secondAttribute="centerY" id="bxA-ir-UEg"/>
+                                        <constraint firstAttribute="trailing" secondItem="bEy-BS-gtu" secondAttribute="trailing" constant="8" id="paH-hi-Jj8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MunicipalityCell" textLabel="LbR-lV-UFf" style="IBUITableViewCellStyleDefault" id="14e-mX-cmm">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="14e-mX-cmm" id="oUE-BS-wdg">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Favrskov" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LbR-lV-UFf">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vXj-gY-2A5" id="xzu-s0-WZc"/>
+                            <outlet property="delegate" destination="vXj-gY-2A5" id="Dqt-6z-c4y"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="OS2Indberetning" id="Zlv-vi-6bL"/>
+                    <connections>
+                        <segue destination="TXz-8M-f9l" kind="show" identifier="ChooseMunicipialitySegue" id="DaK-fU-hpE"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i5j-qz-6d8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2362" y="163"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mgt-ze-oVf">
+            <objects>
+                <navigationController storyboardIdentifier="selectMunicipalityNavigationViewController" id="nf4-sF-hXJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R1A-PB-SNA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXj-gY-2A5" kind="relationship" relationship="rootViewController" id="Muc-0g-Vs9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zo1-ga-SzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3033" y="163"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cty-Bs-YJ6">
@@ -178,6 +262,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                     <navigationItem key="navigationItem" id="nHb-UC-eb3"/>
                     <connections>
                         <outlet property="infoText" destination="ixG-OO-7EF" id="oyA-Z3-xjj"/>
+                        <outlet property="municipalityLogoImageView" destination="soS-dm-bov" id="HhK-Be-Qjv"/>
                         <outlet property="spinner" destination="CSu-cE-7au" id="PZU-PB-gPP"/>
                         <outlet property="tryAgianButton" destination="YzU-tt-c5h" id="lqU-qx-jA7"/>
                     </connections>
@@ -498,9 +583,9 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBg-tu-pRl">
-                                <rect key="frame" x="51" y="374" width="500" height="55"/>
-                                <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBg-tu-pRl">
+                                <rect key="frame" x="50" y="374" width="500" height="55"/>
+                                <color key="backgroundColor" red="0.85882352941176465" green="0.50588235294117645" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="Ufo-UB-v9X"/>
                                 </constraints>
@@ -1060,6 +1145,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                     <connections>
                         <outlet property="cancelButton" destination="PBF-r1-WVN" id="Wte-ll-YHl"/>
                         <outlet property="infoText" destination="bJv-0m-tw9" id="yLv-2W-efn"/>
+                        <outlet property="municipalityLogoImageView" destination="P3i-34-KuG" id="17f-eY-4Ap"/>
                         <outlet property="spinner" destination="cfy-ie-FcM" id="ZUX-Iq-aYb"/>
                         <outlet property="tryAgianButton" destination="5fr-w8-qMh" id="i2u-3z-U0i"/>
                     </connections>
@@ -1075,6 +1161,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
         <image name="checkBox_unchecked" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RaB-t6-Xcm"/>
+        <segue reference="FW7-xU-rGU"/>
     </inferredMetricsTieBreakers>
 </document>

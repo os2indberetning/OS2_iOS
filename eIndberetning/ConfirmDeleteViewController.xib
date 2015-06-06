@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="cancelButton" destination="9DB-oh-fYD" id="oAd-1f-lHB"/>
                 <outlet property="errorLabel" destination="Ylj-65-L6T" id="Pl2-cG-OrV"/>
+                <outlet property="headerView" destination="VGK-ih-VPu" id="PX3-h8-D07"/>
                 <outlet property="okButton" destination="OkH-hA-vHH" id="0du-JJ-yQd"/>
                 <outlet property="popUpView" destination="K7U-tC-bhO" id="4AM-84-pt8"/>
                 <outlet property="titleLabel" destination="Ue1-Au-1dD" id="ZQH-Td-uCm"/>

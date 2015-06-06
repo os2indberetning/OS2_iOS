@@ -51,6 +51,23 @@
     return [CoreDataManager sharedeCoreDataManager];
 }
 
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.deleteButton setBackgroundColor:info.appInfo.ButtonTextColor];
+    [self.deleteButton setTitleColor:info.appInfo.ButtonColor forState:UIControlStateNormal];
+    self.deleteButton.layer.cornerRadius = 1.5f;
+    
+    [self.uploadButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.uploadButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.uploadButton.layer.cornerRadius = 1.5f;
+    
+    self.refreshControl.backgroundColor = info.appInfo.SpinnerColor;
+    self.refreshControl.tintColor = info.appInfo.HeaderColor;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -60,12 +77,7 @@
     [self.navigationItem setHidesBackButton:YES];
     self.tableView.rowHeight = 44;
     
-    self.deleteButton.layer.cornerRadius = 1.5f;
-    self.uploadButton.layer.cornerRadius = 1.5f;
-    
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor favrOrangeColor];
-    self.refreshControl.tintColor = [UIColor favrGreenColor];
     [self.refreshControl addTarget:self
                             action:@selector(manualRefresh)
                   forControlEvents:UIControlEventValueChanged];
@@ -76,6 +88,7 @@
     //Load employments and rates
     self.rates = [self.CDManager fetchRates];
     self.employments = [self.CDManager fetchEmployments];
+    [self setupVisuals];
 }
 
 -(void)manualRefresh

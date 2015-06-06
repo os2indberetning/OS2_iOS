@@ -54,16 +54,27 @@
     return [CoreDataManager sharedeCoreDataManager];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.startDriveButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.startDriveButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.startDriveButton.layer.cornerRadius = 1.5f;
     
     [self.navigationController.navigationBar setTranslucent:NO];
-    [self.navigationController.navigationBar setBarTintColor:[UIColor favrGreenColor]];
-    [self.navigationController.navigationBar setTintColor:[UIColor favrOrangeColor]];
+    [self.navigationController.navigationBar setBarTintColor:info.appInfo.HeaderColor];
+    [self.navigationController.navigationBar setTintColor:info.appInfo.ButtonColor];
     [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : info.appInfo.HeaderTextColor}];
+    
+    self.refreshControl.backgroundColor = info.appInfo.SpinnerColor;
+    self.refreshControl.tintColor = info.appInfo.HeaderColor;
+}
 
-    self.startDriveButton.layer.cornerRadius = 1.5f;
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     //Compare last sync date and current date, to see if we should sync, or simply load from coredata
     self.info = [UserInfo sharedManager];
@@ -83,14 +94,13 @@
     self.tableView.rowHeight = 44;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor favrOrangeColor];
-    self.refreshControl.tintColor = [UIColor favrGreenColor];
     [self.refreshControl addTarget:self
                             action:@selector(manualRefresh)
                   forControlEvents:UIControlEventValueChanged];
     
      
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self setupVisuals];
 }
 
 -(void)manualRefresh

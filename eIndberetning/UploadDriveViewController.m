@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *tryAgianButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIImageView *municipalityLogoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *infoText;
 
 @property (strong, nonatomic) NSArray *rates;
@@ -24,13 +25,30 @@
 
 const double WAIT_TIME_S = 1.5;
 
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.cancelButton setBackgroundColor:info.appInfo.ButtonTextColor];
+    [self.cancelButton setTitleColor:info.appInfo.ButtonColor forState:UIControlStateNormal];
+    self.cancelButton.layer.cornerRadius = 1.5f;
+    
+    [self.tryAgianButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.tryAgianButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.tryAgianButton.layer.cornerRadius = 1.5f;
+    
+    [self.municipalityLogoImageView setImage:info.appInfo.ImgData];
+    
+    self.spinner.color = info.appInfo.SpinnerColor;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.infoText.numberOfLines = 2;
-    self.tryAgianButton.layer.cornerRadius = 1.5f;
-    self.cancelButton.layer.cornerRadius = 1.5f;
     
+    [self setupVisuals];
     [self doSync];
 }
 

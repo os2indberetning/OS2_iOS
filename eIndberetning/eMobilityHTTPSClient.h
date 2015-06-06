@@ -26,12 +26,14 @@ enum ErrorCodes : NSInteger
 @protocol WeatherHTTPClientDelegate;
 
 
-@interface eMobilityHTTPSClient : AFHTTPSessionManager
+@interface eMobilityHTTPSClient : NSObject
+
+@property (nonatomic, strong) AFHTTPSessionManager* sessionManager;
 
 + (eMobilityHTTPSClient *)sharedeMobilityHTTPSClient;
 + (NSString*)getErrorString:(NSInteger)errorcode;
 
-- (instancetype)initWithBaseURL:(NSURL *)url;
+- (void)setBaseUrl:(NSURL *)url;
 -(void)getUserDataForToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 -(void)syncWithTokenString:(NSString*)tokenString withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 - (void)postDriveReport:(DriveReport *)report forToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;

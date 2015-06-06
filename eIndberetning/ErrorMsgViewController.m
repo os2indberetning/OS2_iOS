@@ -7,15 +7,31 @@
 //
 
 #import "ErrorMsgViewController.h"
+#import "UserInfo.h"
 
 @interface ErrorMsgViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (nonatomic, strong) NSString* errorString;
 @end
 
 @implementation ErrorMsgViewController
+
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.okButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.okButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.okButton.layer.cornerRadius = 2.0f;
+    
+    self.titleLabel.textColor = info.appInfo.HeaderTextColor;
+    self.headerView.backgroundColor = info.appInfo.HeaderColor;
+    
+}
 
 - (void)viewDidLoad
 {
@@ -24,7 +40,7 @@
     self.errorLabel.text = self.errorString;
     self.errorLabel.numberOfLines = 2;
     
-    self.okButton.layer.cornerRadius = 2;
+    [self setupVisuals];
 }
 
 - (void)didReceiveMemoryWarning {

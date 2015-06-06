@@ -25,7 +25,7 @@
     self.name = nil;
     self.home_loc = nil;
     self.profileId = nil;
-    
+    self.appInfo = nil;
     
     self.last_purpose = nil;
     self.last_employment = nil;
@@ -52,6 +52,8 @@
     self.home_loc = object.home_loc;
     self.profileId = object.profileId;
     
+    self.appInfo = object.appInfo;
+    
     self.last_purpose = object.last_purpose;
     self.last_employment = object.last_employment;
     self.last_rate = object.last_rate;
@@ -65,6 +67,7 @@
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:self.home_loc forKey:@"home_loc"];
     [encoder encodeObject:self.profileId forKey:@"profile_id"];
+    [encoder encodeObject:self.appInfo forKey:@"appinfo"];
     
     [encoder encodeObject:self.last_purpose forKey:@"last_purpose"];
     [encoder encodeObject:self.last_employment forKey:@"last_employment"];
@@ -80,6 +83,7 @@
         self.name = [decoder decodeObjectForKey:@"name"];
         self.home_loc = [decoder decodeObjectForKey:@"home_loc"];
         self.profileId = [decoder decodeObjectForKey:@"profile_id"];
+        self.appInfo = [decoder decodeObjectForKey:@"appinfo"];
         
         self.last_purpose = [decoder decodeObjectForKey:@"last_purpose"];
         self.last_employment = [decoder decodeObjectForKey:@"last_employment"];

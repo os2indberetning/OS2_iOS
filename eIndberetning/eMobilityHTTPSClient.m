@@ -10,7 +10,7 @@
 
 
 
-static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAPI/api/";
+
 
 @implementation eMobilityHTTPSClient
 
@@ -20,7 +20,7 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _eMobilityHTTPSClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
+        _eMobilityHTTPSClient = [[self alloc] init];
     });
     
     return _eMobilityHTTPSClient;
@@ -46,16 +46,11 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     }
 }
 
-- (instancetype)initWithBaseURL:(NSURL *)url
+- (void)setBaseUrl:(NSURL *)url
 {
-    self = [super initWithBaseURL:url];
-    
-    if (self) {
-        self.responseSerializer = [JSONResponseSerializerWithData serializer];
-        self.requestSerializer = [AFJSONRequestSerializer serializer];
-    }
-    
-    return self;
+    self.sessionManager = [[AFHTTPSessionManager manager] initWithBaseURL:url];
+    self.sessionManager.responseSerializer = [JSONResponseSerializerWithData serializer];
+    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
 }
 
 -(void)syncWithTokenString:(NSString*)tokenString withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
@@ -67,8 +62,10 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSLog(@"dic: %@", myString);
     
-    [self POST:@"syncWithToken" parameters:parameters success:succes failure:failure];
+    [self.sessionManager POST:@"syncWithToken" parameters:parameters success:succes failure:failure];
 }
+
+
 
 -(void)getUserDataForToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
 {
@@ -79,7 +76,7 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSLog(@"dic: %@", myString);
     
-    [self POST:@"UserData" parameters:parameters success:succes failure:failure];
+    [self.sessionManager POST:@"UserData" parameters:parameters success:succes failure:failure];
 }
 
 - (void)postDriveReport:(DriveReport *)report forToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
@@ -95,6 +92,6 @@ static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAP
     
     NSLog(@"dic: %@", myString);
     
-    [self POST:@"SubmitDrive" parameters:dic success:succes failure:failure];
+    [self.sessionManager POST:@"SubmitDrive" parameters:dic success:succes failure:failure];
 }
 @end

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppInfo.h"
 
 @interface InitialViewController : UIViewController <UITextFieldDelegate>
 
-
+@property (nonatomic, strong) AppInfo* appInfo;
 @end
 

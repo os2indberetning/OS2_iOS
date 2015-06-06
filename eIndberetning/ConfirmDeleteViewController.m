@@ -7,15 +7,35 @@
 //
 
 #import "ConfirmDeleteViewController.h"
+#import "UserInfo.h"
 
 @interface ConfirmDeleteViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @end
 
 @implementation ConfirmDeleteViewController
+
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.okButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.okButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.okButton.layer.cornerRadius = 2.0f;
+    
+    [self.cancelButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.cancelButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.cancelButton.layer.cornerRadius = 2.0f;
+    
+    self.titleLabel.textColor = info.appInfo.HeaderTextColor;
+    self.headerView.backgroundColor = info.appInfo.HeaderColor;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,8 +43,7 @@
     self.errorLabel.text = @"Kørslen vil ikke blive gemt";
     self.titleLabel.text = @"Bekræft Sletning";
     self.errorLabel.numberOfLines = 2;
-    self.okButton.layer.cornerRadius = 2;
-    self.cancelButton.layer.cornerRadius = 2;
+    [self setupVisuals];
 }
 
 - (void)didReceiveMemoryWarning {

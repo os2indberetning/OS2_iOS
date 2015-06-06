@@ -17,6 +17,9 @@
 @interface InitialViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *couplePhoneButton;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+
 @property (strong, nonatomic) eMobilityHTTPSClient *client;
 @property (nonatomic, strong) ErrorMsgViewController* errorMsg;
 @property (nonatomic,strong) CoreDataManager* CDManager;
@@ -29,14 +32,36 @@
     return [CoreDataManager sharedeCoreDataManager];
 }
 
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.couplePhoneButton setBackgroundColor:info.appInfo.ButtonColor];
+    [self.couplePhoneButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    self.couplePhoneButton.layer.cornerRadius = 1.5f;
+    
+    self.headerLabel.textColor = info.appInfo.HeaderTextColor;
+    self.headerView.backgroundColor = info.appInfo.HeaderColor;
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.couplePhoneButton.layer.cornerRadius = 1.5f;
-    
+    [self.navigationController setNavigationBarHidden:YES];
     self.textField.delegate = self;
+    
     self.client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
+    [self.client setBaseUrl:[NSURL URLWithString:self.appInfo.APIUrl]];
+    [self.appInfo getImageDataIfNotPresent];
+    
+    UserInfo* info = [UserInfo sharedManager];
+    info.appInfo = self.appInfo;
+    [info saveInfo];
+    
+    [self setupVisuals];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -46,6 +71,9 @@
 
 - (IBAction)okButtonPressed:(id)sender {
     
+    AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+    [del changeToStartView];
+
     [self.client syncWithTokenString:self.textField.text withBlock:^(NSURLSessionTask *task, id resonseObject)
      {
          NSLog(@"%@", resonseObject);
@@ -69,6 +97,7 @@
          info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
          info.home_loc = profile.homeCoordinate;
          info.profileId = profile.profileId;
+         
          
          //Search through the tokens
          for (Token* token in profile.tokens) {
