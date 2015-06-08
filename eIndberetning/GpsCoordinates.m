@@ -14,13 +14,13 @@
 - (NSDictionary *) transformToDictionary
 {
     //TODO: reduce data drastically by making timestring, lat, and lng int types...
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *timeString = [dateFormatter stringFromDate:self.loc.timestamp];
+//    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    NSString *timeString = [dateFormatter stringFromDate:self.loc.timestamp];
     
     NSDictionary *body = [NSMutableDictionary
                                  dictionaryWithObjectsAndKeys: [NSString stringWithFormat:@"%f",self.loc.coordinate.latitude], @"Latitude", [NSString stringWithFormat:@"%f",self.loc.coordinate.longitude], @"Longitude",
-                                 timeString, @"TimeStamp", nil];
+                                    nil];
     
     return body;
 }

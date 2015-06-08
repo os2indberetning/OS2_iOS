@@ -40,12 +40,12 @@
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    [self.finishButton setBackgroundColor:info.appInfo.ButtonColor];
-    [self.finishButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    [self.finishButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.finishButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.finishButton.layer.cornerRadius = 1.5f;
 
-    [self.pauseButton setBackgroundColor:info.appInfo.ButtonColor];
-    [self.pauseButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    [self.pauseButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.pauseButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.pauseButton.layer.cornerRadius = 1.5f;
     
 }

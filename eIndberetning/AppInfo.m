@@ -22,11 +22,9 @@
         t.APIUrl = [[token objectForKey:@"APIUrl"] description];
         t.ImgUrl = [[token objectForKey:@"ImgUrl"] description];
         
-        t.HeaderTextColor = [self colorFromHexString:[[token objectForKey:@"HeaderTextColor"] description]];
-        t.HeaderColor = [self colorFromHexString:[[token objectForKey:@"HeaderColor"] description]];
-        t.ButtonColor = [self colorFromHexString:[[token objectForKey:@"ButtonColor"] description]];
-        t.ButtonTextColor = [self colorFromHexString:[[token objectForKey:@"ButtonTextColor"] description]];
-        t.SpinnerColor = [self colorFromHexString:[[token objectForKey:@"SpinnerColor"] description]];
+        t.TextColor = [self colorFromHexString:[[token objectForKey:@"TextColor"] description]];
+        t.PrimaryColor = [self colorFromHexString:[[token objectForKey:@"PrimaryColor"] description]];
+        t.SecondaryColor = [self colorFromHexString:[[token objectForKey:@"SecondaryColor"] description]];
         
         [array insertObject:t atIndex:0];
     }
@@ -67,11 +65,9 @@
     [encoder encodeObject:self.APIUrl forKey:@"APIUrl"];
     [encoder encodeObject:self.ImgUrl forKey:@"ImgUrl"];
     
-    [encoder encodeObject:self.HeaderTextColor forKey:@"HeaderTextColor"];
-    [encoder encodeObject:self.HeaderColor forKey:@"HeaderColor"];
-    [encoder encodeObject:self.ButtonColor forKey:@"ButtonColor"];
-    [encoder encodeObject:self.ButtonTextColor forKey:@"ButtonTextColor"];
-    [encoder encodeObject:self.SpinnerColor forKey:@"SpinnerColor"];
+    [encoder encodeObject:self.TextColor forKey:@"TextColor"];
+    [encoder encodeObject:self.PrimaryColor forKey:@"PrimaryColor"];
+    [encoder encodeObject:self.SecondaryColor forKey:@"SecondaryColor"];
     
     [encoder encodeObject:self.ImgData forKey:@"ImgData"];
 }
@@ -83,11 +79,9 @@
         self.APIUrl = [decoder decodeObjectForKey:@"APIUrl"];
         self.ImgUrl = [decoder decodeObjectForKey:@"ImgUrl"];
         
-        self.HeaderTextColor = [decoder decodeObjectForKey:@"HeaderTextColor"];
-        self.HeaderColor = [decoder decodeObjectForKey:@"HeaderColor"];
-        self.ButtonColor = [decoder decodeObjectForKey:@"ButtonColor"];
-        self.ButtonTextColor = [decoder decodeObjectForKey:@"ButtonTextColor"];
-        self.SpinnerColor = [decoder decodeObjectForKey:@"SpinnerColor"];
+        self.TextColor = [decoder decodeObjectForKey:@"TextColor"];
+        self.PrimaryColor = [decoder decodeObjectForKey:@"PrimaryColor"];
+        self.SecondaryColor = [decoder decodeObjectForKey:@"SecondaryColor"];
         
         self.ImgData = [decoder decodeObjectForKey:@"ImgData"];
     }

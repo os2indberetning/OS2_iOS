@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppInfo.h"
-#import "InitialViewController.h"
+#import "PairViewController.h"
 
 @interface SelectMunicipalityViewController : UITableViewController
 

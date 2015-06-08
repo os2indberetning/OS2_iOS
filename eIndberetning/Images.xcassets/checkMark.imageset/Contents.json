@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "checkBox150-2.png"
+      "filename" : "checkMark200x200-2.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "checkBox150-1.png"
+      "filename" : "checkMark200x200-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "checkBox150.png"
+      "filename" : "checkMark200x200.png"
     }
   ],
   "info" : {

@@ -8,6 +8,7 @@
 
 #import "ConfirmEndDriveViewController.h"
 #import "UserInfo.h"
+#import "CheckMarkImageView.h"
 
 @interface ConfirmEndDriveViewController ()
 
@@ -15,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *checkButtonImage;
+@property (weak, nonatomic) IBOutlet CheckMarkImageView *checkButtonImage;
 @end
 
 @implementation ConfirmEndDriveViewController
@@ -25,16 +26,16 @@
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    [self.okButton setBackgroundColor:info.appInfo.ButtonColor];
-    [self.okButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    [self.okButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.okButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.okButton.layer.cornerRadius = 2.0f;
     
-    [self.cancelButton setBackgroundColor:info.appInfo.ButtonTextColor];
-    [self.cancelButton setTitleColor:info.appInfo.ButtonColor forState:UIControlStateNormal];
+    [self.cancelButton setBackgroundColor:info.appInfo.TextColor];
+    [self.cancelButton setTitleColor:info.appInfo.SecondaryColor forState:UIControlStateNormal];
     self.cancelButton.layer.cornerRadius = 2.0f;
     
-    self.titleLabel.textColor = info.appInfo.HeaderTextColor;
-    self.headerView.backgroundColor = info.appInfo.HeaderColor;
+    self.titleLabel.textColor = info.appInfo.TextColor;
+    self.headerView.backgroundColor = info.appInfo.PrimaryColor;
 }
 
 - (void)viewDidLoad {
@@ -43,16 +44,7 @@
     
     self.titleLabel.text = @"Afslut Kørsel?";
     
-    [self checkImage];
     [self setupVisuals];
-}
-
-- (void)checkImage
-{
-    if(self.isSelected)
-        self.checkButtonImage.image = [UIImage imageNamed:@"checkBox_checked"];
-    else
-        self.checkButtonImage.image = [UIImage imageNamed:@"checkBox_unchecked"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,7 +56,7 @@
     self.isSelected = !self.isSelected;
     
     [self.delegate changeSelectedState:self.isSelected];
-    [self checkImage];
+    [self.checkButtonImage setCheckMarkState:self.isSelected];
 }
 
 - (IBAction)okButtonPressed:(id)sender {

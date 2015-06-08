@@ -24,16 +24,16 @@
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    [self.okButton setBackgroundColor:info.appInfo.ButtonColor];
-    [self.okButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    [self.okButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.okButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.okButton.layer.cornerRadius = 2.0f;
     
-    [self.cancelButton setBackgroundColor:info.appInfo.ButtonColor];
-    [self.cancelButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    [self.cancelButton setBackgroundColor:info.appInfo.TextColor];
+    [self.cancelButton setTitleColor:info.appInfo.SecondaryColor forState:UIControlStateNormal];
     self.cancelButton.layer.cornerRadius = 2.0f;
     
-    self.titleLabel.textColor = info.appInfo.HeaderTextColor;
-    self.headerView.backgroundColor = info.appInfo.HeaderColor;
+    self.titleLabel.textColor = info.appInfo.TextColor;
+    self.headerView.backgroundColor = info.appInfo.PrimaryColor;
     
 }
 

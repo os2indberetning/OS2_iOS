@@ -14,11 +14,9 @@
 @property (nonatomic, strong) NSString* APIUrl;
 @property (nonatomic, strong) NSString* ImgUrl;
 
-@property(nonatomic,strong) UIColor *HeaderTextColor;
-@property(nonatomic,strong) UIColor *HeaderColor;
-@property(nonatomic,strong) UIColor *ButtonColor;
-@property(nonatomic,strong) UIColor *ButtonTextColor;
-@property(nonatomic,strong) UIColor *SpinnerColor;
+@property(nonatomic,strong) UIColor *TextColor;
+@property(nonatomic,strong) UIColor *PrimaryColor;
+@property(nonatomic,strong) UIColor *SecondaryColor;
 
 @property (nonatomic, strong) UIImage* ImgData;
 

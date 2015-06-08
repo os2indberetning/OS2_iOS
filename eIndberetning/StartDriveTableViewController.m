@@ -21,6 +21,7 @@
 #import "SelectPurposeListTableViewController.h"
 #import "DriveReport.h"
 #import "AppDelegate.h"
+#import "CheckMarkImageView.h"
 
 #import "ConfirmDeleteViewController.h"
 
@@ -29,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *taskTextField;
 @property (weak, nonatomic) IBOutlet UILabel *purposeTextField;
 @property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTextField;
-@property (weak, nonatomic) IBOutlet UIImageView *startAtHomeCheckbox;
+@property (weak, nonatomic) IBOutlet CheckMarkImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startDriveButton;
 
@@ -59,18 +60,18 @@
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    [self.startDriveButton setBackgroundColor:info.appInfo.ButtonColor];
-    [self.startDriveButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    [self.startDriveButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.startDriveButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.startDriveButton.layer.cornerRadius = 1.5f;
     
     [self.navigationController.navigationBar setTranslucent:NO];
-    [self.navigationController.navigationBar setBarTintColor:info.appInfo.HeaderColor];
-    [self.navigationController.navigationBar setTintColor:info.appInfo.ButtonColor];
+    [self.navigationController.navigationBar setBarTintColor:info.appInfo.PrimaryColor];
+    [self.navigationController.navigationBar setTintColor:info.appInfo.SecondaryColor];
     [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : info.appInfo.HeaderTextColor}];
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : info.appInfo.TextColor}];
     
-    self.refreshControl.backgroundColor = info.appInfo.SpinnerColor;
-    self.refreshControl.tintColor = info.appInfo.HeaderColor;
+    self.refreshControl.backgroundColor = info.appInfo.SecondaryColor;
+    self.refreshControl.tintColor = info.appInfo.PrimaryColor;
 }
 
 - (void)viewDidLoad {
@@ -172,8 +173,7 @@
     else
         self.organisationalPlaceTextField.text  = @"Vælg Placering";
     
-    NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
-    self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
+    [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -268,8 +268,7 @@
     else if(indexPath.row == 5)
     {
         self.report.didstarthome = !self.report.didstarthome;
-        NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
-        self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
+        [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
     }
 
 }
@@ -352,8 +351,7 @@
         if([location distanceFromLocation:self.info.home_loc] < 500)
         {
            self.report.didstarthome = true;
-           NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
-           self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
+           [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
            
            NSLog(@"Is close to home");
         }

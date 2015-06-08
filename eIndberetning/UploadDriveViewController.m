@@ -30,17 +30,17 @@ const double WAIT_TIME_S = 1.5;
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    [self.cancelButton setBackgroundColor:info.appInfo.ButtonTextColor];
-    [self.cancelButton setTitleColor:info.appInfo.ButtonColor forState:UIControlStateNormal];
+    [self.cancelButton setBackgroundColor:info.appInfo.TextColor];
+    [self.cancelButton setTitleColor:info.appInfo.SecondaryColor forState:UIControlStateNormal];
     self.cancelButton.layer.cornerRadius = 1.5f;
     
-    [self.tryAgianButton setBackgroundColor:info.appInfo.ButtonColor];
-    [self.tryAgianButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    [self.tryAgianButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.tryAgianButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.tryAgianButton.layer.cornerRadius = 1.5f;
     
     [self.municipalityLogoImageView setImage:info.appInfo.ImgData];
     
-    self.spinner.color = info.appInfo.SpinnerColor;
+    self.spinner.color = info.appInfo.SecondaryColor;
 }
 
 - (void)viewDidLoad {

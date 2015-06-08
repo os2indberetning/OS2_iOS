@@ -17,15 +17,15 @@
 #import "UIColor+CustomColor.h"
 #import "CoreDataManager.h"
 #import "ErrorMsgViewController.h"
-
+#import "CheckMarkImageView.h"
 
 @interface FinishDriveTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *purposeTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rateTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTextLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *startAtHomeCheckbox;
-@property (weak, nonatomic) IBOutlet UIImageView *endAtHomeCheckbox;
+@property (weak, nonatomic) IBOutlet CheckMarkImageView *startAtHomeCheckbox;
+@property (weak, nonatomic) IBOutlet CheckMarkImageView *endAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *kmDrivenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userTextLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
@@ -56,16 +56,16 @@
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    [self.deleteButton setBackgroundColor:info.appInfo.ButtonTextColor];
-    [self.deleteButton setTitleColor:info.appInfo.ButtonColor forState:UIControlStateNormal];
+    [self.deleteButton setBackgroundColor:info.appInfo.TextColor];
+    [self.deleteButton setTitleColor:info.appInfo.SecondaryColor forState:UIControlStateNormal];
     self.deleteButton.layer.cornerRadius = 1.5f;
     
-    [self.uploadButton setBackgroundColor:info.appInfo.ButtonColor];
-    [self.uploadButton setTitleColor:info.appInfo.ButtonTextColor forState:UIControlStateNormal];
+    [self.uploadButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.uploadButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.uploadButton.layer.cornerRadius = 1.5f;
     
-    self.refreshControl.backgroundColor = info.appInfo.SpinnerColor;
-    self.refreshControl.tintColor = info.appInfo.HeaderColor;
+    self.refreshControl.backgroundColor = info.appInfo.SecondaryColor;
+    self.refreshControl.tintColor = info.appInfo.PrimaryColor;
 }
 
 - (void)viewDidLoad {
@@ -123,11 +123,8 @@
     [formatter setDateFormat:@"dd/MM-YY"];
     self.dateLabel.text = [@"Dato: " stringByAppendingString:[formatter stringFromDate:self.report.date]];
     
-    NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
-    self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
-    
-    NSString *checkState2 = (self.report.didendhome) ? @"checkBox_checked" : @"checkBox_unchecked";
-    self.endAtHomeCheckbox.image = [UIImage imageNamed:checkState2];
+    [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
+    [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
     
     //Set selected or default values
     self.purposeTextLabel.text = self.report.purpose.purpose;
@@ -191,14 +188,12 @@
     else if(indexPath.row == 6)
     {
         self.report.didstarthome = !self.report.didstarthome;
-        NSString *checkState = (self.report.didstarthome) ? @"checkBox_checked" : @"checkBox_unchecked";
-        self.startAtHomeCheckbox.image = [UIImage imageNamed:checkState];
+        [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
     }
     else if(indexPath.row == 7)
     {
         self.report.didendhome = !self.report.didendhome;
-        NSString *checkState = (self.report.didendhome) ? @"checkBox_checked" : @"checkBox_unchecked";
-        self.endAtHomeCheckbox.image = [UIImage imageNamed:checkState];
+        [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
     }
     
 }
