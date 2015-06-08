@@ -130,7 +130,7 @@
     self.purposeTextLabel.text = self.report.purpose.purpose;
     
     if(self.report.rate)
-        self.rateTextLabel.text = self.report.rate.type;
+        self.rateTextLabel.text = self.report.rate.rateDescription;
     else
         self.rateTextLabel.text = @"Vælg Takst";
     

@@ -37,7 +37,7 @@
                                     <action selector="okButtonPressed:" destination="TXz-8M-f9l" eventType="touchUpInside" id="3Zy-8t-Ssg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tast Parringskode" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-SB-gLn" userLabel="Pair Code Textfield">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5293639458" borderStyle="bezel" placeholder="Tast Parringskode" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-SB-gLn" userLabel="Pair Code Textfield">
                                 <rect key="frame" x="16" y="68" width="568" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="8Tw-AA-at4"/>

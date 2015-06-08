@@ -78,9 +78,7 @@
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"CDRate" inManagedObjectContext:self.managedObjectContext];
         CDRate* CDr = [[CDRate alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
         
-        CDr.kmrate = r.kmrate;
-        CDr.tfcode = r.tfcode;
-        CDr.type = r.type;
+        CDr.rateDescription = r.rateDescription;
         CDr.rateid = r.rateid;
         CDr.year = r.year;
         

@@ -136,24 +136,18 @@
                     @"rates":
                         @[
                             @{
-                                @"KmRate":@"20",
-                                @"TFCode":@"1234",
                                 @"Id":@"209",
-                                @"Type":@"Bil",
+                                @"Description":@"Bil",
                                 @"Year":@"2015"
                             },
                             @{
-                                @"KmRate":@"25",
-                                @"TFCode":@"2211",
                                 @"Id":@"219",
-                                @"Type":@"Cykel",
+                                @"Description":@"Cykel",
                                 @"Year":@"2015"
                             },
                             @{
-                                @"KmRate":@"30",
-                                @"TFCode":@"4422",
                                 @"Id":@"211",
-                                @"Type":@"Rulleskøjter",
+                                @"Description":@"Rulleskøjter",
                                 @"Year":@"2015"
                             }
                         ]

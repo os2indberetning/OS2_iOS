@@ -107,9 +107,9 @@
         case RateList:
         {
             Rate *r = self.items[indexPath.row];
-            str = r.type;
+            str = r.rateDescription;
             
-            if([r.type isEqualToString:self.report.rate.type])
+            if([r.rateDescription isEqualToString:self.report.rate.rateDescription])
             {
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
             }

@@ -11,10 +11,8 @@
 
 @implementation CDRate
 
-@dynamic kmrate;
 @dynamic rateid;
-@dynamic tfcode;
-@dynamic type;
+@dynamic rateDescription;
 @dynamic year;
 
 @end

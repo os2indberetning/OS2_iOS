@@ -27,11 +27,8 @@
         //Only show rates from this year
         if([[ydf stringFromDate:r.year] isEqualToString:[ydf stringFromDate:[NSDate date]]])
         {
-            r.kmrate = @([[rate objectForKey:@"KmRate"] integerValue]);
-            r.tfcode = @([[rate objectForKey:@"TFCode"] integerValue]);
             r.rateid = @([[rate objectForKey:@"Id"] integerValue]);
-            
-            r.type = [[rate objectForKey:@"Type"] description];
+            r.rateDescription = [[rate objectForKey:@"Description"] description];
             [array insertObject:r atIndex:0];
         }
     }
@@ -57,9 +54,7 @@
         //Only show rates from this year
         if([[ydf stringFromDate:rate.year] isEqualToString:[ydf stringFromDate:[NSDate date]]])
         {
-            rate.kmrate = CDr.kmrate;
-            rate.tfcode = CDr.tfcode;
-            rate.type = CDr.type;
+            rate.rateDescription = CDr.rateDescription;
             rate.rateid = CDr.rateid;
             [array insertObject:rate atIndex:0];
         }
@@ -70,20 +65,16 @@
 
 -(void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
-    [encoder encodeObject:self.kmrate forKey:@"kmrate"];
-    [encoder encodeObject:self.tfcode forKey:@"tfcode"];
     [encoder encodeObject:self.rateid forKey:@"rateid"];
-    [encoder encodeObject:self.type forKey:@"type"];
+    [encoder encodeObject:self.rateDescription forKey:@"type"];
     [encoder encodeObject:self.year forKey:@"year"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties, other class vars
-        self.kmrate = [decoder decodeObjectForKey:@"kmrate"];
-        self.tfcode = [decoder decodeObjectForKey:@"tfcode"];
         self.rateid = [decoder decodeObjectForKey:@"rateid"];
-        self.type = [decoder decodeObjectForKey:@"type"];
+        self.rateDescription = [decoder decodeObjectForKey:@"type"];
         self.year = [decoder decodeObjectForKey:@"year"];
     }
     return self;
@@ -91,9 +82,8 @@
 
 - (BOOL)isEqual:(Rate*)object
 {
-    return( [self.type isEqualToString:object.type] &&
-           [self.kmrate isEqualToNumber:object.kmrate] &&
-           [self.tfcode isEqualToNumber:object.tfcode] &&
+    return(
+           [self.rateDescription isEqualToString:object.rateDescription] &&
            [self.rateid isEqualToNumber:object.rateid] &&
            [self.year isEqualToDate:object.year]);
 }

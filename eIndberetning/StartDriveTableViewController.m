@@ -159,7 +159,7 @@
         self.purposeTextField.text = @"Vælg Formål";
     
     if(self.report.rate)
-        self.taskTextField.text = self.report.rate.type;
+        self.taskTextField.text = self.report.rate.rateDescription;
     else
         self.taskTextField.text = @"Vælg Takst";
 

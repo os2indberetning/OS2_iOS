@@ -43,7 +43,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.titleLabel.text = @"Afslut Kørsel?";
-    
+    [self.checkButtonImage setCheckMarkState:self.isSelected];
     [self setupVisuals];
 }
 
@@ -70,6 +70,8 @@
 
 -(void)showPopup
 {
+    [self.checkButtonImage setCheckMarkState:self.isSelected];
+    
     [self showInView:[UIApplication sharedApplication].keyWindow  animated:YES];
 }
 @end

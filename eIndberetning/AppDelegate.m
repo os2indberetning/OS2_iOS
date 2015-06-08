@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "UserInfo.h"
-
+#import "eMobilityHTTPSClient.h"
 @interface AppDelegate ()
 
 @end
@@ -47,6 +47,9 @@
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"selectMunicipalityNavigationViewController"];
         self.window.rootViewController = viewController;
     } else {
+        eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
+        [client setBaseUrl:[NSURL URLWithString:info.appInfo.APIUrl]];
+        
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"startViewController"];
         self.window.rootViewController = viewController;
     }

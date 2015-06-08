@@ -34,7 +34,7 @@
 
 -(void)getImageDataIfNotPresent
 {
-    if(!self.ImgData)
+    if(self.ImgData == nil)
     {
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.ImgUrl]];
         AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -76,7 +76,7 @@
 {
     _ImgUrl = ImgUrl;
     
-    if(!self.ImgData)
+    if(self.ImgData == nil)
         [self getImageDataIfNotPresent];
 }
 
@@ -85,13 +85,14 @@
         //decode properties, other class vars
         self.Name = [decoder decodeObjectForKey:@"Name"];
         self.APIUrl = [decoder decodeObjectForKey:@"APIUrl"];
+        self.ImgData = [decoder decodeObjectForKey:@"ImgData"];
         self.ImgUrl = [decoder decodeObjectForKey:@"ImgUrl"];
         
         self.TextColor = [decoder decodeObjectForKey:@"TextColor"];
         self.PrimaryColor = [decoder decodeObjectForKey:@"PrimaryColor"];
         self.SecondaryColor = [decoder decodeObjectForKey:@"SecondaryColor"];
         
-        self.ImgData = [decoder decodeObjectForKey:@"ImgData"];
+        
     }
     return self;
 }

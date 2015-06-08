@@ -10,10 +10,8 @@
 
 @interface Rate : NSObject
 @property (nonatomic, strong) NSDate* year;
-@property (nonatomic, strong) NSNumber* kmrate;
-@property (nonatomic,strong) NSNumber* tfcode;
 @property (nonatomic,strong) NSNumber* rateid;
-@property (nonatomic, strong) NSString* type;
+@property (nonatomic, strong) NSString* rateDescription;
 
 + (NSArray *) initFromJsonDic:(NSDictionary*)dic;
 + (NSArray *) initFromCoreDataArray:(NSArray*)CDArray;
