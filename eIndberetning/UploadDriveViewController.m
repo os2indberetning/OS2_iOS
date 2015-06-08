@@ -40,7 +40,7 @@ const double WAIT_TIME_S = 1.5;
     
     [self.municipalityLogoImageView setImage:info.appInfo.ImgData];
     
-    self.spinner.color = info.appInfo.SecondaryColor;
+    [self.spinner setColor:info.appInfo.SecondaryColor];
 }
 
 - (void)viewDidLoad {

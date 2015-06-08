@@ -72,6 +72,14 @@
     [encoder encodeObject:self.ImgData forKey:@"ImgData"];
 }
 
+-(void)setImgUrl:(NSString *)ImgUrl
+{
+    _ImgUrl = ImgUrl;
+    
+    if(!self.ImgData)
+        [self getImageDataIfNotPresent];
+}
+
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties, other class vars

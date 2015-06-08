@@ -35,7 +35,7 @@ const double MIN_WAIT_TIME_S = 2;
     
     [self.municipalityLogoImageView setImage:info.appInfo.ImgData];
     
-    self.spinner.color = info.appInfo.SecondaryColor;
+    [self.spinner setColor:info.appInfo.SecondaryColor];
 }
 
 -(void)viewDidLoad
@@ -45,6 +45,7 @@ const double MIN_WAIT_TIME_S = 2;
     self.infoText.numberOfLines = 2;
     
     self.client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
+    [self setupVisuals];
 }
 
 -(void)viewDidAppear:(BOOL)animated

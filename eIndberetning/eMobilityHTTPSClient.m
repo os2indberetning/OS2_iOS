@@ -8,10 +8,6 @@
 
 #import "eMobilityHTTPSClient.h"
 
-
-
-
-
 @implementation eMobilityHTTPSClient
 
 + (eMobilityHTTPSClient *)sharedeMobilityHTTPSClient 
@@ -55,14 +51,19 @@
 
 -(void)syncWithTokenString:(NSString*)tokenString withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
 {
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"TokenString"] = tokenString;
+
+        NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+        parameters[@"TokenString"] = tokenString;
+        
+        NSData * jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+        NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"dic: %@", myString);
     
-    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
-    NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"dic: %@", myString);
-    
-    [self.sessionManager POST:@"syncWithToken" parameters:parameters success:succes failure:failure];
+#if !defined(MOCK)
+        [self.sessionManager POST:@"syncWithToken" parameters:parameters success:succes failure:failure];
+#else
+    succes(nil,[self getMockItem]);
+#endif
 }
 
 
@@ -76,7 +77,11 @@
     NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSLog(@"dic: %@", myString);
     
+#if !defined(MOCK)
     [self.sessionManager POST:@"UserData" parameters:parameters success:succes failure:failure];
+#else
+    succes(nil,[self getMockItem]);
+#endif
 }
 
 - (void)postDriveReport:(DriveReport *)report forToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
@@ -91,7 +96,67 @@
     NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
     NSLog(@"dic: %@", myString);
-    
+#if !defined(MOCK)
     [self.sessionManager POST:@"SubmitDrive" parameters:dic success:succes failure:failure];
+#else
+    succes(nil,[self getMockItem]);
+#endif
+}
+
+-(NSDictionary*)getMockItem
+{
+    return      @{
+                    @"profile":
+                        @{
+                            @"Firstname":@"Jacob",
+                            @"Lastname":@"Hansen",
+                            @"HomeLongitude":@"51.1",
+                            @"HomeLatitude":@"52.2",
+                            @"Tokens":
+                                @[
+                                    @{
+                                        @"TokenString":@"1111",
+                                        @"Status":@"1",
+                                        @"GuId":@"12345678912345"
+                                    }
+                                ],
+                            @"Employments":
+                                @[
+                                    @{
+                                        @"EmploymentPosition":@"Janitor",
+                                        @"Id":@"202"
+                                        },
+                                    @{
+                                        @"EmploymentPosition":@"Major",
+                                        @"Id":@"203"
+                                        }
+                                ],
+                            @"Id":@"200"
+                        },
+                    @"rates":
+                        @[
+                            @{
+                                @"KmRate":@"20",
+                                @"TFCode":@"1234",
+                                @"Id":@"209",
+                                @"Type":@"Bil",
+                                @"Year":@"2015"
+                            },
+                            @{
+                                @"KmRate":@"25",
+                                @"TFCode":@"2211",
+                                @"Id":@"219",
+                                @"Type":@"Cykel",
+                                @"Year":@"2015"
+                            },
+                            @{
+                                @"KmRate":@"30",
+                                @"TFCode":@"4422",
+                                @"Id":@"211",
+                                @"Type":@"Rulleskøjter",
+                                @"Year":@"2015"
+                            }
+                        ]
+            };
 }
 @end

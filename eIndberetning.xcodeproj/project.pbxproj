@@ -8,6 +8,58 @@
 
 /* Begin PBXBuildFile section */
 		285C398763EB493EB3BACB37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7BD0598834CACA9C13197 /* libPods.a */; };
+		F50F24961B258E25006BBD48 /* GpsCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */; };
+		F50F24971B258E25006BBD48 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
+		F50F24981B258E25006BBD48 /* PopupBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */; };
+		F50F24991B258E25006BBD48 /* CDRate.m in Sources */ = {isa = PBXBuildFile; fileRef = F521160A1A3CFD0100687AF8 /* CDRate.m */; };
+		F50F249A1B258E25006BBD48 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A1081A08135B007A17F3 /* Token.m */; };
+		F50F249B1B258E25006BBD48 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AD19FE99DC0010AC96 /* UserInfo.m */; };
+		F50F249C1B258E25006BBD48 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D318131B22DF0A00D09AD0 /* AppInfo.m */; };
+		F50F249D1B258E25006BBD48 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0A719FE98600010AC96 /* Route.m */; };
+		F50F249E1B258E25006BBD48 /* SelectPurposeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C26DFE1A09624E004ACDA4 /* SelectPurposeListTableViewController.m */; };
+		F50F249F1B258E25006BBD48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2619D2A40C00B6CA1F /* AppDelegate.m */; };
+		F50F24A01B258E25006BBD48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2319D2A40C00B6CA1F /* main.m */; };
+		F50F24A11B258E25006BBD48 /* CDPurpose.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C26E061A096CA6004ACDA4 /* CDPurpose.m */; };
+		F50F24A21B258E25006BBD48 /* JSONResponseSerializerWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = F52116061A3CE88300687AF8 /* JSONResponseSerializerWithData.m */; };
+		F50F24A31B258E25006BBD48 /* SelectListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4DC19FE4F5000D06892 /* SelectListTableViewController.m */; };
+		F50F24A41B258E25006BBD48 /* CheckMarkImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F559C7A91B25765300594F56 /* CheckMarkImageView.m */; };
+		F50F24A51B258E25006BBD48 /* SelectListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4E119FE530A00D06892 /* SelectListTableViewCell.m */; };
+		F50F24A61B258E25006BBD48 /* SelectMunicipalityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D318101B22DACC00D09AD0 /* SelectMunicipalityViewController.m */; };
+		F50F24A71B258E25006BBD48 /* FinishDriveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AF892419E1C5CA00016826 /* FinishDriveTableViewController.m */; };
+		F50F24A81B258E25006BBD48 /* eMobilityHTTPSClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EC919FFC96200B9C3B4 /* eMobilityHTTPSClient.m */; };
+		F50F24A91B258E25006BBD48 /* ErrorMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4E719FE614600D06892 /* ErrorMsgViewController.m */; };
+		F50F24AA1B258E25006BBD48 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E87BFF1A08D1100092E350 /* CoreDataManager.m */; };
+		F50F24AB1B258E25006BBD48 /* Employment.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0A119FE975D0010AC96 /* Employment.m */; };
+		F50F24AC1B258E25006BBD48 /* StartDriveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5824DF819E09F6C00F51353 /* StartDriveTableViewController.m */; };
+		F50F24AD1B258E25006BBD48 /* AddPurposeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EBE19FF7C7500B9C3B4 /* AddPurposeTableViewCell.m */; };
+		F50F24AE1B258E25006BBD48 /* GPSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F55B291A266D3E00F193D0 /* GPSManager.m */; };
+		F50F24AF1B258E25006BBD48 /* ManualEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0B019FEBEFF0010AC96 /* ManualEntryViewController.m */; };
+		F50F24B01B258E25006BBD48 /* PairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2C19D2A40C00B6CA1F /* PairViewController.m */; };
+		F50F24B11B258E25006BBD48 /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5824DFB19E09FB000F51353 /* UIColor+CustomColor.m */; };
+		F50F24B21B258E25006BBD48 /* ConfirmDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B35221A0F9C8A0098D76E /* ConfirmDeleteViewController.m */; };
+		F50F24B31B258E25006BBD48 /* UploadDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F55932021A0FB42500C8139F /* UploadDriveViewController.m */; };
+		F50F24B41B258E25006BBD48 /* DriveReport.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0A419FE97BA0010AC96 /* DriveReport.m */; };
+		F50F24B51B258E25006BBD48 /* Rate.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC09E19FE96C10010AC96 /* Rate.m */; };
+		F50F24B61B258E25006BBD48 /* ConfirmEndDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B35271A0FA34A0098D76E /* ConfirmEndDriveViewController.m */; };
+		F50F24B71B258E25006BBD48 /* CDEmployment.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E87BF91A08C7230092E350 /* CDEmployment.m */; };
+		F50F24B81B258E25006BBD48 /* eIndberetning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A2819D2A40C00B6CA1F /* eIndberetning.xcdatamodeld */; };
+		F50F24B91B258E25006BBD48 /* UIViewController+BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EB719FF758B00B9C3B4 /* UIViewController+BackButton.m */; };
+		F50F24BA1B258E25006BBD48 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A1051A081220007A17F3 /* Profile.m */; };
+		F50F24BB1B258E25006BBD48 /* Purpose.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C26E091A096ED0004ACDA4 /* Purpose.m */; };
+		F50F24BC1B258E25006BBD48 /* EditKmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5690EC319FFAE5D00B9C3B4 /* EditKmViewController.m */; };
+		F50F24BD1B258E25006BBD48 /* DriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AF892119E1BD0F00016826 /* DriveViewController.m */; };
+		F50F24BF1B258E25006BBD48 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB7BD0598834CACA9C13197 /* libPods.a */; };
+		F50F24C11B258E25006BBD48 /* SelectPurposeListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5C26DFF1A09624E004ACDA4 /* SelectPurposeListTableViewController.xib */; };
+		F50F24C21B258E25006BBD48 /* SelectListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4E219FE530A00D06892 /* SelectListTableViewCell.xib */; };
+		F50F24C31B258E25006BBD48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56E0A2E19D2A40C00B6CA1F /* Main.storyboard */; };
+		F50F24C41B258E25006BBD48 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56E0A3319D2A40C00B6CA1F /* LaunchScreen.xib */; };
+		F50F24C51B258E25006BBD48 /* ManualEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58EC0B119FEBEFF0010AC96 /* ManualEntryViewController.xib */; };
+		F50F24C61B258E25006BBD48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F56E0A3119D2A40C00B6CA1F /* Images.xcassets */; };
+		F50F24C71B258E25006BBD48 /* SelectListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4DD19FE4F5000D06892 /* SelectListTableViewController.xib */; };
+		F50F24C81B258E25006BBD48 /* AddPurposeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5690EBF19FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib */; };
+		F50F24C91B258E25006BBD48 /* ConfirmDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51B35231A0F9C8A0098D76E /* ConfirmDeleteViewController.xib */; };
+		F50F24CA1B258E25006BBD48 /* ConfirmEndDriveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51B35281A0FA34A0098D76E /* ConfirmEndDriveViewController.xib */; };
+		F50F24CB1B258E25006BBD48 /* ErrorMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */; };
 		F51B35201A0F995D0098D76E /* PopupBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */; };
 		F51B35241A0F9C8A0098D76E /* ConfirmDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B35221A0F9C8A0098D76E /* ConfirmDeleteViewController.m */; };
 		F51B35251A0F9C8A0098D76E /* ConfirmDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51B35231A0F9C8A0098D76E /* ConfirmDeleteViewController.xib */; };
@@ -75,6 +127,8 @@
 /* Begin PBXFileReference section */
 		7BB7BD0598834CACA9C13197 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A2A0BD089C4227969763E8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F50F24D01B258E25006BBD48 /* eIndberetning copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eIndberetning copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50F24D11B258E25006BBD48 /* eIndberetning copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "eIndberetning copy-Info.plist"; path = "/Users/jhh/Documents/IOS/eIndberetning/eIndberetning copy-Info.plist"; sourceTree = "<absolute>"; };
 		F51B351E1A0F995D0098D76E /* PopupBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupBaseViewController.h; sourceTree = "<group>"; };
 		F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupBaseViewController.m; sourceTree = "<group>"; };
 		F51B35211A0F9C8A0098D76E /* ConfirmDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmDeleteViewController.h; sourceTree = "<group>"; };
@@ -173,6 +227,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F50F24BE1B258E25006BBD48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50F24BF1B258E25006BBD48 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F56E0A1B19D2A40C00B6CA1F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +331,7 @@
 				F56E0A1F19D2A40C00B6CA1F /* Products */,
 				C9A2A0BD089C4227969763E8 /* Pods.xcconfig */,
 				31CA182F9DC44FFEA12CDDF9 /* Frameworks */,
+				F50F24D11B258E25006BBD48 /* eIndberetning copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,6 +340,7 @@
 			children = (
 				F56E0A1E19D2A40C00B6CA1F /* eIndberetning.app */,
 				F56E0A3A19D2A40C00B6CA1F /* eIndberetningTests.xctest */,
+				F50F24D01B258E25006BBD48 /* eIndberetning copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -432,6 +496,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F50F24931B258E25006BBD48 /* OS2Offline */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F50F24CD1B258E25006BBD48 /* Build configuration list for PBXNativeTarget "OS2Offline" */;
+			buildPhases = (
+				F50F24941B258E25006BBD48 /* Check Pods Manifest.lock */,
+				F50F24951B258E25006BBD48 /* Sources */,
+				F50F24BE1B258E25006BBD48 /* Frameworks */,
+				F50F24C01B258E25006BBD48 /* Resources */,
+				F50F24CC1B258E25006BBD48 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OS2Offline;
+			productName = eIndberetning;
+			productReference = F50F24D01B258E25006BBD48 /* eIndberetning copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F56E0A1D19D2A40C00B6CA1F /* eIndberetning */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F56E0A4419D2A40C00B6CA1F /* Build configuration list for PBXNativeTarget "eIndberetning" */;
@@ -508,11 +591,30 @@
 			targets = (
 				F56E0A1D19D2A40C00B6CA1F /* eIndberetning */,
 				F56E0A3919D2A40C00B6CA1F /* eIndberetningTests */,
+				F50F24931B258E25006BBD48 /* OS2Offline */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F50F24C01B258E25006BBD48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50F24C11B258E25006BBD48 /* SelectPurposeListTableViewController.xib in Resources */,
+				F50F24C21B258E25006BBD48 /* SelectListTableViewCell.xib in Resources */,
+				F50F24C31B258E25006BBD48 /* Main.storyboard in Resources */,
+				F50F24C41B258E25006BBD48 /* LaunchScreen.xib in Resources */,
+				F50F24C51B258E25006BBD48 /* ManualEntryViewController.xib in Resources */,
+				F50F24C61B258E25006BBD48 /* Images.xcassets in Resources */,
+				F50F24C71B258E25006BBD48 /* SelectListTableViewController.xib in Resources */,
+				F50F24C81B258E25006BBD48 /* AddPurposeTableViewCell.xib in Resources */,
+				F50F24C91B258E25006BBD48 /* ConfirmDeleteViewController.xib in Resources */,
+				F50F24CA1B258E25006BBD48 /* ConfirmEndDriveViewController.xib in Resources */,
+				F50F24CB1B258E25006BBD48 /* ErrorMsgViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F56E0A1C19D2A40C00B6CA1F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -571,9 +673,86 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F50F24941B258E25006BBD48 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F50F24CC1B258E25006BBD48 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F50F24951B258E25006BBD48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50F24961B258E25006BBD48 /* GpsCoordinates.m in Sources */,
+				F50F24971B258E25006BBD48 /* SyncViewController.m in Sources */,
+				F50F24981B258E25006BBD48 /* PopupBaseViewController.m in Sources */,
+				F50F24991B258E25006BBD48 /* CDRate.m in Sources */,
+				F50F249A1B258E25006BBD48 /* Token.m in Sources */,
+				F50F249B1B258E25006BBD48 /* UserInfo.m in Sources */,
+				F50F249C1B258E25006BBD48 /* AppInfo.m in Sources */,
+				F50F249D1B258E25006BBD48 /* Route.m in Sources */,
+				F50F249E1B258E25006BBD48 /* SelectPurposeListTableViewController.m in Sources */,
+				F50F249F1B258E25006BBD48 /* AppDelegate.m in Sources */,
+				F50F24A01B258E25006BBD48 /* main.m in Sources */,
+				F50F24A11B258E25006BBD48 /* CDPurpose.m in Sources */,
+				F50F24A21B258E25006BBD48 /* JSONResponseSerializerWithData.m in Sources */,
+				F50F24A31B258E25006BBD48 /* SelectListTableViewController.m in Sources */,
+				F50F24A41B258E25006BBD48 /* CheckMarkImageView.m in Sources */,
+				F50F24A51B258E25006BBD48 /* SelectListTableViewCell.m in Sources */,
+				F50F24A61B258E25006BBD48 /* SelectMunicipalityViewController.m in Sources */,
+				F50F24A71B258E25006BBD48 /* FinishDriveTableViewController.m in Sources */,
+				F50F24A81B258E25006BBD48 /* eMobilityHTTPSClient.m in Sources */,
+				F50F24A91B258E25006BBD48 /* ErrorMsgViewController.m in Sources */,
+				F50F24AA1B258E25006BBD48 /* CoreDataManager.m in Sources */,
+				F50F24AB1B258E25006BBD48 /* Employment.m in Sources */,
+				F50F24AC1B258E25006BBD48 /* StartDriveTableViewController.m in Sources */,
+				F50F24AD1B258E25006BBD48 /* AddPurposeTableViewCell.m in Sources */,
+				F50F24AE1B258E25006BBD48 /* GPSManager.m in Sources */,
+				F50F24AF1B258E25006BBD48 /* ManualEntryViewController.m in Sources */,
+				F50F24B01B258E25006BBD48 /* PairViewController.m in Sources */,
+				F50F24B11B258E25006BBD48 /* UIColor+CustomColor.m in Sources */,
+				F50F24B21B258E25006BBD48 /* ConfirmDeleteViewController.m in Sources */,
+				F50F24B31B258E25006BBD48 /* UploadDriveViewController.m in Sources */,
+				F50F24B41B258E25006BBD48 /* DriveReport.m in Sources */,
+				F50F24B51B258E25006BBD48 /* Rate.m in Sources */,
+				F50F24B61B258E25006BBD48 /* ConfirmEndDriveViewController.m in Sources */,
+				F50F24B71B258E25006BBD48 /* CDEmployment.m in Sources */,
+				F50F24B81B258E25006BBD48 /* eIndberetning.xcdatamodeld in Sources */,
+				F50F24B91B258E25006BBD48 /* UIViewController+BackButton.m in Sources */,
+				F50F24BA1B258E25006BBD48 /* Profile.m in Sources */,
+				F50F24BB1B258E25006BBD48 /* Purpose.m in Sources */,
+				F50F24BC1B258E25006BBD48 /* EditKmViewController.m in Sources */,
+				F50F24BD1B258E25006BBD48 /* DriveViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F56E0A1A19D2A40C00B6CA1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,6 +838,41 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F50F24CE1B258E25006BBD48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9A2A0BD089C4227969763E8 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MOCK=1",
+				);
+				INFOPLIST_FILE = "eIndberetning copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "eIndberetning copy";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		F50F24CF1B258E25006BBD48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9A2A0BD089C4227969763E8 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "eIndberetning copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "eIndberetning copy";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
 		F56E0A4219D2A40C00B6CA1F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -802,6 +1016,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F50F24CD1B258E25006BBD48 /* Build configuration list for PBXNativeTarget "OS2Offline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F50F24CE1B258E25006BBD48 /* Debug */,
+				F50F24CF1B258E25006BBD48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F56E0A1919D2A40C00B6CA1F /* Build configuration list for PBXProject "eIndberetning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
