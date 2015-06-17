@@ -561,6 +561,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "IT-Minds";
 				TargetAttributes = {
+					F50F24931B258E25006BBD48 = {
+						DevelopmentTeam = 5TEJH7H54K;
+					};
 					F56E0A1D19D2A40C00B6CA1F = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = 5TEJH7H54K;

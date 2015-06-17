@@ -37,7 +37,7 @@
                                     <action selector="okButtonPressed:" destination="TXz-8M-f9l" eventType="touchUpInside" id="3Zy-8t-Ssg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5293639458" borderStyle="bezel" placeholder="Tast Parringskode" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-SB-gLn" userLabel="Pair Code Textfield">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tast Parringskode" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-SB-gLn" userLabel="Pair Code Textfield">
                                 <rect key="frame" x="16" y="68" width="568" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="8Tw-AA-at4"/>
@@ -940,7 +940,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
                                                     <color key="tintColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="Annuler og Slet">
+                                                    <state key="normal" title="Annuller og Slet">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -1161,6 +1161,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
         <image name="checkMark" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FW7-xU-rGU"/>
+        <segue reference="RaB-t6-Xcm"/>
     </inferredMetricsTieBreakers>
 </document>
