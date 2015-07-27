@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nf4-sF-hXJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nf4-sF-hXJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -222,7 +222,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startDrivingButton:" destination="k14-AB-31x" eventType="touchUpInside" id="Z0f-9Q-mh2"/>
                                     <action selector="tryAgianButtonPressed:" destination="GgH-KL-Jqi" eventType="touchUpInside" id="MIv-19-Z0s"/>
                                 </connections>
                             </button>
@@ -1083,7 +1082,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startDrivingButton:" destination="k14-AB-31x" eventType="touchUpInside" id="udi-xA-t0j"/>
                                     <action selector="tryAgianButtonPressed:" destination="0bn-hB-d0x" eventType="touchUpInside" id="TX3-aa-UFw"/>
                                 </connections>
                             </button>
@@ -1117,8 +1115,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="0bn-hB-d0x" eventType="touchUpInside" id="Q4d-r6-ckJ"/>
-                                    <action selector="startDrivingButton:" destination="k14-AB-31x" eventType="touchUpInside" id="MLD-qA-Nnk"/>
-                                    <action selector="tryAgianButtonPressed:" destination="0bn-hB-d0x" eventType="touchUpInside" id="7b8-Za-hox"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1161,6 +1157,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
         <image name="checkMark" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RaB-t6-Xcm"/>
+        <segue reference="FW7-xU-rGU"/>
     </inferredMetricsTieBreakers>
 </document>
