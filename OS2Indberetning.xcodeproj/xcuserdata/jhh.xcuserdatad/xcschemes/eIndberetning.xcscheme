@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F56E0A1D19D2A40C00B6CA1F"
-               BuildableName = "eIndberetning.app"
-               BlueprintName = "eIndberetning"
-               ReferencedContainer = "container:eIndberetning.xcodeproj">
+               BuildableName = "OS2Indberetning.app"
+               BlueprintName = "OS2Indberetning"
+               ReferencedContainer = "container:OS2Indberetning.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F56E0A3919D2A40C00B6CA1F"
-               BuildableName = "eIndberetningTests.xctest"
-               BlueprintName = "eIndberetningTests"
-               ReferencedContainer = "container:eIndberetning.xcodeproj">
+               BuildableName = "OS2IndberetningTests.xctest"
+               BlueprintName = "OS2IndberetningTests"
+               ReferencedContainer = "container:OS2Indberetning.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F56E0A3919D2A40C00B6CA1F"
-               BuildableName = "eIndberetningTests.xctest"
-               BlueprintName = "eIndberetningTests"
-               ReferencedContainer = "container:eIndberetning.xcodeproj">
+               BuildableName = "OS2IndberetningTests.xctest"
+               BlueprintName = "OS2IndberetningTests"
+               ReferencedContainer = "container:OS2Indberetning.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F56E0A1D19D2A40C00B6CA1F"
-            BuildableName = "eIndberetning.app"
-            BlueprintName = "eIndberetning"
-            ReferencedContainer = "container:eIndberetning.xcodeproj">
+            BuildableName = "OS2Indberetning.app"
+            BlueprintName = "OS2Indberetning"
+            ReferencedContainer = "container:OS2Indberetning.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F56E0A1D19D2A40C00B6CA1F"
-            BuildableName = "eIndberetning.app"
-            BlueprintName = "eIndberetning"
-            ReferencedContainer = "container:eIndberetning.xcodeproj">
+            BuildableName = "OS2Indberetning.app"
+            BlueprintName = "OS2Indberetning"
+            ReferencedContainer = "container:OS2Indberetning.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -100,9 +100,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F56E0A1D19D2A40C00B6CA1F"
-            BuildableName = "eIndberetning.app"
-            BlueprintName = "eIndberetning"
-            ReferencedContainer = "container:eIndberetning.xcodeproj">
+            BuildableName = "OS2Indberetning.app"
+            BlueprintName = "OS2Indberetning"
+            ReferencedContainer = "container:OS2Indberetning.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

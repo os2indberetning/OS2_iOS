@@ -90,7 +90,6 @@
 		F56E0A3019D2A40C00B6CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56E0A2E19D2A40C00B6CA1F /* Main.storyboard */; };
 		F56E0A3219D2A40C00B6CA1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F56E0A3119D2A40C00B6CA1F /* Images.xcassets */; };
 		F56E0A3519D2A40C00B6CA1F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56E0A3319D2A40C00B6CA1F /* LaunchScreen.xib */; };
-		F56E0A4119D2A40C00B6CA1F /* eIndberetningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F56E0A4019D2A40C00B6CA1F /* eIndberetningTests.m */; };
 		F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5824DF819E09F6C00F51353 /* StartDriveTableViewController.m */; };
 		F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5824DFB19E09FB000F51353 /* UIColor+CustomColor.m */; };
 		F58EC09F19FE96C10010AC96 /* Rate.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC09E19FE96C10010AC96 /* Rate.m */; };
@@ -114,21 +113,11 @@
 		F5F55B2A1A266D3E00F193D0 /* GPSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F55B291A266D3E00F193D0 /* GPSManager.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F56E0A3B19D2A40C00B6CA1F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F56E0A1619D2A40C00B6CA1F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F56E0A1D19D2A40C00B6CA1F;
-			remoteInfo = eIndberetning;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		7BB7BD0598834CACA9C13197 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A2A0BD089C4227969763E8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		F50F24D01B258E25006BBD48 /* eIndberetning copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eIndberetning copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F50F24D11B258E25006BBD48 /* eIndberetning copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "eIndberetning copy-Info.plist"; path = "/Users/jhh/Documents/IOS/eIndberetning/eIndberetning copy-Info.plist"; sourceTree = "<absolute>"; };
+		F50F24D01B258E25006BBD48 /* OS2Indberetning copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OS2Indberetning copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50F24D11B258E25006BBD48 /* OS2Indberetning copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "OS2Indberetning copy-Info.plist"; path = "../OS2Indberetning copy-Info.plist"; sourceTree = "<group>"; };
 		F51B351E1A0F995D0098D76E /* PopupBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupBaseViewController.h; sourceTree = "<group>"; };
 		F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupBaseViewController.m; sourceTree = "<group>"; };
 		F51B35211A0F9C8A0098D76E /* ConfirmDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmDeleteViewController.h; sourceTree = "<group>"; };
@@ -170,7 +159,7 @@
 		F5690EC319FFAE5D00B9C3B4 /* EditKmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditKmViewController.m; sourceTree = "<group>"; };
 		F5690EC819FFC96200B9C3B4 /* eMobilityHTTPSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eMobilityHTTPSClient.h; sourceTree = "<group>"; };
 		F5690EC919FFC96200B9C3B4 /* eMobilityHTTPSClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eMobilityHTTPSClient.m; sourceTree = "<group>"; };
-		F56E0A1E19D2A40C00B6CA1F /* eIndberetning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eIndberetning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F56E0A1E19D2A40C00B6CA1F /* OS2Indberetning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OS2Indberetning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56E0A2219D2A40C00B6CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F56E0A2319D2A40C00B6CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F56E0A2519D2A40C00B6CA1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,9 +170,6 @@
 		F56E0A2F19D2A40C00B6CA1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F56E0A3119D2A40C00B6CA1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F56E0A3419D2A40C00B6CA1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F56E0A3A19D2A40C00B6CA1F /* eIndberetningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eIndberetningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F56E0A3F19D2A40C00B6CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F56E0A4019D2A40C00B6CA1F /* eIndberetningTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = eIndberetningTests.m; sourceTree = "<group>"; };
 		F5824DF719E09F6C00F51353 /* StartDriveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartDriveTableViewController.h; sourceTree = "<group>"; };
 		F5824DF819E09F6C00F51353 /* StartDriveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartDriveTableViewController.m; sourceTree = "<group>"; };
 		F5824DFA19E09FB000F51353 /* UIColor+CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColor.h"; sourceTree = "<group>"; };
@@ -240,13 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				285C398763EB493EB3BACB37 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F56E0A3719D2A40C00B6CA1F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,26 +305,23 @@
 		F56E0A1519D2A40C00B6CA1F = {
 			isa = PBXGroup;
 			children = (
-				F56E0A2019D2A40C00B6CA1F /* eIndberetning */,
-				F56E0A3D19D2A40C00B6CA1F /* eIndberetningTests */,
+				F56E0A2019D2A40C00B6CA1F /* OS2Indberetning */,
 				F56E0A1F19D2A40C00B6CA1F /* Products */,
 				C9A2A0BD089C4227969763E8 /* Pods.xcconfig */,
 				31CA182F9DC44FFEA12CDDF9 /* Frameworks */,
-				F50F24D11B258E25006BBD48 /* eIndberetning copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		F56E0A1F19D2A40C00B6CA1F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F56E0A1E19D2A40C00B6CA1F /* eIndberetning.app */,
-				F56E0A3A19D2A40C00B6CA1F /* eIndberetningTests.xctest */,
-				F50F24D01B258E25006BBD48 /* eIndberetning copy.app */,
+				F56E0A1E19D2A40C00B6CA1F /* OS2Indberetning.app */,
+				F50F24D01B258E25006BBD48 /* OS2Indberetning copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F56E0A2019D2A40C00B6CA1F /* eIndberetning */ = {
+		F56E0A2019D2A40C00B6CA1F /* OS2Indberetning */ = {
 			isa = PBXGroup;
 			children = (
 				F559C7A71B25763600594F56 /* Views */,
@@ -357,6 +333,7 @@
 				F56E0A2119D2A40C00B6CA1F /* Supporting Files */,
 				F5824DFD19E09FB400F51353 /* Extension */,
 			);
+			name = OS2Indberetning;
 			path = eIndberetning;
 			sourceTree = "<group>";
 		};
@@ -368,24 +345,8 @@
 				F56E0A3319D2A40C00B6CA1F /* LaunchScreen.xib */,
 				F56E0A2819D2A40C00B6CA1F /* eIndberetning.xcdatamodeld */,
 				F56E0A2219D2A40C00B6CA1F /* Info.plist */,
+				F50F24D11B258E25006BBD48 /* OS2Indberetning copy-Info.plist */,
 				F56E0A2319D2A40C00B6CA1F /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F56E0A3D19D2A40C00B6CA1F /* eIndberetningTests */ = {
-			isa = PBXGroup;
-			children = (
-				F56E0A4019D2A40C00B6CA1F /* eIndberetningTests.m */,
-				F56E0A3E19D2A40C00B6CA1F /* Supporting Files */,
-			);
-			path = eIndberetningTests;
-			sourceTree = "<group>";
-		};
-		F56E0A3E19D2A40C00B6CA1F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F56E0A3F19D2A40C00B6CA1F /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -512,12 +473,12 @@
 			);
 			name = OS2Offline;
 			productName = eIndberetning;
-			productReference = F50F24D01B258E25006BBD48 /* eIndberetning copy.app */;
+			productReference = F50F24D01B258E25006BBD48 /* OS2Indberetning copy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F56E0A1D19D2A40C00B6CA1F /* eIndberetning */ = {
+		F56E0A1D19D2A40C00B6CA1F /* OS2Indberetning */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F56E0A4419D2A40C00B6CA1F /* Build configuration list for PBXNativeTarget "eIndberetning" */;
+			buildConfigurationList = F56E0A4419D2A40C00B6CA1F /* Build configuration list for PBXNativeTarget "OS2Indberetning" */;
 			buildPhases = (
 				748D6152A8BE474CAF3C35B1 /* Check Pods Manifest.lock */,
 				F56E0A1A19D2A40C00B6CA1F /* Sources */,
@@ -529,28 +490,10 @@
 			);
 			dependencies = (
 			);
-			name = eIndberetning;
+			name = OS2Indberetning;
 			productName = eIndberetning;
-			productReference = F56E0A1E19D2A40C00B6CA1F /* eIndberetning.app */;
+			productReference = F56E0A1E19D2A40C00B6CA1F /* OS2Indberetning.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F56E0A3919D2A40C00B6CA1F /* eIndberetningTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F56E0A4719D2A40C00B6CA1F /* Build configuration list for PBXNativeTarget "eIndberetningTests" */;
-			buildPhases = (
-				F56E0A3619D2A40C00B6CA1F /* Sources */,
-				F56E0A3719D2A40C00B6CA1F /* Frameworks */,
-				F56E0A3819D2A40C00B6CA1F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F56E0A3C19D2A40C00B6CA1F /* PBXTargetDependency */,
-			);
-			name = eIndberetningTests;
-			productName = eIndberetningTests;
-			productReference = F56E0A3A19D2A40C00B6CA1F /* eIndberetningTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -573,13 +516,9 @@
 							};
 						};
 					};
-					F56E0A3919D2A40C00B6CA1F = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = F56E0A1D19D2A40C00B6CA1F;
-					};
 				};
 			};
-			buildConfigurationList = F56E0A1919D2A40C00B6CA1F /* Build configuration list for PBXProject "eIndberetning" */;
+			buildConfigurationList = F56E0A1919D2A40C00B6CA1F /* Build configuration list for PBXProject "OS2Indberetning" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -592,8 +531,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F56E0A1D19D2A40C00B6CA1F /* eIndberetning */,
-				F56E0A3919D2A40C00B6CA1F /* eIndberetningTests */,
+				F56E0A1D19D2A40C00B6CA1F /* OS2Indberetning */,
 				F50F24931B258E25006BBD48 /* OS2Offline */,
 			);
 		};
@@ -633,13 +571,6 @@
 				F51B35251A0F9C8A0098D76E /* ConfirmDeleteViewController.xib in Resources */,
 				F51B352A1A0FA34A0098D76E /* ConfirmEndDriveViewController.xib in Resources */,
 				F537B4EA19FE614600D06892 /* ErrorMsgViewController.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F56E0A3819D2A40C00B6CA1F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,23 +734,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F56E0A3619D2A40C00B6CA1F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F56E0A4119D2A40C00B6CA1F /* eIndberetningTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F56E0A3C19D2A40C00B6CA1F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F56E0A1D19D2A40C00B6CA1F /* eIndberetning */;
-			targetProxy = F56E0A3B19D2A40C00B6CA1F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F56E0A2E19D2A40C00B6CA1F /* Main.storyboard */ = {
@@ -853,10 +768,10 @@
 					"COCOAPODS=1",
 					"MOCK=1",
 				);
-				INFOPLIST_FILE = "eIndberetning copy-Info.plist";
+				INFOPLIST_FILE = "OS2Indberetning copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "eIndberetning copy";
+				PRODUCT_NAME = "OS2Indberetning copy";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -868,10 +783,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "eIndberetning copy-Info.plist";
+				INFOPLIST_FILE = "OS2Indberetning copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "eIndberetning copy";
+				PRODUCT_NAME = "OS2Indberetning copy";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -962,7 +877,7 @@
 				INFOPLIST_FILE = eIndberetning/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OS2Indberetning;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -977,42 +892,8 @@
 				INFOPLIST_FILE = eIndberetning/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OS2Indberetning;
 				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-		F56E0A4819D2A40C00B6CA1F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = eIndberetningTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eIndberetning.app/eIndberetning";
-			};
-			name = Debug;
-		};
-		F56E0A4919D2A40C00B6CA1F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = eIndberetningTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eIndberetning.app/eIndberetning";
 			};
 			name = Release;
 		};
@@ -1028,7 +909,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F56E0A1919D2A40C00B6CA1F /* Build configuration list for PBXProject "eIndberetning" */ = {
+		F56E0A1919D2A40C00B6CA1F /* Build configuration list for PBXProject "OS2Indberetning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F56E0A4219D2A40C00B6CA1F /* Debug */,
@@ -1037,20 +918,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F56E0A4419D2A40C00B6CA1F /* Build configuration list for PBXNativeTarget "eIndberetning" */ = {
+		F56E0A4419D2A40C00B6CA1F /* Build configuration list for PBXNativeTarget "OS2Indberetning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F56E0A4519D2A40C00B6CA1F /* Debug */,
 				F56E0A4619D2A40C00B6CA1F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F56E0A4719D2A40C00B6CA1F /* Build configuration list for PBXNativeTarget "eIndberetningTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F56E0A4819D2A40C00B6CA1F /* Debug */,
-				F56E0A4919D2A40C00B6CA1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
