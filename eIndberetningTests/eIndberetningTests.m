@@ -25,9 +25,8 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+-(void) sanityTest{
+    XCTAssertTrue(2+2 == 4);
 }
 
 - (void)testPerformanceExample {

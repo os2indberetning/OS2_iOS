@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C3AC86E5-4EF8-4539-A6FA-4AD7AE2022DC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>eIndberetning</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4FA99E83BBF473F878807316E528B7130C1F4E0E</key>
+		<string>https://itminds.git.beanstalkapp.com/favrskov_eindberetningmobil.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>eIndberetning.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4FA99E83BBF473F878807316E528B7130C1F4E0E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://itminds.git.beanstalkapp.com/favrskov_eindberetningmobil.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4FA99E83BBF473F878807316E528B7130C1F4E0E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4FA99E83BBF473F878807316E528B7130C1F4E0E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>favrskov_eindberetningmobil</string>
+		</dict>
+	</array>
+</dict>
+</plist>
