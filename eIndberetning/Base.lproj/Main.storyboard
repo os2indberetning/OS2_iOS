@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nf4-sF-hXJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nf4-sF-hXJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Pair View Controller-->
@@ -502,7 +503,19 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                             <outlet property="delegate" destination="k14-AB-31x" id="tQS-G2-lzG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ny Kørsel" id="B2l-XC-zlS"/>
+                    <navigationItem key="navigationItem" title="Ny Kørsel" id="B2l-XC-zlS">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="jXS-h7-LK9">
+                            <button key="customView" contentMode="center" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vVR-an-pa0">
+                                <rect key="frame" x="451" y="7" width="87" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="overflowmenu"/>
+                                <connections>
+                                    <segue destination="Eib-We-gP8" kind="show" id="LQr-hP-AVs"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="commentTextView" destination="lkT-41-Etu" id="hbH-pU-52G"/>
                         <outlet property="dateLabel" destination="wsM-Wa-eDH" id="Nbx-bN-33H"/>
@@ -518,6 +531,115 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbq-Ml-2jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-208.5" y="163"/>
+        </scene>
+        <!--Saved reports-->
+        <scene sceneID="bbK-SH-A2J">
+            <objects>
+                <viewController title="Saved reports" id="Eib-We-gP8" customClass="SavedViewControllers" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="67f-70-nE6"/>
+                        <viewControllerLayoutGuide type="bottom" id="7i4-R4-l8w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xEk-pe-llL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="138" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3K4-Fc-wtW">
+                                <rect key="frame" x="0.0" y="150" width="600" height="450"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedReportsCelles" rowHeight="138" id="GlF-aK-1lf" customClass="SavedReportTableCellView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GlF-aK-1lf" id="wcs-59-uLO">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrL-AW-F6C">
+                                                    <rect key="frame" x="16" y="16" width="568" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVx-jz-We7">
+                                                    <rect key="frame" x="16" y="45" width="568" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNX-QL-r3A">
+                                                    <rect key="frame" x="16" y="74" width="568" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pw-7j-qQ1">
+                                                    <rect key="frame" x="16" y="103" width="568" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1pw-7j-qQ1" firstAttribute="top" secondItem="nNX-QL-r3A" secondAttribute="bottom" constant="8" id="6D5-Cr-J47"/>
+                                                <constraint firstItem="sVx-jz-We7" firstAttribute="top" secondItem="WrL-AW-F6C" secondAttribute="bottom" constant="8" id="7p6-BZ-iPy"/>
+                                                <constraint firstItem="nNX-QL-r3A" firstAttribute="leading" secondItem="wcs-59-uLO" secondAttribute="leadingMargin" constant="8" id="EsS-vd-Rdr"/>
+                                                <constraint firstItem="WrL-AW-F6C" firstAttribute="leading" secondItem="wcs-59-uLO" secondAttribute="leadingMargin" constant="8" id="Hr1-BV-KzB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nNX-QL-r3A" secondAttribute="trailing" constant="8" id="OLg-P2-7u1"/>
+                                                <constraint firstItem="WrL-AW-F6C" firstAttribute="top" secondItem="wcs-59-uLO" secondAttribute="topMargin" constant="8" id="Uo9-Y2-ZZB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sVx-jz-We7" secondAttribute="trailing" constant="8" id="ZQ6-WJ-Av2"/>
+                                                <constraint firstItem="nNX-QL-r3A" firstAttribute="top" secondItem="sVx-jz-We7" secondAttribute="bottom" constant="8" id="bJZ-HX-SEq"/>
+                                                <constraint firstItem="sVx-jz-We7" firstAttribute="leading" secondItem="wcs-59-uLO" secondAttribute="leadingMargin" constant="8" id="lbP-FV-7W6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="WrL-AW-F6C" secondAttribute="trailing" constant="8" id="m6p-yH-L4A"/>
+                                                <constraint firstItem="1pw-7j-qQ1" firstAttribute="leading" secondItem="wcs-59-uLO" secondAttribute="leadingMargin" constant="8" id="pzx-gi-RUk"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1pw-7j-qQ1" secondAttribute="trailing" constant="8" id="xS3-MH-3Fq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="WrL-AW-F6C" id="B9j-Jv-dE7"/>
+                                            <outlet property="distanceLabel" destination="sVx-jz-We7" id="Seh-Vb-peb"/>
+                                            <outlet property="purposeLabel" destination="nNX-QL-r3A" id="pap-aM-ylB"/>
+                                            <outlet property="rateLabel" destination="1pw-7j-qQ1" id="Vyn-KP-vZI"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Klik på en rapport for enten at sende, eller at slette den. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZg-lo-7vs">
+                                <rect key="frame" x="24" y="72" width="552" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="tVr-xD-PHS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3K4-Fc-wtW" firstAttribute="top" secondItem="67f-70-nE6" secondAttribute="bottom" id="1we-XP-u00"/>
+                            <constraint firstAttribute="trailing" secondItem="3K4-Fc-wtW" secondAttribute="trailing" id="8qV-aX-Rhd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PZg-lo-7vs" secondAttribute="trailing" constant="8" id="EUR-yP-t6b"/>
+                            <constraint firstItem="3K4-Fc-wtW" firstAttribute="leading" secondItem="xEk-pe-llL" secondAttribute="leading" id="GxT-gF-NXU"/>
+                            <constraint firstItem="PZg-lo-7vs" firstAttribute="top" secondItem="67f-70-nE6" secondAttribute="bottom" constant="8" id="Jfc-WN-Fci"/>
+                            <constraint firstItem="PZg-lo-7vs" firstAttribute="leading" secondItem="xEk-pe-llL" secondAttribute="leadingMargin" constant="8" id="Wnj-pB-DBl"/>
+                            <constraint firstAttribute="bottom" secondItem="3K4-Fc-wtW" secondAttribute="bottom" id="kqm-0C-haP"/>
+                            <constraint firstItem="3K4-Fc-wtW" firstAttribute="top" secondItem="PZg-lo-7vs" secondAttribute="bottom" constant="8" id="ksz-1Q-WPD"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1we-XP-u00"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Gemte rapporteringer" id="5L6-Xq-RIC">
+                        <barButtonItem key="backBarButtonItem" title="Tilbage" id="3t3-Gm-KB4"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mainTable" destination="3K4-Fc-wtW" id="QHv-aB-g7K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDa-0p-z26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="-499"/>
         </scene>
         <!--Drive View Controller-->
         <scene sceneID="YR7-jW-L4z">
@@ -1155,6 +1277,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
         <image name="FavreskovLogo" width="280" height="375"/>
         <image name="checkBox" width="200" height="200"/>
         <image name="checkMark" width="200" height="200"/>
+        <image name="overflowmenu" width="4" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="RaB-t6-Xcm"/>
