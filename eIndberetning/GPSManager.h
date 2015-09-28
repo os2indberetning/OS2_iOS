@@ -26,5 +26,6 @@
 - (void)startGPS;
 - (void)stopGPS;
 
+
 @property (strong,nonatomic) id <GPSUpdateDelegate> delegate;
 @end

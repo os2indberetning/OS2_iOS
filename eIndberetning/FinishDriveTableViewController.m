@@ -18,6 +18,8 @@
 #import "CoreDataManager.h"
 #import "ErrorMsgViewController.h"
 #import "CheckMarkImageView.h"
+#import "Settings.h"
+#import "SavedReport.h"
 
 @interface FinishDriveTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *purposeTextLabel;
@@ -64,8 +66,9 @@
     [self.uploadButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.uploadButton.layer.cornerRadius = 1.5f;
     
-    self.refreshControl.backgroundColor = info.appInfo.SecondaryColor;
+  /*  self.refreshControl.backgroundColor = info.appInfo.SecondaryColor;
     self.refreshControl.tintColor = info.appInfo.PrimaryColor;
+*/
 }
 
 - (void)viewDidLoad {
@@ -77,12 +80,12 @@
     [self.navigationItem setHidesBackButton:YES];
     self.tableView.rowHeight = 44;
     
-    self.refreshControl = [[UIRefreshControl alloc] init];
+ /*   self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self
                             action:@selector(manualRefresh)
                   forControlEvents:UIControlEventValueChanged];
     
-    
+    */
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     //Load employments and rates
@@ -90,13 +93,12 @@
     self.employments = [self.CDManager fetchEmployments];
     [self setupVisuals];
 }
-
+/*
 -(void)manualRefresh
 {
     [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
     [self.refreshControl endRefreshing];
-}
-
+}*/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -199,6 +201,17 @@
 }
 - (IBAction)cancelAndDeleteButton:(id)sender
 {
+    
+    SavedReport * report = [SavedReport new];
+    report.purpose = self.report.purpose.purpose;
+    report.rate = self.report.rate.rateDescription;
+    report.jsonToSend = @"";
+    report.totalDistance = self.report.route.totalDistanceEdit;
+    report.createdAt = [NSDate new];
+    
+    //TEST:
+    [Settings addSavedReport:report];
+    
     self.confirmPopup = [[ConfirmDeleteViewController alloc] initWithNibName:@"ConfirmDeleteViewController" bundle:nil];
     self.confirmPopup.delegate = self;
     [self.confirmPopup showPopup];

@@ -49,11 +49,21 @@ const double WAIT_TIME_S = 1.5;
     self.infoText.numberOfLines = 2;
     
     [self setupVisuals];
-    [self doSync];
+    NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
+    
+    [dic setObject:[[self.report transformToDictionary] mutableCopy] forKey:@"DriveReport"];
+    
+    NSError * err;
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&err];
+    NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"dic: %@", myString);
+    //[self doSync];
 }
 
 -(void)doSync
 {
+    /*
     UserInfo* info = [UserInfo sharedManager];
     eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
     
@@ -76,7 +86,7 @@ const double WAIT_TIME_S = 1.5;
          
          NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
          [self failSyncWithErrorCode:(NSInteger)errorCode];
-     }];
+     }];*/
 }
 
 -(void) succesSync

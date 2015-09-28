@@ -97,7 +97,7 @@
 -(BOOL)isLastSyncDateNotToday
 {
     return false;
-    NSDate *lastSync = [self.last_sync_date copy];
+  /*  NSDate *lastSync = [self.last_sync_date copy];
     NSDate *curDate = [NSDate date];
     
     [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay startDate:&lastSync interval:NULL forDate:lastSync];
@@ -112,7 +112,7 @@
     } else
     {
         return true;
-    }
+    }*/
 
 }
 

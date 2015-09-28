@@ -524,7 +524,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <outlet property="startAtHomeCheckbox" destination="Uiv-AI-pmf" id="mnM-Y0-l8M"/>
                         <outlet property="startDriveButton" destination="wdb-Cw-iqX" id="Y0q-O8-Ye1"/>
                         <outlet property="taskTextField" destination="buc-cq-Bwh" id="N77-pt-5Tx"/>
-                        <segue destination="GgH-KL-Jqi" kind="presentation" identifier="ShowSyncSegue" modalTransitionStyle="flipHorizontal" id="RaB-t6-Xcm"/>
                         <segue destination="sc4-T7-ILl" kind="show" identifier="DriveViewSegue" id="xs8-c1-WzO"/>
                     </connections>
                 </tableViewController>
@@ -1106,7 +1105,6 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                         <outlet property="startAtHomeCheckbox" destination="7lI-NR-kBx" id="fQ6-1a-dYh"/>
                         <outlet property="uploadButton" destination="OJv-Sx-mnR" id="bhJ-48-9bS"/>
                         <outlet property="userTextLabel" destination="9nq-AO-Xvk" id="6Ag-tk-yNT"/>
-                        <segue destination="GgH-KL-Jqi" kind="presentation" identifier="ShowSyncSegue" modalTransitionStyle="flipHorizontal" id="FW7-xU-rGU"/>
                         <segue destination="0bn-hB-d0x" kind="presentation" identifier="UploadDriveSegue" id="jDN-0C-tSe"/>
                     </connections>
                 </tableViewController>
@@ -1279,7 +1277,4 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
         <image name="checkMark" width="200" height="200"/>
         <image name="overflowmenu" width="4" height="16"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="RaB-t6-Xcm"/>
-    </inferredMetricsTieBreakers>
 </document>

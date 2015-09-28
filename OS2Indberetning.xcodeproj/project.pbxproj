@@ -12,6 +12,11 @@
 		84A3F48A1B69FEFA007C420C /* ViewController+helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3F4891B69FEFA007C420C /* ViewController+helper.m */; };
 		A71D884B1BB8A4EB00F3415A /* SavedViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = A71D884A1BB8A4EB00F3415A /* SavedViewControllers.m */; };
 		A71D884E1BB8AB5F00F3415A /* SavedReportTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = A71D884D1BB8AB5F00F3415A /* SavedReportTableCellView.m */; };
+		A7534B0B1BB95F150042BB65 /* SavedReport.m in Sources */ = {isa = PBXBuildFile; fileRef = A7534B0A1BB95F150042BB65 /* SavedReport.m */; };
+		A7534B101BB97EE70042BB65 /* SyncHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A7534B0F1BB97EE70042BB65 /* SyncHelper.m */; };
+		A7534B131BB991550042BB65 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = A7534B121BB991550042BB65 /* Settings.m */; };
+		A7534B171BB9BAF40042BB65 /* PopupSendDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7534B151BB9BAF40042BB65 /* PopupSendDeleteViewController.m */; };
+		A7534B181BB9BAF40042BB65 /* PopupSendDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7534B161BB9BAF40042BB65 /* PopupSendDeleteViewController.xib */; };
 		DC11F572710DF8FDA26523C6 /* libPods-eIndberetningTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A005CABB241D8A9545EDB /* libPods-eIndberetningTests.a */; };
 		F50F24961B258E25006BBD48 /* GpsCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */; };
 		F50F24971B258E25006BBD48 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
@@ -142,6 +147,15 @@
 		A71D884A1BB8A4EB00F3415A /* SavedViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedViewControllers.m; sourceTree = "<group>"; };
 		A71D884C1BB8AB5F00F3415A /* SavedReportTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedReportTableCellView.h; sourceTree = "<group>"; };
 		A71D884D1BB8AB5F00F3415A /* SavedReportTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedReportTableCellView.m; sourceTree = "<group>"; };
+		A7534B091BB95F150042BB65 /* SavedReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedReport.h; sourceTree = "<group>"; };
+		A7534B0A1BB95F150042BB65 /* SavedReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedReport.m; sourceTree = "<group>"; };
+		A7534B0E1BB97EE70042BB65 /* SyncHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncHelper.h; sourceTree = "<group>"; };
+		A7534B0F1BB97EE70042BB65 /* SyncHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncHelper.m; sourceTree = "<group>"; };
+		A7534B111BB991550042BB65 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		A7534B121BB991550042BB65 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		A7534B141BB9BAF40042BB65 /* PopupSendDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupSendDeleteViewController.h; sourceTree = "<group>"; };
+		A7534B151BB9BAF40042BB65 /* PopupSendDeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupSendDeleteViewController.m; sourceTree = "<group>"; };
+		A7534B161BB9BAF40042BB65 /* PopupSendDeleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupSendDeleteViewController.xib; sourceTree = "<group>"; };
 		B200ED93E597DB759452EDB9 /* Pods-eIndberetningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eIndberetningTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFCDD5DDA5410F88428A5138 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F50F24D01B258E25006BBD48 /* eIndberetning copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eIndberetning copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +314,37 @@
 			name = "saved reports";
 			sourceTree = "<group>";
 		};
+		A7534B081BB95F060042BB65 /* savedRepots */ = {
+			isa = PBXGroup;
+			children = (
+				A7534B091BB95F150042BB65 /* SavedReport.h */,
+				A7534B0A1BB95F150042BB65 /* SavedReport.m */,
+			);
+			name = savedRepots;
+			sourceTree = "<group>";
+		};
+		A7534B0C1BB973580042BB65 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				F52116051A3CE88300687AF8 /* JSONResponseSerializerWithData.h */,
+				F52116061A3CE88300687AF8 /* JSONResponseSerializerWithData.m */,
+				F5690EC819FFC96200B9C3B4 /* eMobilityHTTPSClient.h */,
+				F5690EC919FFC96200B9C3B4 /* eMobilityHTTPSClient.m */,
+				A7534B0E1BB97EE70042BB65 /* SyncHelper.h */,
+				A7534B0F1BB97EE70042BB65 /* SyncHelper.m */,
+			);
+			name = server;
+			sourceTree = "<group>";
+		};
+		A7534B0D1BB9735B0042BB65 /* gps */ = {
+			isa = PBXGroup;
+			children = (
+				F5F55B281A266D3E00F193D0 /* GPSManager.h */,
+				F5F55B291A266D3E00F193D0 /* GPSManager.m */,
+			);
+			name = gps;
+			sourceTree = "<group>";
+		};
 		F51B351D1A0F98BB0098D76E /* PopupMessage */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +359,9 @@
 				F51B35261A0FA34A0098D76E /* ConfirmEndDriveViewController.h */,
 				F51B35271A0FA34A0098D76E /* ConfirmEndDriveViewController.m */,
 				F51B35281A0FA34A0098D76E /* ConfirmEndDriveViewController.xib */,
+				A7534B141BB9BAF40042BB65 /* PopupSendDeleteViewController.h */,
+				A7534B151BB9BAF40042BB65 /* PopupSendDeleteViewController.m */,
+				A7534B161BB9BAF40042BB65 /* PopupSendDeleteViewController.xib */,
 			);
 			name = PopupMessage;
 			sourceTree = "<group>";
@@ -354,6 +402,8 @@
 		F5690EBC19FF7A6000B9C3B4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F5E87BFE1A08D1100092E350 /* CoreDataManager.h */,
+				F5E87BFF1A08D1100092E350 /* CoreDataManager.m */,
 				F52116091A3CFD0100687AF8 /* CDRate.h */,
 				F521160A1A3CFD0100687AF8 /* CDRate.m */,
 				F5C26E051A096CA6004ACDA4 /* CDPurpose.h */,
@@ -485,6 +535,9 @@
 		F58EC09C19FE96A80010AC96 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7534B0D1BB9735B0042BB65 /* gps */,
+				A7534B0C1BB973580042BB65 /* server */,
+				A7534B081BB95F060042BB65 /* savedRepots */,
 				F5690EBC19FF7A6000B9C3B4 /* CoreData */,
 				F58EC09D19FE96C10010AC96 /* Rate.h */,
 				F58EC09E19FE96C10010AC96 /* Rate.m */,
@@ -506,14 +559,8 @@
 				F556A1051A081220007A17F3 /* Profile.m */,
 				F556A1071A08135B007A17F3 /* Token.h */,
 				F556A1081A08135B007A17F3 /* Token.m */,
-				F52116051A3CE88300687AF8 /* JSONResponseSerializerWithData.h */,
-				F52116061A3CE88300687AF8 /* JSONResponseSerializerWithData.m */,
-				F5690EC819FFC96200B9C3B4 /* eMobilityHTTPSClient.h */,
-				F5690EC919FFC96200B9C3B4 /* eMobilityHTTPSClient.m */,
-				F5E87BFE1A08D1100092E350 /* CoreDataManager.h */,
-				F5E87BFF1A08D1100092E350 /* CoreDataManager.m */,
-				F5F55B281A266D3E00F193D0 /* GPSManager.h */,
-				F5F55B291A266D3E00F193D0 /* GPSManager.m */,
+				A7534B111BB991550042BB65 /* Settings.h */,
+				A7534B121BB991550042BB65 /* Settings.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -677,6 +724,7 @@
 				F56E0A3519D2A40C00B6CA1F /* LaunchScreen.xib in Resources */,
 				F58EC0B319FEBEFF0010AC96 /* ManualEntryViewController.xib in Resources */,
 				F56E0A3219D2A40C00B6CA1F /* Images.xcassets in Resources */,
+				A7534B181BB9BAF40042BB65 /* PopupSendDeleteViewController.xib in Resources */,
 				F537B4DF19FE4F5000D06892 /* SelectListTableViewController.xib in Resources */,
 				F5690EC119FF7C7500B9C3B4 /* AddPurposeTableViewCell.xib in Resources */,
 				F51B35251A0F9C8A0098D76E /* ConfirmDeleteViewController.xib in Resources */,
@@ -859,6 +907,7 @@
 				F5D318111B22DACC00D09AD0 /* SelectMunicipalityViewController.m in Sources */,
 				F5AF892519E1C5CA00016826 /* FinishDriveTableViewController.m in Sources */,
 				A71D884B1BB8A4EB00F3415A /* SavedViewControllers.m in Sources */,
+				A7534B131BB991550042BB65 /* Settings.m in Sources */,
 				F5690ECA19FFC96200B9C3B4 /* eMobilityHTTPSClient.m in Sources */,
 				F537B4E919FE614600D06892 /* ErrorMsgViewController.m in Sources */,
 				F5E87C001A08D1100092E350 /* CoreDataManager.m in Sources */,
@@ -866,11 +915,13 @@
 				F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */,
 				F5690EC019FF7C7500B9C3B4 /* AddPurposeTableViewCell.m in Sources */,
 				F5F55B2A1A266D3E00F193D0 /* GPSManager.m in Sources */,
+				A7534B0B1BB95F150042BB65 /* SavedReport.m in Sources */,
 				F58EC0B219FEBEFF0010AC96 /* ManualEntryViewController.m in Sources */,
 				F56E0A2D19D2A40C00B6CA1F /* PairViewController.m in Sources */,
 				84A3F48A1B69FEFA007C420C /* ViewController+helper.m in Sources */,
 				F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */,
 				F51B35241A0F9C8A0098D76E /* ConfirmDeleteViewController.m in Sources */,
+				A7534B171BB9BAF40042BB65 /* PopupSendDeleteViewController.m in Sources */,
 				F55932031A0FB42500C8139F /* UploadDriveViewController.m in Sources */,
 				F58EC0A519FE97BA0010AC96 /* DriveReport.m in Sources */,
 				F58EC09F19FE96C10010AC96 /* Rate.m in Sources */,
@@ -879,6 +930,7 @@
 				F56E0A2A19D2A40C00B6CA1F /* eIndberetning.xcdatamodeld in Sources */,
 				F5690EB819FF758B00B9C3B4 /* UIViewController+BackButton.m in Sources */,
 				F556A1061A081220007A17F3 /* Profile.m in Sources */,
+				A7534B101BB97EE70042BB65 /* SyncHelper.m in Sources */,
 				F5C26E0A1A096ED0004ACDA4 /* Purpose.m in Sources */,
 				F5690EC419FFAE5D00B9C3B4 /* EditKmViewController.m in Sources */,
 				F5AF892219E1BD0F00016826 /* DriveViewController.m in Sources */,

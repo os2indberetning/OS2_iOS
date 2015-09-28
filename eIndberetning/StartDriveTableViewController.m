@@ -24,6 +24,7 @@
 #import "CheckMarkImageView.h"
 
 #import "ConfirmDeleteViewController.h"
+#import "SyncHelper.h"
 
 @interface StartDriveTableViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
@@ -70,8 +71,8 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : info.appInfo.TextColor}];
     
-    self.refreshControl.backgroundColor = info.appInfo.SecondaryColor;
-    self.refreshControl.tintColor = info.appInfo.PrimaryColor;
+    /*   self.refreshControl.backgroundColor = info.appInfo.SecondaryColor;
+     self.refreshControl.tintColor = info.appInfo.PrimaryColor;*/
 }
 
 - (void)viewDidLoad {
@@ -94,25 +95,43 @@
     
     self.tableView.rowHeight = 44;
     
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self
-                            action:@selector(manualRefresh)
-                  forControlEvents:UIControlEventValueChanged];
-    
+    /*  self.refreshControl = [[UIRefreshControl alloc] init];
+     [self.refreshControl addTarget:self
+     action:@selector(manualRefresh)
+     forControlEvents:UIControlEventValueChanged];
      
+     */
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setupVisuals];
-}
+    self.shouldSync = false;
+    __block UIActivityIndicatorView * indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.center =self.view.center;
+    indicator.frame = [self.navigationController view].frame;
+    indicator.backgroundColor = [UIColor colorWithRed:0.6667 green:0.6667 blue:0.6667 alpha:0.50];
+    [self.view addSubview:indicator];
+    [indicator startAnimating];
+    [SyncHelper doSync:^(Profile * profile, NSArray * rates) {
+        [indicator removeFromSuperview];
+        [self didFinishSyncWithProfile:profile AndRate:rates];
+    } withErrorCallback:^(NSInteger errorCode) {
+        [indicator removeFromSuperview];
+        if(errorCode==0){
+            return;
+        }
+        [self tokenNotFound];
+    }];
 
--(void)manualRefresh
-{
-    //Stop gps, and remove delegate (cause we need to refresh with the new information)
-    [self.gpsManager stopGPS];
-    self.gpsManager.delegate = nil;
-    
-    [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
-    [self.refreshControl endRefreshing];
 }
+/*
+ -(void)manualRefresh
+ {
+ //Stop gps, and remove delegate (cause we need to refresh with the new information)
+ [self.gpsManager stopGPS];
+ self.gpsManager.delegate = nil;
+ 
+ [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
+ [self.refreshControl endRefreshing];
+ }*/
 
 -(void)loadReport
 {
@@ -132,10 +151,10 @@
     //Load default report settings
     if([purposes containsObject:self.info.last_purpose])
         self.report.purpose = self.info.last_purpose;
-
+    
     if([self.employments containsObject:self.info.last_employment])
         self.report.employment = self.info.last_employment;
-
+    
     if([self.rates containsObject:self.info.last_rate])
         self.report.rate = self.info.last_rate;
     
@@ -150,29 +169,30 @@
 {
     [super viewWillAppear:animated];
     
-    if(self.report.shouldReset)
+    if(self.report.shouldReset){
         [self loadReport];
+    }
     
-    if(self.report.purpose)
+    if(self.report.purpose){
         self.purposeTextField.text = self.report.purpose.purpose;
-    else
+    }else{
         self.purposeTextField.text = @"Vælg Formål";
-    
-    if(self.report.rate)
+    }
+    if(self.report.rate){
         self.taskTextField.text = self.report.rate.rateDescription;
-    else
+    }else{
         self.taskTextField.text = @"Vælg Takst";
-
-    if(self.report.manuelentryremark)
+    }
+    if(self.report.manuelentryremark){
         self.commentTextView.text = self.report.manuelentryremark;
-    else
+    } else {
         self.commentTextView.text = @"Indtast Bemærkning";
-
-    if(self.report.employment)
+    }
+    if(self.report.employment){
         self.organisationalPlaceTextField.text = self.report.employment.employmentPosition;
-    else
+    }else{
         self.organisationalPlaceTextField.text  = @"Vælg Placering";
-    
+    }
     [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
 }
 
@@ -193,20 +213,13 @@
         return;
     }
     
-    if(self.shouldSync)
+     //If we are not syncing, check home address - but only if we are not the delegate yet
+    if(![self.gpsManager.delegate isEqual:self])
     {
-        self.shouldSync = false;
-        [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
+        self.gpsManager.delegate = self;
+        [self.gpsManager startGPS];
     }
-    else
-    {
-        //If we are not syncing, check home address - but only if we are not the delegate yet
-        if(![self.gpsManager.delegate isEqual:self])
-        {
-            self.gpsManager.delegate = self;
-            [self.gpsManager startGPS];
-        }
-    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -261,16 +274,16 @@
     }
     else if(indexPath.row == 4)
     {
-       ManualEntryViewController *vc=[[ManualEntryViewController alloc]initWithNibName:@"ManualEntryViewController" bundle:nil];
-       vc.report = self.report;
-       [self.navigationController pushViewController:vc animated:true];
+        ManualEntryViewController *vc=[[ManualEntryViewController alloc]initWithNibName:@"ManualEntryViewController" bundle:nil];
+        vc.report = self.report;
+        [self.navigationController pushViewController:vc animated:true];
     }
     else if(indexPath.row == 5)
     {
         self.report.didstarthome = !self.report.didstarthome;
         [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
     }
-
+    
 }
 
 #pragma mark Sync
@@ -290,7 +303,7 @@
     
     [self.CDManager insertEmployments:profile.employments];
     [self.CDManager insertRates:rates];
-
+    
     //Transfer userdata to local userinfo object
     self.info.last_sync_date = [NSDate date];
     self.info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
@@ -310,8 +323,8 @@
     }
     
     [self.info saveInfo];
-
-    [self loadReport];
+    
+    // [self loadReport];
 }
 
 #pragma mark GPSUpdateDelegate
@@ -350,16 +363,16 @@
         
         if([location distanceFromLocation:self.info.home_loc] < 500)
         {
-           self.report.didstarthome = true;
-           [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
-           
-           NSLog(@"Is close to home");
+            self.report.didstarthome = true;
+            [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
+            
+            NSLog(@"Is close to home");
         }
         else
         {
-           NSLog(@"Is not close to home");
+            NSLog(@"Is not close to home");
         }
-    
+        
         [self.gpsManager stopGPS];
     }
 }
@@ -369,7 +382,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    
     if ([[segue identifier] isEqualToString:@"DriveViewSegue"])
     {
         DriveViewController *vc = [segue destinationViewController];

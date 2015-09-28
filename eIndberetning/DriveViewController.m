@@ -88,7 +88,7 @@
 }
 
 - (IBAction)finishButtonPressed:(id)sender {
-    
+    //TODO should pause gps ?
     self.confirmPopup = [[ConfirmEndDriveViewController alloc] initWithNibName:@"ConfirmEndDriveViewController" bundle:nil];
     self.confirmPopup.delegate = self;
     
@@ -108,6 +108,7 @@
     }
     else
     {
+        [self markLastAsIsViaPoint];
         self.locA = nil;
         [self.gpsManager stopGPS];
         self.gpsAccuaryLabel.text = @"GPS sat på pause";
@@ -115,6 +116,13 @@
     }
     
     self.isPaused = !self.isPaused;
+}
+
+-(void) markLastAsIsViaPoint{
+    GpsCoordinates * last = [self getLastCoordinate];
+    if(last!=nil){
+        last.isViaPoint = YES;
+    }
 }
 
 #pragma mark - EndDrivePopupDelegate
@@ -243,6 +251,12 @@
     self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.2f Km", self.totalDistance/1000.0f];
     self.lastUpdatedLabel.text = @"Venter på gyldigt GPS signal";
     self.isCloseToHome = self.report.didendhome;
+}
+-(GpsCoordinates * ) getLastCoordinate{
+    if(_report!=nil && _report.route.coordinates!= nil && [_report.route.coordinates count]>0){
+        return [_report.route.coordinates objectAtIndex:0];
+    }
+    return nil;
 }
 
 @end

@@ -11,5 +11,6 @@
 
 @interface GpsCoordinates : NSObject
 @property (nonatomic, strong) CLLocation* loc;
+@property (nonatomic) BOOL isViaPoint;
 - (NSDictionary *) transformToDictionary;
 @end
