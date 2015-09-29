@@ -7,6 +7,7 @@
 //
 
 #import "QuestionDialogViewController.h"
+#import "UserInfo.h"
 
 @interface QuestionDialogViewController ()
 @property (nonatomic, copy) void (^noCallback)();
@@ -34,7 +35,31 @@
     [_noButton setTitle:_noText forState:UIControlStateNormal];
     [_noButton setTitle:_noText forState:UIControlStateHighlighted];
     _messageLabel.text = _messageText;
+
+    //handle color scheme here.
+    [self setupVisuals];
+
 }
+
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.yesButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.yesButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
+    self.yesButton.layer.cornerRadius = 2.0f;
+    
+    [self.noButton setBackgroundColor:info.appInfo.TextColor];
+    [self.noButton setTitleColor:info.appInfo.SecondaryColor forState:UIControlStateNormal];
+    self.noButton.layer.cornerRadius = 2.0f;
+    
+    self.titleLabelQuestion.textColor = info.appInfo.TextColor;
+    self.topContainer.backgroundColor = info.appInfo.PrimaryColor;
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

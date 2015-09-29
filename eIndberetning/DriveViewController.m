@@ -211,6 +211,11 @@
 
 -(void)gotNewGPSCoordinate:(CLLocation *)location
 {
+    if(_isShowingDialogForValidation|| (location.coordinate.latitude == _locA.coordinate.latitude &&
+                                         location.coordinate.longitude == _locA.coordinate.longitude)){
+        return;
+    }
+
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     //distances in meteres.
@@ -230,10 +235,7 @@
             
             if(self.validateResume){
                 if(distance>200){
-                    if(_isShowingDialogForValidation){
-                        return;
-                    }
-                    _isShowingDialogForValidation = YES;
+                                      _isShowingDialogForValidation = YES;
                     //alert and pause and discard point
                     [self togglePauseResume];
                     [self showInvalidLocationResume];

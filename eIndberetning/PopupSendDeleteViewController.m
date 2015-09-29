@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *resendButton;
+@property (weak, nonatomic) IBOutlet UIView *topContainer;
 
 @property (strong, nonatomic) SavedReport *  reportToShow;
 @end
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupVisuals];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -57,6 +59,29 @@
     self.reportToShow = report;
 }
 
+-(void)setupVisuals
+{
+    UserInfo* info = [UserInfo sharedManager];
+    [info loadInfo];
+    
+    [self.cancelButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.cancelButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
+    self.cancelButton.layer.cornerRadius = 2.0f;
+    
+    [self.deleteButton setBackgroundColor:info.appInfo.TextColor];
+    [self.deleteButton setTitleColor:info.appInfo.SecondaryColor forState:UIControlStateNormal];
+    self.deleteButton.layer.cornerRadius = 2.0f;
+    
+    [self.resendButton setBackgroundColor:info.appInfo.SecondaryColor];
+    [self.resendButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
+    self.resendButton.layer.cornerRadius = 2.0f;
+    
+
+    
+    self.titleLabel.textColor = info.appInfo.TextColor;
+    self.topContainer.backgroundColor = info.appInfo.PrimaryColor;
+    
+}
 
 
 -(void)removeAnimate{
@@ -66,14 +91,5 @@
         self.onClosed = nil;
     }
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

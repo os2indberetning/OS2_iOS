@@ -8,14 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopupSendDeleteViewController">
             <connections>
+                <outlet property="cancelButton" destination="0HS-62-8o2" id="oqB-FI-lTu"/>
                 <outlet property="deleteButton" destination="s4s-W8-vFV" id="pgJ-MD-iI2"/>
-                <outlet property="messageLabel" destination="kfg-gJ-aLx" id="AAb-qQ-Wbe"/>
-                <outlet property="noButton" destination="s4s-W8-vFV" id="bq5-lL-V70"/>
                 <outlet property="resendButton" destination="bJ3-Wj-nl8" id="gLx-Gj-X4R"/>
-                <outlet property="titleLabelQuestion" destination="11C-S8-KND" id="tJd-Ms-6Bi"/>
-                <outlet property="topContainer" destination="0mX-nh-cfC" id="tTe-tW-vRA"/>
+                <outlet property="topContainer" destination="0mX-nh-cfC" id="PuB-w1-Qzz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="yesButton" destination="bJ3-Wj-nl8" id="eRI-dS-qKE"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -28,6 +25,14 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mX-nh-cfC">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hvad vil du ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="11C-S8-KND">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="LKw-mw-VXR"/>
@@ -39,17 +44,14 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hvad vil du ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="11C-S8-KND">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HS-62-8o2">
                             <rect key="frame" x="8" y="95" width="284" height="49"/>
-                            <state key="normal">
+                            <state key="normal" title="Anuller">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onCancelClicked:" destination="-1" eventType="touchUpInside" id="vUe-TH-7Vo"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJ3-Wj-nl8">
                             <rect key="frame" x="150" y="152" width="142" height="40"/>
@@ -64,7 +66,6 @@
                             </state>
                             <connections>
                                 <action selector="onResendClicked:" destination="-1" eventType="touchUpInside" id="Nov-FV-hre"/>
-                                <action selector="onYesClicked:" destination="-1" eventType="touchUpInside" id="GqZ-A5-wLL"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4s-W8-vFV">
@@ -85,7 +86,6 @@
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="onDeleteClicked:" destination="-1" eventType="touchUpInside" id="kdP-8H-dlj"/>
-                                <action selector="onNoClicked:" destination="-1" eventType="touchUpInside" id="hZP-fa-sbw"/>
                             </connections>
                         </button>
                     </subviews>
@@ -98,20 +98,16 @@
                         <constraint firstItem="bJ3-Wj-nl8" firstAttribute="leading" secondItem="xhI-zC-2Og" secondAttribute="centerX" id="DSJ-EY-sDr"/>
                         <constraint firstAttribute="width" constant="300" id="Ei4-sf-a0z"/>
                         <constraint firstItem="0mX-nh-cfC" firstAttribute="top" secondItem="xhI-zC-2Og" secondAttribute="top" id="IXK-tM-8fI"/>
-                        <constraint firstItem="0mX-nh-cfC" firstAttribute="centerX" secondItem="11C-S8-KND" secondAttribute="centerX" id="JHL-HN-nJf"/>
                         <constraint firstItem="0HS-62-8o2" firstAttribute="leading" secondItem="xhI-zC-2Og" secondAttribute="leading" constant="8" id="MTE-vI-OrV"/>
                         <constraint firstAttribute="trailing" secondItem="0mX-nh-cfC" secondAttribute="trailing" id="OqQ-1s-eXv"/>
                         <constraint firstAttribute="height" constant="200" id="PLu-8T-m6s"/>
-                        <constraint firstItem="0mX-nh-cfC" firstAttribute="height" secondItem="11C-S8-KND" secondAttribute="height" id="Pqr-np-lhf"/>
                         <constraint firstItem="s4s-W8-vFV" firstAttribute="leading" secondItem="xhI-zC-2Og" secondAttribute="leading" constant="8" id="Rwz-Ta-6bn"/>
                         <constraint firstAttribute="centerX" secondItem="s4s-W8-vFV" secondAttribute="trailing" constant="8" id="bpm-bu-jhB"/>
                         <constraint firstItem="kfg-gJ-aLx" firstAttribute="leading" secondItem="xhI-zC-2Og" secondAttribute="leading" constant="8" id="dBp-jt-2Dy"/>
                         <constraint firstAttribute="trailing" secondItem="0HS-62-8o2" secondAttribute="trailing" constant="8" id="jvH-O0-0HZ"/>
-                        <constraint firstItem="0mX-nh-cfC" firstAttribute="width" secondItem="11C-S8-KND" secondAttribute="width" id="t4k-vB-xaH"/>
                         <constraint firstAttribute="trailing" secondItem="bJ3-Wj-nl8" secondAttribute="trailing" constant="8" id="twa-5h-HWB"/>
                         <constraint firstAttribute="bottom" secondItem="s4s-W8-vFV" secondAttribute="bottom" constant="8" id="uCf-Zu-qLV"/>
                         <constraint firstAttribute="trailing" secondItem="kfg-gJ-aLx" secondAttribute="trailing" constant="8" id="uGR-k7-QfD"/>
-                        <constraint firstItem="0mX-nh-cfC" firstAttribute="centerY" secondItem="11C-S8-KND" secondAttribute="centerY" id="ub4-lr-nkv"/>
                         <constraint firstAttribute="bottom" secondItem="bJ3-Wj-nl8" secondAttribute="bottom" constant="8" id="zEv-CQ-Ico"/>
                     </constraints>
                 </view>
