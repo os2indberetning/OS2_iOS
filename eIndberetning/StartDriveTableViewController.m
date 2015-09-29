@@ -146,11 +146,11 @@
     
     self.report.profileId = self.info.profileId;
     
-    NSArray* purposes = [self.CDManager fetchPurposes];
+  //  NSArray* purposes = [self.CDManager fetchPurposes];
     
     //Load default report settings
-    if([purposes containsObject:self.info.last_purpose])
-        self.report.purpose = self.info.last_purpose;
+//    if([purposes containsObject:self.info.last_purpose])
+//        self.report.purpose = self.info.last_purpose;
     
     if([self.employments containsObject:self.info.last_employment])
         self.report.employment = self.info.last_employment;

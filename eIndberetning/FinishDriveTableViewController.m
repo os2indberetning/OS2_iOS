@@ -202,16 +202,6 @@
 - (IBAction)cancelAndDeleteButton:(id)sender
 {
     
-    SavedReport * report = [SavedReport new];
-    report.purpose = self.report.purpose.purpose;
-    report.rate = self.report.rate.rateDescription;
-    report.jsonToSend = @"";
-    report.totalDistance = self.report.route.totalDistanceEdit;
-    report.createdAt = [NSDate new];
-    
-    //TEST:
-    [Settings addSavedReport:report];
-    
     self.confirmPopup = [[ConfirmDeleteViewController alloc] initWithNibName:@"ConfirmDeleteViewController" bundle:nil];
     self.confirmPopup.delegate = self;
     [self.confirmPopup showPopup];
@@ -347,7 +337,6 @@
         vc.delegate = self;
     }
 }
-
 #pragma mark State Preservation
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {

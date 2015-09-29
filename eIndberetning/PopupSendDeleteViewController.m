@@ -10,6 +10,8 @@
 #import "SavedReport.h"
 #import "Settings.h"
 #import "eMobilityHTTPSClient.h"
+#import "UIView+Toast.h"
+#import "UserInfo.h"
 
 @interface PopupSendDeleteViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
@@ -38,11 +40,24 @@
     [self removeAnimate];
 }
 - (IBAction)onResendClicked:(id)sender {
-    [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
+    UserInfo* info = [UserInfo sharedManager];
+    Token * token =info.token;
+    eMobilityHTTPSClient* client =  [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
+    [client postSavedDriveReport:_reportToShow forToken:token withBlock:^(NSURLSessionDataTask *task, id resonseObject) {
+            //worked, remove from list and refresh
+        [Settings removeSavedReport:self.reportToShow];
+        [self removeAnimate];
+    } failBlock:^(NSURLSessionDataTask *task, NSError *error) {
+        [self removeAnimate];
+        [self.view.superview makeToast:@"Kunne ikke sende rapporten, prøv igen senere"];
+        NSLog(@"failed resending %@", error.localizedDescription);
+    }];
 }
 -(void) setReport:(SavedReport *)report{
     self.reportToShow = report;
 }
+
+
 
 -(void)removeAnimate{
     [super removeAnimate];

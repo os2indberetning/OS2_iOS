@@ -17,6 +17,7 @@
 		A7534B131BB991550042BB65 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = A7534B121BB991550042BB65 /* Settings.m */; };
 		A7534B171BB9BAF40042BB65 /* PopupSendDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7534B151BB9BAF40042BB65 /* PopupSendDeleteViewController.m */; };
 		A7534B181BB9BAF40042BB65 /* PopupSendDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7534B161BB9BAF40042BB65 /* PopupSendDeleteViewController.xib */; };
+		A7BCD33C1BBAA87800FC3DB1 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BCD33B1BBAA87800FC3DB1 /* UIView+Toast.m */; };
 		DC11F572710DF8FDA26523C6 /* libPods-eIndberetningTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A005CABB241D8A9545EDB /* libPods-eIndberetningTests.a */; };
 		F50F24961B258E25006BBD48 /* GpsCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */; };
 		F50F24971B258E25006BBD48 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
@@ -156,6 +157,8 @@
 		A7534B141BB9BAF40042BB65 /* PopupSendDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupSendDeleteViewController.h; sourceTree = "<group>"; };
 		A7534B151BB9BAF40042BB65 /* PopupSendDeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupSendDeleteViewController.m; sourceTree = "<group>"; };
 		A7534B161BB9BAF40042BB65 /* PopupSendDeleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupSendDeleteViewController.xib; sourceTree = "<group>"; };
+		A7BCD33A1BBAA87800FC3DB1 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		A7BCD33B1BBAA87800FC3DB1 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		B200ED93E597DB759452EDB9 /* Pods-eIndberetningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eIndberetningTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFCDD5DDA5410F88428A5138 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F50F24D01B258E25006BBD48 /* eIndberetning copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eIndberetning copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,6 +348,15 @@
 			name = gps;
 			sourceTree = "<group>";
 		};
+		A7BCD3391BBAA86200FC3DB1 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				A7BCD33A1BBAA87800FC3DB1 /* UIView+Toast.h */,
+				A7BCD33B1BBAA87800FC3DB1 /* UIView+Toast.m */,
+			);
+			name = category;
+			sourceTree = "<group>";
+		};
 		F51B351D1A0F98BB0098D76E /* PopupMessage */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +451,7 @@
 		F56E0A2019D2A40C00B6CA1F /* eIndberetning */ = {
 			isa = PBXGroup;
 			children = (
+				A7BCD3391BBAA86200FC3DB1 /* category */,
 				F559C7A71B25763600594F56 /* Views */,
 				F5690EB219FF737000B9C3B4 /* Categories */,
 				F58EC09C19FE96A80010AC96 /* Model */,
@@ -931,6 +944,7 @@
 				F5690EB819FF758B00B9C3B4 /* UIViewController+BackButton.m in Sources */,
 				F556A1061A081220007A17F3 /* Profile.m in Sources */,
 				A7534B101BB97EE70042BB65 /* SyncHelper.m in Sources */,
+				A7BCD33C1BBAA87800FC3DB1 /* UIView+Toast.m in Sources */,
 				F5C26E0A1A096ED0004ACDA4 /* Purpose.m in Sources */,
 				F5690EC419FFAE5D00B9C3B4 /* EditKmViewController.m in Sources */,
 				F5AF892219E1BD0F00016826 /* DriveViewController.m in Sources */,

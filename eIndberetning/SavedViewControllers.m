@@ -70,8 +70,6 @@
     } ];
 
     [_popup showInView:self.view.superview animated:YES];
-    
-
    }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

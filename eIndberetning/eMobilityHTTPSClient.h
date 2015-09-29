@@ -11,6 +11,7 @@
 #import "DriveReport.h"
 #import "JSONResponseSerializerWithData.h"
 #import "Token.h"
+#import "SavedReport.h"
 
 enum ErrorCodes : NSInteger
 {
@@ -37,5 +38,8 @@ enum ErrorCodes : NSInteger
 -(void)getUserDataForToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 -(void)syncWithTokenString:(NSString*)tokenString withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 - (void)postDriveReport:(DriveReport *)report forToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
+
+
+-(void)postSavedDriveReport:(SavedReport *)report forToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 
 @end

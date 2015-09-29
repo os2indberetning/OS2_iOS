@@ -9,6 +9,7 @@
 #import "UploadDriveViewController.h"
 #import "eMobilityHTTPSClient.h"
 #import "UserInfo.h"
+#import "Settings.h"
 
 @interface UploadDriveViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *tryAgianButton;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *municipalityLogoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *infoText;
 
+@property (strong, nonatomic) SavedReport * savedReport;
 @property (strong, nonatomic) NSArray *rates;
 @property (strong,nonatomic) Profile* profile;
 @end
@@ -56,19 +58,26 @@ const double WAIT_TIME_S = 1.5;
     NSError * err;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&err];
     NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
+    _savedReport =  [SavedReport new];
+    _savedReport.jsonToSend = myString;
+    _savedReport.rate = _report.rate.rateDescription;
+    _savedReport.purpose = _report.purpose.purpose;
+    _savedReport.totalDistance = _report.route.totalDistanceEdit;
+    _savedReport.createdAt = [NSDate new];
+    [Settings addSavedReport:_savedReport];
     NSLog(@"dic: %@", myString);
-    //[self doSync];
+    [self doSync];
 }
 
 -(void)doSync
 {
-    /*
+    
     UserInfo* info = [UserInfo sharedManager];
     eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
     
     [client postDriveReport:self.report forToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
      {
+         [Settings removeSavedReport:_savedReport];
          //Optional: also sync userdata on succesfull submit
          NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
          NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
@@ -86,7 +95,7 @@ const double WAIT_TIME_S = 1.5;
          
          NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
          [self failSyncWithErrorCode:(NSInteger)errorCode];
-     }];*/
+     }];
 }
 
 -(void) succesSync
@@ -108,7 +117,7 @@ const double WAIT_TIME_S = 1.5;
     else
     {
         //Change text, hide spinner, show button
-        self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen?";
+        self.infoText.text = @"Der skete en fejl ved afsendelsen af din rapport. ! Vil du prøve igen ?";
         self.spinner.hidden = true;
         self.tryAgianButton.hidden = false;
         self.cancelButton.hidden = false;

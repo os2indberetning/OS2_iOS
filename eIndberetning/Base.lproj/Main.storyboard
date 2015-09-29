@@ -58,9 +58,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4E-CS-dtX" userLabel="Info Text">
                                 <rect key="frame" x="16" y="131" width="568" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">For at bruge appen skal du parre din telefon med din bruger på eIndbertning.
+                                <mutableString key="text">For at bruge appen skal du parre din telefon med din bruger på eIndbertning.
 
-For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på eIndberetning med din telefon.  Du laver et token ved at gå ind under "Min eIndberetning" og trykke "Mine Tokens".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</string>
+For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på eIndberetning med din telefon.  Du laver et token ved at gå ind under "Min eIndberetning" og trykke "Mine Tokens".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</mutableString>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -602,7 +602,7 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Klik på en rapport for enten at sende, eller at slette den. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZg-lo-7vs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Klik på rapporten for enten at sende eller slette den" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZg-lo-7vs">
                                 <rect key="frame" x="24" y="72" width="552" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="tVr-xD-PHS"/>
