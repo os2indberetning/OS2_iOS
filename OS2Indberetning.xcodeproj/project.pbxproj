@@ -18,6 +18,8 @@
 		A7534B171BB9BAF40042BB65 /* PopupSendDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7534B151BB9BAF40042BB65 /* PopupSendDeleteViewController.m */; };
 		A7534B181BB9BAF40042BB65 /* PopupSendDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7534B161BB9BAF40042BB65 /* PopupSendDeleteViewController.xib */; };
 		A7BCD33C1BBAA87800FC3DB1 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BCD33B1BBAA87800FC3DB1 /* UIView+Toast.m */; };
+		A7BCD3401BBB171400FC3DB1 /* QuestionDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BCD33E1BBB171400FC3DB1 /* QuestionDialogViewController.m */; };
+		A7BCD3411BBB171400FC3DB1 /* QuestionDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */; };
 		DC11F572710DF8FDA26523C6 /* libPods-eIndberetningTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A005CABB241D8A9545EDB /* libPods-eIndberetningTests.a */; };
 		F50F24961B258E25006BBD48 /* GpsCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */; };
 		F50F24971B258E25006BBD48 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
@@ -159,6 +161,9 @@
 		A7534B161BB9BAF40042BB65 /* PopupSendDeleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupSendDeleteViewController.xib; sourceTree = "<group>"; };
 		A7BCD33A1BBAA87800FC3DB1 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		A7BCD33B1BBAA87800FC3DB1 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		A7BCD33D1BBB171400FC3DB1 /* QuestionDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDialogViewController.h; sourceTree = "<group>"; };
+		A7BCD33E1BBB171400FC3DB1 /* QuestionDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDialogViewController.m; sourceTree = "<group>"; };
+		A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDialogViewController.xib; sourceTree = "<group>"; };
 		B200ED93E597DB759452EDB9 /* Pods-eIndberetningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eIndberetningTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFCDD5DDA5410F88428A5138 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F50F24D01B258E25006BBD48 /* eIndberetning copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eIndberetning copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +374,9 @@
 				F51B35221A0F9C8A0098D76E /* ConfirmDeleteViewController.m */,
 				F51B35231A0F9C8A0098D76E /* ConfirmDeleteViewController.xib */,
 				F51B35261A0FA34A0098D76E /* ConfirmEndDriveViewController.h */,
+				A7BCD33D1BBB171400FC3DB1 /* QuestionDialogViewController.h */,
+				A7BCD33E1BBB171400FC3DB1 /* QuestionDialogViewController.m */,
+				A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */,
 				F51B35271A0FA34A0098D76E /* ConfirmEndDriveViewController.m */,
 				F51B35281A0FA34A0098D76E /* ConfirmEndDriveViewController.xib */,
 				A7534B141BB9BAF40042BB65 /* PopupSendDeleteViewController.h */,
@@ -736,6 +744,7 @@
 				F56E0A3019D2A40C00B6CA1F /* Main.storyboard in Resources */,
 				F56E0A3519D2A40C00B6CA1F /* LaunchScreen.xib in Resources */,
 				F58EC0B319FEBEFF0010AC96 /* ManualEntryViewController.xib in Resources */,
+				A7BCD3411BBB171400FC3DB1 /* QuestionDialogViewController.xib in Resources */,
 				F56E0A3219D2A40C00B6CA1F /* Images.xcassets in Resources */,
 				A7534B181BB9BAF40042BB65 /* PopupSendDeleteViewController.xib in Resources */,
 				F537B4DF19FE4F5000D06892 /* SelectListTableViewController.xib in Resources */,
@@ -903,6 +912,7 @@
 				F58EC0AB19FE98C60010AC96 /* GpsCoordinates.m in Sources */,
 				F556A10C1A082C26007A17F3 /* SyncViewController.m in Sources */,
 				F51B35201A0F995D0098D76E /* PopupBaseViewController.m in Sources */,
+				A7BCD3401BBB171400FC3DB1 /* QuestionDialogViewController.m in Sources */,
 				F521160B1A3CFD0100687AF8 /* CDRate.m in Sources */,
 				F556A1091A08135B007A17F3 /* Token.m in Sources */,
 				F58EC0AE19FE99DC0010AC96 /* UserInfo.m in Sources */,

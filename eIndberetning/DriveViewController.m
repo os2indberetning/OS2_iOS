@@ -11,6 +11,7 @@
 #import "FinishDriveTableViewController.h"
 #import "GpsCoordinates.h"
 #import "UserInfo.h"
+#import "QuestionDialogViewController.h"
 
 
 @interface DriveViewController ()  <CLLocationManagerDelegate>
@@ -28,9 +29,16 @@
 @property (nonatomic) float totalDistance;
 
 @property (strong, nonatomic) ConfirmEndDriveViewController* confirmPopup;
+@property (strong, nonatomic) QuestionDialogViewController* resumePopup;
 
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (nonatomic) BOOL isPaused;
+
+
+@property BOOL validateResume;
+
+@property BOOL isShowingDialogForValidation;
+
 @end
 
 @implementation DriveViewController
@@ -43,17 +51,25 @@
     [self.finishButton setBackgroundColor:info.appInfo.SecondaryColor];
     [self.finishButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.finishButton.layer.cornerRadius = 1.5f;
-
+    
     [self.pauseButton setBackgroundColor:info.appInfo.SecondaryColor];
     [self.pauseButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.pauseButton.layer.cornerRadius = 1.5f;
     
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _validateResume = NO;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
     // Do any additional setup after loading the view.
     self.gpsManager = [GPSManager sharedGPSManager];
     self.gpsManager.delegate = self;
@@ -78,7 +94,7 @@
     if(!self.isPaused)
     {
         [self.gpsManager startGPS];
-
+        
     }
 }
 
@@ -100,16 +116,21 @@
 }
 
 - (IBAction)pauseButtonPressed:(id)sender {
- 
+    
+    [self togglePauseResume];
+}
+
+-(void) togglePauseResume{
     if(self.isPaused == true)
     {
+        self.validateResume = YES;
         [self.gpsManager startGPS];
         [self.pauseButton setTitle:@"Pause Kørsel" forState:UIControlStateNormal];
     }
     else
     {
         [self markLastAsIsViaPoint];
-        self.locA = nil;
+        //self.locA = nil;
         [self.gpsManager stopGPS];
         self.gpsAccuaryLabel.text = @"GPS sat på pause";
         [self.pauseButton setTitle:@"Genoptag Kørsel" forState:UIControlStateNormal];
@@ -192,7 +213,7 @@
 {
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-    
+    //distances in meteres.
     if (fabs(howRecent) < 15.0 && location.horizontalAccuracy < 50)
     {
         CLLocationDegrees lat = location.coordinate.latitude;
@@ -206,6 +227,21 @@
         {
             CLLocation *locB = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
             CLLocationDistance distance = [self.locA distanceFromLocation:locB];
+            
+            if(self.validateResume){
+                if(distance>200){
+                    if(_isShowingDialogForValidation){
+                        return;
+                    }
+                    _isShowingDialogForValidation = YES;
+                    //alert and pause and discard point
+                    [self togglePauseResume];
+                    [self showInvalidLocationResume];
+                    return;
+                }else{
+                    self.validateResume = NO;
+                }
+            }
             
             
             self.locA = locB;
@@ -228,6 +264,22 @@
         //Set if we are currently close to home
         self.isCloseToHome = ([self.locA distanceFromLocation:self.ui.home_loc] < 500);
     }
+}
+
+
+-(void)showInvalidLocationResume{
+    self.validateResume = YES;
+    _resumePopup =  [QuestionDialogViewController setTextsWithTitle:@"Fejl" withMessage:@"Du er for langt væk fra din position da du pauserede kørslen. Vend tilbage til den position, eller afslut den nuværende kørsel og start en ny." withNoButtonText:@"Afslut nuværende" withNoCallback:^{
+        [_resumePopup removeAnimate];
+        [self endDrive];
+        
+    } withYesText:@"Prøv igen" withYesCallback:^{
+        [_resumePopup removeAnimate];
+        [self togglePauseResume];
+        _isShowingDialogForValidation = NO;
+        self.validateResume = YES;
+        
+    } inView:self.view];
 }
 
 #pragma mark State Preservation
