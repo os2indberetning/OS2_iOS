@@ -74,9 +74,12 @@ const double WAIT_TIME_S = 1.5;
     
     UserInfo* info = [UserInfo sharedManager];
     eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
-    
+    self.spinner.hidden = NO;
+    [self.spinner startAnimating];
     [client postDriveReport:self.report forToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
      {
+         [self.spinner stopAnimating];
+         self.spinner.hidden = YES;
          [Settings removeSavedReport:_savedReport];
          //Optional: also sync userdata on succesfull submit
          NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
@@ -91,6 +94,8 @@ const double WAIT_TIME_S = 1.5;
      }
      failBlock:^(NSURLSessionTask * task, NSError *Error)
      {
+         self.spinner.hidden = YES;
+         [self.spinner stopAnimating];
          NSLog(@"%@", Error);
          
          NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];

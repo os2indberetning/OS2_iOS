@@ -16,4 +16,6 @@
 
 + (NSArray *) initFromJsonDic:(NSDictionary*)dic;
 - (NSDictionary *) transformToDictionary;
+ 
+
 @end
