@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+
 @property (strong, nonatomic) eMobilityHTTPSClient *client;
 @property (nonatomic, strong) ErrorMsgViewController* errorMsg;
 @property (nonatomic,strong) CoreDataManager* CDManager;
@@ -45,6 +47,8 @@
     
     self.headerLabel.textColor = info.appInfo.TextColor;
     self.headerView.backgroundColor = info.appInfo.PrimaryColor;
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -70,8 +74,15 @@
     return true;
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    
+    [self.navigationController popToRootViewControllerAnimated:true];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 - (IBAction)okButtonPressed:(id)sender {
 //    [self fakeLogin];
+  
     
     [self.client syncWithTokenString:self.textField.text withBlock:^(NSURLSessionTask *task, id resonseObject)
      {
@@ -84,6 +95,7 @@
          
          Profile* profile = [Profile initFromJsonDic:profileDic];
          NSArray* rates = [Rate initFromJsonDic:rateDic];
+         
          
          [self.CDManager deleteAllObjects:@"CDRate"];
          [self.CDManager deleteAllObjects:@"CDEmployment"];
@@ -139,6 +151,7 @@
      }];
     
 }
+
 /*
 -(void) fakeLogin {
     

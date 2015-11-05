@@ -69,12 +69,25 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSa-uc-2zh">
+                                <rect key="frame" x="8" y="2" width="30" height="52"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="TXz-8M-f9l" eventType="touchUpInside" id="oXc-ZX-0Sn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="h4E-CS-dtX" firstAttribute="leading" secondItem="e80-D8-uHZ" secondAttribute="leading" constant="16" id="AI3-Bi-xs7"/>
+                            <constraint firstItem="GSa-uc-2zh" firstAttribute="centerY" secondItem="YpA-jw-KCg" secondAttribute="centerY" id="CSf-4N-tty"/>
                             <constraint firstAttribute="trailing" secondItem="MHD-SB-gLn" secondAttribute="trailing" constant="16" id="Fwv-wl-auD"/>
+                            <constraint firstItem="GSa-uc-2zh" firstAttribute="leading" secondItem="YpA-jw-KCg" secondAttribute="leading" constant="8" id="M6o-rN-BLX"/>
                             <constraint firstItem="YpA-jw-KCg" firstAttribute="top" secondItem="e80-D8-uHZ" secondAttribute="top" id="NM4-rK-ZZF"/>
                             <constraint firstAttribute="trailing" secondItem="ef9-6F-WQl" secondAttribute="trailing" constant="8" id="PqK-TB-LRK"/>
                             <constraint firstItem="ef9-6F-WQl" firstAttribute="leading" secondItem="e80-D8-uHZ" secondAttribute="leading" constant="8" id="W1T-gL-YqZ"/>
@@ -83,18 +96,29 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                             <constraint firstItem="MHD-SB-gLn" firstAttribute="leading" secondItem="e80-D8-uHZ" secondAttribute="leading" constant="16" id="bK8-k8-A5V"/>
                             <constraint firstItem="YpA-jw-KCg" firstAttribute="leading" secondItem="e80-D8-uHZ" secondAttribute="leading" id="bw9-0a-1Oo"/>
                             <constraint firstItem="7bZ-Nv-7KL" firstAttribute="top" secondItem="h4E-CS-dtX" secondAttribute="bottom" constant="16" id="c0u-d2-3zd"/>
+                            <constraint firstItem="GSa-uc-2zh" firstAttribute="centerY" secondItem="ef9-6F-WQl" secondAttribute="centerY" id="cZQ-5c-TMK"/>
                             <constraint firstItem="iiT-iZ-1z4" firstAttribute="top" secondItem="7bZ-Nv-7KL" secondAttribute="bottom" constant="16" id="d7d-Sm-BTg"/>
                             <constraint firstAttribute="trailing" secondItem="h4E-CS-dtX" secondAttribute="trailing" constant="16" id="elc-XI-39W"/>
                             <constraint firstAttribute="trailing" secondItem="7bZ-Nv-7KL" secondAttribute="trailing" constant="16" id="nyl-Zs-frB"/>
                             <constraint firstItem="ef9-6F-WQl" firstAttribute="top" secondItem="vhQ-G8-rpH" secondAttribute="bottom" constant="8" id="pLC-yU-ImE"/>
+                            <constraint firstItem="GSa-uc-2zh" firstAttribute="top" secondItem="YpA-jw-KCg" secondAttribute="bottom" constant="-41" id="qA8-gU-Z5U"/>
                             <constraint firstAttribute="trailing" secondItem="YpA-jw-KCg" secondAttribute="trailing" id="s0V-7Q-mJj"/>
+                            <constraint firstItem="YpA-jw-KCg" firstAttribute="leading" secondItem="GSa-uc-2zh" secondAttribute="trailing" constant="-16" id="voL-6f-gNQ"/>
                             <constraint firstItem="MHD-SB-gLn" firstAttribute="top" secondItem="ef9-6F-WQl" secondAttribute="bottom" constant="20" id="wka-XE-75M"/>
                             <constraint firstItem="MHD-SB-gLn" firstAttribute="top" secondItem="YpA-jw-KCg" secondAttribute="bottom" constant="16" id="z1D-CL-YpH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="voL-6f-gNQ"/>
+                                <exclude reference="CSf-4N-tty"/>
+                                <exclude reference="qA8-gU-Z5U"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="Dan-aY-4b6"/>
                     <connections>
+                        <outlet property="backButton" destination="GSa-uc-2zh" id="EPT-iH-ZQt"/>
                         <outlet property="couplePhoneButton" destination="7bZ-Nv-7KL" id="X8d-Y1-tev"/>
                         <outlet property="headerLabel" destination="ef9-6F-WQl" id="NDO-1X-36x"/>
                         <outlet property="headerView" destination="YpA-jw-KCg" id="usY-we-5K6"/>
@@ -1350,22 +1374,12 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                     <action selector="tryAgianButtonPressed:" destination="0bn-hB-d0x" eventType="touchUpInside" id="TX3-aa-UFw"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
-                                <rect key="frame" x="50" y="28" width="500" height="272"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="749" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
+                                <rect key="frame" x="50" y="28" width="500" height="307"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploader kørselsdata" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJv-0m-tw9">
-                                <rect key="frame" x="16" y="406" width="568" height="80"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="fgR-ea-7qK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-ie-FcM">
-                                <rect key="frame" x="281" y="361" width="37" height="37"/>
+                                <rect key="frame" x="281" y="343" width="37" height="37"/>
                                 <animations/>
                                 <color key="color" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -1387,15 +1401,27 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                                     <segue destination="Dtw-R5-5IQ" kind="unwind" unwindAction="unwindToStartDriveVC:" id="9Hx-i0-l11"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploader kørselsdata" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJv-0m-tw9">
+                                <rect key="frame" x="16" y="388" width="568" height="90"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="fgR-ea-7qK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="P3i-34-KuG" firstAttribute="leading" secondItem="xcT-rw-bHy" secondAttribute="leading" constant="50" id="5bA-TT-sHt"/>
                             <constraint firstAttribute="trailing" secondItem="PBF-r1-WVN" secondAttribute="trailing" constant="50" id="7Y6-Tm-xoQ"/>
+                            <constraint firstItem="P3i-34-KuG" firstAttribute="height" secondItem="xcT-rw-bHy" secondAttribute="height" id="Df4-45-ydY"/>
                             <constraint firstAttribute="trailing" secondItem="5fr-w8-qMh" secondAttribute="trailing" constant="50" id="Fsr-tt-bc7"/>
                             <constraint firstItem="PBF-r1-WVN" firstAttribute="leading" secondItem="xcT-rw-bHy" secondAttribute="leading" constant="50" id="HEj-df-WbW"/>
-                            <constraint firstItem="5fr-w8-qMh" firstAttribute="top" secondItem="bJv-0m-tw9" secondAttribute="bottom" id="Iv6-sA-2hQ"/>
+                            <constraint firstItem="cfy-ie-FcM" firstAttribute="top" secondItem="P3i-34-KuG" secondAttribute="bottom" constant="8" id="Hcx-YJ-Kxn"/>
+                            <constraint firstItem="5fr-w8-qMh" firstAttribute="top" secondItem="bJv-0m-tw9" secondAttribute="bottom" constant="8" id="Iv6-sA-2hQ"/>
                             <constraint firstItem="bJv-0m-tw9" firstAttribute="top" secondItem="cfy-ie-FcM" secondAttribute="bottom" constant="8" id="WU6-Tt-TJY"/>
                             <constraint firstAttribute="trailing" secondItem="bJv-0m-tw9" secondAttribute="trailing" constant="16" id="cKW-DP-odl"/>
                             <constraint firstItem="5fr-w8-qMh" firstAttribute="leading" secondItem="xcT-rw-bHy" secondAttribute="leading" constant="50" id="cOn-YZ-ppc"/>
@@ -1407,6 +1433,12 @@ For at parre telefonen skal du bruge et token.   Et token er unikt nummer de
                             <constraint firstItem="bJv-0m-tw9" firstAttribute="leading" secondItem="xcT-rw-bHy" secondAttribute="leading" constant="16" id="xXi-5h-f5L"/>
                             <constraint firstAttribute="centerY" secondItem="P3i-34-KuG" secondAttribute="bottom" id="yjL-Jl-ZCt"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Df4-45-ydY"/>
+                                <exclude reference="yjL-Jl-ZCt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="bdo-fy-dOA"/>
                     <connections>

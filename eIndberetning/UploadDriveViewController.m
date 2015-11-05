@@ -48,7 +48,7 @@ const double WAIT_TIME_S = 1.5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.infoText.numberOfLines = 2;
+//    self.infoText.numberOfLines = 2;
     
     [self setupVisuals];
     NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
