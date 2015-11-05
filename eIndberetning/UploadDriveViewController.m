@@ -138,9 +138,11 @@ const double WAIT_TIME_S = 1.5;
     [self doSync];
 }
 
+//This is action called alongside an unwind to StartDriveTableViewVC
 - (IBAction)cancelButtonPressed:(id)sender {
-    
-    [self dismissViewControllerAnimated:true completion:nil];
+    //Reset the report, so that a clean report is shown in StartDriveTableViewVC
+    //(It is already saved to Settings)
+    self.report.shouldReset = true;
 }
 
 - (void)didReceiveMemoryWarning {
