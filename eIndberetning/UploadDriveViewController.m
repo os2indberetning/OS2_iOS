@@ -122,7 +122,7 @@ const double WAIT_TIME_S = 1.5;
     else
     {
         //Change text, hide spinner, show button
-        self.infoText.text = @"Der skete en fejl ved afsendelsen af din rapport. ! Vil du prøve igen ?";
+        self.infoText.text = @"Der skete en fejl ved afsendelsen af din rapport! Prøv igen eller tryk på 'Gem' og send rapporten fra hovedmenuen på et andet tidspunkt.";
         self.spinner.hidden = true;
         self.tryAgianButton.hidden = false;
         self.cancelButton.hidden = false;
@@ -139,6 +139,7 @@ const double WAIT_TIME_S = 1.5;
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
+    
     [self dismissViewControllerAnimated:true completion:nil];
 }
 

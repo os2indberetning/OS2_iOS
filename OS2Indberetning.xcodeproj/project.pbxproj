@@ -21,6 +21,7 @@
 		A7BCD3401BBB171400FC3DB1 /* QuestionDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BCD33E1BBB171400FC3DB1 /* QuestionDialogViewController.m */; };
 		A7BCD3411BBB171400FC3DB1 /* QuestionDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */; };
 		DC11F572710DF8FDA26523C6 /* libPods-eIndberetningTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A005CABB241D8A9545EDB /* libPods-eIndberetningTests.a */; };
+		EF2373911BE8FDD9003601DE /* Default-568h@2x.png.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */; };
 		F50F24961B258E25006BBD48 /* GpsCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */; };
 		F50F24971B258E25006BBD48 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
 		F50F24981B258E25006BBD48 /* PopupBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */; };
@@ -166,6 +167,7 @@
 		A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDialogViewController.xib; sourceTree = "<group>"; };
 		B200ED93E597DB759452EDB9 /* Pods-eIndberetningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eIndberetningTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFCDD5DDA5410F88428A5138 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png.PNG"; sourceTree = "<group>"; };
 		F50F24D01B258E25006BBD48 /* eIndberetning copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eIndberetning copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50F24D11B258E25006BBD48 /* eIndberetning copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "eIndberetning copy-Info.plist"; path = "/Users/jhh/Documents/IOS/eIndberetning/eIndberetning copy-Info.plist"; sourceTree = "<absolute>"; };
 		F51B351E1A0F995D0098D76E /* PopupBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupBaseViewController.h; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 		F56E0A1519D2A40C00B6CA1F = {
 			isa = PBXGroup;
 			children = (
+				EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */,
 				F56E0A2019D2A40C00B6CA1F /* eIndberetning */,
 				F56E0A3D19D2A40C00B6CA1F /* eIndberetningTests */,
 				31CA182F9DC44FFEA12CDDF9 /* Frameworks */,
@@ -639,6 +642,7 @@
 				F56E0A1B19D2A40C00B6CA1F /* Frameworks */,
 				F56E0A1C19D2A40C00B6CA1F /* Resources */,
 				2C6B7499EC0A487D86314B9E /* Copy Pods Resources */,
+				6E7FA66B8432C3031F445760 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -658,6 +662,7 @@
 				F56E0A3719D2A40C00B6CA1F /* Frameworks */,
 				F56E0A3819D2A40C00B6CA1F /* Resources */,
 				9A35984A3CB03579D5879D74 /* Copy Pods Resources */,
+				F088689CE434682A2E9C950E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -741,6 +746,7 @@
 			files = (
 				F5C26E011A09624E004ACDA4 /* SelectPurposeListTableViewController.xib in Resources */,
 				F537B4E419FE530A00D06892 /* SelectListTableViewCell.xib in Resources */,
+				EF2373911BE8FDD9003601DE /* Default-568h@2x.png.PNG in Resources */,
 				F56E0A3019D2A40C00B6CA1F /* Main.storyboard in Resources */,
 				F56E0A3519D2A40C00B6CA1F /* LaunchScreen.xib in Resources */,
 				F58EC0B319FEBEFF0010AC96 /* ManualEntryViewController.xib in Resources */,
@@ -795,6 +801,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6E7FA66B8432C3031F445760 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		748D6152A8BE474CAF3C35B1 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -823,6 +844,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F088689CE434682A2E9C950E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F50F24941B258E25006BBD48 /* Check Pods Manifest.lock */ = {
@@ -1050,6 +1086,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1091,6 +1128,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1115,12 +1153,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: IT Minds ApS (5TEJH7H54K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = eIndberetning/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a426310b-7548-401d-88c2-542577d34749";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1130,12 +1169,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: IT Minds ApS (5TEJH7H54K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = eIndberetning/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a426310b-7548-401d-88c2-542577d34749";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

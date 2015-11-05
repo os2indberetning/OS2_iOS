@@ -209,7 +209,6 @@
 
 - (void)confirmDelete
 {
-   
     self.report.shouldReset = true;
     [self.navigationController popToRootViewControllerAnimated:true];
 }
