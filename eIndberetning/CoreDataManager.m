@@ -75,7 +75,8 @@
     
     //Save rates to coredata
     for (Rate* r in rates) {
-        //Remove rates that are unwanted on mobile
+        
+        //Remove rates that are not used on mobile
         if ([r.rateid intValue] == 8) {
             NSLog(@"Not adding %@ to rates", r.rateDescription);
             continue;
