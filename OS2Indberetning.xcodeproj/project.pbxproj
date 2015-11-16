@@ -168,6 +168,8 @@
 		B200ED93E597DB759452EDB9 /* Pods-eIndberetningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eIndberetningTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFCDD5DDA5410F88428A5138 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png.PNG"; sourceTree = "<group>"; };
+		EF9B6DB51BFA12E300347781 /* FirstLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FirstLocationOS2.gpx; sourceTree = "<group>"; };
+		EF9B6DB61BFA149200347781 /* SecondLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SecondLocationOS2.gpx; sourceTree = "<group>"; };
 		F50F24D01B258E25006BBD48 /* eIndberetning copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eIndberetning copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50F24D11B258E25006BBD48 /* eIndberetning copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "eIndberetning copy-Info.plist"; path = "/Users/jhh/Documents/IOS/eIndberetning/eIndberetning copy-Info.plist"; sourceTree = "<absolute>"; };
 		F51B351E1A0F995D0098D76E /* PopupBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupBaseViewController.h; sourceTree = "<group>"; };
@@ -439,6 +441,8 @@
 		F56E0A1519D2A40C00B6CA1F = {
 			isa = PBXGroup;
 			children = (
+				EF9B6DB61BFA149200347781 /* SecondLocationOS2.gpx */,
+				EF9B6DB51BFA12E300347781 /* FirstLocationOS2.gpx */,
 				EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */,
 				F56E0A2019D2A40C00B6CA1F /* eIndberetning */,
 				F56E0A3D19D2A40C00B6CA1F /* eIndberetningTests */,

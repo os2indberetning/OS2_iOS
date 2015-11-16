@@ -165,8 +165,11 @@
     
     if ([[segue identifier] isEqualToString:@"EndDriveSegue"])
     {
-        self.report.route.totalDistanceEdit = @(ceil(self.totalDistance/1000.0f));
-        self.report.route.totalDistanceMeasure = @(ceil(self.totalDistance/1000.0f));
+//        self.report.route.totalDistanceEdit = @(ceil(self.totalDistance/1000.0f));
+//        self.report.route.totalDistanceMeasure = @(ceil(self.totalDistance/1000.0f));
+        
+        self.report.route.totalDistanceEdit = @(roundf(self.totalDistance/100.0f)/10);
+        self.report.route.totalDistanceMeasure = @(roundf(self.totalDistance/100.0f)/10);
         
         FinishDriveTableViewController *vc = [segue destinationViewController];
         vc.report = self.report;
@@ -249,7 +252,7 @@
             
             NSLog(@"Distance: %f", self.totalDistance );
             
-            self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.2f Km", self.totalDistance/1000.0f];
+            self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
         }
         
         NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
@@ -299,7 +302,7 @@
     
     self.gpsAccuaryLabel.text = @"GPS sat på pause";
     [self.pauseButton setTitle:@"Genoptag Kørsel" forState:UIControlStateNormal];
-    self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.2f Km", self.totalDistance/1000.0f];
+    self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
     self.lastUpdatedLabel.text = @"Venter på gyldigt GPS signal";
     self.isCloseToHome = self.report.didendhome;
 }

@@ -27,11 +27,13 @@
     
     self.kmTextField.keyboardType = UIKeyboardTypeDecimalPad;
     
-    self.measuredKMLabel.text = [@"Afmålte km: " stringByAppendingString:[f stringFromNumber:self.route.totalDistanceMeasure]];
+    self.measuredKMLabel.text = [NSString stringWithFormat:@"Afmålte km: %.01f Km", [self.route.totalDistanceMeasure floatValue]];
     
     [self.kmTextField becomeFirstResponder];
     
-    self.kmTextField.text = [f stringFromNumber:self.route.totalDistanceEdit];
+//    self.kmTextField.text = [NSString stringWithFormat:@"%.01f", [self.route.totalDistanceEdit floatValue]];
+    
+    self.kmTextField.text = @"";
     
 }
 

@@ -116,10 +116,8 @@
     
     //Fill in the selected data in the forms
     self.userTextLabel.text = [NSString stringWithFormat:@"Bruger: %@", self.info.name];
-    
-    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-    [f setNumberStyle:NSNumberFormatterDecimalStyle];
-    self.kmDrivenLabel.text = [[f stringFromNumber:self.report.route.totalDistanceEdit] stringByAppendingString:@" km"];;
+
+    self.kmDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", [self.report.route.totalDistanceEdit floatValue]];
     
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM-YY"];
