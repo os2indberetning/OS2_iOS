@@ -11,6 +11,8 @@
 #import "UserInfo.h"
 #import "Settings.h"
 
+#import "GpsCoordinates.h"
+
 @interface UploadDriveViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *tryAgianButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
@@ -55,6 +57,7 @@ const double WAIT_TIME_S = 1.5;
     
     //Check report for needed changes before upload
     [self checkForEmptyEntryRemark:self.report];
+    [self checkForManualKilometerEdit:self.report];
     
     [dic setObject:[[self.report transformToDictionary] mutableCopy] forKey:@"DriveReport"];
     
@@ -78,6 +81,29 @@ const double WAIT_TIME_S = 1.5;
     if (report.manuelentryremark == nil || [report.manuelentryremark  isEqual: @""]) {
         //If there is no manual remark, change to default remark
         report.manuelentryremark = @"Ingen kommentar indtastet";
+    }
+}
+
+-(void)checkForManualKilometerEdit: (DriveReport*)report {
+    Route* route = report.route;
+    
+    //Add fake test data
+//    GpsCoordinates *coord = [[GpsCoordinates alloc] init];
+//    coord.loc = [[CLLocation alloc] initWithLatitude:0.2 longitude:0.2];
+//    
+//    [route.coordinates insertObject:coord atIndex:0];
+//    
+//    coord.loc = [[CLLocation alloc] initWithLatitude:0.3 longitude:0.3];
+//    
+//    [route.coordinates insertObject:coord atIndex:0];
+//    
+//    coord.loc = [[CLLocation alloc] initWithLatitude:0.34 longitude:0.34];
+//    
+//    [route.coordinates insertObject:coord atIndex:0];
+    
+    if (route.totalDistanceEdit != route.totalDistanceMeasure) {
+        //User edited distance -> remove all gpsPoint entries
+        route.coordinates = [[NSMutableArray alloc] init];
     }
 }
 

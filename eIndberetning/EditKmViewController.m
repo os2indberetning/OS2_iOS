@@ -18,19 +18,21 @@
 @implementation EditKmViewController
 
 - (void)viewDidLoad {
+    // Do any additional setup after loading the view.
     [super viewDidLoad];
     [self AddBackButton];
     
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
-    self.kmTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.kmTextField.keyboardType = UIKeyboardTypeDecimalPad;
     
     self.measuredKMLabel.text = [@"Afmålte km: " stringByAppendingString:[f stringFromNumber:self.route.totalDistanceMeasure]];
+    
+    [self.kmTextField becomeFirstResponder];
+    
     self.kmTextField.text = [f stringFromNumber:self.route.totalDistanceEdit];
     
-    // Do any additional setup after loading the view.
-    [self.kmTextField becomeFirstResponder];
 }
 
 - (IBAction)saveBtnPressed:(id)sender {
@@ -38,6 +40,7 @@
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
     self.route.totalDistanceEdit = [f numberFromString:self.kmTextField.text];
+    
     [self.navigationController popViewControllerAnimated:true];
 }
 

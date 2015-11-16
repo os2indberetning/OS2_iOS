@@ -63,9 +63,9 @@
                                 <rect key="frame" x="16" y="131" width="568" height="323"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">For at bruge appen skal du parre din telefon med din bruger på OS2Indberetning.
+                                <string key="text">For at bruge appen skal du parre din telefon med din bruger på OS2Indberetning.
 
-For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på OS2Indberetning med din telefon.  Du laver et token ved at gå ind under "Personlige Indstillinger" på hjemmesiden og trykke "Mine Tokens".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</mutableString>
+For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på OS2Indberetning med din telefon.  Du laver et token ved at gå ind under "Personlige Indstillinger" på hjemmesiden og trykke "Mine Tokens".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</string>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
