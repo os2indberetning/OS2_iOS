@@ -173,9 +173,6 @@
     }
 }
 
-
-
-
 #pragma mark GPSUpdateDelegate
 
 -(void)showGPSPermissionDenied
