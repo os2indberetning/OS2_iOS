@@ -53,6 +53,9 @@ const double WAIT_TIME_S = 1.5;
     [self setupVisuals];
     NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
     
+    //Check report for needed changes before upload
+    [self checkForEmptyEntryRemark:self.report];
+    
     [dic setObject:[[self.report transformToDictionary] mutableCopy] forKey:@"DriveReport"];
     
     NSError * err;
@@ -67,6 +70,15 @@ const double WAIT_TIME_S = 1.5;
     [Settings addSavedReport:_savedReport];
     NSLog(@"dic: %@", myString);
     [self doSync];
+}
+
+// MARK: Reportcontent checker methods
+
+-(void)checkForEmptyEntryRemark: (DriveReport*)report {
+    if (report.manuelentryremark == nil || [report.manuelentryremark  isEqual: @""]) {
+        //If there is no manual remark, change to default remark
+        report.manuelentryremark = @"Ingen kommentar indtastet";
+    }
 }
 
 -(void)doSync
