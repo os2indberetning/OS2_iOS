@@ -57,7 +57,9 @@ const double WAIT_TIME_S = 1.5;
     
     //Check report for needed changes before upload
     [self checkForEmptyEntryRemark:self.report];
-    [self checkForManualKilometerEdit:self.report];
+    if (![self checkForManualKilometerEdit:self.report]) {
+        [self checkForOnlySingleCoordinate:self.report];
+    }
     
     [dic setObject:[[self.report transformToDictionary] mutableCopy] forKey:@"DriveReport"];
     
@@ -84,26 +86,24 @@ const double WAIT_TIME_S = 1.5;
     }
 }
 
--(void)checkForManualKilometerEdit: (DriveReport*)report {
+-(BOOL)checkForManualKilometerEdit: (DriveReport*)report {
     Route* route = report.route;
-    
-    //Add fake test data
-//    GpsCoordinates *coord = [[GpsCoordinates alloc] init];
-//    coord.loc = [[CLLocation alloc] initWithLatitude:0.2 longitude:0.2];
-//    
-//    [route.coordinates insertObject:coord atIndex:0];
-//    
-//    coord.loc = [[CLLocation alloc] initWithLatitude:0.3 longitude:0.3];
-//    
-//    [route.coordinates insertObject:coord atIndex:0];
-//    
-//    coord.loc = [[CLLocation alloc] initWithLatitude:0.34 longitude:0.34];
-//    
-//    [route.coordinates insertObject:coord atIndex:0];
     
     if (route.totalDistanceEdit != route.totalDistanceMeasure) {
         //User edited distance -> remove all gpsPoint entries
         route.coordinates = [[NSMutableArray alloc] init];
+        return true;
+    }else {
+        return false;
+    }
+}
+
+-(void)checkForOnlySingleCoordinate: (DriveReport*) report {
+    Route* route = report.route;
+    
+    if (route.coordinates.count == 1) {
+        GpsCoordinates *coordinateToInsert = route.coordinates[0];
+        [route.coordinates insertObject:coordinateToInsert atIndex:0];
     }
 }
 
