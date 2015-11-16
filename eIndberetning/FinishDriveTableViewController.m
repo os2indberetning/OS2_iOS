@@ -201,7 +201,6 @@
 }
 - (IBAction)cancelAndDeleteButton:(id)sender
 {
-    
     self.confirmPopup = [[ConfirmDeleteViewController alloc] initWithNibName:@"ConfirmDeleteViewController" bundle:nil];
     self.confirmPopup.delegate = self;
     [self.confirmPopup showPopup];
