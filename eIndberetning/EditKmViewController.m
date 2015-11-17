@@ -42,6 +42,7 @@
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
     self.route.totalDistanceEdit = [f numberFromString:self.kmTextField.text];
+    self.route.distanceWasEdited = YES;
     
     [self.navigationController popViewControllerAnimated:true];
 }

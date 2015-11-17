@@ -11,6 +11,7 @@
 @interface Route : NSObject
 @property (nonatomic, strong) NSNumber* totalDistanceMeasure;
 @property (nonatomic, strong) NSNumber* totalDistanceEdit;
+@property BOOL distanceWasEdited;
 
 @property (nonatomic, strong) NSMutableArray* coordinates;
 

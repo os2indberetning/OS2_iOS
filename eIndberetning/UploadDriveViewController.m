@@ -89,7 +89,7 @@ const double WAIT_TIME_S = 1.5;
 -(BOOL)checkForManualKilometerEdit: (DriveReport*)report {
     Route* route = report.route;
     
-    if (route.totalDistanceEdit != route.totalDistanceMeasure) {
+    if(route.distanceWasEdited){
         //User edited distance -> remove all gpsPoint entries
         route.coordinates = [[NSMutableArray alloc] init];
         return true;
