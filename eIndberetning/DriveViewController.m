@@ -218,7 +218,7 @@
 
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-    //distances in meteres.
+    //distances in meters.
     if (fabs(howRecent) < 15.0 && location.horizontalAccuracy < 50)
     {
         CLLocationDegrees lat = location.coordinate.latitude;
@@ -261,7 +261,8 @@
         GpsCoordinates *cor = [[GpsCoordinates alloc] init];
         cor.loc = self.locA;
         
-        [self.report.route.coordinates insertObject:cor atIndex:0];
+//        [self.report.route.coordinates insertObject:cor atIndex:0];
+        [self.report.route.coordinates addObject:cor];
         
         //Set if we are currently close to home
         self.isCloseToHome = ([self.locA distanceFromLocation:self.ui.home_loc] < 500);
