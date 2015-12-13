@@ -29,6 +29,7 @@
 @property (nonatomic,strong) CoreDataManager* CDManager;
 @end
 
+
 @implementation PairViewController
 
 -(CoreDataManager*)CDManager
