@@ -14,6 +14,7 @@
 #import "QuestionDialogViewController.h"
 
 
+
 @interface DriveViewController ()  <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *distanceDrivenLabel;
@@ -42,6 +43,8 @@
 @end
 
 @implementation DriveViewController
+
+
 
 -(void)setupVisuals
 {
@@ -74,6 +77,9 @@
     self.gpsManager = [GPSManager sharedGPSManager];
     self.gpsManager.delegate = self;
     
+    //Set default value here
+    self.gpsManager.shouldWarnUserAboutInaccuracy = NO;
+    
     self.timeFormatter = [[NSDateFormatter alloc] init];
     [self.timeFormatter setDateFormat:@"HH.mm.ss"];
     
@@ -104,7 +110,6 @@
 }
 
 - (IBAction)finishButtonPressed:(id)sender {
-    //TODO should pause gps ?
     self.confirmPopup = [[ConfirmEndDriveViewController alloc] initWithNibName:@"ConfirmEndDriveViewController" bundle:nil];
     self.confirmPopup.delegate = self;
     
@@ -173,6 +178,7 @@
         
         FinishDriveTableViewController *vc = [segue destinationViewController];
         vc.report = self.report;
+        vc.shouldShowInAccuracyWarning = self.gpsManager.shouldWarnUserAboutInaccuracy;
     }
 }
 
@@ -219,7 +225,10 @@
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     //distances in meters.
-    if (fabs(howRecent) < 15.0 && location.horizontalAccuracy < 50)
+    
+    
+    
+    if (fabs(howRecent) < 15.0 && location.horizontalAccuracy < accuracyThreshold)
     {
         CLLocationDegrees lat = location.coordinate.latitude;
         CLLocationDegrees lng = location.coordinate.longitude;
@@ -233,26 +242,31 @@
             CLLocation *locB = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
             CLLocationDistance distance = [self.locA distanceFromLocation:locB];
             
-            if(self.validateResume){
-                if(distance>200){
-                                      _isShowingDialogForValidation = YES;
-                    //alert and pause and discard point
-                    [self togglePauseResume];
-                    [self showInvalidLocationResume];
-                    return;
-                }else{
-                    self.validateResume = NO;
+            //If distance is smaller than accuracy, ignore point
+//            if (distance < location.horizontalAccuracy) {
+//                //TODO: Needs debugging when accuracy is something like 5meters!
+//                return;
+//            }else{
+                if(self.validateResume){
+                    if(distance>200){
+                        _isShowingDialogForValidation = YES;
+                        //alert and pause and discard point
+                        [self togglePauseResume];
+                        [self showInvalidLocationResume];
+                        return;
+                    }else{
+                        self.validateResume = NO;
+                    }
                 }
-            }
-            
-            
-            self.locA = locB;
-            
-            self.totalDistance += distance;
-            
-            NSLog(@"Distance: %f", self.totalDistance );
-            
-            self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
+                
+                self.locA = locB;
+                
+                self.totalDistance += distance;
+                
+                NSLog(@"Distance: %f", self.totalDistance );
+                
+                self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
+//            }
         }
         
         NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
@@ -261,11 +275,11 @@
         GpsCoordinates *cor = [[GpsCoordinates alloc] init];
         cor.loc = self.locA;
         
-//        [self.report.route.coordinates insertObject:cor atIndex:0];
         [self.report.route.coordinates addObject:cor];
         
         //Set if we are currently close to home
         self.isCloseToHome = ([self.locA distanceFromLocation:self.ui.home_loc] < 500);
+        
     }
 }
 

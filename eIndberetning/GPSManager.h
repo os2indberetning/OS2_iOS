@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+extern const double accuracyThreshold;
+extern const double maxGpsOutageTimeInSeconds;
+
 @protocol GPSUpdateDelegate <NSObject>
 -(void)gotNewGPSCoordinate:(CLLocation*)location;
 -(void)showGPSPermissionDenied;
@@ -21,6 +24,7 @@
 @interface GPSManager : NSObject <CLLocationManagerDelegate>
 
 @property (nonatomic) BOOL isRunning;
+@property BOOL shouldWarnUserAboutInaccuracy;
 
 + (GPSManager *)sharedGPSManager;
 - (void)startGPS;

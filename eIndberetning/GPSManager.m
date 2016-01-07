@@ -7,19 +7,25 @@
 //
 
 #import "GPSManager.h"
+@import QuartzCore;
+
+const double accuracyThreshold = 100.0;
+const double maxBetweenLocationUpdatesInSeconds = 30.0;
 
 
 @interface GPSManager ()
+
 @property (strong, nonatomic) CLLocationManager* locationManager;
+@property CFTimeInterval lastLocationReceivedTime;
 
 @end
 
 @implementation GPSManager
 
+
 + (GPSManager *)sharedGPSManager
 {
     static GPSManager *_sharedGPSManager = nil;
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedGPSManager = [[self alloc] init];
@@ -34,6 +40,15 @@
     // If it's a relatively recent event, turn off updates to save power.
     CLLocation* location = [locations lastObject];
     
+    //Check if Accuracy for location is above threshold (If warnUser is still false!)
+    if(!_shouldWarnUserAboutInaccuracy){
+        if ((_lastLocationReceivedTime != 0 && maxBetweenLocationUpdatesInSeconds <= (CACurrentMediaTime() - _lastLocationReceivedTime))) {
+            _shouldWarnUserAboutInaccuracy = YES;
+        }
+    }
+    
+    _lastLocationReceivedTime = CACurrentMediaTime();
+    
     if([self.delegate respondsToSelector:@selector(didUpdatePrecision:)])
     {
         [self.delegate didUpdatePrecision:location.horizontalAccuracy];
@@ -43,6 +58,7 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    //TODO: Should we start timer here?
     NSLog(@"%@", error.localizedDescription);
 }
 
@@ -72,6 +88,7 @@
 
 - (void)stopGPS
 {
+    [self handleBadGpsSignal];
     [self.locationManager stopUpdatingLocation];
     self.isRunning = false;
 }
@@ -92,6 +109,16 @@
         if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             [self.locationManager requestAlwaysAuthorization];
         }
+    }
+}
+
+-(void)handleBadGpsSignal{
+    if (_inaccuracyStartTime != 0 && !_shouldWarnUserAboutInaccuracy) {
+        //Accuracy went below threshold again
+        CFTimeInterval endTime = CACurrentMediaTime();
+        _shouldWarnUserAboutInaccuracy = YES;
+        //Reset timestamp
+        _inaccuracyStartTime = 0;
     }
 }
 

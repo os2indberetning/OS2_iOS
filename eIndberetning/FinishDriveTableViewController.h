@@ -14,4 +14,5 @@
 
 @interface FinishDriveTableViewController : UITableViewController <DidSyncDelegate,ConfirmDeletePopupDelegate,DidUploadDelegate>
 @property (nonatomic,strong) DriveReport* report;
+@property BOOL shouldShowInAccuracyWarning;
 @end

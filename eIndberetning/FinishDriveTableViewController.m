@@ -92,6 +92,10 @@
     self.rates = [self.CDManager fetchRates];
     self.employments = [self.CDManager fetchEmployments];
     [self setupVisuals];
+    
+    if(_shouldShowInAccuracyWarning){
+        //TODO: Show pop-up
+    }
 }
 /*
 -(void)manualRefresh
