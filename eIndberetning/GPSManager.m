@@ -72,6 +72,8 @@ const double maxDistanceBetweenLocations = 200.0;
         
         [self.locationManager startUpdatingLocation];
         self.isRunning = true;
+        
+        
     }
 }
 

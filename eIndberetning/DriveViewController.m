@@ -225,10 +225,6 @@
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     //distances in meters.
     
-    
-    
-    BOOL isAccuracyAcceptable = location.horizontalAccuracy < accuracyThreshold;
-    
     if (fabs(howRecent) < 15.0)
     {
         CLLocationDegrees lat = location.coordinate.latitude;
@@ -271,10 +267,6 @@
                 
                 self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
             }
-        }
-        
-        if (!isAccuracyAcceptable) {
-            return;
         }
         
         NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
