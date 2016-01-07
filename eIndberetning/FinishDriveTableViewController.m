@@ -94,7 +94,8 @@
     [self setupVisuals];
     
     if(_shouldShowInAccuracyWarning){
-        //TODO: Show pop-up
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OBS!" message:@"Under turen har der været et eller flere udfald i GPS forbindelsen. Vær derfor særligt opmærksom på, om afstanden og ruten passer med det forventede." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 /*
