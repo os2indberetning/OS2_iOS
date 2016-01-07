@@ -10,13 +10,11 @@
 @import QuartzCore;
 
 const double accuracyThreshold = 100.0;
-const double maxBetweenLocationUpdatesInSeconds = 30.0;
-
+const double maxDistanceBetweenLocations = 200.0;
 
 @interface GPSManager ()
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
-@property CFTimeInterval lastLocationReceivedTime;
 
 @end
 
@@ -39,15 +37,6 @@ const double maxBetweenLocationUpdatesInSeconds = 30.0;
      didUpdateLocations:(NSArray *)locations {
     // If it's a relatively recent event, turn off updates to save power.
     CLLocation* location = [locations lastObject];
-    
-    //Check if Accuracy for location is above threshold (If warnUser is still false!)
-    if(!_shouldWarnUserAboutInaccuracy){
-        if ((_lastLocationReceivedTime != 0 && maxBetweenLocationUpdatesInSeconds <= (CACurrentMediaTime() - _lastLocationReceivedTime))) {
-            _shouldWarnUserAboutInaccuracy = YES;
-        }
-    }
-    
-    _lastLocationReceivedTime = CACurrentMediaTime();
     
     if([self.delegate respondsToSelector:@selector(didUpdatePrecision:)])
     {
@@ -73,13 +62,13 @@ const double maxBetweenLocationUpdatesInSeconds = 30.0;
         [self requestAuthorization];
         
         self.locationManager.delegate = self;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-        
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
         self.locationManager.pausesLocationUpdatesAutomatically = YES;
         self.locationManager.activityType = CLActivityTypeAutomotiveNavigation;
         
         // Set a movement threshold for new events.
-        self.locationManager.distanceFilter = 50; // meters
+        self.locationManager.distanceFilter = 10; // meters
         
         [self.locationManager startUpdatingLocation];
         self.isRunning = true;
@@ -88,7 +77,6 @@ const double maxBetweenLocationUpdatesInSeconds = 30.0;
 
 - (void)stopGPS
 {
-    [self handleBadGpsSignal];
     [self.locationManager stopUpdatingLocation];
     self.isRunning = false;
 }
@@ -109,16 +97,6 @@ const double maxBetweenLocationUpdatesInSeconds = 30.0;
         if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             [self.locationManager requestAlwaysAuthorization];
         }
-    }
-}
-
--(void)handleBadGpsSignal{
-    if (_inaccuracyStartTime != 0 && !_shouldWarnUserAboutInaccuracy) {
-        //Accuracy went below threshold again
-        CFTimeInterval endTime = CACurrentMediaTime();
-        _shouldWarnUserAboutInaccuracy = YES;
-        //Reset timestamp
-        _inaccuracyStartTime = 0;
     }
 }
 

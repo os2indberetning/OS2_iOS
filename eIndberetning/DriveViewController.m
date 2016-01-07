@@ -13,8 +13,6 @@
 #import "UserInfo.h"
 #import "QuestionDialogViewController.h"
 
-
-
 @interface DriveViewController ()  <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *distanceDrivenLabel;
@@ -35,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (nonatomic) BOOL isPaused;
 
+@property BOOL shouldWarnUserOfInaccuracy;
 
 @property BOOL validateResume;
 
@@ -78,7 +77,7 @@
     self.gpsManager.delegate = self;
     
     //Set default value here
-    self.gpsManager.shouldWarnUserAboutInaccuracy = NO;
+    _shouldWarnUserOfInaccuracy = NO;
     
     self.timeFormatter = [[NSDateFormatter alloc] init];
     [self.timeFormatter setDateFormat:@"HH.mm.ss"];
@@ -178,7 +177,7 @@
         
         FinishDriveTableViewController *vc = [segue destinationViewController];
         vc.report = self.report;
-        vc.shouldShowInAccuracyWarning = self.gpsManager.shouldWarnUserAboutInaccuracy;
+        vc.shouldShowInAccuracyWarning = self.shouldWarnUserOfInaccuracy;
     }
 }
 
@@ -228,7 +227,9 @@
     
     
     
-    if (fabs(howRecent) < 15.0 && location.horizontalAccuracy < accuracyThreshold)
+    BOOL isAccuracyAcceptable = location.horizontalAccuracy < accuracyThreshold;
+    
+    if (fabs(howRecent) < 15.0)
     {
         CLLocationDegrees lat = location.coordinate.latitude;
         CLLocationDegrees lng = location.coordinate.longitude;
@@ -241,6 +242,10 @@
         {
             CLLocation *locB = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
             CLLocationDistance distance = [self.locA distanceFromLocation:locB];
+            
+            if (!_shouldWarnUserOfInaccuracy && distance > maxDistanceBetweenLocations) {
+                _shouldWarnUserOfInaccuracy = YES;
+            }
             
             //If distance is smaller than accuracy, ignore point
             if (distance < location.horizontalAccuracy) {
@@ -266,6 +271,10 @@
                 
                 self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
             }
+        }
+        
+        if (!isAccuracyAcceptable) {
+            return;
         }
         
         NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];

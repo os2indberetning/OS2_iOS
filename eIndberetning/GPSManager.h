@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 extern const double accuracyThreshold;
-extern const double maxGpsOutageTimeInSeconds;
+const double maxDistanceBetweenLocations;
 
 @protocol GPSUpdateDelegate <NSObject>
 -(void)gotNewGPSCoordinate:(CLLocation*)location;
@@ -24,7 +24,6 @@ extern const double maxGpsOutageTimeInSeconds;
 @interface GPSManager : NSObject <CLLocationManagerDelegate>
 
 @property (nonatomic) BOOL isRunning;
-@property BOOL shouldWarnUserAboutInaccuracy;
 
 + (GPSManager *)sharedGPSManager;
 - (void)startGPS;
