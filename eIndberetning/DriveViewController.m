@@ -243,10 +243,9 @@
             CLLocationDistance distance = [self.locA distanceFromLocation:locB];
             
             //If distance is smaller than accuracy, ignore point
-//            if (distance < location.horizontalAccuracy) {
-//                //TODO: Needs debugging when accuracy is something like 5meters!
-//                return;
-//            }else{
+            if (distance < location.horizontalAccuracy) {
+                return;
+            }else{
                 if(self.validateResume){
                     if(distance>200){
                         _isShowingDialogForValidation = YES;
@@ -266,7 +265,7 @@
                 NSLog(@"Distance: %f", self.totalDistance );
                 
                 self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
-//            }
+            }
         }
         
         NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
