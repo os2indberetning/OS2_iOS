@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Copyright (c) OS2 2016
+- This Source Code Form is subject to the terms of the Mozilla Public
+- License, v. 2.0. If a copy of the MPL was not distributed with this
+- file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nf4-sF-hXJ">
     <dependencies>
         <deployment identifier="iOS"/>
@@ -60,7 +64,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">For at bruge appen skal du parre din telefon med din bruger på OS2Indberetning.
 
-For at parre telefonen skal du bruge et token.   Et token er unikt nummer der forbinder din bruger på OS2Indberetning med din telefon.  Du laver et token ved at gå ind under "Personlige Indstillinger" på hjemmesiden og trykke "Mine Tokens".   Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</string>
+For at parre telefonen skal du bruge et token. 
+
+Et token er unikt nummer der forbinder din bruger på OS2Indberetning med din telefon.
+
+Du laver et token ved at gå ind under "Personlige Indstillinger" på hjemmesiden og trykke "Mine Tokens". 
+
+Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og derefter trykke på "Par Telefon"</string>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

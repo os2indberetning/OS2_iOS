@@ -1,9 +1,11 @@
+/* Copyright (c) OS2 2016
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 //
 //  CheckMarkImageView.m
 //  eIndberetning
-//
-//  Created by Jacob Hansen on 08/06/15.
-//  Copyright (c) 2015 IT-Minds. All rights reserved.
 //
 
 #import "CheckMarkImageView.h"
