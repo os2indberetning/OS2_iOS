@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Copyright (c) OS2 2016
-- This Source Code Form is subject to the terms of the Mozilla Public
-- License, v. 2.0. If a copy of the MPL was not distributed with this
-- file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nf4-sF-hXJ">
     <dependencies>
         <deployment identifier="iOS"/>
@@ -1276,7 +1272,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                     <action selector="tryAgianButtonPressed:" destination="0bn-hB-d0x" eventType="touchUpInside" id="TX3-aa-UFw"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-ie-FcM">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-ie-FcM">
                                 <rect key="frame" x="281" y="343" width="37" height="37"/>
                                 <color key="color" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -1306,7 +1302,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="749" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="749" misplaced="YES" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
                                 <rect key="frame" x="50" y="28" width="500" height="307"/>
                             </imageView>
                         </subviews>
