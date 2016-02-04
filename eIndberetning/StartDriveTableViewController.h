@@ -13,5 +13,6 @@
 #import "GPSManager.h"
 
 @interface StartDriveTableViewController : UITableViewController <DidSyncDelegate,GPSUpdateDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *MissingReportsLabel;
 
 @end

@@ -24,6 +24,7 @@
 #import "DriveReport.h"
 #import "AppDelegate.h"
 #import "CheckMarkImageView.h"
+#import "Settings.h"
 
 #import "ConfirmDeleteViewController.h"
 #import "SyncHelper.h"
@@ -196,6 +197,22 @@
         self.organisationalPlaceTextField.text  = @"Vælg Placering";
     }
     [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
+    
+    //Setup number for saved reports if any
+    NSMutableArray *savedReports = [Settings getAllSavedReports];
+    if(savedReports){
+        if(savedReports.count > 0){
+            [_MissingReportsLabel setHidden:NO];
+            _MissingReportsLabel.clipsToBounds = YES;
+            _MissingReportsLabel.layer.cornerRadius = _MissingReportsLabel.frame.size.width/2;
+            _MissingReportsLabel.backgroundColor = [UIColor whiteColor];
+            _MissingReportsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)savedReports.count];
+        }else{
+            [_MissingReportsLabel setHidden:YES];
+        }
+    }
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -221,7 +238,6 @@
         self.gpsManager.delegate = self;
         [self.gpsManager startGPS];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {

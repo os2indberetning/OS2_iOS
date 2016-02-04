@@ -167,6 +167,7 @@
 		A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDialogViewController.xib; sourceTree = "<group>"; };
 		B200ED93E597DB759452EDB9 /* Pods-eIndberetningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eIndberetningTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFCDD5DDA5410F88428A5138 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EF1C2A541C6372F600EB8A4B /* FourthLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FourthLocation.gpx; sourceTree = "<group>"; };
 		EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png.PNG"; sourceTree = "<group>"; };
 		EF9B6DB51BFA12E300347781 /* FirstLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FirstLocationOS2.gpx; sourceTree = "<group>"; };
 		EF9B6DB61BFA149200347781 /* SecondLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SecondLocationOS2.gpx; sourceTree = "<group>"; };
@@ -442,6 +443,7 @@
 		F56E0A1519D2A40C00B6CA1F = {
 			isa = PBXGroup;
 			children = (
+				EF1C2A541C6372F600EB8A4B /* FourthLocation.gpx */,
 				EFFA75141C088D3B00B8172E /* ThirdLocationOS2.gpx */,
 				EF9B6DB61BFA149200347781 /* SecondLocationOS2.gpx */,
 				EF9B6DB51BFA12E300347781 /* FirstLocationOS2.gpx */,

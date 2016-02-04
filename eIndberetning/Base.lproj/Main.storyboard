@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nf4-sF-hXJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nf4-sF-hXJ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Pair View Controller-->
@@ -55,6 +56,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSa-uc-2zh">
+                                <rect key="frame" x="8" y="2" width="30" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="TXz-8M-f9l" eventType="touchUpInside" id="oXc-ZX-0Sn"/>
+                                </connections>
+                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4E-CS-dtX" userLabel="Info Text">
                                 <rect key="frame" x="16" y="131" width="568" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,16 +81,6 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSa-uc-2zh">
-                                <rect key="frame" x="8" y="2" width="30" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="&lt;">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="TXz-8M-f9l" eventType="touchUpInside" id="oXc-ZX-0Sn"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -552,19 +553,53 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Ny Kørsel" id="B2l-XC-zlS">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="jXS-h7-LK9">
-                            <button key="customView" contentMode="center" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vVR-an-pa0">
-                                <rect key="frame" x="493" y="-42" width="87" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="overflowmenu"/>
-                                <connections>
-                                    <segue destination="Eib-We-gP8" kind="show" id="LQr-hP-AVs"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="jXS-h7-LK9">
+                                <button key="customView" contentMode="center" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vVR-an-pa0">
+                                    <rect key="frame" x="530" y="12" width="50" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" image="overflowmenu"/>
+                                    <connections>
+                                        <segue destination="Eib-We-gP8" kind="show" id="LQr-hP-AVs"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="Diw-ES-e6q">
+                                <view key="customView" contentMode="scaleToFill" id="iLl-Vc-x9D">
+                                    <rect key="frame" x="522" y="5" width="0.0" height="33"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOx-gU-xCi">
+                                            <rect key="frame" x="17" y="4" width="26" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="26" id="6ol-ct-hCK"/>
+                                                <constraint firstAttribute="height" constant="26" id="isf-UT-sd6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" secondItem="sOx-gU-xCi" secondAttribute="height" id="Pmh-WN-5VO"/>
+                                        <constraint firstAttribute="trailing" secondItem="sOx-gU-xCi" secondAttribute="trailing" constant="-43" id="UXf-LN-dwa"/>
+                                        <constraint firstItem="sOx-gU-xCi" firstAttribute="centerY" secondItem="iLl-Vc-x9D" secondAttribute="centerY" id="UvB-2J-E7W"/>
+                                        <constraint firstAttribute="width" secondItem="sOx-gU-xCi" secondAttribute="width" id="qxe-ht-YMW"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Pmh-WN-5VO"/>
+                                            <exclude reference="qxe-ht-YMW"/>
+                                        </mask>
+                                    </variation>
+                                </view>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="MissingReportsLabel" destination="sOx-gU-xCi" id="4kL-hF-Gyb"/>
                         <outlet property="commentTextView" destination="lkT-41-Etu" id="hbH-pU-52G"/>
                         <outlet property="dateLabel" destination="wsM-Wa-eDH" id="Nbx-bN-33H"/>
                         <outlet property="organisationalPlaceTextField" destination="n8e-Ea-PMP" id="0tG-7O-eYb"/>
@@ -577,7 +612,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbq-Ml-2jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-208.5" y="163"/>
+            <point key="canvasLocation" x="-209" y="163"/>
         </scene>
         <!--Saved reports-->
         <scene sceneID="bbK-SH-A2J">
@@ -1272,7 +1307,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                     <action selector="tryAgianButtonPressed:" destination="0bn-hB-d0x" eventType="touchUpInside" id="TX3-aa-UFw"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-ie-FcM">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-ie-FcM">
                                 <rect key="frame" x="281" y="343" width="37" height="37"/>
                                 <color key="color" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -1302,7 +1337,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="749" misplaced="YES" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="749" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
                                 <rect key="frame" x="50" y="28" width="500" height="307"/>
                             </imageView>
                         </subviews>
