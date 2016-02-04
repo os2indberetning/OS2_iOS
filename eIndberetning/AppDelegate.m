@@ -30,7 +30,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [self.window makeKeyAndVisible];
