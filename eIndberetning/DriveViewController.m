@@ -152,6 +152,15 @@
     }
 }
 
+-(GpsCoordinates * ) getLastCoordinate{
+    if(_report!=nil && _report.route.coordinates!= nil && [_report.route.coordinates count]>0){
+//        NSInteger numberOfCoordinates = [_report.route.coordinates count];
+//        return [_report.route.coordinates objectAtIndex:numberOfCoordinates-1];
+        return [_report.route.coordinates lastObject];
+    }
+    return nil;
+}
+
 #pragma mark - EndDrivePopupDelegate
 
 -(void)endDrive
@@ -323,11 +332,6 @@
     self.lastUpdatedLabel.text = @"Venter på gyldigt GPS signal";
     self.isCloseToHome = self.report.didendhome;
 }
--(GpsCoordinates * ) getLastCoordinate{
-    if(_report!=nil && _report.route.coordinates!= nil && [_report.route.coordinates count]>0){
-        return [_report.route.coordinates objectAtIndex:0];
-    }
-    return nil;
-}
+
 
 @end
