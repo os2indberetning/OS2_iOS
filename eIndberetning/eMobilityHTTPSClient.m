@@ -117,11 +117,12 @@
     NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
     NSLog(@"dic: %@", myString);
-#if !defined(MOCK)
     [self.sessionManager POST:@"SubmitDrive" parameters:data success:succes failure:failure];
-#else
-    succes(nil,[self getMockItem]);
-#endif
+//#if !defined(MOCK)
+//    [self.sessionManager POST:@"SubmitDrive" parameters:data success:succes failure:failure];
+//#else
+//    succes(nil,[self getMockItem]);
+//#endif
     
 }
 #pragma mark mock
