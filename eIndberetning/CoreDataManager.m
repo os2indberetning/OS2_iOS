@@ -79,7 +79,7 @@
     for (Rate* r in rates) {
         
         //Remove rates that are not used on mobile
-        if ([r.rateid intValue] == 8) {
+        if ([r.rateid intValue] == 13) {
             NSLog(@"Not adding %@ to rates", r.rateDescription);
             continue;
         }
