@@ -247,13 +247,16 @@
 
 - (IBAction)startDrivingButton:(id)sender {
     
+    BOOL permission = [self.gpsManager requestAuthorization];
+    
     if(!self.report.purpose)
     {
         self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
         [self.errorMsg showErrorMsg: @"Du mangler at vælge\net formål"];
     }
-    else
-    {
+    else if(!permission){
+        [self showGPSPermissionDenied];
+    }else{
         [self performSegueWithIdentifier:@"DriveViewSegue" sender:self];
     }
 }
@@ -405,6 +408,7 @@
     {
         DriveViewController *vc = [segue destinationViewController];
         vc.report = self.report;
+        
     }
     else if ([[segue identifier] isEqualToString:@"ShowSyncSegue"])
     {

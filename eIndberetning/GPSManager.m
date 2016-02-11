@@ -70,7 +70,7 @@ const double maxDistanceBetweenLocations = 200.0;
         self.locationManager.activityType = CLActivityTypeAutomotiveNavigation;
         
         // Set a movement threshold for new events.
-        self.locationManager.distanceFilter = 10; // meters
+        self.locationManager.distanceFilter = 5; // meters
         
         [self.locationManager startUpdatingLocation];
         self.isRunning = true;
@@ -86,7 +86,7 @@ const double maxDistanceBetweenLocations = 200.0;
 }
 
 #pragma mark - GPS Permission
-- (void)requestAuthorization
+- (BOOL)requestAuthorization
 {
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     
@@ -94,14 +94,17 @@ const double maxDistanceBetweenLocations = 200.0;
     if (status == kCLAuthorizationStatusDenied) {
         
         [self.delegate showGPSPermissionDenied];
-
+        return NO;
     }
     // The user has not enabled any location services. Request background authorization.
     else if (status == kCLAuthorizationStatusNotDetermined) {
         if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             [self.locationManager requestAlwaysAuthorization];
         }
+        return NO;
     }
+    
+    return YES;
 }
 
 @end

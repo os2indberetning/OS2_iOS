@@ -30,6 +30,7 @@ const double maxDistanceBetweenLocations;
 + (GPSManager *)sharedGPSManager;
 - (void)startGPS;
 - (void)stopGPS;
+- (BOOL)requestAuthorization;
 
 
 @property (strong,nonatomic) id <GPSUpdateDelegate> delegate;
