@@ -154,8 +154,6 @@
 
 -(GpsCoordinates * ) getLastCoordinate{
     if(_report!=nil && _report.route.coordinates!= nil && [_report.route.coordinates count]>0){
-//        NSInteger numberOfCoordinates = [_report.route.coordinates count];
-//        return [_report.route.coordinates objectAtIndex:numberOfCoordinates-1];
         return [_report.route.coordinates lastObject];
     }
     return nil;
@@ -175,14 +173,10 @@
 }
 
 #pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"EndDriveSegue"])
     {
-//        self.report.route.totalDistanceEdit = @(ceil(self.totalDistance/1000.0f));
-//        self.report.route.totalDistanceMeasure = @(ceil(self.totalDistance/1000.0f));
-        
         self.report.route.totalDistanceEdit = @(roundf(self.totalDistance/100.0f)/10);
         self.report.route.totalDistanceMeasure = @(roundf(self.totalDistance/100.0f)/10);
         
