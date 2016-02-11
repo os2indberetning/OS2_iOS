@@ -122,11 +122,11 @@ const double WAIT_TIME_S = 1.5;
          self.spinner.hidden = YES;
          [Settings removeSavedReport:_savedReport];
          //Optional: also sync userdata on succesfull submit
-         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
-         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
-         
-         self.profile = [Profile initFromJsonDic:profileDic];
-         self.rates = [Rate initFromJsonDic:rateDic];
+//         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
+//         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
+//         
+//         self.profile = [Profile initFromJsonDic:profileDic];
+//         self.rates = [Rate initFromJsonDic:rateDic];
          //Optional
          
         self.infoText.text = @"Din indberetning er modtaget.";
