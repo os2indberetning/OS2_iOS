@@ -232,19 +232,22 @@
     //distances in meters.
     
     //If location is older than 15 seconds - discard it
-    if (fabs(howRecent) < 15.0 || location.horizontalAccuracy > accuracyThreshold)
+    if (fabs(howRecent) < 15.0 || location.horizontalAccuracy < accuracyThreshold)
     {
         CLLocationDegrees lat = location.coordinate.latitude;
         CLLocationDegrees lng = location.coordinate.longitude;
-        
-        if(!self.locA)
+        if(location.horizontalAccuracy == 0){
+            NSLog(@"Location had accuracy 0 -> discarding it");
+            return;
+        }
+        else if(!self.locA)
         {
             self.locA = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
             NSLog(@"Logged first location | Accuracy: %f", self.locA.horizontalAccuracy);
         }
         else
         {
-            NSLog(@"!self.locA = false");
+            NSLog(@"Not first coordinate");
             CLLocation *locB = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
             CLLocationDistance distance = [self.locA distanceFromLocation:locB];
             if (!_shouldWarnUserOfInaccuracy && distance > maxDistanceBetweenLocations) {
