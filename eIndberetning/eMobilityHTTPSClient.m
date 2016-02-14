@@ -71,6 +71,19 @@
 #endif
 }
 
+-(void)credentialsLogin:(NSString *)username password:(NSString *)password withBlock:(void (^)(NSURLSessionDataTask *, id))success failBlock:(void (^)(NSURLSessionDataTask *, NSError *))failure
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@""] = username;
+    parameters[@""] = password;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+    NSString *myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"Login body: %@", myString);
+    
+    [self.sessionManager POST:@"auth" parameters:parameters success:success failure:failure];
+}
+
 
 
 -(void)getUserDataForToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure

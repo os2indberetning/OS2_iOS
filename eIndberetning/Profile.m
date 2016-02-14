@@ -42,6 +42,9 @@
     p.employments = [Employment initFromJsonDic:[dic objectForKey:@"Employments"]];
     
     p.profileId = @([[dic objectForKey:@"Id"] integerValue]);
+    
+    p.guId = [[dic objectForKey:@"Authorization"] objectForKey:@"GuId"];
+    
     return p;
 }
 

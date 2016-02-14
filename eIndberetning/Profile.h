@@ -24,6 +24,8 @@
 
 @property (nonatomic, strong) NSNumber* profileId;
 
+@property (nonatomic, strong) NSString *guId;
+
 + (Profile *) initFromJsonDic:(NSDictionary*)dic;
 
 @end

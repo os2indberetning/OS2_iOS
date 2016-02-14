@@ -22,6 +22,7 @@
 		A7BCD3411BBB171400FC3DB1 /* QuestionDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */; };
 		DC11F572710DF8FDA26523C6 /* libPods-eIndberetningTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A005CABB241D8A9545EDB /* libPods-eIndberetningTests.a */; };
 		EF2373911BE8FDD9003601DE /* Default-568h@2x.png.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */; };
+		EFECF1511C70CB1600DAB4A3 /* UserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFECF1501C70CB1600DAB4A3 /* UserLoginViewController.m */; };
 		F50F24961B258E25006BBD48 /* GpsCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */; };
 		F50F24971B258E25006BBD48 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
 		F50F24981B258E25006BBD48 /* PopupBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */; };
@@ -171,6 +172,8 @@
 		EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png.PNG"; sourceTree = "<group>"; };
 		EF9B6DB51BFA12E300347781 /* FirstLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FirstLocationOS2.gpx; sourceTree = "<group>"; };
 		EF9B6DB61BFA149200347781 /* SecondLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SecondLocationOS2.gpx; sourceTree = "<group>"; };
+		EFECF14F1C70CB1600DAB4A3 /* UserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginViewController.h; sourceTree = "<group>"; };
+		EFECF1501C70CB1600DAB4A3 /* UserLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginViewController.m; sourceTree = "<group>"; };
 		EFFA75141C088D3B00B8172E /* ThirdLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ThirdLocationOS2.gpx; sourceTree = "<group>"; };
 		F50F24D01B258E25006BBD48 /* eIndberetning copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eIndberetning copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50F24D11B258E25006BBD48 /* eIndberetning copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "eIndberetning copy-Info.plist"; path = "/Users/jhh/Documents/IOS/eIndberetning/eIndberetning copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -368,6 +371,15 @@
 			name = category;
 			sourceTree = "<group>";
 		};
+		EFECF14E1C70CAEC00DAB4A3 /* UserLogin */ = {
+			isa = PBXGroup;
+			children = (
+				EFECF14F1C70CB1600DAB4A3 /* UserLoginViewController.h */,
+				EFECF1501C70CB1600DAB4A3 /* UserLoginViewController.m */,
+			);
+			name = UserLogin;
+			sourceTree = "<group>";
+		};
 		F51B351D1A0F98BB0098D76E /* PopupMessage */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +531,7 @@
 		F56E0A4A19D2A43800B6CA1F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EFECF14E1C70CAEC00DAB4A3 /* UserLogin */,
 				A71D88481BB8A4CA00F3415A /* saved reports */,
 				F5D3180B1B22DA8500D09AD0 /* SelectMunicipality */,
 				F56E0A2B19D2A40C00B6CA1F /* PairViewController.h */,
@@ -984,6 +997,7 @@
 				F5F55B2A1A266D3E00F193D0 /* GPSManager.m in Sources */,
 				A7534B0B1BB95F150042BB65 /* SavedReport.m in Sources */,
 				F58EC0B219FEBEFF0010AC96 /* ManualEntryViewController.m in Sources */,
+				EFECF1511C70CB1600DAB4A3 /* UserLoginViewController.m in Sources */,
 				F56E0A2D19D2A40C00B6CA1F /* PairViewController.m in Sources */,
 				84A3F48A1B69FEFA007C420C /* ViewController+helper.m in Sources */,
 				F5824DFC19E09FB000F51353 /* UIColor+CustomColor.m in Sources */,

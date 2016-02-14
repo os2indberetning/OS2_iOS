@@ -216,6 +216,7 @@
 
 -(void)didUpdatePrecision:(float)precision
 {
+    NSLog(@"Updating accuracy label with: %f", precision);
     self.gpsAccuaryLabel.text = [NSString stringWithFormat:@"GPS nøjagtighed: %.2f m", precision];
 }
 
@@ -230,7 +231,8 @@
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     //distances in meters.
     
-    if (fabs(howRecent) < 15.0)
+    //If location is older than 15 seconds - discard it
+    if (fabs(howRecent) < 15.0 || location.horizontalAccuracy > accuracyThreshold)
     {
         CLLocationDegrees lat = location.coordinate.latitude;
         CLLocationDegrees lng = location.coordinate.longitude;
@@ -238,41 +240,48 @@
         if(!self.locA)
         {
             self.locA = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+            NSLog(@"Logged first location | Accuracy: %f", self.locA.horizontalAccuracy);
         }
         else
         {
+            NSLog(@"!self.locA = false");
             CLLocation *locB = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
             CLLocationDistance distance = [self.locA distanceFromLocation:locB];
-            
             if (!_shouldWarnUserOfInaccuracy && distance > maxDistanceBetweenLocations) {
                 _shouldWarnUserOfInaccuracy = YES;
             }
             
             //If distance is smaller than accuracy, ignore point
             if (distance < location.horizontalAccuracy) {
+                NSLog(@"Distance < accuracy | %f < %f", distance, location.horizontalAccuracy);
                 return;
             }else{
+                NSLog(@"Distance > accuracy | %f > %f", distance, location.horizontalAccuracy);
                 if(self.validateResume){
+                    NSLog(@"Validating resume");
                     if(distance>200){
                         _isShowingDialogForValidation = YES;
                         //alert and pause and discard point
                         [self togglePauseResume];
                         [self showInvalidLocationResume];
+                        NSLog(@"Failed: Distance was over 200...");
                         return;
                     }else{
+                        NSLog(@"Succes: could resumse");
                         self.validateResume = NO;
                     }
                 }
                 
                 self.locA = locB;
                 
+                NSLog(@"Old distance: %f", self.totalDistance);
                 self.totalDistance += distance;
-                
-                NSLog(@"Distance: %f", self.totalDistance );
-                
-                self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
+                NSLog(@"New distance: %f", self.totalDistance );
             }
         }
+        NSLog(@"Updating total distance (meters): %f", self.totalDistance);
+        NSLog(@"Updating total distance (km): %f", self.totalDistance/1000.0f);
+        self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
         
         NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
         self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Sidst opdateret kl: %@", timeString];
@@ -284,7 +293,8 @@
         
         //Set if we are currently close to home
         self.isCloseToHome = ([self.locA distanceFromLocation:self.ui.home_loc] < 500);
-        
+    }else{
+        NSLog(@"Location age: %f | LocationAccuracy: %f", howRecent, location.horizontalAccuracy);
     }
 }
 

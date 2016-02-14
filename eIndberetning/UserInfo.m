@@ -33,6 +33,8 @@
     self.last_employment = nil;
     self.last_rate = nil;
     self.last_sync_date = nil;
+    
+    self.guId = nil;
 }
 
 -(void)saveInfo
@@ -61,6 +63,8 @@
     self.last_rate = object.last_rate;
     
     self.last_sync_date = object.last_sync_date;
+    
+    self.guId = object.guId;
 }
 
 -(void)encodeWithCoder:(NSCoder *)encoder {
@@ -76,6 +80,8 @@
     [encoder encodeObject:self.last_rate forKey:@"last_rate"];
     
     [encoder encodeObject:self.last_sync_date forKey:@"last_sync_date"];
+    
+    [encoder encodeObject:self.guId forKey:@"guId"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -92,6 +98,8 @@
         self.last_rate = [decoder decodeObjectForKey:@"last_rate"];
         
         self.last_sync_date = [decoder decodeObjectForKey:@"last_sync_date"];
+        
+        self.guId = [decoder decodeObjectForKey:@"guId"];
     }
     return self;
 }

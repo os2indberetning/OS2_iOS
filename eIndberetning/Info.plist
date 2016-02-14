@@ -28,7 +28,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+	<string>Lokations tracking er nødvendig for at opmåle ruter.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

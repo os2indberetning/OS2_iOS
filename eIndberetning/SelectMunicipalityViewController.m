@@ -119,7 +119,10 @@ NSString* municipalityCell = @"MunicipalityCell";
     if(!self.isLoading)
     {
         self.selectedAppInfo = [self.municipalityList objectAtIndex:indexPath.row];
-        [self performSegueWithIdentifier:@"ChooseMunicipialitySegue" sender:self];
+        
+//        [self performSegueWithIdentifier:@"ChooseMunicipialitySegue" sender:self];
+        
+        [self performSegueWithIdentifier:@"ProviderToUserLoginSegue" sender:self];
     }
 }
 
@@ -132,6 +135,12 @@ NSString* municipalityCell = @"MunicipalityCell";
     {
         // Get reference to the destination view controller
         PairViewController *vc = [segue destinationViewController];
+        vc.appInfo = self.selectedAppInfo;
+    }
+    
+    if([[segue identifier] isEqualToString:@"ProviderToUserLoginSegue"]){
+        // Get reference to the destination view controller
+        UserLoginViewController *vc = [segue destinationViewController];
         vc.appInfo = self.selectedAppInfo;
     }
 }

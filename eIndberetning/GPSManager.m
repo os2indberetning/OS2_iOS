@@ -11,7 +11,7 @@
 #import "GPSManager.h"
 @import QuartzCore;
 
-const double accuracyThreshold = 100.0;
+const double accuracyThreshold = 50.0;
 const double maxDistanceBetweenLocations = 200.0;
 
 @interface GPSManager ()
@@ -64,13 +64,16 @@ const double maxDistanceBetweenLocations = 200.0;
         [self requestAuthorization];
         
         self.locationManager.delegate = self;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+        self.locationManager.allowsBackgroundLocationUpdates = YES;
         self.locationManager.pausesLocationUpdatesAutomatically = YES;
         self.locationManager.activityType = CLActivityTypeAutomotiveNavigation;
         
         // Set a movement threshold for new events.
-        self.locationManager.distanceFilter = 5; // meters
+        self.locationManager.distanceFilter = 10; // meters
+        
+        [self.locationManager requestAlwaysAuthorization];
         
         [self.locationManager startUpdatingLocation];
         self.isRunning = true;

@@ -48,7 +48,6 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
     }
-    
 }
 
 - (void) insertEmployments: (NSArray*)employments
