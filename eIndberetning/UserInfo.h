@@ -28,6 +28,8 @@
 @property (nonatomic, strong) Token* token;
 @property (nonatomic, strong) NSDate* last_sync_date;
 
+@property (nonatomic, strong) NSString *guId;
+
 + (id)sharedManager;
 -(void)resetInfo;
 -(void)saveInfo;
