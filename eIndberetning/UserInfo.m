@@ -23,7 +23,7 @@
 
 -(void)resetInfo
 {
-    self.token = nil;
+//    self.token = nil;
     self.name = nil;
     self.home_loc = nil;
     self.profileId = nil;
@@ -34,7 +34,7 @@
     self.last_rate = nil;
     self.last_sync_date = nil;
     
-    self.guId = nil;
+    self.authorization = nil;
 }
 
 -(void)saveInfo
@@ -51,7 +51,7 @@
     NSData *encodedObject = [defaults objectForKey:@"userinfo"];
     UserInfo *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
     
-    self.token = object.token;
+//    self.token = object.token;
     self.name = object.name;
     self.home_loc = object.home_loc;
     self.profileId = object.profileId;
@@ -64,12 +64,12 @@
     
     self.last_sync_date = object.last_sync_date;
     
-    self.guId = object.guId;
+    self.authorization = object.authorization;
 }
 
 -(void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
-    [encoder encodeObject:self.token forKey:@"token"];
+//    [encoder encodeObject:self.token forKey:@"token"];
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:self.home_loc forKey:@"home_loc"];
     [encoder encodeObject:self.profileId forKey:@"profile_id"];
@@ -81,13 +81,13 @@
     
     [encoder encodeObject:self.last_sync_date forKey:@"last_sync_date"];
     
-    [encoder encodeObject:self.guId forKey:@"guId"];
+    [encoder encodeObject:self.authorization forKey:@"authorization"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties, other class vars
-        self.token = [decoder decodeObjectForKey:@"token"];
+//        self.token = [decoder decodeObjectForKey:@"token"];
         self.name = [decoder decodeObjectForKey:@"name"];
         self.home_loc = [decoder decodeObjectForKey:@"home_loc"];
         self.profileId = [decoder decodeObjectForKey:@"profile_id"];
@@ -99,7 +99,7 @@
         
         self.last_sync_date = [decoder decodeObjectForKey:@"last_sync_date"];
         
-        self.guId = [decoder decodeObjectForKey:@"guId"];
+        self.authorization = [decoder decodeObjectForKey:@"authorization"];
     }
     return self;
 }

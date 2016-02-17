@@ -116,44 +116,50 @@ const double WAIT_TIME_S = 1.5;
     eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
     self.spinner.hidden = NO;
     [self.spinner startAnimating];
-    [client postDriveReport:self.report forToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
-     {
-         [self.spinner stopAnimating];
-         self.spinner.hidden = YES;
-         [Settings removeSavedReport:_savedReport];
-         //Optional: also sync userdata on succesfull submit
-//         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
-//         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
+    
+    //TODO: Handle upload with new endpoint and guId
+//    [client postDriveReport:self.report forToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
+//     {
+//         [self.spinner stopAnimating];
+//         self.spinner.hidden = YES;
+//         [Settings removeSavedReport:_savedReport];
+//         //Optional: also sync userdata on succesfull submit
+////         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
+////         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
+////         
+////         self.profile = [Profile initFromJsonDic:profileDic];
+////         self.rates = [Rate initFromJsonDic:rateDic];
+//         //Optional
 //         
-//         self.profile = [Profile initFromJsonDic:profileDic];
-//         self.rates = [Rate initFromJsonDic:rateDic];
-         //Optional
-         
-        self.infoText.text = @"Din indberetning er modtaget.";
-        [NSTimer scheduledTimerWithTimeInterval:WAIT_TIME_S target:self selector:@selector(succesSync) userInfo:nil repeats:NO];
-     }
-     failBlock:^(NSURLSessionTask * task, NSError *Error)
-     {
-         self.spinner.hidden = YES;
-         [self.spinner stopAnimating];
-         NSLog(@"%@", Error);
-         
-         NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
-         [self failSyncWithErrorCode:(NSInteger)errorCode];
-     }];
+//        self.infoText.text = @"Din indberetning er modtaget.";
+//        [NSTimer scheduledTimerWithTimeInterval:WAIT_TIME_S target:self selector:@selector(succesSync) userInfo:nil repeats:NO];
+//     }
+//     failBlock:^(NSURLSessionTask * task, NSError *Error)
+//     {
+//         self.spinner.hidden = YES;
+//         [self.spinner stopAnimating];
+//         NSLog(@"%@", Error);
+//         
+//         NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
+//         [self failSyncWithErrorCode:(NSInteger)errorCode];
+//     }];
 }
 
+//TODO: Remove this, sync will be done in StartVC
 -(void) succesSync
 {
     //Optional: also sync userdata on succesfull submit
     [self.delegate didFinishSyncWithProfile:self.profile AndRate:self.rates];
     //Optional
     [self dismissViewControllerAnimated:true completion:nil];
+    
+    //TODO: Figure out how to handle succes upload
     [self.delegate didFinishUpload];
 }
 
 - (void) failSyncWithErrorCode:(NSInteger)errorCode
 {
+    //Handle errors with guId instead of token
     if(errorCode == TokenNotFound)
     {
         [self.delegate tokenNotFound];

@@ -17,18 +17,19 @@
 {
     NSMutableArray* array = [[NSMutableArray alloc] init];
     
-    for (NSDictionary* token in dic) {
+    for (NSDictionary* provider in dic) {
         AppInfo *t = [[AppInfo alloc] init];
         
-        t.Name = [[token objectForKey:@"Name"] description];
-        t.APIUrl = [[token objectForKey:@"APIUrl"] description];
-        t.ImgUrl = [[token objectForKey:@"ImgUrl"] description];
+        t.Name = [[provider objectForKey:@"Name"] description];
+        t.APIUrl = [[provider objectForKey:@"APIUrl"] description];
+        t.ImgUrl = [[provider objectForKey:@"ImgUrl"] description];
         
-        t.TextColor = [self colorFromHexString:[[token objectForKey:@"TextColor"] description]];
-        t.PrimaryColor = [self colorFromHexString:[[token objectForKey:@"PrimaryColor"] description]];
-        t.SecondaryColor = [self colorFromHexString:[[token objectForKey:@"SecondaryColor"] description]];
+        t.TextColor = [self colorFromHexString:[[provider objectForKey:@"TextColor"] description]];
+        t.PrimaryColor = [self colorFromHexString:[[provider objectForKey:@"PrimaryColor"] description]];
+        t.SecondaryColor = [self colorFromHexString:[[provider objectForKey:@"SecondaryColor"] description]];
         
-        [array insertObject:t atIndex:0];
+        [array addObject:t];
+//        [array insertObject:t atIndex:0];
     }
     
     return array;

@@ -44,7 +44,7 @@
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    NSLog(@"init");
+    NSLog(@"init CheckMarkView");
     self.checkBoxLayer = [CALayer layer];
     self.checkBoxLayer.frame = self.bounds;
     self.checkBoxLayer.contents = (__bridge id)([[UIImage imageNamed:@"checkBox"] CGImage]);

@@ -12,11 +12,12 @@
 #import <CoreLocation/CoreLocation.h>
 #import "DriveReport.h"
 #import "JSONResponseSerializerWithData.h"
-#import "Token.h"
 #import "SavedReport.h"
+#import "Authorization.h"
 
 enum ErrorCodes : NSInteger
 {
+    //TODO: Change enum Names to reflect guId instead of Token
     UnknownError = 600,
     TokenNotFound = 610,
     TokenAllreadyActivated = 620,
@@ -38,13 +39,12 @@ enum ErrorCodes : NSInteger
 
 - (void)setBaseUrl:(NSURL *)url;
 
--(void)getUserDataForToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
--(void)syncWithTokenString:(NSString*)tokenString withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
+-(void)getUserInfoForGuId:(NSString*) guId withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 
 -(void)credentialsLogin:(NSString*)username password:(NSString*)password withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))success failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 
-- (void)postDriveReport:(DriveReport *)report forToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
+- (void)postDriveReport:(DriveReport *)report forAuthorization:(Authorization*)auth withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 
--(void)postSavedDriveReport:(SavedReport *)report forToken:(Token*)token withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
+-(void)postSavedDriveReport:(SavedReport *)report forAuthorization:(Authorization*)auth withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 
 @end

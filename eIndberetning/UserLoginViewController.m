@@ -29,6 +29,11 @@
 
 @implementation UserLoginViewController
 
+-(CoreDataManager*)CDManager
+{
+    return [CoreDataManager sharedeCoreDataManager];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -111,7 +116,7 @@
          info.home_loc = profile.homeCoordinate;
          info.profileId = profile.profileId;
          
-         info.guId = profile.guId;
+         info.authorization = profile.authorization;
          
          [info saveInfo];
          

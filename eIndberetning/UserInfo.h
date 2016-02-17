@@ -13,8 +13,9 @@
 #import "Employment.h"
 #import "Rate.h"
 #import "Purpose.h"
-#import "Token.h"
+//#import "Token.h"
 #import "AppInfo.h"
+#import "Authorization.h"
 
 @interface UserInfo : NSObject
 @property (nonatomic, strong) NSString* name;
@@ -25,10 +26,10 @@
 @property (nonatomic, strong) Purpose* last_purpose;
 @property (nonatomic, strong) Employment* last_employment;
 @property (nonatomic, strong) Rate* last_rate;
-@property (nonatomic, strong) Token* token;
+//@property (nonatomic, strong) Token* token;
 @property (nonatomic, strong) NSDate* last_sync_date;
 
-@property (nonatomic, strong) NSString *guId;
+@property (nonatomic, strong) Authorization *authorization;
 
 + (id)sharedManager;
 -(void)resetInfo;

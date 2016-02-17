@@ -63,34 +63,35 @@ const double MIN_WAIT_TIME_S = 2;
     
     __weak SyncViewController *safeSelf = self;
     
-    [self.client getUserDataForToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
-    {
-        NSLog(@"%@", resonseObject);
-        
-        NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
-        NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
-        
-        safeSelf.profile = [Profile initFromJsonDic:profileDic];
-        safeSelf.rates = [Rate initFromJsonDic:rateDic];
-        
-        if([[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime] > MIN_WAIT_TIME_S)
-        {
-            [safeSelf succesSync];
-        }
-        else
-        {
-            [NSTimer scheduledTimerWithTimeInterval:MIN_WAIT_TIME_S-[[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime]  target:safeSelf selector:@selector(succesSync) userInfo:nil repeats:NO];
-        }
-        
-    }
-    failBlock:^(NSURLSessionTask * task, NSError *Error)
-    {
-        NSLog(@"%@", Error);
-        
-        NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
-        [safeSelf failSyncWithErrorCode:(NSInteger)errorCode];
-         
-    }];
+    //TODO: Handle sync with new /userinfo endpoint using new guId
+//    [self.client getUserDataForToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
+//    {
+//        NSLog(@"%@", resonseObject);
+//        
+//        NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
+//        NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
+//        
+//        safeSelf.profile = [Profile initFromJsonDic:profileDic];
+//        safeSelf.rates = [Rate initFromJsonDic:rateDic];
+//        
+//        if([[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime] > MIN_WAIT_TIME_S)
+//        {
+//            [safeSelf succesSync];
+//        }
+//        else
+//        {
+//            [NSTimer scheduledTimerWithTimeInterval:MIN_WAIT_TIME_S-[[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime]  target:safeSelf selector:@selector(succesSync) userInfo:nil repeats:NO];
+//        }
+//        
+//    }
+//    failBlock:^(NSURLSessionTask * task, NSError *Error)
+//    {
+//        NSLog(@"%@", Error);
+//        
+//        NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
+//        [safeSelf failSyncWithErrorCode:(NSInteger)errorCode];
+//         
+//    }];
 }
 
 -(void) succesSync
@@ -101,6 +102,7 @@ const double MIN_WAIT_TIME_S = 2;
 
 -(void) failSyncWithErrorCode:(NSInteger)errorCode
 {
+    //TODO: Fix errorcodes according to guId and NOT token
     if(errorCode == UnknownError)
     {
         //Change text, hide spinner, show retry-button

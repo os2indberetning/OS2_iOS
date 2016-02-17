@@ -10,7 +10,7 @@
 
 #import "Profile.h"
 #import "Employment.h"
-#import "Token.h"
+//#import "Token.h"
 
 @implementation Profile
 
@@ -21,8 +21,6 @@
     
     p.FirstName = [[dic objectForKey:@"Firstname"] description];
     p.LastName = [[dic objectForKey:@"Lastname"] description];
-    
-    
     
     if([[dic objectForKey:@"HomeLatitude"] respondsToSelector:@selector (floatValue)]  && [[dic objectForKey:@"HomeLongitude"] respondsToSelector:@selector (floatValue)])
     {
@@ -38,12 +36,12 @@
         p.homeCoordinate = nil;
     }
     
-    p.tokens = [Token initFromJsonDic:[dic objectForKey:@"Tokens"]];
+//    p.tokens = [Token initFromJsonDic:[dic objectForKey:@"Tokens"]];
     p.employments = [Employment initFromJsonDic:[dic objectForKey:@"Employments"]];
     
     p.profileId = @([[dic objectForKey:@"Id"] integerValue]);
     
-    p.guId = [[dic objectForKey:@"Authorization"] objectForKey:@"GuId"];
+    p.authorization = [Authorization initFromJsonDic:[dic objectForKey:@"Authorization"]];
     
     return p;
 }

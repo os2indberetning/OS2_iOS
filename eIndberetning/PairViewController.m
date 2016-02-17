@@ -85,72 +85,72 @@
 - (IBAction)okButtonPressed:(id)sender {
 //    [self fakeLogin];
   
-    
-    [self.client syncWithTokenString:self.textField.text withBlock:^(NSURLSessionTask *task, id resonseObject)
-     {
-         NSLog(@"%@", resonseObject);
-         
-         UserInfo* info = [UserInfo sharedManager];
-         
-         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
-         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
-         
-         Profile* profile = [Profile initFromJsonDic:profileDic];
-         NSArray* rates = [Rate initFromJsonDic:rateDic];
-         
-         
-         [self.CDManager deleteAllObjects:@"CDRate"];
-         [self.CDManager deleteAllObjects:@"CDEmployment"];
-         
-         [self.CDManager insertEmployments:profile.employments];
-         [self.CDManager insertRates:rates];
-         
-         //Transfer userdata to local userinfo object
-         info.last_sync_date = [NSDate date];
-         info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
-         info.home_loc = profile.homeCoordinate;
-         info.profileId = profile.profileId;
-         
-         
-         //Search through the tokens
-         for (Token* token in profile.tokens) {
-             if([token.tokenString isEqualToString: self.textField.text])
-             {
-                 info.token = token;
-                 break;
-             }
-         }
-         
-         [info saveInfo];
-         
-         if(info.token)
-         {
-             AppDelegate* del =  [[UIApplication sharedApplication] delegate];
-             [del changeToStartView];
-             //[self performSegueWithIdentifier:@"ShowStartViewSegue" sender:self];
-         }
-         else
-         {
-             //Print error message
-         }
-     }
-     failBlock:^(NSURLSessionTask * task, NSError *Error)
-     {
-         NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
-         NSString* errorString = [eMobilityHTTPSClient getErrorString:errorCode];
-         
-         self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-         [self.errorMsg showErrorMsg: errorString];
-         
-         CAKeyframeAnimation * anim = [ CAKeyframeAnimation animationWithKeyPath:@"transform" ] ;
-         anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-5.0f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(5.0f, 0.0f, 0.0f) ] ] ;
-         anim.autoreverses = YES ;
-         anim.repeatCount = 2.0f ;
-         anim.duration = 0.07f ;
-         
-         [ self.textField.layer addAnimation:anim forKey:nil ] ;
-         NSLog(@"%@", Error);
-     }];
+//    
+//    [self.client syncWithTokenString:self.textField.text withBlock:^(NSURLSessionTask *task, id resonseObject)
+//     {
+//         NSLog(@"%@", resonseObject);
+//         
+//         UserInfo* info = [UserInfo sharedManager];
+//         
+//         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
+//         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
+//         
+//         Profile* profile = [Profile initFromJsonDic:profileDic];
+//         NSArray* rates = [Rate initFromJsonDic:rateDic];
+//         
+//         
+//         [self.CDManager deleteAllObjects:@"CDRate"];
+//         [self.CDManager deleteAllObjects:@"CDEmployment"];
+//         
+//         [self.CDManager insertEmployments:profile.employments];
+//         [self.CDManager insertRates:rates];
+//         
+//         //Transfer userdata to local userinfo object
+//         info.last_sync_date = [NSDate date];
+//         info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
+//         info.home_loc = profile.homeCoordinate;
+//         info.profileId = profile.profileId;
+//         
+//         
+//         //Search through the tokens
+//         for (Token* token in profile.tokens) {
+//             if([token.tokenString isEqualToString: self.textField.text])
+//             {
+//                 info.token = token;
+//                 break;
+//             }
+//         }
+//         
+//         [info saveInfo];
+//         
+//         if(info.token)
+//         {
+//             AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+//             [del changeToStartView];
+//             //[self performSegueWithIdentifier:@"ShowStartViewSegue" sender:self];
+//         }
+//         else
+//         {
+//             //Print error message
+//         }
+//     }
+//     failBlock:^(NSURLSessionTask * task, NSError *Error)
+//     {
+//         NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
+//         NSString* errorString = [eMobilityHTTPSClient getErrorString:errorCode];
+//         
+//         self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+//         [self.errorMsg showErrorMsg: errorString];
+//         
+//         CAKeyframeAnimation * anim = [ CAKeyframeAnimation animationWithKeyPath:@"transform" ] ;
+//         anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-5.0f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(5.0f, 0.0f, 0.0f) ] ] ;
+//         anim.autoreverses = YES ;
+//         anim.repeatCount = 2.0f ;
+//         anim.duration = 0.07f ;
+//         
+//         [ self.textField.layer addAnimation:anim forKey:nil ] ;
+//         NSLog(@"%@", Error);
+//     }];
     
 }
 

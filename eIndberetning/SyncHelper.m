@@ -25,34 +25,36 @@
     UserInfo* info = [UserInfo sharedManager];
     eMobilityHTTPSClient*  client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
 
-    [client getUserDataForToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
-     {
-         NSLog(@"%@", resonseObject);
-         
-         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
-         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
-         
-         successCallback([Profile initFromJsonDic:profileDic], [Rate initFromJsonDic:rateDic]);
-       /*  safeSelf.profile = [Profile initFromJsonDic:profileDic];
-         safeSelf.rates = [Rate initFromJsonDic:rateDic];
-         
-         if([[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime] > MIN_WAIT_TIME_S)
-         {
-             [safeSelf succesSync];
-         }
-         else
-         {
-             [NSTimer scheduledTimerWithTimeInterval:MIN_WAIT_TIME_S-[[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime]  target:safeSelf selector:@selector(succesSync) userInfo:nil repeats:NO];
-         }*/
-         
-     } failBlock:^(NSURLSessionTask * task, NSError *Error) {
-         NSLog(@"%@", Error);
-         
-         NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
-         errorCallback(errorCode);
-      //   [safeSelf failSyncWithErrorCode:(NSInteger)errorCode];
-         
-     }];
+    //TODO: Handle sync with new /userinfo endpoint using guId
+    
+//    [client getUserDataForToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
+//     {
+//         NSLog(@"%@", resonseObject);
+//         
+//         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
+//         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
+//         
+//         successCallback([Profile initFromJsonDic:profileDic], [Rate initFromJsonDic:rateDic]);
+//       /*  safeSelf.profile = [Profile initFromJsonDic:profileDic];
+//         safeSelf.rates = [Rate initFromJsonDic:rateDic];
+//         
+//         if([[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime] > MIN_WAIT_TIME_S)
+//         {
+//             [safeSelf succesSync];
+//         }
+//         else
+//         {
+//             [NSTimer scheduledTimerWithTimeInterval:MIN_WAIT_TIME_S-[[NSDate date] timeIntervalSinceDate:safeSelf.syncStartTime]  target:safeSelf selector:@selector(succesSync) userInfo:nil repeats:NO];
+//         }*/
+//         
+//     } failBlock:^(NSURLSessionTask * task, NSError *Error) {
+//         NSLog(@"%@", Error);
+//         
+//         NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
+//         errorCallback(errorCode);
+//      //   [safeSelf failSyncWithErrorCode:(NSInteger)errorCode];
+//         
+//     }];
 }
 
 @end

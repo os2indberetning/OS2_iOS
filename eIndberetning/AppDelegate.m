@@ -21,8 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    [self chooseFirstView];
+//    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    [self chooseFirstView];
     
     return YES;
 }
@@ -45,16 +45,17 @@
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    if(!info.token){
-        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"selectMunicipalityNavigationViewController"];
-        self.window.rootViewController = viewController;
-    } else {
+    //TODO: Handle invalid login info
+//    if(!info.token){
+//        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"selectMunicipalityNavigationViewController"];
+//        self.window.rootViewController = viewController;
+//    } else {
         eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
         [client setBaseUrl:[NSURL URLWithString:info.appInfo.APIUrl]];
         
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"startViewController"];
         self.window.rootViewController = viewController;
-    }
+//    }
 }
 
 -(void)changeToLoginView

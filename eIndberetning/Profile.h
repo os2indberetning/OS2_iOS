@@ -10,7 +10,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "Token.h"
+//#import "Token.h"
+#import "Authorization.h"
 
 @interface Profile : NSObject
 
@@ -19,12 +20,12 @@
 
 @property (nonatomic, strong) CLLocation* homeCoordinate;
 
-@property (nonatomic, strong) NSArray* tokens;
+//@property (nonatomic, strong) NSArray* tokens;
 @property (nonatomic, strong) NSArray* employments;
 
 @property (nonatomic, strong) NSNumber* profileId;
 
-@property (nonatomic, strong) NSString *guId;
+@property (nonatomic, strong) Authorization* authorization;
 
 + (Profile *) initFromJsonDic:(NSDictionary*)dic;
 

@@ -115,11 +115,12 @@
 {
     [super viewWillAppear:animated];
     
-    if(!self.info.token)
-    {
-        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
-        [del changeToLoginView];
-    }
+    //TODO: Handle no guId stored for user
+//    if(!self.info.token)
+//    {
+//        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+//        [del changeToLoginView];
+//    }
     
     //Fill in the selected data in the forms
     self.userTextLabel.text = [NSString stringWithFormat:@"Bruger: %@", self.info.name];
@@ -257,13 +258,16 @@
 
 #pragma mark - Sync
 
+
 -(void)tokenNotFound
 {
+    //TODO: Rename and use as guId not found (Essentially do a logout clear)
     [self.info resetInfo];
     [self.info saveInfo];
     //ViewWillAppear takes care of the rest
 }
 
+//TODO: This should only be done in StartDrive
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
 {
     //Insert into coredate
@@ -278,18 +282,6 @@
     self.info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
     self.info.home_loc = profile.homeCoordinate;
     self.info.profileId = profile.profileId;
-    
-    for (Token* tkn in profile.tokens) {
-        if([tkn.guid isEqualToString:self.info.token.guid])
-        {
-            if(![tkn.status isEqualToString:@"1"])
-            {
-                self.info.token = nil;
-            }
-            
-            break;
-        }
-    }
     
     [self.info saveInfo];
     [self reloadReport];

@@ -22,12 +22,12 @@
 		A7BCD3411BBB171400FC3DB1 /* QuestionDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */; };
 		DC11F572710DF8FDA26523C6 /* libPods-eIndberetningTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A005CABB241D8A9545EDB /* libPods-eIndberetningTests.a */; };
 		EF2373911BE8FDD9003601DE /* Default-568h@2x.png.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */; };
+		EFB817871C74A635000B9FFB /* Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB817861C74A635000B9FFB /* Authorization.m */; };
 		EFECF1511C70CB1600DAB4A3 /* UserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFECF1501C70CB1600DAB4A3 /* UserLoginViewController.m */; };
 		F50F24961B258E25006BBD48 /* GpsCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */; };
 		F50F24971B258E25006BBD48 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
 		F50F24981B258E25006BBD48 /* PopupBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B351F1A0F995D0098D76E /* PopupBaseViewController.m */; };
 		F50F24991B258E25006BBD48 /* CDRate.m in Sources */ = {isa = PBXBuildFile; fileRef = F521160A1A3CFD0100687AF8 /* CDRate.m */; };
-		F50F249A1B258E25006BBD48 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A1081A08135B007A17F3 /* Token.m */; };
 		F50F249B1B258E25006BBD48 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0AD19FE99DC0010AC96 /* UserInfo.m */; };
 		F50F249C1B258E25006BBD48 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D318131B22DF0A00D09AD0 /* AppInfo.m */; };
 		F50F249D1B258E25006BBD48 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = F58EC0A719FE98600010AC96 /* Route.m */; };
@@ -89,7 +89,6 @@
 		F537B4E919FE614600D06892 /* ErrorMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F537B4E719FE614600D06892 /* ErrorMsgViewController.m */; };
 		F537B4EA19FE614600D06892 /* ErrorMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */; };
 		F556A1061A081220007A17F3 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A1051A081220007A17F3 /* Profile.m */; };
-		F556A1091A08135B007A17F3 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A1081A08135B007A17F3 /* Token.m */; };
 		F556A10C1A082C26007A17F3 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F556A10B1A082C26007A17F3 /* SyncViewController.m */; };
 		F55932031A0FB42500C8139F /* UploadDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F55932021A0FB42500C8139F /* UploadDriveViewController.m */; };
 		F559C7AA1B25765300594F56 /* CheckMarkImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F559C7A91B25765300594F56 /* CheckMarkImageView.m */; };
@@ -172,6 +171,8 @@
 		EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png.PNG"; sourceTree = "<group>"; };
 		EF9B6DB51BFA12E300347781 /* FirstLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FirstLocationOS2.gpx; sourceTree = "<group>"; };
 		EF9B6DB61BFA149200347781 /* SecondLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SecondLocationOS2.gpx; sourceTree = "<group>"; };
+		EFB817851C74A635000B9FFB /* Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authorization.h; sourceTree = "<group>"; };
+		EFB817861C74A635000B9FFB /* Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authorization.m; sourceTree = "<group>"; };
 		EFECF14F1C70CB1600DAB4A3 /* UserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginViewController.h; sourceTree = "<group>"; };
 		EFECF1501C70CB1600DAB4A3 /* UserLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginViewController.m; sourceTree = "<group>"; };
 		EFFA75141C088D3B00B8172E /* ThirdLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ThirdLocationOS2.gpx; sourceTree = "<group>"; };
@@ -201,8 +202,6 @@
 		F537B4E819FE614600D06892 /* ErrorMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorMsgViewController.xib; sourceTree = "<group>"; };
 		F556A1041A081220007A17F3 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		F556A1051A081220007A17F3 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
-		F556A1071A08135B007A17F3 /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
-		F556A1081A08135B007A17F3 /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
 		F556A10A1A082C26007A17F3 /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
 		F556A10B1A082C26007A17F3 /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
 		F55932011A0FB42500C8139F /* UploadDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadDriveViewController.h; sourceTree = "<group>"; };
@@ -371,6 +370,23 @@
 			name = category;
 			sourceTree = "<group>";
 		};
+		EFB817831C74A546000B9FFB /* user */ = {
+			isa = PBXGroup;
+			children = (
+				F58EC09D19FE96C10010AC96 /* Rate.h */,
+				F58EC09E19FE96C10010AC96 /* Rate.m */,
+				F556A1041A081220007A17F3 /* Profile.h */,
+				F556A1051A081220007A17F3 /* Profile.m */,
+				F58EC0AC19FE99DC0010AC96 /* UserInfo.h */,
+				F58EC0AD19FE99DC0010AC96 /* UserInfo.m */,
+				F58EC0A019FE975D0010AC96 /* Employment.h */,
+				F58EC0A119FE975D0010AC96 /* Employment.m */,
+				EFB817851C74A635000B9FFB /* Authorization.h */,
+				EFB817861C74A635000B9FFB /* Authorization.m */,
+			);
+			name = user;
+			sourceTree = "<group>";
+		};
 		EFECF14E1C70CAEC00DAB4A3 /* UserLogin */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +502,7 @@
 				F559C7A71B25763600594F56 /* Views */,
 				F5690EB219FF737000B9C3B4 /* Categories */,
 				F58EC09C19FE96A80010AC96 /* Model */,
+				A7534B0C1BB973580042BB65 /* server */,
 				F56E0A4A19D2A43800B6CA1F /* ViewControllers */,
 				F56E0A2E19D2A40C00B6CA1F /* Main.storyboard */,
 				F56E0A4B19D2A44500B6CA1F /* Images */,
@@ -580,30 +597,20 @@
 		F58EC09C19FE96A80010AC96 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EFB817831C74A546000B9FFB /* user */,
 				A7534B0D1BB9735B0042BB65 /* gps */,
-				A7534B0C1BB973580042BB65 /* server */,
 				A7534B081BB95F060042BB65 /* savedRepots */,
 				F5690EBC19FF7A6000B9C3B4 /* CoreData */,
-				F58EC09D19FE96C10010AC96 /* Rate.h */,
-				F58EC09E19FE96C10010AC96 /* Rate.m */,
 				F5C26E081A096ED0004ACDA4 /* Purpose.h */,
 				F5C26E091A096ED0004ACDA4 /* Purpose.m */,
-				F58EC0A019FE975D0010AC96 /* Employment.h */,
-				F58EC0A119FE975D0010AC96 /* Employment.m */,
 				F58EC0A319FE97BA0010AC96 /* DriveReport.h */,
 				F58EC0A419FE97BA0010AC96 /* DriveReport.m */,
 				F58EC0A619FE98600010AC96 /* Route.h */,
 				F58EC0A719FE98600010AC96 /* Route.m */,
 				F58EC0A919FE98C60010AC96 /* GpsCoordinates.h */,
 				F58EC0AA19FE98C60010AC96 /* GpsCoordinates.m */,
-				F58EC0AC19FE99DC0010AC96 /* UserInfo.h */,
-				F58EC0AD19FE99DC0010AC96 /* UserInfo.m */,
 				F5D318121B22DF0A00D09AD0 /* AppInfo.h */,
 				F5D318131B22DF0A00D09AD0 /* AppInfo.m */,
-				F556A1041A081220007A17F3 /* Profile.h */,
-				F556A1051A081220007A17F3 /* Profile.m */,
-				F556A1071A08135B007A17F3 /* Token.h */,
-				F556A1081A08135B007A17F3 /* Token.m */,
 				A7534B111BB991550042BB65 /* Settings.h */,
 				A7534B121BB991550042BB65 /* Settings.m */,
 			);
@@ -923,7 +930,6 @@
 				F50F24971B258E25006BBD48 /* SyncViewController.m in Sources */,
 				F50F24981B258E25006BBD48 /* PopupBaseViewController.m in Sources */,
 				F50F24991B258E25006BBD48 /* CDRate.m in Sources */,
-				F50F249A1B258E25006BBD48 /* Token.m in Sources */,
 				F50F249B1B258E25006BBD48 /* UserInfo.m in Sources */,
 				F50F249C1B258E25006BBD48 /* AppInfo.m in Sources */,
 				F50F249D1B258E25006BBD48 /* Route.m in Sources */,
@@ -971,7 +977,6 @@
 				F51B35201A0F995D0098D76E /* PopupBaseViewController.m in Sources */,
 				A7BCD3401BBB171400FC3DB1 /* QuestionDialogViewController.m in Sources */,
 				F521160B1A3CFD0100687AF8 /* CDRate.m in Sources */,
-				F556A1091A08135B007A17F3 /* Token.m in Sources */,
 				F58EC0AE19FE99DC0010AC96 /* UserInfo.m in Sources */,
 				F5D318141B22DF0A00D09AD0 /* AppInfo.m in Sources */,
 				F58EC0A819FE98600010AC96 /* Route.m in Sources */,
@@ -995,6 +1000,7 @@
 				F5824DF919E09F6C00F51353 /* StartDriveTableViewController.m in Sources */,
 				F5690EC019FF7C7500B9C3B4 /* AddPurposeTableViewCell.m in Sources */,
 				F5F55B2A1A266D3E00F193D0 /* GPSManager.m in Sources */,
+				EFB817871C74A635000B9FFB /* Authorization.m in Sources */,
 				A7534B0B1BB95F150042BB65 /* SavedReport.m in Sources */,
 				F58EC0B219FEBEFF0010AC96 /* ManualEntryViewController.m in Sources */,
 				EFECF1511C70CB1600DAB4A3 /* UserLoginViewController.m in Sources */,

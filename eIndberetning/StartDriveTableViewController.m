@@ -106,23 +106,23 @@
      */
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setupVisuals];
-    self.shouldSync = false;
-    __block UIActivityIndicatorView * indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.center =self.view.center;
-    indicator.frame = [self.navigationController view].frame;
-    indicator.backgroundColor = [UIColor colorWithRed:0.6667 green:0.6667 blue:0.6667 alpha:0.50];
-    [self.view addSubview:indicator];
-    [indicator startAnimating];
-    [SyncHelper doSync:^(Profile * profile, NSArray * rates) {
-        [indicator removeFromSuperview];
-        [self didFinishSyncWithProfile:profile AndRate:rates];
-    } withErrorCallback:^(NSInteger errorCode) {
-        [indicator removeFromSuperview];
-        if(errorCode==0){
-            return;
-        }
-        [self tokenNotFound];
-    }];
+//    self.shouldSync = false;
+//    __block UIActivityIndicatorView * indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    indicator.center =self.view.center;
+//    indicator.frame = [self.navigationController view].frame;
+//    indicator.backgroundColor = [UIColor colorWithRed:0.6667 green:0.6667 blue:0.6667 alpha:0.50];
+//    [self.view addSubview:indicator];
+//    [indicator startAnimating];
+//    [SyncHelper doSync:^(Profile * profile, NSArray * rates) {
+//        [indicator removeFromSuperview];
+//        [self didFinishSyncWithProfile:profile AndRate:rates];
+//    } withErrorCallback:^(NSInteger errorCode) {
+//        [indicator removeFromSuperview];
+//        if(errorCode==0){
+//            return;
+//        }
+//        [self tokenNotFound];
+//    }];
 
 }
 /*
@@ -219,18 +219,18 @@
 {
     [super viewDidAppear:animated];
     
-    if(!self.info.token)
-    {
-        if(self.gpsManager)
-        {
-            [self.gpsManager stopGPS];
-            self.gpsManager.delegate = nil;
-        }
-        
-        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
-        [del changeToLoginView];
-        return;
-    }
+//    if(!self.info.token)
+//    {
+//        if(self.gpsManager)
+//        {
+//            [self.gpsManager stopGPS];
+//            self.gpsManager.delegate = nil;
+//        }
+//        
+//        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+//        [del changeToLoginView];
+//        return;
+//    }
     
      //If we are not syncing, check home address - but only if we are not the delegate yet
     if(![self.gpsManager.delegate isEqual:self])
@@ -309,6 +309,7 @@
 
 #pragma mark Sync
 
+//TODO: Handle bad sync
 -(void)tokenNotFound
 {
     [self.info resetInfo];
@@ -316,6 +317,7 @@
     //ViewWillAppear takes care of the rest
 }
 
+//TODO: Handle finsihed sync
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
 {
     //Insert into coredata
@@ -331,17 +333,17 @@
     self.info.home_loc = profile.homeCoordinate;
     self.info.profileId = profile.profileId;
     
-    for (Token* tkn in profile.tokens) {
-        if([tkn.guid isEqualToString:self.info.token.guid])
-        {
-            if(![tkn.status isEqualToString:@"1"])
-            {
-                self.info.token = nil;
-            }
-            
-            break;
-        }
-    }
+//    for (Token* tkn in profile.tokens) {
+//        if([tkn.guid isEqualToString:self.info.token.guid])
+//        {
+//            if(![tkn.status isEqualToString:@"1"])
+//            {
+//                self.info.token = nil;
+//            }
+//            
+//            break;
+//        }
+//    }
     
     [self.info saveInfo];
     
