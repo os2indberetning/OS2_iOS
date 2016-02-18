@@ -883,7 +883,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS Nøjagtighed: 100 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkJ-wr-Tdv" userLabel="GPS Accuracy Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venter på GPS signal..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkJ-wr-Tdv" userLabel="GPS Accuracy Label">
                                 <rect key="frame" x="16" y="105" width="568" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="zAz-Nh-l6Y"/>

@@ -35,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (nonatomic) BOOL isPaused;
 
+@property (nonatomic) BOOL shouldWaitForGPSSettle;
+
 @property BOOL shouldWarnUserOfInaccuracy;
 
 @property BOOL validateResume;
@@ -45,7 +47,7 @@
 
 @implementation DriveViewController
 
-
+const double SETTLE_TIME_S = 5;
 
 -(void)setupVisuals
 {
@@ -74,6 +76,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.shouldWaitForGPSSettle = true;
+    
     // Do any additional setup after loading the view.
     self.gpsManager = [GPSManager sharedGPSManager];
     self.gpsManager.delegate = self;
@@ -100,9 +104,19 @@
     
     if(!self.isPaused)
     {
+        [self startGPSSettleTimer];
         [self.gpsManager startGPS];
-        
     }
+}
+
+-(void) startGPSSettleTimer{
+    [NSTimer scheduledTimerWithTimeInterval:SETTLE_TIME_S target:self selector:@selector(toggleShouldWaitForGPSSettle) userInfo:nil repeats:NO];
+}
+
+-(void) toggleShouldWaitForGPSSettle{
+    self.shouldWaitForGPSSettle = !self.shouldWaitForGPSSettle;
+    NSLog(@"Toggle wait for gps to: %@", self.shouldWaitForGPSSettle ? @"TRUE" : @"FALSE");
+    [self.gpsManager startGPS];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -216,8 +230,16 @@
 
 -(void)didUpdatePrecision:(float)precision
 {
-    NSLog(@"Updating accuracy label with: %f", precision);
-    self.gpsAccuaryLabel.text = [NSString stringWithFormat:@"GPS nøjagtighed: %.2f m", precision];
+    if(!self.shouldWaitForGPSSettle){
+        NSLog(@"Updating accuracy label with: %f", precision);
+        self.gpsAccuaryLabel.text = [NSString stringWithFormat:@"GPS nøjagtighed: %.2f m", precision];
+        
+        NSLog(@"Precision update triggered driven label update");
+        self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
+    }else{
+        NSLog(@"Received precision update - but waiting for GPS to settle");
+    }
+    
 }
 
 -(void)gotNewGPSCoordinate:(CLLocation *)location
@@ -232,73 +254,74 @@
     //distances in meters.
     
     //If location is older than 15 seconds - discard it
-    if (fabs(howRecent) < 15.0 || location.horizontalAccuracy < accuracyThreshold)
-    {
-        CLLocationDegrees lat = location.coordinate.latitude;
-        CLLocationDegrees lng = location.coordinate.longitude;
-        if(location.horizontalAccuracy == 0.0){
-            NSLog(@"Location had accuracy 0 -> discarding it");
-            return;
-        }
-        else if(!self.locA)
+    if(!self.shouldWaitForGPSSettle){
+        if (fabs(howRecent) < 15.0 || location.horizontalAccuracy < accuracyThreshold)
         {
-            self.locA = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
-            NSLog(@"Logged first location | Accuracy: %f", location.horizontalAccuracy);
-        }
-        else
-        {
-            NSLog(@"Not first coordinate");
-            CLLocation *locB = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
-            CLLocationDistance distance = [self.locA distanceFromLocation:locB];
-            if (!_shouldWarnUserOfInaccuracy && distance > maxDistanceBetweenLocations) {
-                _shouldWarnUserOfInaccuracy = YES;
+            CLLocationDegrees lat = location.coordinate.latitude;
+            CLLocationDegrees lng = location.coordinate.longitude;
+            if(!self.locA)
+            {
+                self.locA = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+                NSLog(@"Logged first location | Accuracy: %f", location.horizontalAccuracy);
             }
-            
-            //If distance is smaller than accuracy, ignore point
-            if (distance < location.horizontalAccuracy) {
-                NSLog(@"Distance < accuracy | %f < %f", distance, location.horizontalAccuracy);
-                return;
-            }else{
-                NSLog(@"Distance > accuracy | %f > %f", distance, location.horizontalAccuracy);
-                if(self.validateResume){
-                    NSLog(@"Validating resume");
-                    if(distance>200){
-                        _isShowingDialogForValidation = YES;
-                        //alert and pause and discard point
-                        [self togglePauseResume];
-                        [self showInvalidLocationResume];
-                        NSLog(@"Failed: Distance was over 200...");
-                        return;
-                    }else{
-                        NSLog(@"Succes: could resumse");
-                        self.validateResume = NO;
-                    }
+            else
+            {
+                NSLog(@"Not first coordinate");
+                CLLocation *locB = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+                CLLocationDistance distance = [self.locA distanceFromLocation:locB];
+                if (!_shouldWarnUserOfInaccuracy && distance > maxDistanceBetweenLocations) {
+                    _shouldWarnUserOfInaccuracy = YES;
                 }
                 
-                self.locA = locB;
-                
-                NSLog(@"Old distance: %f", self.totalDistance);
-                self.totalDistance += distance;
-                NSLog(@"New distance: %f", self.totalDistance );
+                //If distance is smaller than accuracy, ignore point
+                if (distance < location.horizontalAccuracy) {
+                    NSLog(@"Distance < accuracy | %f < %f", distance, location.horizontalAccuracy);
+                    return;
+                }else{
+                    NSLog(@"Distance > accuracy | %f > %f", distance, location.horizontalAccuracy);
+                    if(self.validateResume){
+                        NSLog(@"Validating resume");
+                        if(distance>200){
+                            _isShowingDialogForValidation = YES;
+                            //alert and pause and discard point
+                            [self togglePauseResume];
+                            [self showInvalidLocationResume];
+                            NSLog(@"Failed: Distance was over 200...");
+                            return;
+                        }else{
+                            NSLog(@"Succes: could resumse");
+                            self.validateResume = NO;
+                        }
+                    }
+                    
+                    self.locA = locB;
+                    
+                    NSLog(@"Old distance: %f", self.totalDistance);
+                    self.totalDistance += distance;
+                    NSLog(@"New distance: %f", self.totalDistance );
+                }
             }
+            NSLog(@"Updating total distance (meters): %f", self.totalDistance);
+            NSLog(@"Updating total distance (km): %f", self.totalDistance/1000.0f);
+            self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
+            
+            NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
+            self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Sidst opdateret kl: %@", timeString];
+            
+            GpsCoordinates *cor = [[GpsCoordinates alloc] init];
+            cor.loc = self.locA;
+            
+            [self.report.route.coordinates addObject:cor];
+            
+            //Set if we are currently close to home
+            self.isCloseToHome = ([self.locA distanceFromLocation:self.ui.home_loc] < 500);
+        }else{
+            NSLog(@"Location age: %f | LocationAccuracy: %f", howRecent, location.horizontalAccuracy);
         }
-        NSLog(@"Updating total distance (meters): %f", self.totalDistance);
-        NSLog(@"Updating total distance (km): %f", self.totalDistance/1000.0f);
-        self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
-        
-        NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
-        self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Sidst opdateret kl: %@", timeString];
-        
-        GpsCoordinates *cor = [[GpsCoordinates alloc] init];
-        cor.loc = self.locA;
-        
-        [self.report.route.coordinates addObject:cor];
-        
-        //Set if we are currently close to home
-        self.isCloseToHome = ([self.locA distanceFromLocation:self.ui.home_loc] < 500);
     }else{
-        NSLog(@"Location age: %f | LocationAccuracy: %f", howRecent, location.horizontalAccuracy);
+        NSLog(@"Waiting for GPS to settle");
     }
+    
 }
 
 
