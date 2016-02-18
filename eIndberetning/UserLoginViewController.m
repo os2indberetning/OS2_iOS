@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 //Fields
 @property (strong, nonatomic) eMobilityHTTPSClient *client;
@@ -65,6 +66,10 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[self navigationItem] setBackBarButtonItem:backButton];
     
+    //Set loading spinner color
+    [self.loadingSpinner setColor:info.appInfo.PrimaryColor];
+    self.loadingSpinner.hidden = YES;
+    
     //Set title for navbar
     [self setTitle:@"Log ind"];
     
@@ -98,12 +103,18 @@
         return;
     }
     
+    self.loadingSpinner.hidden = NO;
+    [self.loadingSpinner startAnimating];
+    
     NSLog(@"Logging in...");
     [self.client credentialsLogin:
                         self.usernameInput.text
                         password:self.passwordInput.text
     withBlock:^(NSURLSessionTask *task, id responseObject)
      {
+         self.loadingSpinner.hidden = YES;
+         [self.loadingSpinner stopAnimating];
+         
          NSLog(@"%@", responseObject);
          
          UserInfo* info = [UserInfo sharedManager];
@@ -137,13 +148,19 @@
     }
     failBlock:^(NSURLSessionTask *task, NSError *error)
     {
+        self.loadingSpinner.hidden = YES;
+        [self.loadingSpinner stopAnimating];
          NSInteger errorCode = [error.userInfo[ErrorCodeKey] intValue];
         
         NSString* errorString = error.userInfo[ErrorMessageKey];
         
+        if (errorCode == 0) {
+            errorString = @"Ingen internet forbindelse";
+        }
         [self handleErrorForMessage:errorString];
         
      }];
+    
     
 }
 

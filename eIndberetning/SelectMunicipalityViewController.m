@@ -9,12 +9,15 @@
 //
 
 #import "SelectMunicipalityViewController.h"
+#import "ErrorMsgViewController.h"
 #import "AFHTTPSessionManager.h"
 
 @interface SelectMunicipalityViewController ()
 @property (nonatomic, strong) NSArray* municipalityList;
 @property (nonatomic) BOOL isLoading;
 @property (nonatomic, strong) AppInfo* selectedAppInfo;
+
+@property (nonatomic, strong) ErrorMsgViewController* errorMsg;
 @end
 
 static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAPI/api/";
@@ -46,6 +49,8 @@ NSString* municipalityCell = @"MunicipalityCell";
         
     } failBlock:^(NSURLSessionDataTask *task, NSError *error) {
         
+        self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+        [self.errorMsg showErrorMsg: @"Der skete en fejl."];
         NSLog(@"Fail!: %@", error);
         //Could not connect, some error happend
         

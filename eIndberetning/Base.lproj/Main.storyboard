@@ -290,13 +290,19 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KrV-f5-sdg">
+                                <rect key="frame" x="282" y="332" width="37" height="37"/>
+                                <color key="color" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Tus-7h-1IS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="onD-Nw-blY" secondAttribute="bottom" constant="16" id="0Dd-bi-B3j"/>
                             <constraint firstItem="1du-V2-pOq" firstAttribute="top" secondItem="okr-Ix-DXE" secondAttribute="bottom" constant="8" id="15C-QF-jzh"/>
+                            <constraint firstItem="KrV-f5-sdg" firstAttribute="top" secondItem="onD-Nw-blY" secondAttribute="bottom" constant="8" id="9ZJ-1f-5IR"/>
                             <constraint firstItem="okr-Ix-DXE" firstAttribute="top" secondItem="yb5-mB-06S" secondAttribute="bottom" constant="20" id="IHX-Fd-Acd"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1du-V2-pOq" secondAttribute="leading" id="Jb3-N7-4DG"/>
+                            <constraint firstItem="KrV-f5-sdg" firstAttribute="centerX" secondItem="ysz-Oe-c1o" secondAttribute="centerX" id="P1K-T2-xrr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Rut-Y7-vqc" secondAttribute="leading" id="SWr-Wv-kJD"/>
                             <constraint firstItem="onD-Nw-blY" firstAttribute="top" secondItem="Rut-Y7-vqc" secondAttribute="bottom" constant="20" id="UTt-Fo-d7w"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Fsw-Vh-Vk4" secondAttribute="leading" id="VQf-49-XFc"/>
@@ -312,6 +318,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingSpinner" destination="KrV-f5-sdg" id="Pan-r8-262"/>
                         <outlet property="loginButton" destination="onD-Nw-blY" id="YpG-rg-WEN"/>
                         <outlet property="passwordInput" destination="Rut-Y7-vqc" id="Aso-SE-xYt"/>
                         <outlet property="usernameInput" destination="1du-V2-pOq" id="QnR-hr-8Wb"/>
