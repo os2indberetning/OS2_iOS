@@ -21,8 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-//    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-//    [self chooseFirstView];
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    [self chooseFirstView];
     
     return YES;
 }
@@ -38,24 +38,24 @@
     return YES;
 }
 
-
 -(void)chooseFirstView
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
-    //TODO: Handle invalid login info
-//    if(!info.token){
-//        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"selectMunicipalityNavigationViewController"];
-//        self.window.rootViewController = viewController;
-//    } else {
+    if(!info.authorization || !info.authorization.guId){
+        //Force login since no authorization or guId were stored for user
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"selectMunicipalityNavigationViewController"];
+        self.window.rootViewController = viewController;
+    } else {
+        //Skip login since we have a user logged in
         eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
         [client setBaseUrl:[NSURL URLWithString:info.appInfo.APIUrl]];
         
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"startViewController"];
         self.window.rootViewController = viewController;
-//    }
+    }
 }
 
 -(void)changeToLoginView

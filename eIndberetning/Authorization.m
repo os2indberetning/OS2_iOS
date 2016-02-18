@@ -22,7 +22,7 @@
     return auth;
 }
 
--(NSDictionary *) transformToDictionary {
+-(NSDictionary *) transformGuIdToDictionary {
     NSDictionary *authDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.guId, @"GuId", nil];
     
     return authDic;

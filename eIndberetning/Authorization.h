@@ -16,6 +16,6 @@
 @property (nonatomic, strong) NSString* guId;
 
 +(Authorization *) initFromJsonDic:(NSDictionary *)dic;
--(NSDictionary *) transformToDictionary;
+-(NSDictionary *) transformGuIdToDictionary;
 
 @end

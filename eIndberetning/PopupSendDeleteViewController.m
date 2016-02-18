@@ -46,19 +46,17 @@
 - (IBAction)onResendClicked:(id)sender {
     UserInfo* info = [UserInfo sharedManager];
     
-    //TODO: Handle resend with guId
-    
-//    Token * token =info.token;
-//    eMobilityHTTPSClient* client =  [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
-//    [client postSavedDriveReport:_reportToShow forToken:token withBlock:^(NSURLSessionDataTask *task, id resonseObject) {
-//            //worked, remove from list and refresh
-//        [Settings removeSavedReport:self.reportToShow];
-//        [self removeAnimate];
-//    } failBlock:^(NSURLSessionDataTask *task, NSError *error) {
-//        [self removeAnimate];
-//        [self.view.superview makeToast:@"Kunne ikke sende rapporten, prøv igen senere"];
-//        NSLog(@"failed resending %@", error.localizedDescription);
-//    }];
+    eMobilityHTTPSClient* client =  [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
+    [client postSavedDriveReport:_reportToShow forAuthorization:info.authorization withBlock:^(NSURLSessionDataTask *task, id resonseObject) {
+                    //worked, remove from list and refresh
+                [Settings removeSavedReport:self.reportToShow];
+                NSLog(@"Saved report was uploaded");
+                [self removeAnimate];
+            } failBlock:^(NSURLSessionDataTask *task, NSError *error) {
+                [self removeAnimate];
+                [self.view.superview makeToast:@"Kunne ikke sende rapporten, prøv igen senere"];
+                NSLog(@"failed resending %@", error.localizedDescription);
+            }];
 }
 -(void) setReport:(SavedReport *)report{
     self.reportToShow = report;

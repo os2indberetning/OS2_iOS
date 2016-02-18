@@ -74,67 +74,27 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : info.appInfo.TextColor}];
     
-    /*   self.refreshControl.backgroundColor = info.appInfo.SecondaryColor;
-     self.refreshControl.tintColor = info.appInfo.PrimaryColor;*/
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Compare last sync date and current date, to see if we should sync, or simply load from coredata
+    //Add listeners for sync
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(syncUserInfo) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setForceSync) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
     self.info = [UserInfo sharedManager];
     [self.info loadInfo];
-    
-    if([self.info isLastSyncDateNotToday])
-    {
-        self.shouldSync = true;
-    }
-    else
-    {
-        [self loadReport];
-    }
     
     self.gpsManager = [GPSManager sharedGPSManager];
     
     self.tableView.rowHeight = 44;
     
-    /*  self.refreshControl = [[UIRefreshControl alloc] init];
-     [self.refreshControl addTarget:self
-     action:@selector(manualRefresh)
-     forControlEvents:UIControlEventValueChanged];
-     
-     */
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setupVisuals];
-//    self.shouldSync = false;
-//    __block UIActivityIndicatorView * indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    indicator.center =self.view.center;
-//    indicator.frame = [self.navigationController view].frame;
-//    indicator.backgroundColor = [UIColor colorWithRed:0.6667 green:0.6667 blue:0.6667 alpha:0.50];
-//    [self.view addSubview:indicator];
-//    [indicator startAnimating];
-//    [SyncHelper doSync:^(Profile * profile, NSArray * rates) {
-//        [indicator removeFromSuperview];
-//        [self didFinishSyncWithProfile:profile AndRate:rates];
-//    } withErrorCallback:^(NSInteger errorCode) {
-//        [indicator removeFromSuperview];
-//        if(errorCode==0){
-//            return;
-//        }
-//        [self tokenNotFound];
-//    }];
 
+    self.shouldSync = true;
 }
-/*
- -(void)manualRefresh
- {
- //Stop gps, and remove delegate (cause we need to refresh with the new information)
- [self.gpsManager stopGPS];
- self.gpsManager.delegate = nil;
- 
- [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
- [self.refreshControl endRefreshing];
- }*/
 
 -(void)loadReport
 {
@@ -172,6 +132,10 @@
 {
     [super viewWillAppear:animated];
     
+    [self syncUserInfo];
+}
+
+-(void)fillViewWithData{
     if(self.report.shouldReset){
         [self loadReport];
     }
@@ -211,26 +175,21 @@
             [_MissingReportsLabel setHidden:YES];
         }
     }
-    
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-//    if(!self.info.token)
-//    {
-//        if(self.gpsManager)
-//        {
-//            [self.gpsManager stopGPS];
-//            self.gpsManager.delegate = nil;
-//        }
-//        
-//        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
-//        [del changeToLoginView];
-//        return;
-//    }
+    if(!self.info.authorization){
+        if(self.gpsManager){
+            [self.gpsManager stopGPS];
+            self.gpsManager = nil;
+        }
+        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+        [del changeToLoginView];
+        return;
+    }
     
      //If we are not syncing, check home address - but only if we are not the delegate yet
     if(![self.gpsManager.delegate isEqual:self])
@@ -309,17 +268,56 @@
 
 #pragma mark Sync
 
+-(void)setForceSync{
+    self.shouldSync = true;
+}
+
+-(void)syncUserInfo{
+    if(self.shouldSync && self.navigationController.topViewController == self){
+        NSLog(@"Syncing userInfo from StartDriveVC");
+        __block UIActivityIndicatorView * indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        indicator.center =self.view.center;
+        indicator.frame = [self.navigationController view].frame;
+        indicator.backgroundColor = [UIColor colorWithRed:0.6667 green:0.6667 blue:0.6667 alpha:0.50];
+        [self.view addSubview:indicator];
+        [indicator startAnimating];
+        
+        //Sync user
+        [SyncHelper doSync:^(Profile * profile, NSArray * rates) {
+            [indicator removeFromSuperview];
+            [self didFinishSyncWithProfile:profile AndRate:rates];
+            
+            //Waiting till after sync has completed to fill in data
+            [self fillViewWithData];
+        } withErrorCallback:^(NSInteger errorCode) {
+            [indicator removeFromSuperview];
+            if(errorCode==0){
+                return;
+            }
+            [self syncFailed];
+        }];
+    }else{
+        //If we shouldn't sync, just fill in data already
+        NSLog(@"Skipped sync - filling view with data");
+        [self fillViewWithData];
+    }
+    
+}
+
 //TODO: Handle bad sync
--(void)tokenNotFound
+-(void)syncFailed
 {
+    //TODO: Perform logout!
     [self.info resetInfo];
     [self.info saveInfo];
-    //ViewWillAppear takes care of the rest
+    
+    //TODO: Force provider selection
 }
 
 //TODO: Handle finsihed sync
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
 {
+    
     //Insert into coredata
     [self.CDManager deleteAllObjects:@"CDRate"];
     [self.CDManager deleteAllObjects:@"CDEmployment"];
@@ -333,21 +331,13 @@
     self.info.home_loc = profile.homeCoordinate;
     self.info.profileId = profile.profileId;
     
-//    for (Token* tkn in profile.tokens) {
-//        if([tkn.guid isEqualToString:self.info.token.guid])
-//        {
-//            if(![tkn.status isEqualToString:@"1"])
-//            {
-//                self.info.token = nil;
-//            }
-//            
-//            break;
-//        }
-//    }
+    self.info.authorization = profile.authorization;
     
     [self.info saveInfo];
     
-    // [self loadReport];
+    self.shouldSync = false;
+    
+    [self loadReport];
 }
 
 #pragma mark GPSUpdateDelegate
@@ -405,6 +395,9 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //Force sync next time this view is shown
+    self.shouldSync = true;
     
     if ([[segue identifier] isEqualToString:@"DriveViewSegue"])
     {

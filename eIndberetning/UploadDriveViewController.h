@@ -14,8 +14,7 @@
 
 @protocol DidUploadDelegate
 -(void)didFinishUpload;
--(void)tokenNotFound;
--(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
+-(void)authorizationNotFound;
 @end
 
 @interface UploadDriveViewController : UIViewController

@@ -76,7 +76,7 @@ const double WAIT_TIME_S = 1.5;
     _savedReport.createdAt = [NSDate new];
     [Settings addSavedReport:_savedReport];
     NSLog(@"dic: %@", myString);
-    [self doSync];
+    [self uploadReport];
 }
 
 // MARK: Reportcontent checker methods
@@ -109,7 +109,7 @@ const double WAIT_TIME_S = 1.5;
     }
 }
 
--(void)doSync
+-(void)uploadReport
 {
     
     UserInfo* info = [UserInfo sharedManager];
@@ -118,51 +118,39 @@ const double WAIT_TIME_S = 1.5;
     [self.spinner startAnimating];
     
     //TODO: Handle upload with new endpoint and guId
-//    [client postDriveReport:self.report forToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
-//     {
-//         [self.spinner stopAnimating];
-//         self.spinner.hidden = YES;
-//         [Settings removeSavedReport:_savedReport];
-//         //Optional: also sync userdata on succesfull submit
-////         NSDictionary *profileDic = [resonseObject objectForKey:@"profile"];
-////         NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
-////         
-////         self.profile = [Profile initFromJsonDic:profileDic];
-////         self.rates = [Rate initFromJsonDic:rateDic];
-//         //Optional
-//         
-//        self.infoText.text = @"Din indberetning er modtaget.";
-//        [NSTimer scheduledTimerWithTimeInterval:WAIT_TIME_S target:self selector:@selector(succesSync) userInfo:nil repeats:NO];
-//     }
-//     failBlock:^(NSURLSessionTask * task, NSError *Error)
-//     {
-//         self.spinner.hidden = YES;
-//         [self.spinner stopAnimating];
-//         NSLog(@"%@", Error);
-//         
-//         NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
-//         [self failSyncWithErrorCode:(NSInteger)errorCode];
-//     }];
+    
+    [client postDriveReport:self.report forAuthorization:info.authorization withBlock:^(NSURLSessionTask *task, id resonseObject)
+          {
+              [self.spinner stopAnimating];
+              self.spinner.hidden = YES;
+              [Settings removeSavedReport:_savedReport];
+     
+             self.infoText.text = @"Din indberetning er modtaget.";
+             [NSTimer scheduledTimerWithTimeInterval:WAIT_TIME_S target:self selector:@selector(uploadSuccess) userInfo:nil repeats:NO];
+          }
+              failBlock:^(NSURLSessionTask * task, NSError *Error)
+          {
+              self.spinner.hidden = YES;
+              [self.spinner stopAnimating];
+              NSLog(@"%@", Error);
+     
+              NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
+              [self uploadFailWithErrorCode:(NSInteger)errorCode];
+      }];
 }
 
-//TODO: Remove this, sync will be done in StartVC
--(void) succesSync
+-(void) uploadSuccess
 {
-    //Optional: also sync userdata on succesfull submit
-    [self.delegate didFinishSyncWithProfile:self.profile AndRate:self.rates];
-    //Optional
     [self dismissViewControllerAnimated:true completion:nil];
-    
-    //TODO: Figure out how to handle succes upload
     [self.delegate didFinishUpload];
 }
 
-- (void) failSyncWithErrorCode:(NSInteger)errorCode
+- (void) uploadFailWithErrorCode:(NSInteger)errorCode
 {
     //Handle errors with guId instead of token
     if(errorCode == TokenNotFound)
     {
-        [self.delegate tokenNotFound];
+        [self.delegate authorizationNotFound];
         [self dismissViewControllerAnimated:true completion:nil];
     }
     else
@@ -181,7 +169,7 @@ const double WAIT_TIME_S = 1.5;
     self.cancelButton.hidden = true;
     
     self.infoText.text = @"Uploader kørselsdata";
-    [self doSync];
+    [self uploadReport];
 }
 
 //This is action called alongside an unwind to StartDriveTableViewVC

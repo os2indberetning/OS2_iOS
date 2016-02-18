@@ -100,12 +100,6 @@
         [alert show];
     }
 }
-/*
--(void)manualRefresh
-{
-    [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
-    [self.refreshControl endRefreshing];
-}*/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -219,32 +213,25 @@
 }
 
 - (IBAction)submitButton:(id)sender {
-    
-    if([self.info isLastSyncDateNotToday])
+
+    if(!self.report.purpose)
     {
-        [self performSegueWithIdentifier:@"ShowSyncSegue" sender:self];
+        self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+        [self.errorMsg showErrorMsg: @"Du mangler at vælge\net formål"];
+    }
+    else if(!self.report.rate)
+    {
+        self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+        [self.errorMsg showErrorMsg: @"Du mangler at vælge\nen takst"];
+    }
+    else if(!self.report.employment)
+    {
+        self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+        [self.errorMsg showErrorMsg: @"Du mangler at vælge\nen stilling"];
     }
     else
     {
-        if(!self.report.purpose)
-        {
-            self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-            [self.errorMsg showErrorMsg: @"Du mangler at vælge\net formål"];
-        }
-        else if(!self.report.rate)
-        {
-            self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-            [self.errorMsg showErrorMsg: @"Du mangler at vælge\nen takst"];
-        }
-        else if(!self.report.employment)
-        {
-            self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-            [self.errorMsg showErrorMsg: @"Du mangler at vælge\nen stilling"];
-        }
-        else
-        {
-            [self performSegueWithIdentifier:@"UploadDriveSegue" sender:self];
-        }
+        [self performSegueWithIdentifier:@"UploadDriveSegue" sender:self];
     }
 }
 
@@ -256,35 +243,12 @@
     [self.navigationController popToRootViewControllerAnimated:true];
 }
 
-#pragma mark - Sync
-
-
--(void)tokenNotFound
+-(void)authorizationNotFound
 {
     //TODO: Rename and use as guId not found (Essentially do a logout clear)
     [self.info resetInfo];
     [self.info saveInfo];
     //ViewWillAppear takes care of the rest
-}
-
-//TODO: This should only be done in StartDrive
--(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
-{
-    //Insert into coredate
-    [self.CDManager deleteAllObjects:@"CDRate"];
-    [self.CDManager deleteAllObjects:@"CDEmployment"];
-    
-    [self.CDManager insertEmployments:profile.employments];
-    [self.CDManager insertRates:rates];
-    
-    //Transfer userdata to local userinfo object
-    self.info.last_sync_date = [NSDate date];
-    self.info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
-    self.info.home_loc = profile.homeCoordinate;
-    self.info.profileId = profile.profileId;
-    
-    [self.info saveInfo];
-    [self reloadReport];
 }
 
 -(void)reloadReport
@@ -320,11 +284,6 @@
     {
         EditKmViewController *vc = [segue destinationViewController];
         vc.route = self.report.route;
-    }
-    else if ([[segue identifier] isEqualToString:@"ShowSyncSegue"])
-    {
-        SyncViewController *vc = [segue destinationViewController];
-        vc.delegate = self;
     }
     else if ([[segue identifier] isEqualToString:@"UploadDriveSegue"])
     {

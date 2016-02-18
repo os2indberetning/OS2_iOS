@@ -236,14 +236,14 @@
     {
         CLLocationDegrees lat = location.coordinate.latitude;
         CLLocationDegrees lng = location.coordinate.longitude;
-        if(location.horizontalAccuracy == 0){
+        if(location.horizontalAccuracy == 0.0){
             NSLog(@"Location had accuracy 0 -> discarding it");
             return;
         }
         else if(!self.locA)
         {
             self.locA = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
-            NSLog(@"Logged first location | Accuracy: %f", self.locA.horizontalAccuracy);
+            NSLog(@"Logged first location | Accuracy: %f", location.horizontalAccuracy);
         }
         else
         {

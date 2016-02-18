@@ -10,7 +10,6 @@
 
 #import "Profile.h"
 #import "Employment.h"
-//#import "Token.h"
 
 @implementation Profile
 
@@ -36,7 +35,6 @@
         p.homeCoordinate = nil;
     }
     
-//    p.tokens = [Token initFromJsonDic:[dic objectForKey:@"Tokens"]];
     p.employments = [Employment initFromJsonDic:[dic objectForKey:@"Employments"]];
     
     p.profileId = @([[dic objectForKey:@"Id"] integerValue]);

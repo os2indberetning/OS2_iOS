@@ -39,7 +39,7 @@ enum ErrorCodes : NSInteger
 
 - (void)setBaseUrl:(NSURL *)url;
 
--(void)getUserInfoForGuId:(NSString*) guId withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
+-(void)getUserInfoForGuId:(Authorization *) auth withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))success failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 
 -(void)credentialsLogin:(NSString*)username password:(NSString*)password withBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))success failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 

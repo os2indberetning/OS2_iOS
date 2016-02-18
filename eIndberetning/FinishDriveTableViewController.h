@@ -10,11 +10,10 @@
 
 #import <UIKit/UIKit.h>
 #import "DriveReport.h"
-#import "SyncViewController.h"
 #import "ConfirmDeleteViewController.h"
 #import "UploadDriveViewController.h"
 
-@interface FinishDriveTableViewController : UITableViewController <DidSyncDelegate,ConfirmDeletePopupDelegate,DidUploadDelegate>
+@interface FinishDriveTableViewController : UITableViewController <ConfirmDeletePopupDelegate,DidUploadDelegate>
 @property (nonatomic,strong) DriveReport* report;
 @property BOOL shouldShowInAccuracyWarning;
 @end

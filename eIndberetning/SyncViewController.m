@@ -112,7 +112,7 @@ const double MIN_WAIT_TIME_S = 2;
     }
     else if(errorCode == TokenNotFound)
     {
-        [self.delegate tokenNotFound];
+        [self.delegate syncFailed];
         [self dismissViewControllerAnimated:false completion:nil];
     }
 }

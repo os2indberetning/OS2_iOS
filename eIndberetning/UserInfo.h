@@ -13,7 +13,6 @@
 #import "Employment.h"
 #import "Rate.h"
 #import "Purpose.h"
-//#import "Token.h"
 #import "AppInfo.h"
 #import "Authorization.h"
 
@@ -26,7 +25,6 @@
 @property (nonatomic, strong) Purpose* last_purpose;
 @property (nonatomic, strong) Employment* last_employment;
 @property (nonatomic, strong) Rate* last_rate;
-//@property (nonatomic, strong) Token* token;
 @property (nonatomic, strong) NSDate* last_sync_date;
 
 @property (nonatomic, strong) Authorization *authorization;
@@ -35,6 +33,5 @@
 -(void)resetInfo;
 -(void)saveInfo;
 -(void)loadInfo;
--(BOOL)isLastSyncDateNotToday;
 
 @end

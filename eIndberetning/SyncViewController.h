@@ -15,7 +15,7 @@
 
 @protocol DidSyncDelegate
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
--(void)tokenNotFound;
+-(void)syncFailed;
 @end
 
 @interface SyncViewController : UIViewController
