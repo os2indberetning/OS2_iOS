@@ -102,19 +102,19 @@ const double MIN_WAIT_TIME_S = 2;
 
 -(void) failSyncWithErrorCode:(NSInteger)errorCode
 {
-    //TODO: Fix errorcodes according to guId and NOT token
-    if(errorCode == UnknownError)
-    {
-        //Change text, hide spinner, show retry-button
-        self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen?";
-        self.spinner.hidden = true;
-        self.tryAgianButton.hidden = false;
-    }
-    else if(errorCode == TokenNotFound)
-    {
-        [self.delegate syncFailed];
-        [self dismissViewControllerAnimated:false completion:nil];
-    }
+//    //TODO: Fix errorcodes according to guId and NOT token
+//    if(errorCode == UnknownError)
+//    {
+//        //Change text, hide spinner, show retry-button
+//        self.infoText.text = @"Noget gik galt i synkroniseringen med serveren. Prøve igen?";
+//        self.spinner.hidden = true;
+//        self.tryAgianButton.hidden = false;
+//    }
+//    else if(errorCode == TokenNotFound)
+//    {
+//        [self.delegate syncFailed];
+//        [self dismissViewControllerAnimated:false completion:nil];
+//    }
 }
 
 - (IBAction)tryAgianButtonPressed:(id)sender {

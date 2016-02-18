@@ -34,6 +34,7 @@
             
             if(e == nil && JSON[@"ErrorCode"] != nil)
             {
+                userInfo[ErrorMessageKey] = JSON[@"ErrorMessage"];
                 userInfo[ErrorCodeKey] = JSON[@"ErrorCode"];
             }
             else

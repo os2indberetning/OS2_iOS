@@ -40,7 +40,7 @@
     [super viewDidLoad];
     self.titleLabel.text = @"Fejl";
     self.errorLabel.text = self.errorString;
-    self.errorLabel.numberOfLines = 2;
+    self.errorLabel.numberOfLines = 3;
     
     [self setupVisuals];
 }

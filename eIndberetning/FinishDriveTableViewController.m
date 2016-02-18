@@ -245,6 +245,7 @@
 
 -(void)authorizationNotFound
 {
+    //TODO: Handle logout
     //TODO: Rename and use as guId not found (Essentially do a logout clear)
     [self.info resetInfo];
     [self.info saveInfo];

@@ -57,30 +57,17 @@ NSString* municipalityCell = @"MunicipalityCell";
 
 -(void)getAppInfoWithBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
 {
-#if !defined(MOCK)
     AFHTTPSessionManager* sessionManager = [[AFHTTPSessionManager manager] initWithBaseURL:[NSURL URLWithString:baseURL]];
     [sessionManager GET:@"AppInfo" parameters:nil success:succes failure:failure];
-#else
-    
-    succes(nil,@[
-                 @{
-                     @"Name":@"Favrskov",
-                     @"APIUrl":@"https://ework.favrskov.dk/FavrskovMobilityAPI/api/",
-                     @"ImgUrl":@"http://www.denstoredanske.dk/@api/deki/files/8935/=39997926.jpg",
-                     @"TextColor":@"#FFFFFF",
-                     @"PrimaryColor":@"#00665F",
-                     @"SecondaryColor":@"#DB813C"
-                     },
-                 @{
-                     @"Name":@"Syddjurs",
-                     @"APIUrl":@"https://ework.favrskov.dk/FavrskovMobilityAPI/api/",
-                     @"ImgUrl":@"https://www.syddjurs.dk/sites/default/files/vaabenskjold-ikon.png",
-                     @"TextColor":@"#FFFFFF",
-                     @"PrimaryColor":@"#6b2d52",
-                     @"SecondaryColor":@"#6583d3"
-                     }
-                 ]);
-#endif
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setBarTintColor:nil];
+    [self.navigationController.navigationBar setTintColor:nil];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
 }
 
 #pragma mark tableviewcontroller

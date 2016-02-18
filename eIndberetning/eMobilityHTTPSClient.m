@@ -27,27 +27,6 @@
     return _eMobilityHTTPSClient;
 }
 
-+ (NSString*)getErrorString:(NSInteger)errorcode
-{
-    //TODO: Handle error according to guId - NOT Token
-    switch (errorcode) {
-        case TokenNotFound:
-        {
-            return @"Dit token blev ikke fundet på serveren";
-            break;
-        }
-        case TokenAllreadyActivated:
-        {
-            return @"Dit token er allerede aktiveret";
-            break;
-        }
-            
-        default:
-            return @"Der opstod en ukendt fejl";
-            break;
-    }
-}
-
 - (void)setBaseUrl:(NSURL *)url
 {
     self.sessionManager = [[AFHTTPSessionManager manager] initWithBaseURL:url];

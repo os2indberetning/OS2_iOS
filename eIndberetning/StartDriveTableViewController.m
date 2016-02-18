@@ -37,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet CheckMarkImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startDriveButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 
 @property (strong, nonatomic) ErrorMsgViewController* errorMsg;
 @property (strong, nonatomic) NSArray *rates;
@@ -74,17 +75,28 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : info.appInfo.TextColor}];
     
+    [self.logoutButton setTitleTextAttributes:@{NSForegroundColorAttributeName:info.appInfo.SecondaryColor} forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.info = [UserInfo sharedManager];
+    [self.info loadInfo];
+    
+    if(!self.info.authorization){
+        if(self.gpsManager){
+            [self.gpsManager stopGPS];
+            self.gpsManager = nil;
+        }
+        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+        [del changeToLoginView];
+        return;
+    }
+    
     //Add listeners for sync
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(syncUserInfo) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setForceSync) name:UIApplicationDidEnterBackgroundNotification object:nil];
-    
-    self.info = [UserInfo sharedManager];
-    [self.info loadInfo];
     
     self.gpsManager = [GPSManager sharedGPSManager];
     
@@ -181,16 +193,6 @@
 {
     [super viewDidAppear:animated];
     
-    if(!self.info.authorization){
-        if(self.gpsManager){
-            [self.gpsManager stopGPS];
-            self.gpsManager = nil;
-        }
-        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
-        [del changeToLoginView];
-        return;
-    }
-    
      //If we are not syncing, check home address - but only if we are not the delegate yet
     if(![self.gpsManager.delegate isEqual:self])
     {
@@ -228,7 +230,7 @@
         vc.report = self.report;
         [self.navigationController pushViewController:vc animated:true];
     }
-    else if(indexPath.row < 4)
+    else if(indexPath.row > 1 && indexPath.row < 4)
     {
         SelectListTableViewController *vc=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
         vc.report = self.report;
@@ -292,6 +294,9 @@
         } withErrorCallback:^(NSInteger errorCode) {
             [indicator removeFromSuperview];
             if(errorCode==0){
+                self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+                [self.errorMsg showErrorMsg: @"Ingen internet forbindelse."];
+                [self fillViewWithData];
                 return;
             }
             [self syncFailed];
@@ -307,17 +312,14 @@
 //TODO: Handle bad sync
 -(void)syncFailed
 {
-    //TODO: Perform logout!
-    [self.info resetInfo];
-    [self.info saveInfo];
-    
-    //TODO: Force provider selection
+    //TODO: Handle bad sync with popup that has one option: logout
+    NSLog(@"Bad sync not handled");
+//    [self logoutButtonPressed:nil];
 }
 
 //TODO: Handle finsihed sync
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
 {
-    
     //Insert into coredata
     [self.CDManager deleteAllObjects:@"CDRate"];
     [self.CDManager deleteAllObjects:@"CDEmployment"];
@@ -415,9 +417,38 @@
 
 - (IBAction)unwindToStartDriveVC:(UIStoryboardSegue *)segue{
     BOOL shouldReset = self.report.shouldReset;
+    [self syncUserInfo];
     NSLog(@"Should reset: %d", shouldReset);
     NSLog(@"UnwindToStartDrive");
 }
+
+- (IBAction)logoutButtonPressed:(id)sender {
+    //Clear saved reports
+    NSMutableArray *savedReports = [Settings getAllSavedReports];
+    for (SavedReport *report in savedReports) {
+        [Settings removeSavedReport:report];
+    }
+    
+    //Clear userInfo
+    [self.info resetInfo];
+    
+    [self.info loadInfo];
+    
+    //Clear CoreData
+    [self.CDManager deleteAllObjects:@"CDRate"];
+    [self.CDManager deleteAllObjects:@"CDEmployment"];
+    [self.CDManager deleteAllObjects:@"CDPurpose"];
+    
+    //Stop GPS if active
+    if(self.gpsManager){
+        [self.gpsManager stopGPS];
+        self.gpsManager = nil;
+    }
+    
+    AppDelegate* del =  [[UIApplication sharedApplication] delegate];
+    [del changeToLoginView];
+}
+
 
 
 @end

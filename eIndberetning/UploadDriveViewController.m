@@ -147,20 +147,11 @@ const double WAIT_TIME_S = 1.5;
 
 - (void) uploadFailWithErrorCode:(NSInteger)errorCode
 {
-    //Handle errors with guId instead of token
-    if(errorCode == TokenNotFound)
-    {
-        [self.delegate authorizationNotFound];
-        [self dismissViewControllerAnimated:true completion:nil];
-    }
-    else
-    {
-        //Change text, hide spinner, show button
-        self.infoText.text = @"Der skete en fejl ved afsendelsen af din rapport! Prøv igen eller tryk på 'Gem' og send rapporten fra hovedmenuen på et andet tidspunkt.";
-        self.spinner.hidden = true;
-        self.tryAgianButton.hidden = false;
-        self.cancelButton.hidden = false;
-    }
+    //Change text, hide spinner, show button
+    self.infoText.text = @"Der skete en fejl ved afsendelsen af din rapport! Prøv igen eller tryk på 'Gem' og send rapporten fra hovedmenuen på et andet tidspunkt.";
+    self.spinner.hidden = true;
+    self.tryAgianButton.hidden = false;
+    self.cancelButton.hidden = false;
 }
 
 - (IBAction)tryAgianButtonPressed:(id)sender {

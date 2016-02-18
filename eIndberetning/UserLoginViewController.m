@@ -87,6 +87,17 @@
 
 - (IBAction)loginButtonPressed:(id)sender {
     
+    //Check if input fields are empty
+    if (self.usernameInput.text && !(self.usernameInput.text.length > 0)){
+        [self handleErrorForMessage:@"Du skal indtaste et brugernavn"];
+        return;
+    }
+    
+    if (self.passwordInput.text && !(self.passwordInput.text.length > 0)){
+        [self handleErrorForMessage:@"Du skal indtaste et password"];
+        return;
+    }
+    
     NSLog(@"Logging in...");
     [self.client credentialsLogin:
                         self.usernameInput.text
@@ -127,21 +138,27 @@
     failBlock:^(NSURLSessionTask *task, NSError *error)
     {
          NSInteger errorCode = [error.userInfo[ErrorCodeKey] intValue];
-         NSString* errorString = [eMobilityHTTPSClient getErrorString:errorCode];
-         
-         self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-         [self.errorMsg showErrorMsg: errorString];
-         
-         CAKeyframeAnimation * anim = [ CAKeyframeAnimation animationWithKeyPath:@"transform" ] ;
-         anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-5.0f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(5.0f, 0.0f, 0.0f) ] ] ;
-         anim.autoreverses = YES ;
-         anim.repeatCount = 2.0f ;
-         anim.duration = 0.07f ;
-         
-         [self.loginButton.layer addAnimation:anim forKey:nil];
-         NSLog(@"%@", error);
+        
+        NSString* errorString = error.userInfo[ErrorMessageKey];
+        
+        [self handleErrorForMessage:errorString];
+        
      }];
     
+}
+
+-(void) handleErrorForMessage:(NSString *) message{
+    self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+    [self.errorMsg showErrorMsg: message];
+    
+    CAKeyframeAnimation * anim = [ CAKeyframeAnimation animationWithKeyPath:@"transform" ] ;
+    anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-5.0f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(5.0f, 0.0f, 0.0f) ] ] ;
+    anim.autoreverses = YES ;
+    anim.repeatCount = 2.0f ;
+    anim.duration = 0.07f ;
+    
+    [self.loginButton.layer addAnimation:anim forKey:nil];
+    NSLog(@"Error message to show: %@", message);
 }
 
 /*

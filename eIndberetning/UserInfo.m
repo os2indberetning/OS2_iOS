@@ -34,6 +34,7 @@
     self.last_sync_date = nil;
     
     self.authorization = nil;
+    [self saveInfo];
 }
 
 -(void)saveInfo

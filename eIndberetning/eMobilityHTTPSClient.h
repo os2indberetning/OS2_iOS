@@ -19,9 +19,6 @@ enum ErrorCodes : NSInteger
 {
     //TODO: Change enum Names to reflect guId instead of Token
     UnknownError = 600,
-    TokenNotFound = 610,
-    TokenAllreadyActivated = 620,
-    TokenAllreadyExists = 630,
     SaveError = 640,
     BadPassword = 650,
     UserNotFound = 660
@@ -35,7 +32,6 @@ enum ErrorCodes : NSInteger
 @property (nonatomic, strong) AFHTTPSessionManager* sessionManager;
 
 + (eMobilityHTTPSClient *)sharedeMobilityHTTPSClient;
-+ (NSString*)getErrorString:(NSInteger)errorcode;
 
 - (void)setBaseUrl:(NSURL *)url;
 

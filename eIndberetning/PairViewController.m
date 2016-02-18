@@ -154,56 +154,7 @@
     
 }
 
-/*
--(void) fakeLogin {
-    
-    
-    
-    UserInfo* info = [UserInfo sharedManager];
-    
-    Profile* profile = [[Profile alloc] init];
-    profile.LastName =@"";
-    profile.FirstName = @"";
-    profile.employments  = @[];
-    Token * tok = [[Token alloc] init];
-    tok.guid = @"8e26dc40-2f80-4b61-98ef-ab5ff4074347";
-    tok.status = @"";
-    tok.tokenString = @"8353707760";
-    profile.tokens = @[tok];
-    NSArray* rates = @[];
-    
-    [self.CDManager deleteAllObjects:@"CDRate"];
-    [self.CDManager deleteAllObjects:@"CDEmployment"];
-    
-    [self.CDManager insertEmployments:profile.employments];
-    [self.CDManager insertRates:rates];
-    
-    //Transfer userdata to local userinfo object
-    info.last_sync_date = [NSDate date];
-    info.name = [NSString stringWithFormat:@"%@ %@", profile.FirstName, profile.LastName];
-    info.home_loc = profile.homeCoordinate;
-    info.profileId = profile.profileId;
-    
-    
-    //Search through the tokens
-    for (Token* token in profile.tokens) {
-        if([token.tokenString isEqualToString: self.textField.text])
-        {
-            info.token = token;
-            break;
-        }
-    }
-    
-    [info saveInfo];
-    
-    if(info.token)
-    {
-        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
-        [del changeToStartView];
-        //[self performSegueWithIdentifier:@"ShowStartViewSegue" sender:self];
-    }
-
-}*/ //use in case of debugging and the neeed of a backdoor.. since this is a valid GUID; we can just login locally, and then restart the app and it will fetch the real content , authenticated...
+//use in case of debugging and the neeed of a backdoor.. since this is a valid GUID; we can just login locally, and then restart the app and it will fetch the real content , authenticated...
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

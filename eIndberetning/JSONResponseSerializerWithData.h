@@ -12,6 +12,7 @@
 
 /// NSError userInfo key that will contain response data
 static NSString * const ErrorCodeKey = @"ErrorCodeKey";
+static NSString * const ErrorMessageKey = @"ErrorMessageKey";
 
 @interface JSONResponseSerializerWithData : AFJSONResponseSerializer
 @end
