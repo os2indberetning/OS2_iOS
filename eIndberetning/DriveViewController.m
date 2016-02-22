@@ -236,6 +236,8 @@ const double SETTLE_TIME_S = 5;
         
         NSLog(@"Precision update triggered driven label update");
         self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
+        
+        [self updateLastUpdatedLabel];
     }else{
         NSLog(@"Received precision update - but waiting for GPS to settle");
     }
@@ -305,9 +307,6 @@ const double SETTLE_TIME_S = 5;
             NSLog(@"Updating total distance (km): %f", self.totalDistance/1000.0f);
             self.distanceDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", self.totalDistance/1000.0f];
             
-            NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
-            self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Sidst opdateret kl: %@", timeString];
-            
             GpsCoordinates *cor = [[GpsCoordinates alloc] init];
             cor.loc = self.locA;
             
@@ -318,10 +317,19 @@ const double SETTLE_TIME_S = 5;
         }else{
             NSLog(@"Location age: %f | LocationAccuracy: %f", howRecent, location.horizontalAccuracy);
         }
+        
+        //No matter what, update label to show that system hasn't stalled.
+        [self updateLastUpdatedLabel];
+        
     }else{
         NSLog(@"Waiting for GPS to settle");
     }
     
+}
+
+-(void)updateLastUpdatedLabel{
+    NSString* timeString = [self.timeFormatter stringFromDate:self.locA.timestamp];
+    self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Sidst opdateret kl: %@", timeString];
 }
 
 

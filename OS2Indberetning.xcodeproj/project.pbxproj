@@ -370,6 +370,15 @@
 			name = category;
 			sourceTree = "<group>";
 		};
+		EF810C991C79D89500DE3820 /* PairPhone */ = {
+			isa = PBXGroup;
+			children = (
+				F56E0A2B19D2A40C00B6CA1F /* PairViewController.h */,
+				F56E0A2C19D2A40C00B6CA1F /* PairViewController.m */,
+			);
+			name = PairPhone;
+			sourceTree = "<group>";
+		};
 		EFB817831C74A546000B9FFB /* user */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,11 +557,10 @@
 		F56E0A4A19D2A43800B6CA1F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EF810C991C79D89500DE3820 /* PairPhone */,
 				EFECF14E1C70CAEC00DAB4A3 /* UserLogin */,
 				A71D88481BB8A4CA00F3415A /* saved reports */,
 				F5D3180B1B22DA8500D09AD0 /* SelectMunicipality */,
-				F56E0A2B19D2A40C00B6CA1F /* PairViewController.h */,
-				F56E0A2C19D2A40C00B6CA1F /* PairViewController.m */,
 				F537B4E519FE531600D06892 /* Select List */,
 				F5C26DFC1A09620E004ACDA4 /* Select Purpose List */,
 				F5824DF719E09F6C00F51353 /* StartDriveTableViewController.h */,

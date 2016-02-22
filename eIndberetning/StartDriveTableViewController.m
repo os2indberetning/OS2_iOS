@@ -293,12 +293,9 @@
             [self fillViewWithData];
         } withErrorCallback:^(NSInteger errorCode) {
             [indicator removeFromSuperview];
-            if(errorCode==0){
-                self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-                [self.errorMsg showErrorMsg: @"Ingen internet forbindelse."];
-                [self fillViewWithData];
-                return;
-            }
+            self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+            [self.errorMsg showErrorMsg: @"Ingen internet forbindelse."];
+            [self fillViewWithData];
             [self syncFailed];
         }];
     }else{
@@ -387,7 +384,6 @@
         {
             NSLog(@"Is not close to home");
         }
-        
         [self.gpsManager stopGPS];
     }
 }
@@ -412,17 +408,19 @@
         SyncViewController *vc = [segue destinationViewController];
         vc.delegate = self;
     }
-    //
 }
 
 - (IBAction)unwindToStartDriveVC:(UIStoryboardSegue *)segue{
     BOOL shouldReset = self.report.shouldReset;
+    [self setForceSync];
     [self syncUserInfo];
     NSLog(@"Should reset: %d", shouldReset);
     NSLog(@"UnwindToStartDrive");
 }
 
 - (IBAction)logoutButtonPressed:(id)sender {
+    //TODO: Show confirmation dialog like android
+    
     //Clear saved reports
     NSMutableArray *savedReports = [Settings getAllSavedReports];
     for (SavedReport *report in savedReports) {

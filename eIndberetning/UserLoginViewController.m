@@ -150,7 +150,7 @@
     {
         self.loadingSpinner.hidden = YES;
         [self.loadingSpinner stopAnimating];
-         NSInteger errorCode = [error.userInfo[ErrorCodeKey] intValue];
+        NSInteger errorCode = [error.userInfo[ErrorCodeKey] intValue];
         
         NSString* errorString = error.userInfo[ErrorMessageKey];
         

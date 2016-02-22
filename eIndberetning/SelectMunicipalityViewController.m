@@ -40,7 +40,6 @@ NSString* municipalityCell = @"MunicipalityCell";
     [super viewDidLoad];
     self.isLoading = YES;
     
-    
     [self getAppInfoWithBlock:^(NSURLSessionDataTask *task, id resonseObject) {
         
         self.isLoading = NO;
