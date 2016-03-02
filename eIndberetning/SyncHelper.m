@@ -20,7 +20,7 @@
 
 @implementation SyncHelper
 
-+(void) doSync :(void(^)(Profile *, NSArray * ))successCallback withErrorCallback:(void(^)(NSInteger))errorCallback
++(void) doSync :(void(^)(Profile *, NSArray * ))successCallback withErrorCallback:(void(^)(NSError*))errorCallback
 {
     UserInfo* info = [UserInfo sharedManager];
     eMobilityHTTPSClient*  client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
@@ -33,11 +33,8 @@
           NSDictionary *rateDic = [resonseObject objectForKey:@"rates"];
  
           successCallback([Profile initFromJsonDic:profileDic], [Rate initFromJsonDic:rateDic]);
-      } failBlock:^(NSURLSessionTask * task, NSError *Error) {
-          NSLog(@"%@", Error);
- 
-          NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
-          errorCallback(errorCode);
+      } failBlock:^(NSURLSessionTask * task, NSError *error) {
+          errorCallback(error);
       }];
 }
 

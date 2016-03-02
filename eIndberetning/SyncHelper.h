@@ -12,5 +12,5 @@
 #import "Profile.h"
 
 @interface SyncHelper : NSObject
-+(void) doSync :(void(^)(Profile *, NSArray * ))successCallback withErrorCallback:(void(^)(NSInteger))errorCallback;
++(void) doSync :(void(^)(Profile *, NSArray * ))successCallback withErrorCallback:(void(^)(NSError*))errorCallback;
 @end

@@ -15,7 +15,6 @@
 
 @protocol DidSyncDelegate
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
--(void)syncFailed;
 @end
 
 @interface SyncViewController : UIViewController

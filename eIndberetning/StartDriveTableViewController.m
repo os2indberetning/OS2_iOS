@@ -25,6 +25,7 @@
 #import "AppDelegate.h"
 #import "CheckMarkImageView.h"
 #import "Settings.h"
+#import "QuestionDialogViewController.h"
 
 #import "ConfirmDeleteViewController.h"
 #import "SyncHelper.h"
@@ -37,7 +38,10 @@
 @property (weak, nonatomic) IBOutlet CheckMarkImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startDriveButton;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
+@property (strong, nonatomic) QuestionDialogViewController *logoutPopup;
+@property (strong, nonatomic) QuestionDialogViewController *syncFailedPopup;
 
 @property (strong, nonatomic) ErrorMsgViewController* errorMsg;
 @property (strong, nonatomic) NSArray *rates;
@@ -105,7 +109,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setupVisuals];
 
-    self.shouldSync = true;
+    [self setForceSync];
 }
 
 -(void)loadReport
@@ -271,7 +275,7 @@
 #pragma mark Sync
 
 -(void)setForceSync{
-    self.shouldSync = true;
+    self.shouldSync = YES;
 }
 
 -(void)syncUserInfo{
@@ -291,12 +295,40 @@
             
             //Waiting till after sync has completed to fill in data
             [self fillViewWithData];
-        } withErrorCallback:^(NSInteger errorCode) {
+        } withErrorCallback:^(NSError *error) {
+            [self setForceSync];
             [indicator removeFromSuperview];
-            self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-            [self.errorMsg showErrorMsg: @"Ingen internet forbindelse."];
+            
+            
+            NSString *title = @"title";
+            NSString *description = @"Description";
+            NSString *negativeButtonText = @"Forsøg igen";
+            NSString *positiveButtonText = @"Log ind igen";
+            
+            NSInteger errorCode = [error.userInfo[ErrorCodeKey] intValue];
+            
+            if(errorCode == 0){
+                title = @"Ingen internetforbindelse!";
+                description = @"Tjek din internetforbindelse og prøv igen.";
+            }else if(errorCode == 610 || errorcode == 401){
+                title = @"Kunne ikke synkronisere bruger info med serveren!";
+                description = @"Der er sket en ændring i din bruger info på serveren - du skal logge ind igen.";
+            }else{
+                title = @"Kunne ikke synkronisere bruger info med serveren!";
+                description = @"Der opstod en uventet fejl ved synkronisering af bruger info - vi beklager.";
+            }
+            
+            _syncFailedPopup = [QuestionDialogViewController setTextsWithTitle:title withMessage:description
+                withNoButtonText:negativeButtonText withNoCallback:^{
+                    [_syncFailedPopup removeAnimate];
+                    [self syncUserInfo];
+                }
+                withYesText:positiveButtonText withYesCallback:^{
+                    [_syncFailedPopup removeAnimate];
+                    [self logoutButtonPressed:nil];
+                } inView:self.navigationController.view];
             [self fillViewWithData];
-            [self syncFailed];
+            
         }];
     }else{
         //If we shouldn't sync, just fill in data already
@@ -306,15 +338,6 @@
     
 }
 
-//TODO: Handle bad sync
--(void)syncFailed
-{
-    //TODO: Handle bad sync with popup that has one option: logout
-    NSLog(@"Bad sync not handled");
-//    [self logoutButtonPressed:nil];
-}
-
-//TODO: Handle finsihed sync
 -(void)didFinishSyncWithProfile:(Profile*)profile AndRate:(NSArray*)rates;
 {
     //Insert into coredata
@@ -334,7 +357,7 @@
     
     [self.info saveInfo];
     
-    self.shouldSync = false;
+    self.shouldSync = NO;
     
     [self loadReport];
 }
@@ -395,7 +418,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     //Force sync next time this view is shown
-    self.shouldSync = true;
+    [self setForceSync];
     
     if ([[segue identifier] isEqualToString:@"DriveViewSegue"])
     {
@@ -419,8 +442,24 @@
 }
 
 - (IBAction)logoutButtonPressed:(id)sender {
-    //TODO: Show confirmation dialog like android
-    
+    _logoutButton.enabled = NO;
+    _logoutPopup = [QuestionDialogViewController setTextsWithTitle:@"Du er ved at logge ud" withMessage:@"Eventuelle indtastninger og gemte rapporter vil blive slettet, er du sikker?"
+      withNoButtonText:@"Nej" withNoCallback:^{
+          _logoutButton.enabled = YES;
+          [_logoutPopup removeAnimate];
+          
+          if(_shouldSync){
+              [self syncUserInfo];
+          }
+    } withYesText:@"Ok" withYesCallback:^{
+            _logoutButton.enabled = YES;
+        [_logoutPopup removeAnimate];
+        [self completeLogout];
+        
+    } inView:self.navigationController.view];
+}
+
+-(void)completeLogout{
     //Clear saved reports
     NSMutableArray *savedReports = [Settings getAllSavedReports];
     for (SavedReport *report in savedReports) {
@@ -435,7 +474,6 @@
     //Clear CoreData
     [self.CDManager deleteAllObjects:@"CDRate"];
     [self.CDManager deleteAllObjects:@"CDEmployment"];
-    [self.CDManager deleteAllObjects:@"CDPurpose"];
     
     //Stop GPS if active
     if(self.gpsManager){
