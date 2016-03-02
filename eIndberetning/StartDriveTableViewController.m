@@ -310,7 +310,7 @@
             if(errorCode == 0){
                 title = @"Ingen internetforbindelse!";
                 description = @"Tjek din internetforbindelse og prøv igen.";
-            }else if(errorCode == 610 || errorcode == 401){
+            }else if(errorCode == 610 || errorCode == 401){
                 title = @"Kunne ikke synkronisere bruger info med serveren!";
                 description = @"Der er sket en ændring i din bruger info på serveren - du skal logge ind igen.";
             }else{
