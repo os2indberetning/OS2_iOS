@@ -457,7 +457,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dato: 31/5-14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsM-Wa-eDH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsM-Wa-eDH">
                                                     <rect key="frame" x="8" y="8" width="584" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="01B-NZ-rbT"/>

@@ -80,6 +80,10 @@
      setTitleTextAttributes:@{NSForegroundColorAttributeName : info.appInfo.TextColor}];
     
     [self.logoutButton setTitleTextAttributes:@{NSForegroundColorAttributeName:info.appInfo.SecondaryColor} forState:UIControlStateNormal];
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM-YY"];
+    self.dateLabel.text = [@"Dato: " stringByAppendingString:[formatter stringFromDate:[NSDate date]]];
 }
 
 - (void)viewDidLoad {
@@ -138,10 +142,6 @@
         self.report.rate = self.info.last_rate;
     
     self.report.date = [NSDate date];
-    
-    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM-YY"];
-    self.dateLabel.text = [@"Dato: " stringByAppendingString:[formatter stringFromDate:self.report.date]];
 }
 
 -(void)viewWillAppear:(BOOL)animated
