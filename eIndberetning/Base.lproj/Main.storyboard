@@ -852,9 +852,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Gemte rapporteringer" id="5L6-Xq-RIC">
-                        <barButtonItem key="backBarButtonItem" title="Tilbage" id="3t3-Gm-KB4"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Gemte rapporteringer" id="5L6-Xq-RIC"/>
                     <connections>
                         <outlet property="mainTable" destination="3K4-Fc-wtW" id="QHv-aB-g7K"/>
                     </connections>

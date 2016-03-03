@@ -33,4 +33,6 @@
 - (NSArray *) fetchRates;
 - (NSArray *) fetchPurposes;
 
+- (void) deletePurpose:(Purpose *)purpose;
+
 @end

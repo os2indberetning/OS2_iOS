@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,32 +12,69 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Indtast Formål..." adjustsFontSizeToFit="NO" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="E7j-3h-6Qp">
-                        <rect key="frame" x="16" y="0.0" width="296" height="43"/>
+                        <rect key="frame" x="16" y="0.0" width="237" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRz-hb-jyi">
+                        <rect key="frame" x="257" y="3" width="60" height="38"/>
+                        <color key="backgroundColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="MIX-It-FGi"/>
+                            <constraint firstAttribute="width" constant="60" id="frX-BW-p9B"/>
+                        </constraints>
+                        <state key="normal" title="Tilføj">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MIX-It-FGi"/>
+                            </mask>
+                        </variation>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="oRz-hb-jyi" firstAttribute="leading" secondItem="E7j-3h-6Qp" secondAttribute="trailing" constant="4" id="0UZ-w8-Tao"/>
                     <constraint firstItem="E7j-3h-6Qp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="8f9-MC-Yc8"/>
                     <constraint firstItem="E7j-3h-6Qp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="A6A-wf-axj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="oRz-hb-jyi" secondAttribute="trailing" constant="-5" id="Dg7-XY-BvI"/>
+                    <constraint firstItem="oRz-hb-jyi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="GBQ-1Y-MJs"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="oRz-hb-jyi" secondAttribute="bottom" constant="-5" id="K5q-s5-9xQ"/>
+                    <constraint firstItem="oRz-hb-jyi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KMU-3C-WAf"/>
                     <constraint firstItem="E7j-3h-6Qp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="P4k-UX-NEK"/>
+                    <constraint firstItem="E7j-3h-6Qp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="d3w-Ct-8dz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="E7j-3h-6Qp" secondAttribute="bottom" constant="-8" id="dqD-sQ-z4d"/>
                     <constraint firstAttribute="bottom" secondItem="E7j-3h-6Qp" secondAttribute="bottom" id="hky-qZ-g5L"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="E7j-3h-6Qp" secondAttribute="bottom" id="iAv-7J-IT4"/>
+                    <constraint firstItem="E7j-3h-6Qp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="llk-QJ-gB8"/>
+                    <constraint firstItem="oRz-hb-jyi" firstAttribute="leading" secondItem="E7j-3h-6Qp" secondAttribute="trailing" constant="4" id="nx9-RA-DL6"/>
                     <constraint firstAttribute="trailing" secondItem="E7j-3h-6Qp" secondAttribute="trailing" id="pCZ-9z-Dlb"/>
                     <constraint firstAttribute="trailing" secondItem="E7j-3h-6Qp" secondAttribute="trailing" constant="8" id="phx-G5-4Rp"/>
                     <constraint firstAttribute="bottom" secondItem="E7j-3h-6Qp" secondAttribute="bottom" constant="8" id="rHF-0b-lc9"/>
+                    <constraint firstItem="E7j-3h-6Qp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="uHx-ps-7GA"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="8f9-MC-Yc8"/>
+                        <exclude reference="A6A-wf-axj"/>
+                        <exclude reference="P4k-UX-NEK"/>
+                        <exclude reference="hky-qZ-g5L"/>
+                        <exclude reference="iAv-7J-IT4"/>
+                        <exclude reference="llk-QJ-gB8"/>
                         <exclude reference="pCZ-9z-Dlb"/>
+                        <exclude reference="phx-G5-4Rp"/>
                         <exclude reference="rHF-0b-lc9"/>
+                        <exclude reference="0UZ-w8-Tao"/>
+                        <exclude reference="KMU-3C-WAf"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addNewPurpose" destination="oRz-hb-jyi" id="G9a-56-opk"/>
                 <outlet property="purposeTextField" destination="E7j-3h-6Qp" id="2lb-fb-C0g"/>
             </connections>
             <point key="canvasLocation" x="140" y="162"/>

@@ -12,5 +12,6 @@
 
 @interface AddPurposeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *purposeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *addNewPurpose;
 
 @end

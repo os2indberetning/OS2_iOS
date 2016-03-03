@@ -7,6 +7,7 @@
 //
 
 #import "UserLoginViewController.h"
+#import "UIViewController+BackButton.h"
 #import "eMobilityHTTPSClient.h"
 #import "ErrorMsgViewController.h"
 #import "CoreDataManager.h"
@@ -68,8 +69,7 @@
      setTitleTextAttributes:@{NSForegroundColorAttributeName : info.appInfo.TextColor}];
     
     //Set back button to just an arrow
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    [[self navigationItem] setBackBarButtonItem:backButton];
+    [self AddBackButton];
     
     //Set loading spinner color
     [self.loadingSpinner setColor:info.appInfo.PrimaryColor];

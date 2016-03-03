@@ -9,9 +9,11 @@
 //
 
 #import "SavedViewControllers.h"
+#import "UIViewController+BackButton.h"
 #import "SavedReportTableCellView.h"
 #import "Settings.h"
 #import "PopupSendDeleteViewController.h"
+
 @interface SavedViewControllers ()
 
 @property (weak, nonatomic) IBOutlet UITableView *mainTable;
@@ -27,6 +29,7 @@
     
     self.mainTable.delegate = self;
     self.mainTable.dataSource = self;
+    [self AddBackButton];
 }
 
 -(void)reloadTable{

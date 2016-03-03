@@ -215,7 +215,29 @@
     {
         NSLog(@"Error updating %@ - error:%@",@"purpose",error);
     }
+}
 
+-(void) deletePurpose:(Purpose *)purpose{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"purpose = %@", purpose.purpose];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDPurpose" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *CDArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if(!error){
+        CDPurpose* p = (CDPurpose*)CDArray[0];
+        [self.managedObjectContext deleteObject:p];
+        [self.managedObjectContext save:&error];
+        if(error){
+            NSLog(@"Delete save failed: %@", [error localizedDescription]);
+        }
+    }else{
+        NSLog(@"Delete failed: %@", [error localizedDescription]);
+    }
 }
 
 -(void)saveContext
