@@ -294,14 +294,31 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <rect key="frame" x="282" y="332" width="37" height="37"/>
                                 <color key="color" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLk-Am-mfc">
+                                <rect key="frame" x="28" y="571" width="544" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="juS-Q6-fy4">
+                                <rect key="frame" x="20" y="377" width="560" height="187"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Du skal oprette et password for at logge ind på app'en.   Passwordet opretter du i OS2Indberetning under Personlige Indstillinger: Adgangskode til app.   Her finder du også dit brugernavn, som er dine initialer.</string>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Tus-7h-1IS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="onD-Nw-blY" secondAttribute="bottom" constant="16" id="0Dd-bi-B3j"/>
                             <constraint firstItem="1du-V2-pOq" firstAttribute="top" secondItem="okr-Ix-DXE" secondAttribute="bottom" constant="8" id="15C-QF-jzh"/>
                             <constraint firstItem="KrV-f5-sdg" firstAttribute="top" secondItem="onD-Nw-blY" secondAttribute="bottom" constant="8" id="9ZJ-1f-5IR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NLk-Am-mfc" secondAttribute="trailing" constant="8" id="AD6-Tl-qD0"/>
                             <constraint firstItem="okr-Ix-DXE" firstAttribute="top" secondItem="yb5-mB-06S" secondAttribute="bottom" constant="20" id="IHX-Fd-Acd"/>
+                            <constraint firstItem="NLk-Am-mfc" firstAttribute="top" secondItem="juS-Q6-fy4" secondAttribute="bottom" constant="8" id="JJB-qD-vgv"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1du-V2-pOq" secondAttribute="leading" id="Jb3-N7-4DG"/>
+                            <constraint firstItem="Tus-7h-1IS" firstAttribute="top" secondItem="NLk-Am-mfc" secondAttribute="bottom" constant="8" id="KaJ-R6-DXx"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="juS-Q6-fy4" secondAttribute="leading" id="LTu-UV-dh7"/>
                             <constraint firstItem="KrV-f5-sdg" firstAttribute="centerX" secondItem="ysz-Oe-c1o" secondAttribute="centerX" id="P1K-T2-xrr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Rut-Y7-vqc" secondAttribute="leading" id="SWr-Wv-kJD"/>
                             <constraint firstItem="onD-Nw-blY" firstAttribute="top" secondItem="Rut-Y7-vqc" secondAttribute="bottom" constant="20" id="UTt-Fo-d7w"/>
@@ -309,10 +326,13 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                             <constraint firstAttribute="trailingMargin" secondItem="Rut-Y7-vqc" secondAttribute="trailing" id="VyG-Ke-cFC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="okr-Ix-DXE" secondAttribute="trailing" id="dIJ-Vp-YKj"/>
                             <constraint firstItem="onD-Nw-blY" firstAttribute="leading" secondItem="ysz-Oe-c1o" secondAttribute="leadingMargin" id="ddN-h1-1Do"/>
+                            <constraint firstItem="NLk-Am-mfc" firstAttribute="leading" secondItem="ysz-Oe-c1o" secondAttribute="leadingMargin" constant="8" id="gPA-xu-uma"/>
                             <constraint firstItem="Rut-Y7-vqc" firstAttribute="top" secondItem="Fsw-Vh-Vk4" secondAttribute="bottom" constant="8" id="gtd-gu-gRQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1du-V2-pOq" secondAttribute="trailing" id="hjc-UZ-ANX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="juS-Q6-fy4" secondAttribute="trailing" id="k6F-uG-MRF"/>
                             <constraint firstItem="Fsw-Vh-Vk4" firstAttribute="top" secondItem="1du-V2-pOq" secondAttribute="bottom" constant="20" id="rfP-Xx-rQc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="onD-Nw-blY" secondAttribute="trailing" id="s6E-iS-LiS"/>
+                            <constraint firstItem="juS-Q6-fy4" firstAttribute="top" secondItem="KrV-f5-sdg" secondAttribute="bottom" constant="8" id="tTC-oV-6s3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="okr-Ix-DXE" secondAttribute="leading" id="tzM-6h-2RR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fsw-Vh-Vk4" secondAttribute="trailing" id="wyB-ox-zyA"/>
                         </constraints>
@@ -322,6 +342,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <outlet property="loginButton" destination="onD-Nw-blY" id="YpG-rg-WEN"/>
                         <outlet property="passwordInput" destination="Rut-Y7-vqc" id="Aso-SE-xYt"/>
                         <outlet property="usernameInput" destination="1du-V2-pOq" id="QnR-hr-8Wb"/>
+                        <outlet property="versionLabel" destination="NLk-Am-mfc" id="WUm-WL-Rja"/>
                         <segue destination="zml-au-bYr" kind="show" identifier="UserLoginToStartSegue" id="aSu-I5-L5I"/>
                     </connections>
                 </viewController>
@@ -1425,7 +1446,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                     <action selector="tryAgianButtonPressed:" destination="0bn-hB-d0x" eventType="touchUpInside" id="TX3-aa-UFw"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-ie-FcM">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-ie-FcM">
                                 <rect key="frame" x="281" y="343" width="37" height="37"/>
                                 <color key="color" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -1455,7 +1476,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="749" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="749" misplaced="YES" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
                                 <rect key="frame" x="50" y="28" width="500" height="307"/>
                             </imageView>
                         </subviews>

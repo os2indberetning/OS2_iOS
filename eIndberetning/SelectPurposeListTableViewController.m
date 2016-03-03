@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSArray* items;
 @property (nonatomic, strong) CoreDataManager* CDManager;
 @property (nonatomic) BOOL isAddingPurpose;
+@property (nonatomic) BOOL wasEmpty;
 @end
 
 @implementation SelectPurposeListTableViewController
@@ -49,7 +50,13 @@
     self.navigationItem.rightBarButtonItem.enabled = false;
     
     NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    if(self.wasEmpty){
+        [self.tableView deleteRowsAtIndexPaths:@[path] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+        self.wasEmpty = NO;
+    }
+    
     [self.tableView insertRowsAtIndexPaths:@[path] withRowAnimation:(UITableViewRowAnimationTop)];
+
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -95,16 +102,18 @@
 #pragma mark - Table view data source
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Purpose *p = [self.items objectAtIndex:indexPath.row-self.isAddingPurpose];
-    p.lastusedate = [NSDate date];
-    [self.CDManager updatePurpose:p];
-    
-    UserInfo* info = [UserInfo sharedManager];
-    self.report.purpose = p;
-    info.last_purpose = p;
-    [info saveInfo];
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    if(!self.wasEmpty){
+        Purpose *p = [self.items objectAtIndex:indexPath.row-self.isAddingPurpose];
+        p.lastusedate = [NSDate date];
+        [self.CDManager updatePurpose:p];
+        
+        UserInfo* info = [UserInfo sharedManager];
+        self.report.purpose = p;
+        info.last_purpose = p;
+        [info saveInfo];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -118,8 +127,27 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSInteger rows = self.items.count + self.isAddingPurpose;
+    
+    self.tableView.allowsSelection = YES;
+    if(self.items.count == 0){
+        if(self.isAddingPurpose){
+            if (self.wasEmpty) {
+                rows = 0;
+            }
+//            else{
+//                rows = 1;
+//            }
+        }else{
+            rows = 1;
+            self.wasEmpty = YES;
+            self.tableView.allowsSelection = NO;
+        }
+    }else{
+        self.wasEmpty = NO;
+    }
     // Return the number of rows in the section.
-    return self.items.count + self.isAddingPurpose;
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -141,9 +169,24 @@
         cell.purposeTextField.delegate = self;
         return cell;
     }
+    else if(self.wasEmpty){
+        //Add informative row about how to add new purposes
+        SelectListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectListTableViewCell"];
+        
+        if (cell == nil){
+            NSLog(@"New Cell Made");
+            
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SelectListTableViewCell" owner:self options:nil];
+            // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+            cell = [topLevelObjects objectAtIndex:0];
+        }
+        
+        cell.textLabel.text = @"Tryk på '+' for at tilføje et nyt formål";
+        
+        return cell;
+    }
     else
     {
-        
         SelectListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectListTableViewCell"];
         
         if (cell == nil){

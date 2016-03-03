@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 //Fields
 @property (strong, nonatomic) eMobilityHTTPSClient *client;
@@ -52,6 +53,10 @@
 -(void)setupVisuals{
     UserInfo *info = [UserInfo sharedManager];
     [info loadInfo];
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *build = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    [self.versionLabel setText:[NSString stringWithFormat:@"Version %@.%@", version, build]];
     
     [self.loginButton setBackgroundColor:info.appInfo.SecondaryColor];
     [self.loginButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
