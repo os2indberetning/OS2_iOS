@@ -15,7 +15,7 @@
 #import "UserInfo.h"
 #import "QuestionDialogViewController.h"
 
-@interface DriveViewController ()  <CLLocationManagerDelegate>
+@interface DriveViewController ()  <CLLocationManagerDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *distanceDrivenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
@@ -137,10 +137,10 @@ const double SETTLE_TIME_S = 5;
 
 - (IBAction)pauseButtonPressed:(id)sender {
     
-    [self togglePauseResume];
+    [self togglePauseResume:YES];
 }
 
--(void) togglePauseResume{
+-(void) togglePauseResume:(BOOL)markAsViaPoint{
     if(self.isPaused == true)
     {
         self.validateResume = YES;
@@ -215,6 +215,11 @@ const double SETTLE_TIME_S = 5;
     [alertView show];
 }
 
+-(void)onGoingLocationDenied{
+    [self togglePauseResume:NO];
+    [self showGPSPermissionDenied];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
@@ -224,7 +229,7 @@ const double SETTLE_TIME_S = 5;
     }
     else
     {
-        [self.navigationController popToRootViewControllerAnimated:true];
+        [self endDrive];
     }
 }
 
@@ -286,7 +291,7 @@ const double SETTLE_TIME_S = 5;
                         if(distance>200){
                             _isShowingDialogForValidation = YES;
                             //alert and pause and discard point
-                            [self togglePauseResume];
+                            [self togglePauseResume:YES];
                             [self showInvalidLocationResume];
                             NSLog(@"Failed: Distance was over 200...");
                             return;
@@ -341,7 +346,7 @@ const double SETTLE_TIME_S = 5;
         
     } withYesText:@"Prøv igen" withYesCallback:^{
         [_resumePopup removeAnimate];
-        [self togglePauseResume];
+        [self togglePauseResume:YES];
         _isShowingDialogForValidation = NO;
         self.validateResume = YES;
         

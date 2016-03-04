@@ -49,8 +49,14 @@ const double maxDistanceBetweenLocations = 200.0;
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    //TODO: Should we start timer here?
-    NSLog(@"%@", error.localizedDescription);
+    if ([error domain] == kCLErrorDomain) {
+        if ([error code] == kCLErrorDenied) {
+            //TODO: Handle GPS deactived
+            [self.delegate onGoingLocationDenied];
+        }
+    }
+    
+    NSLog(@"GPS Manager Error : %@", error.localizedDescription);
 }
 
 #pragma mark - GPS Handling
@@ -102,7 +108,6 @@ const double maxDistanceBetweenLocations = 200.0;
     // If the status is denied display an alert
     if (status == kCLAuthorizationStatusDenied) {
         NSLog(@" status number: %i", status);
-        [self.delegate showGPSPermissionDenied];
         return NO;
     }
     // The user has not enabled any location services. Request background authorization.

@@ -411,6 +411,10 @@
     }
 }
 
+-(void)onGoingLocationDenied{
+    //This is handled in GPSManager for this VC
+}
+
 
 #pragma mark - Navigation
 

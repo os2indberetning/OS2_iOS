@@ -17,6 +17,7 @@ const double maxDistanceBetweenLocations;
 @protocol GPSUpdateDelegate <NSObject>
 -(void)gotNewGPSCoordinate:(CLLocation*)location;
 -(void)showGPSPermissionDenied;
+-(void)onGoingLocationDenied;
 
 @optional
 -(void)didUpdatePrecision:(float)precision;
