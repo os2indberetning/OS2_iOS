@@ -61,22 +61,29 @@ const double maxDistanceBetweenLocations = 200.0;
         if (nil == self.locationManager)
             self.locationManager = [[CLLocationManager alloc] init];
         
-        [self requestAuthorization];
-        
-        self.locationManager.delegate = self;
-//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-        self.locationManager.allowsBackgroundLocationUpdates = YES;
-        self.locationManager.pausesLocationUpdatesAutomatically = YES;
-        self.locationManager.activityType = CLActivityTypeAutomotiveNavigation;
-        
-        // Set a movement threshold for new events.
-        self.locationManager.distanceFilter = 10; // meters
-        
-        [self.locationManager requestAlwaysAuthorization];
-        
-        [self.locationManager startUpdatingLocation];
-        self.isRunning = true;
+        if([self requestAuthorization]){
+            self.locationManager.delegate = self;
+            //        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+            
+            if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+                [self.locationManager requestAlwaysAuthorization];
+            }
+            if([self.locationManager respondsToSelector:@selector(allowsBackgroundLocationUpdates)]){
+                self.locationManager.allowsBackgroundLocationUpdates = YES;
+            }
+            
+            self.locationManager.pausesLocationUpdatesAutomatically = YES;
+            self.locationManager.activityType = CLActivityTypeAutomotiveNavigation;
+            
+            // Set a movement threshold for new events.
+            self.locationManager.distanceFilter = 10; // meters
+            
+            
+            
+            [self.locationManager startUpdatingLocation];
+            self.isRunning = true;
+        }
     }else{
         [self.locationManager startUpdatingLocation];
     }
@@ -92,19 +99,25 @@ const double maxDistanceBetweenLocations = 200.0;
 - (BOOL)requestAuthorization
 {
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    
     // If the status is denied display an alert
     if (status == kCLAuthorizationStatusDenied) {
-        
+        NSLog(@" status number: %i", status);
         [self.delegate showGPSPermissionDenied];
         return NO;
     }
     // The user has not enabled any location services. Request background authorization.
     else if (status == kCLAuthorizationStatusNotDetermined) {
+        NSLog(@"Not determined status number: %i", status);
         if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             [self.locationManager requestAlwaysAuthorization];
         }
         return NO;
+    }else if(status == kCLAuthorizationStatusAuthorized){
+        NSLog(@"Authorized status number: %i", status);
+    }else if(status == kCLAuthorizationStatusAuthorizedAlways){
+        NSLog(@"Auth Always status number: %i", status);
+    }else if(status == kCLAuthorizationStatusRestricted){
+        NSLog(@"Restricted status number: %i", status);
     }
     
     return YES;
