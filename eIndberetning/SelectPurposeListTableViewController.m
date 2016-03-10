@@ -20,6 +20,8 @@
 @property (nonatomic, strong) CoreDataManager* CDManager;
 @property (nonatomic) BOOL isAddingPurpose;
 @property (nonatomic) BOOL wasEmpty;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *labelWrapper;
 
 @end
 
@@ -39,6 +41,15 @@
     
     UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showAddPurpose)];
     self.navigationItem.rightBarButtonItem = btn;
+    
+    //Setup shadow for labelWrapper
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.labelWrapper.bounds];
+    self.labelWrapper.layer.masksToBounds = NO;
+    self.labelWrapper.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.labelWrapper.layer.shadowOffset = CGSizeMake(0.0f, -0.1f);
+    self.labelWrapper.layer.shadowOpacity = 0.2f;
+    self.labelWrapper.layer.shadowPath = shadowPath.CGPath;
+    
 }
 
 // Used for adding a purpose

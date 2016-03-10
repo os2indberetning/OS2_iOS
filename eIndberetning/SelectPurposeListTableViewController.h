@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "DriveReport.h"
 
-@interface SelectPurposeListTableViewController : UITableViewController <UITextFieldDelegate>
+@interface SelectPurposeListTableViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) DriveReport* report;
 
