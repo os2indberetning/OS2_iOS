@@ -52,6 +52,9 @@
 
 - (IBAction)buttonPressed:(id)sender {
     [self removeAnimate];
+    if(self.delegate){
+        [self.delegate errorMessageButtonClicked];
+    }
 }
 
 -(void)showErrorMsg:(NSString*)error

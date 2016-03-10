@@ -40,29 +40,37 @@ NSString* municipalityCell = @"MunicipalityCell";
     [super viewDidLoad];
     self.isLoading = YES;
     
-    [self getAppInfoWithBlock:^(NSURLSessionDataTask *task, id resonseObject) {
+    [self fetchProviders];
+}
+
+
+-(void)fetchProviders{
+    AFHTTPSessionManager* sessionManager = [[AFHTTPSessionManager manager] initWithBaseURL:[NSURL URLWithString:baseURL]];
+    [sessionManager GET:@"AppInfo" parameters:nil success:^(NSURLSessionDataTask *task, id resonseObject) {
         
         self.isLoading = NO;
         self.municipalityList = [AppInfo initFromJsonDic:resonseObject];
         [self.tableView reloadData];
         
-    } failBlock:^(NSURLSessionDataTask *task, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
         self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
-        [self.errorMsg showErrorMsg: @"Der skete en fejl."];
+        
+        self.errorMsg.delegate = self;
+        
+        NSHTTPURLResponse* r = (NSHTTPURLResponse*) task.response;
+        
+        NSString *errorMessage = @"Der skete en fejl - prøv igen";
+        
+        if(!r.statusCode){
+            errorMessage = @"Ingen ingen internetforbindelse - prøv igen.";
+        }
+        
+        [self.errorMsg showErrorMsg: errorMessage];
+        
         NSLog(@"Fail!: %@", error);
-        //Could not connect, some error happend
         
     }];
-    
-    
-}
-
-
--(void)getAppInfoWithBlock:(void (^)(NSURLSessionDataTask *task, id resonseObject))succes failBlock:(void (^)(NSURLSessionDataTask *task, NSError* error))failure
-{
-    AFHTTPSessionManager* sessionManager = [[AFHTTPSessionManager manager] initWithBaseURL:[NSURL URLWithString:baseURL]];
-    [sessionManager GET:@"AppInfo" parameters:nil success:succes failure:failure];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -72,6 +80,11 @@ NSString* municipalityCell = @"MunicipalityCell";
     [self.navigationController.navigationBar setTintColor:nil];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+}
+
+#pragma mark ErrorMessageDelegate
+-(void) errorMessageButtonClicked {
+    [self fetchProviders];
 }
 
 #pragma mark tableviewcontroller

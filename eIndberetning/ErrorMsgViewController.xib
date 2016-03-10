@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorMsgViewController">
@@ -21,17 +21,17 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhp-eM-3Vd">
-                    <rect key="frame" x="60" y="209" width="200" height="150"/>
+                    <rect key="frame" x="50" y="197" width="220" height="175"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTy-g1-1fK">
-                            <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
                             <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="o3D-dJ-LUw"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCJ-9f-oTF">
-                            <rect key="frame" x="8" y="102" width="184" height="40"/>
+                            <rect key="frame" x="8" y="127" width="204" height="40"/>
                             <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="UwY-8U-rFu"/>
@@ -45,14 +45,8 @@
                                 <action selector="buttonPressed:" destination="-1" eventType="touchUpInside" id="dgw-7V-PaS"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fejlbesked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuA-zE-iDn">
-                            <rect key="frame" x="8" y="48" width="184" height="46"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fejl" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hZI-Ni-TXe">
-                            <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -60,24 +54,26 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="vuA-zE-iDn" firstAttribute="top" secondItem="FTy-g1-1fK" secondAttribute="bottom" constant="8" id="0ha-Yp-f78"/>
                         <constraint firstAttribute="trailing" secondItem="FTy-g1-1fK" secondAttribute="trailing" id="0lc-eg-WNO"/>
-                        <constraint firstAttribute="trailing" secondItem="vuA-zE-iDn" secondAttribute="trailing" constant="8" id="6nQ-wn-Qxv"/>
                         <constraint firstItem="FTy-g1-1fK" firstAttribute="centerY" secondItem="hZI-Ni-TXe" secondAttribute="centerY" id="7TY-Dn-6vr"/>
                         <constraint firstAttribute="trailing" secondItem="pCJ-9f-oTF" secondAttribute="trailing" constant="8" id="E2i-zy-Ms4"/>
-                        <constraint firstItem="pCJ-9f-oTF" firstAttribute="top" secondItem="vuA-zE-iDn" secondAttribute="bottom" constant="8" id="HPB-vS-zjy"/>
-                        <constraint firstAttribute="width" constant="200" id="Ovv-Ri-gZP"/>
+                        <constraint firstAttribute="width" constant="220" id="Ovv-Ri-gZP"/>
                         <constraint firstItem="FTy-g1-1fK" firstAttribute="height" secondItem="hZI-Ni-TXe" secondAttribute="height" id="QeP-ZR-VMZ"/>
                         <constraint firstItem="FTy-g1-1fK" firstAttribute="leading" secondItem="vhp-eM-3Vd" secondAttribute="leading" id="WRv-cf-vOe"/>
-                        <constraint firstItem="vuA-zE-iDn" firstAttribute="leading" secondItem="vhp-eM-3Vd" secondAttribute="leading" constant="8" id="YHw-0i-Jp3"/>
                         <constraint firstItem="FTy-g1-1fK" firstAttribute="top" secondItem="vhp-eM-3Vd" secondAttribute="top" id="lSN-qs-SKZ"/>
                         <constraint firstAttribute="bottom" secondItem="pCJ-9f-oTF" secondAttribute="bottom" constant="8" id="oQa-q1-DRx"/>
                         <constraint firstItem="FTy-g1-1fK" firstAttribute="centerX" secondItem="hZI-Ni-TXe" secondAttribute="centerX" id="pca-81-54i"/>
                         <constraint firstItem="pCJ-9f-oTF" firstAttribute="leading" secondItem="vhp-eM-3Vd" secondAttribute="leading" constant="8" id="smd-DF-EUG"/>
-                        <constraint firstAttribute="height" constant="150" id="wJI-p4-z4z"/>
+                        <constraint firstAttribute="height" constant="175" id="wJI-p4-z4z"/>
                         <constraint firstItem="FTy-g1-1fK" firstAttribute="width" secondItem="hZI-Ni-TXe" secondAttribute="width" id="xsM-88-UF2"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fejlbesked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuA-zE-iDn">
+                    <rect key="frame" x="58" y="248" width="204" height="71"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

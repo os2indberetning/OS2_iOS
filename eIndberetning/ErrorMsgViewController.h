@@ -11,7 +11,14 @@
 #import <UIKit/UIKit.h>
 #import "PopupBaseViewController.h"
 
+@protocol ErrorMessageDelegate
+-(void) errorMessageButtonClicked;
+@end
+
 @interface ErrorMsgViewController : PopupBaseViewController
 
 -(void)showErrorMsg:(NSString*)error;
+
+@property (nonatomic, strong) id<ErrorMessageDelegate> delegate;
+
 @end
