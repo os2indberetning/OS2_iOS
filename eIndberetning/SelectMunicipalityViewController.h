@@ -12,8 +12,9 @@
 #import "AppInfo.h"
 #import "PairViewController.h"
 #import "UserLoginViewController.h"
+#import "ErrorMsgViewController.h"
 
-@interface SelectMunicipalityViewController : UITableViewController
+@interface SelectMunicipalityViewController : UITableViewController <ErrorMessageDelegate>
 
 @end
     
