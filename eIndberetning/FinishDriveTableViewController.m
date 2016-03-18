@@ -96,8 +96,8 @@
     [self setupVisuals];
     
     if(_shouldShowInAccuracyWarning){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OBS!" message:@"Under turen har der været et eller flere udfald i GPS forbindelsen. Vær derfor særligt opmærksom på, om afstanden og ruten passer med det forventede." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
+        self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
+        [self.errorMsg showErrorMsg:@"OBS!" errorString:@"Under turen har der været et eller flere udfald i GPS forbindelsen. Vær derfor særligt opmærksom på, om afstanden og ruten passer med det forventede."];
     }
 }
 - (void)didReceiveMemoryWarning {

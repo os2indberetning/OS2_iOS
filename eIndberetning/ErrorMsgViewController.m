@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (nonatomic, strong) NSString* title;
 @property (nonatomic, strong) NSString* errorString;
 @end
 
@@ -38,9 +39,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titleLabel.text = @"Fejl";
+    if(self.title){
+        self.titleLabel.text = self.title;
+    }else{
+        self.titleLabel.text = @"Fejl";
+    }
+    
     self.errorLabel.text = self.errorString;
-    self.errorLabel.numberOfLines = 3;
     
     [self setupVisuals];
 }
@@ -59,6 +64,13 @@
 
 -(void)showErrorMsg:(NSString*)error
 {
+    self.errorString= error;
+    [self showInView:[UIApplication sharedApplication].keyWindow  animated:YES];
+}
+
+-(void)showErrorMsg:(NSString*)error errorString:(NSString *) error
+{
+    self.
     self.errorString= error;
     [self showInView:[UIApplication sharedApplication].keyWindow  animated:YES];
 }

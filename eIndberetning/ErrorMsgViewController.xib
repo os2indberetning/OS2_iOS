@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhp-eM-3Vd">
-                    <rect key="frame" x="50" y="197" width="220" height="175"/>
+                    <rect key="frame" x="50" y="223" width="220" height="124"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTy-g1-1fK">
                             <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
@@ -31,7 +31,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCJ-9f-oTF">
-                            <rect key="frame" x="8" y="127" width="204" height="40"/>
+                            <rect key="frame" x="8" y="76" width="204" height="40"/>
                             <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="UwY-8U-rFu"/>
@@ -64,12 +64,11 @@
                         <constraint firstAttribute="bottom" secondItem="pCJ-9f-oTF" secondAttribute="bottom" constant="8" id="oQa-q1-DRx"/>
                         <constraint firstItem="FTy-g1-1fK" firstAttribute="centerX" secondItem="hZI-Ni-TXe" secondAttribute="centerX" id="pca-81-54i"/>
                         <constraint firstItem="pCJ-9f-oTF" firstAttribute="leading" secondItem="vhp-eM-3Vd" secondAttribute="leading" constant="8" id="smd-DF-EUG"/>
-                        <constraint firstAttribute="height" constant="175" id="wJI-p4-z4z"/>
                         <constraint firstItem="FTy-g1-1fK" firstAttribute="width" secondItem="hZI-Ni-TXe" secondAttribute="width" id="xsM-88-UF2"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fejlbesked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuA-zE-iDn">
-                    <rect key="frame" x="58" y="248" width="204" height="71"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fejlbesked" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuA-zE-iDn">
+                    <rect key="frame" x="58" y="271" width="204" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -77,10 +76,14 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="vuA-zE-iDn" firstAttribute="leading" secondItem="vhp-eM-3Vd" secondAttribute="leading" constant="8" id="8xc-iX-XYE"/>
+                <constraint firstItem="vuA-zE-iDn" firstAttribute="top" secondItem="hZI-Ni-TXe" secondAttribute="bottom" constant="8" id="Xct-g7-0dZ"/>
+                <constraint firstItem="pCJ-9f-oTF" firstAttribute="top" secondItem="vuA-zE-iDn" secondAttribute="bottom" constant="8" id="iTr-JE-SOY"/>
                 <constraint firstAttribute="centerY" secondItem="vhp-eM-3Vd" secondAttribute="centerY" id="loK-2K-qcF"/>
+                <constraint firstItem="vuA-zE-iDn" firstAttribute="trailing" secondItem="vhp-eM-3Vd" secondAttribute="trailing" constant="-8" id="nel-Fy-W4O"/>
                 <constraint firstAttribute="centerX" secondItem="vhp-eM-3Vd" secondAttribute="centerX" id="pVn-H5-dgR"/>
             </constraints>
-            <point key="canvasLocation" x="13" y="124"/>
+            <point key="canvasLocation" x="13" y="106"/>
         </view>
     </objects>
 </document>

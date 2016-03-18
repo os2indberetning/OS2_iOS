@@ -19,6 +19,8 @@
 
 -(void)showErrorMsg:(NSString*)error;
 
+-(void)showErrorMsg:(NSString*)title errorString:(NSString *) error;
+
 @property (nonatomic, strong) id<ErrorMessageDelegate> delegate;
 
 @end
