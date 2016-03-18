@@ -109,12 +109,6 @@
 {
     [super viewWillAppear:animated];
     
-    //TODO: Handle no guId stored for user
-//    if(!self.info.token)
-//    {
-//        AppDelegate* del =  [[UIApplication sharedApplication] delegate];
-//        [del changeToLoginView];
-//    }
     
     //Fill in the selected data in the forms
     self.userTextLabel.text = [NSString stringWithFormat:@"Bruger: %@", self.info.name];
@@ -245,11 +239,8 @@
 
 -(void)authorizationNotFound
 {
-    //TODO: Handle logout
-    //TODO: Rename and use as guId not found (Essentially do a logout clear)
     [self.info resetInfo];
     [self.info saveInfo];
-    //ViewWillAppear takes care of the rest
 }
 
 -(void)reloadReport

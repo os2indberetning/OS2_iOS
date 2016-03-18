@@ -119,11 +119,19 @@
     
     SavedReport * other =  (SavedReport * )object;
     
-    BOOL isEqual = [[other jsonToSend] isEqualToString:self.jsonToSend] &&
-                    [[other purpose] isEqualToString:self.purpose] &&
-                    [[other rate] isEqualToString:self.rate]&&
-                     [self.totalDistance isEqualToNumber:other.totalDistance];
+    
+    BOOL isJsonEqual = [[other jsonToSend] isEqualToString:self.jsonToSend];
+    BOOL isPurposeEqual = [[other purpose] isEqualToString:self.purpose];
+    BOOL isRateEqual = [[other rate] isEqualToString:self.rate];
+    BOOL isDistanceEqual = other.totalDistance.floatValue == self.totalDistance.floatValue;
+    
+//    BOOL isEqual = [[other jsonToSend] isEqualToString:self.jsonToSend] &&
+//                    [[other purpose] isEqualToString:self.purpose] &&
+//                    [[other rate] isEqualToString:self.rate]&&
+//                     [self.totalDistance isEqualToNumber:other.totalDistance];
    
+    BOOL isEqual = isJsonEqual && isPurposeEqual && isRateEqual && isDistanceEqual;
+    
     return isEqual;
     
 }

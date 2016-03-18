@@ -117,8 +117,6 @@ const double WAIT_TIME_S = 1.5;
     self.spinner.hidden = NO;
     [self.spinner startAnimating];
     
-    //TODO: Handle upload with new endpoint and guId
-    
     [client postDriveReport:self.report forAuthorization:info.authorization withBlock:^(NSURLSessionTask *task, id resonseObject)
           {
               [self.spinner stopAnimating];

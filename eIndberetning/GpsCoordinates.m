@@ -15,10 +15,6 @@
 
 - (NSDictionary *) transformToDictionary
 {
-    //TODO: reduce data drastically by making timestring, lat, and lng int types...
-//    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-//    NSString *timeString = [dateFormatter stringFromDate:self.loc.timestamp];
     id isVia =  @NO;
     if(self.isViaPoint){
         isVia = @YES;

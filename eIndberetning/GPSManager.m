@@ -51,7 +51,6 @@ const double maxDistanceBetweenLocations = 200.0;
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     if ([error domain] == kCLErrorDomain) {
         if ([error code] == kCLErrorDenied) {
-            //TODO: Handle GPS deactived
             [self.delegate onGoingLocationDenied];
         }
     }

@@ -16,7 +16,6 @@
 +(Authorization *) initFromJsonDic:(NSDictionary *) dic {
     Authorization *auth = [[Authorization alloc] init];
     
-    //TODO: Add guId to auth;
     auth.guId = [[dic objectForKey:@"GuId"] description];
     
     return auth;

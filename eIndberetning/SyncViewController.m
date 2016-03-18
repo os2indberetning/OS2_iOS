@@ -63,7 +63,6 @@ const double MIN_WAIT_TIME_S = 2;
     
     __weak SyncViewController *safeSelf = self;
     
-    //TODO: Handle sync with new /userinfo endpoint using new guId
 //    [self.client getUserDataForToken:info.token withBlock:^(NSURLSessionTask *task, id resonseObject)
 //    {
 //        NSLog(@"%@", resonseObject);
@@ -102,7 +101,6 @@ const double MIN_WAIT_TIME_S = 2;
 
 -(void) failSyncWithErrorCode:(NSInteger)errorCode
 {
-//    //TODO: Fix errorcodes according to guId and NOT token
 //    if(errorCode == UnknownError)
 //    {
 //        //Change text, hide spinner, show retry-button
