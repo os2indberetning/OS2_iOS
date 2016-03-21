@@ -13,6 +13,7 @@
 #import "Settings.h"
 #import "eMobilityHTTPSClient.h"
 #import "UIView+Toast.h"
+#import "AppDelegate.h"
 #import "UserInfo.h"
 
 @interface PopupSendDeleteViewController ()
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *resendButton;
 @property (weak, nonatomic) IBOutlet UIView *topContainer;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 @property (strong, nonatomic) SavedReport *  reportToShow;
 @end
@@ -44,20 +46,35 @@
     [self removeAnimate];
 }
 - (IBAction)onResendClicked:(id)sender {
+    self.loadingSpinner.hidden = NO;
+    //Disable all buttons
+    self.cancelButton.enabled = NO;
+    self.deleteButton.enabled = NO;
+    self.resendButton.enabled = NO;
+    self.cancelButton.alpha = 0.5f;
+    self.deleteButton.alpha = 0.5f;
+    self.resendButton.alpha = 0.5f;
+    
+    //Disable backbutton
+    
     UserInfo* info = [UserInfo sharedManager];
     
     eMobilityHTTPSClient* client =  [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
     [client postSavedDriveReport:_reportToShow forAuthorization:info.authorization withBlock:^(NSURLSessionDataTask *task, id resonseObject) {
-                    //worked, remove from list and refresh
                 [Settings removeSavedReport:self.reportToShow];
                 NSLog(@"Saved report was uploaded");
+                self.loadingSpinner.hidden = YES;
                 [self removeAnimate];
+                self.parentViewController.navigationItem.leftBarButtonItem.enabled = YES;
             } failBlock:^(NSURLSessionDataTask *task, NSError *error) {
+                self.loadingSpinner.hidden = YES;
                 [self removeAnimate];
-                [self.view.superview makeToast:@"Kunne ikke sende rapporten, prøv igen senere"];
+                [self.view.superview makeToast:@"Kunne ikke sende rapporten, prøv igen senere."];
                 NSLog(@"failed resending %@", error.localizedDescription);
+                self.parentViewController.navigationItem.leftBarButtonItem.enabled = YES;
             }];
 }
+
 -(void) setReport:(SavedReport *)report{
     self.reportToShow = report;
 }
@@ -79,11 +96,10 @@
     [self.resendButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.resendButton.layer.cornerRadius = 2.0f;
     
-
-    
     self.titleLabel.textColor = info.appInfo.TextColor;
     self.topContainer.backgroundColor = info.appInfo.PrimaryColor;
     
+    self.loadingSpinner.color = info.appInfo.PrimaryColor;
 }
 
 

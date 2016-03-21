@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="cancelButton" destination="0HS-62-8o2" id="oqB-FI-lTu"/>
                 <outlet property="deleteButton" destination="s4s-W8-vFV" id="pgJ-MD-iI2"/>
+                <outlet property="loadingSpinner" destination="l6q-Iz-LL6" id="3Ux-iC-mTD"/>
                 <outlet property="resendButton" destination="bJ3-Wj-nl8" id="gLx-Gj-X4R"/>
                 <outlet property="topContainer" destination="0mX-nh-cfC" id="PuB-w1-Qzz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -21,13 +22,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhI-zC-2Og">
-                    <rect key="frame" x="150" y="200" width="300" height="200"/>
+                    <rect key="frame" x="150" y="191" width="300" height="219"/>
                     <subviews>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="l6q-Iz-LL6">
+                            <rect key="frame" x="140" y="94.5" width="20" height="20"/>
+                            <color key="color" red="0.81568627450980391" green="0.42352941176470588" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mX-nh-cfC">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hvad vil du ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="11C-S8-KND">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gemt rapport" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="11C-S8-KND">
+                                    <rect key="frame" x="86" y="8" width="129" height="24"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -35,26 +40,19 @@
                             </subviews>
                             <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstItem="11C-S8-KND" firstAttribute="centerY" secondItem="0mX-nh-cfC" secondAttribute="centerY" id="0dy-d2-uOg"/>
+                                <constraint firstItem="11C-S8-KND" firstAttribute="centerX" secondItem="0mX-nh-cfC" secondAttribute="centerX" id="CmH-a1-JK7"/>
                                 <constraint firstAttribute="height" constant="40" id="LKw-mw-VXR"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vil du slette rapporten, eller vil du prøve at sende den igen ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfg-gJ-aLx">
                             <rect key="frame" x="8" y="48" width="284" height="39"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HS-62-8o2">
-                            <rect key="frame" x="8" y="95" width="284" height="49"/>
-                            <state key="normal" title="Anuller">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onCancelClicked:" destination="-1" eventType="touchUpInside" id="vUe-TH-7Vo"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJ3-Wj-nl8">
-                            <rect key="frame" x="150" y="152" width="142" height="40"/>
+                            <rect key="frame" x="150" y="171" width="142" height="40"/>
                             <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="sW0-ho-01F"/>
@@ -69,7 +67,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4s-W8-vFV">
-                            <rect key="frame" x="8" y="152" width="134" height="40"/>
+                            <rect key="frame" x="8" y="171" width="134" height="40"/>
                             <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="JVn-Zp-HGX"/>
@@ -88,6 +86,18 @@
                                 <action selector="onDeleteClicked:" destination="-1" eventType="touchUpInside" id="kdP-8H-dlj"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HS-62-8o2">
+                            <rect key="frame" x="8" y="123" width="284" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="2MJ-pg-9Qb"/>
+                            </constraints>
+                            <state key="normal" title="Anuller">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onCancelClicked:" destination="-1" eventType="touchUpInside" id="vUe-TH-7Vo"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
@@ -97,19 +107,30 @@
                         <constraint firstItem="bJ3-Wj-nl8" firstAttribute="top" secondItem="0HS-62-8o2" secondAttribute="bottom" constant="8" id="CBY-fD-vjG"/>
                         <constraint firstItem="bJ3-Wj-nl8" firstAttribute="leading" secondItem="xhI-zC-2Og" secondAttribute="centerX" id="DSJ-EY-sDr"/>
                         <constraint firstAttribute="width" constant="300" id="Ei4-sf-a0z"/>
+                        <constraint firstItem="l6q-Iz-LL6" firstAttribute="centerX" secondItem="xhI-zC-2Og" secondAttribute="centerX" id="GFL-0H-mf9"/>
                         <constraint firstItem="0mX-nh-cfC" firstAttribute="top" secondItem="xhI-zC-2Og" secondAttribute="top" id="IXK-tM-8fI"/>
+                        <constraint firstItem="l6q-Iz-LL6" firstAttribute="top" secondItem="kfg-gJ-aLx" secondAttribute="bottom" constant="3" id="KkH-gS-VAl"/>
                         <constraint firstItem="0HS-62-8o2" firstAttribute="leading" secondItem="xhI-zC-2Og" secondAttribute="leading" constant="8" id="MTE-vI-OrV"/>
                         <constraint firstAttribute="trailing" secondItem="0mX-nh-cfC" secondAttribute="trailing" id="OqQ-1s-eXv"/>
-                        <constraint firstAttribute="height" constant="200" id="PLu-8T-m6s"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="PLu-8T-m6s"/>
                         <constraint firstItem="s4s-W8-vFV" firstAttribute="leading" secondItem="xhI-zC-2Og" secondAttribute="leading" constant="8" id="Rwz-Ta-6bn"/>
+                        <constraint firstItem="0HS-62-8o2" firstAttribute="top" secondItem="l6q-Iz-LL6" secondAttribute="bottom" constant="8" id="Zgl-AD-KgF"/>
                         <constraint firstAttribute="centerX" secondItem="s4s-W8-vFV" secondAttribute="trailing" constant="8" id="bpm-bu-jhB"/>
                         <constraint firstItem="kfg-gJ-aLx" firstAttribute="leading" secondItem="xhI-zC-2Og" secondAttribute="leading" constant="8" id="dBp-jt-2Dy"/>
                         <constraint firstAttribute="trailing" secondItem="0HS-62-8o2" secondAttribute="trailing" constant="8" id="jvH-O0-0HZ"/>
                         <constraint firstAttribute="trailing" secondItem="bJ3-Wj-nl8" secondAttribute="trailing" constant="8" id="twa-5h-HWB"/>
                         <constraint firstAttribute="bottom" secondItem="s4s-W8-vFV" secondAttribute="bottom" constant="8" id="uCf-Zu-qLV"/>
                         <constraint firstAttribute="trailing" secondItem="kfg-gJ-aLx" secondAttribute="trailing" constant="8" id="uGR-k7-QfD"/>
+                        <constraint firstItem="l6q-Iz-LL6" firstAttribute="top" secondItem="kfg-gJ-aLx" secondAttribute="bottom" constant="8" id="uU8-Yc-nvW"/>
                         <constraint firstAttribute="bottom" secondItem="bJ3-Wj-nl8" secondAttribute="bottom" constant="8" id="zEv-CQ-Ico"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="PLu-8T-m6s"/>
+                            <exclude reference="5tT-Nd-aNp"/>
+                            <exclude reference="KkH-gS-VAl"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
