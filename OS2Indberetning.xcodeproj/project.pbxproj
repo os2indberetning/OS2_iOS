@@ -173,6 +173,7 @@
 		EF9B6DB61BFA149200347781 /* SecondLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SecondLocationOS2.gpx; sourceTree = "<group>"; };
 		EFB817851C74A635000B9FFB /* Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authorization.h; sourceTree = "<group>"; };
 		EFB817861C74A635000B9FFB /* Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authorization.m; sourceTree = "<group>"; };
+		EFDC624C1C9C3B6100BB8899 /* Silkeborg.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Silkeborg.gpx; sourceTree = "<group>"; };
 		EFECF14F1C70CB1600DAB4A3 /* UserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginViewController.h; sourceTree = "<group>"; };
 		EFECF1501C70CB1600DAB4A3 /* UserLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginViewController.m; sourceTree = "<group>"; };
 		EFFA75141C088D3B00B8172E /* ThirdLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ThirdLocationOS2.gpx; sourceTree = "<group>"; };
@@ -480,6 +481,7 @@
 		F56E0A1519D2A40C00B6CA1F = {
 			isa = PBXGroup;
 			children = (
+				EFDC624C1C9C3B6100BB8899 /* Silkeborg.gpx */,
 				EF1C2A541C6372F600EB8A4B /* FourthLocation.gpx */,
 				EFFA75141C088D3B00B8172E /* ThirdLocationOS2.gpx */,
 				EF9B6DB61BFA149200347781 /* SecondLocationOS2.gpx */,
