@@ -65,6 +65,10 @@
     if(indexPath.row> [_reports count]){
         return;
     }
+    __weak typeof (self) weakSelf = self;
+    
+    weakSelf.navigationItem.leftBarButtonItem.enabled = NO;
+    
     SavedReport * rep = [_reports objectAtIndex:indexPath.row];
     _popup = [PopupSendDeleteViewController new];
     [_popup setReport:rep];
@@ -72,6 +76,7 @@
     [_popup setOnClosed:^{
         tempSelf.popup.onClosed = nil;
         [tempSelf reloadTable];
+        weakSelf.navigationItem.leftBarButtonItem.enabled = YES;
     } ];
 
     [_popup showInView:self.view.superview animated:YES];
