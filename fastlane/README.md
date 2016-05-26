@@ -2,8 +2,12 @@ fastlane documentation
 ================
 # Installation
 ```
-sudo gem install fastlane
+sudo gem install -n /usr/local/bin fastlane
 ```
+
+Since Mac OS X 10.11 El Capitan it is necessary to install in /usr/local/bin
+instead of the default location (/usr/bin)
+
 # Available Actions
 ## iOS
 ### ios test
