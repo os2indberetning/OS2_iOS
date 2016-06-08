@@ -29,6 +29,7 @@
                           self.manuelentryremark, @"ManualEntryRemark",
                           @(self.didstarthome), @"StartsAtHome",
                           @(self.didendhome), @"EndsAtHome",
+                          @(self.fourKmRule), @"FourKmRule",
                           [self.route transformToDictionary], @"Route",
                           self.employment.employmentId, @"EmploymentId",
                           self.profileId, @"ProfileId",
@@ -46,6 +47,7 @@
     [encoder encodeObject:@(self.didstarthome) forKey:@"didstarthome"];
     
     [encoder encodeObject:@(self.didendhome) forKey:@"didendhome"];
+    [encoder encodeObject:@(self.fourKmRule) forKey:@"fourkmrule"];
     [encoder encodeObject:@(self.shouldReset) forKey:@"shouldReset"];
     [encoder encodeObject:self.profileId forKey:@"profileId"];
     
@@ -64,6 +66,7 @@
         self.didstarthome = [[decoder decodeObjectForKey:@"didstarthome"] boolValue];
         
         self.didendhome = [[decoder decodeObjectForKey:@"didendhome"] boolValue];
+        self.fourKmRule = [[decoder decodeObjectForKey:@"fourkmrule"] boolValue];
         self.shouldReset = [[decoder decodeObjectForKey:@"shouldReset"] boolValue];
         self.profileId = [decoder decodeObjectForKey:@"profileId"];
         

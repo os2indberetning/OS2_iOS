@@ -20,6 +20,7 @@
 @property (nonatomic, strong) Purpose* purpose;
 @property (nonatomic, strong) NSString* manuelentryremark;
 
+@property (nonatomic) BOOL fourKmRule;
 @property (nonatomic) BOOL didstarthome;
 @property (nonatomic) BOOL didendhome;
 @property (nonatomic) BOOL shouldReset;
