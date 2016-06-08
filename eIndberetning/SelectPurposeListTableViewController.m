@@ -250,6 +250,7 @@
             cell = [topLevelObjects objectAtIndex:0];
         }
         
+        cell.detailTextLabel.text = nil;
         cell.textLabel.text = @"Tryk på '+' for at tilføje et nyt formål";
         cell.accessoryType = UITableViewCellAccessoryNone;
         return cell;
@@ -275,6 +276,7 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
         
+        cell.detailTextLabel.text = nil;
         cell.textLabel.text = p.purpose;
         return cell;
     }

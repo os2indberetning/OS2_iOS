@@ -15,5 +15,6 @@
 
 @dynamic employmentposition;
 @dynamic employmentid;
+@dynamic mannr;
 
 @end

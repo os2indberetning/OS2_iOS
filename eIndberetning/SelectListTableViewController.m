@@ -104,6 +104,7 @@
     }
  
     NSString* str = @"";
+    NSString* detailText = @"";
     
     switch (self.listType ) {
         case RateList:
@@ -122,6 +123,7 @@
         {
             Employment *e = self.items[indexPath.row];
             str = e.employmentPosition;
+            detailText = e.manNr;
             
             if([e.employmentPosition isEqualToString:self.report.employment.employmentPosition])
             {
@@ -134,6 +136,7 @@
             break;
     }
     
+    cell.detailTextLabel.text = detailText;
     cell.textLabel.text = str;
     return cell;
     

@@ -13,6 +13,7 @@
 @interface Employment : NSObject
 @property (nonatomic, strong) NSString* employmentPosition;
 @property (nonatomic, strong) NSNumber* employmentId;
+@property (nonatomic, strong) NSString* manNr;
 
 + (NSArray *) initFromJsonDic:(NSDictionary*)dic;
 + (NSArray *) initFromCoreDataArray:(NSArray*)CDArray;
