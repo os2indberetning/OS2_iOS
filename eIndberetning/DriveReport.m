@@ -22,11 +22,18 @@
         self.manuelentryremark = @"";
     
     NSDictionary *body = [NSMutableDictionary
-                          dictionaryWithObjectsAndKeys: dateString, @"Date", self.purpose.purpose, @"Purpose",
-                          self.manuelentryremark, @"ManualEntryRemark", @(self.didstarthome), @"StartsAtHome",
-                          @(self.didendhome), @"EndsAtHome", [self.route transformToDictionary], @"Route",
-                          self.employment.employmentId, @"EmploymentId", self.profileId, @"ProfileId",
-                          self.rate.rateid, @"RateId", nil];
+                          dictionaryWithObjectsAndKeys:
+                          self.uuid, @"Uuid",
+                          dateString, @"Date",
+                          self.purpose.purpose, @"Purpose",
+                          self.manuelentryremark, @"ManualEntryRemark",
+                          @(self.didstarthome), @"StartsAtHome",
+                          @(self.didendhome), @"EndsAtHome",
+                          [self.route transformToDictionary], @"Route",
+                          self.employment.employmentId, @"EmploymentId",
+                          self.profileId, @"ProfileId",
+                          self.rate.rateid, @"RateId",
+                          nil];
     
     return body;
 }
@@ -50,6 +57,7 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties, other class vars
+        
         self.date = [decoder decodeObjectForKey:@"date"];
         self.purpose = [decoder decodeObjectForKey:@"purpose"];
         self.manuelentryremark = [decoder decodeObjectForKey:@"manuelentryremark"];
