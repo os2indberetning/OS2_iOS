@@ -124,6 +124,8 @@
     //Create new drive report
     self.report = [[DriveReport alloc] init];
     
+    self.report.uuid = [[NSUUID UUID] UUIDString];
+    
     Route *route = [[Route alloc] init];
     self.report.route = route;
     

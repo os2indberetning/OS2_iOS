@@ -22,11 +22,19 @@
         self.manuelentryremark = @"";
     
     NSDictionary *body = [NSMutableDictionary
-                          dictionaryWithObjectsAndKeys: dateString, @"Date", self.purpose.purpose, @"Purpose",
-                          self.manuelentryremark, @"ManualEntryRemark", @(self.didstarthome), @"StartsAtHome",
-                          @(self.didendhome), @"EndsAtHome", [self.route transformToDictionary], @"Route",
-                          self.employment.employmentId, @"EmploymentId", self.profileId, @"ProfileId",
-                          self.rate.rateid, @"RateId", nil];
+                          dictionaryWithObjectsAndKeys:
+                          self.uuid, @"Uuid",
+                          dateString, @"Date",
+                          self.purpose.purpose, @"Purpose",
+                          self.manuelentryremark, @"ManualEntryRemark",
+                          @(self.didstarthome), @"StartsAtHome",
+                          @(self.didendhome), @"EndsAtHome",
+                          @(self.fourKmRule), @"FourKmRule",
+                          [self.route transformToDictionary], @"Route",
+                          self.employment.employmentId, @"EmploymentId",
+                          self.profileId, @"ProfileId",
+                          self.rate.rateid, @"RateId",
+                          nil];
     
     return body;
 }
@@ -39,6 +47,7 @@
     [encoder encodeObject:@(self.didstarthome) forKey:@"didstarthome"];
     
     [encoder encodeObject:@(self.didendhome) forKey:@"didendhome"];
+    [encoder encodeObject:@(self.fourKmRule) forKey:@"fourkmrule"];
     [encoder encodeObject:@(self.shouldReset) forKey:@"shouldReset"];
     [encoder encodeObject:self.profileId forKey:@"profileId"];
     
@@ -50,12 +59,14 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties, other class vars
+        
         self.date = [decoder decodeObjectForKey:@"date"];
         self.purpose = [decoder decodeObjectForKey:@"purpose"];
         self.manuelentryremark = [decoder decodeObjectForKey:@"manuelentryremark"];
         self.didstarthome = [[decoder decodeObjectForKey:@"didstarthome"] boolValue];
         
         self.didendhome = [[decoder decodeObjectForKey:@"didendhome"] boolValue];
+        self.fourKmRule = [[decoder decodeObjectForKey:@"fourkmrule"] boolValue];
         self.shouldReset = [[decoder decodeObjectForKey:@"shouldReset"] boolValue];
         self.profileId = [decoder decodeObjectForKey:@"profileId"];
         

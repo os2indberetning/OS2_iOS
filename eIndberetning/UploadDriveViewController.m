@@ -117,24 +117,22 @@ const double WAIT_TIME_S = 1.5;
     self.spinner.hidden = NO;
     [self.spinner startAnimating];
     
-    [client postDriveReport:self.report forAuthorization:info.authorization withBlock:^(NSURLSessionTask *task, id resonseObject)
-          {
-              [self.spinner stopAnimating];
-              self.spinner.hidden = YES;
-              [Settings removeSavedReport:_savedReport];
-     
-             self.infoText.text = @"Din indberetning er modtaget.";
-             [NSTimer scheduledTimerWithTimeInterval:WAIT_TIME_S target:self selector:@selector(uploadSuccess) userInfo:nil repeats:NO];
-          }
-              failBlock:^(NSURLSessionTask * task, NSError *Error)
-          {
-              self.spinner.hidden = YES;
-              [self.spinner stopAnimating];
-              NSLog(@"%@", Error);
-     
-              NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
-              [self uploadFailWithErrorCode:(NSInteger)errorCode];
-      }];
+    [client postDriveReport:self.report forAuthorization:info.authorization withBlock:^(NSURLSessionTask *task, id resonseObject) {
+        [self.spinner stopAnimating];
+        self.spinner.hidden = YES;
+        [Settings removeSavedReport:_savedReport];
+        
+        self.infoText.text = @"Din indberetning er modtaget.";
+        [NSTimer scheduledTimerWithTimeInterval:WAIT_TIME_S target:self selector:@selector(uploadSuccess) userInfo:nil repeats:NO];
+    }
+                  failBlock:^(NSURLSessionTask * task, NSError *Error) {
+                      self.spinner.hidden = YES;
+                      [self.spinner stopAnimating];
+                      NSLog(@"%@", Error);
+                      
+                      NSInteger errorCode = [Error.userInfo[ErrorCodeKey] intValue];
+                      [self uploadFailWithErrorCode:(NSInteger)errorCode];
+                  }];
 }
 
 -(void) uploadSuccess

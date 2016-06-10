@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTextLabel;
 @property (weak, nonatomic) IBOutlet CheckMarkImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet CheckMarkImageView *endAtHomeCheckbox;
+@property (weak, nonatomic) IBOutlet CheckMarkImageView *fourKmRuleCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *kmDrivenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userTextLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
@@ -121,6 +122,7 @@
     
     [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
     [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
+    [self.fourKmRuleCheckbox setCheckMarkState:self.report.fourKmRule];
     
     //Set selected or default values
     self.purposeTextLabel.text = self.report.purpose.purpose;
@@ -190,6 +192,10 @@
     {
         self.report.didendhome = !self.report.didendhome;
         [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
+    } else if(indexPath.row == 8)
+    {
+        self.report.fourKmRule = !self.report.fourKmRule;
+        [self.fourKmRuleCheckbox setCheckMarkState:self.report.fourKmRule];
     }
     
 }

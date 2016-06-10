@@ -15,10 +15,12 @@
 #import "Purpose.h"
 
 @interface DriveReport : NSObject
+@property (nonatomic, strong) NSString *uuid;
 @property (nonatomic,strong) NSDate *date;
 @property (nonatomic, strong) Purpose* purpose;
 @property (nonatomic, strong) NSString* manuelentryremark;
 
+@property (nonatomic) BOOL fourKmRule;
 @property (nonatomic) BOOL didstarthome;
 @property (nonatomic) BOOL didendhome;
 @property (nonatomic) BOOL shouldReset;
