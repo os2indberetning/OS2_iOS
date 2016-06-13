@@ -1278,8 +1278,8 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="FourKmRuleTableView" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0l2-pu-Lg5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FourKmRuleTableView" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0l2-pu-Lg5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FourKmRuleCheckCell" rowHeight="50" id="LmR-G0-udj">
@@ -1289,38 +1289,63 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jeg bruger 4-km reglen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3d-9B-QLG">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jeg bruger 4-km reglen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3d-9B-QLG">
                                                                         <rect key="frame" x="16" y="8" width="194" height="33"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="Kgc-BC-ti5" customClass="CheckMarkImageView">
+                                                                    <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="Kgc-BC-ti5" customClass="CheckMarkImageView">
                                                                         <rect key="frame" x="559" y="12" width="25" height="25"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="25" id="FB2-Ba-FF4"/>
+                                                                            <constraint firstAttribute="height" constant="25" id="R6I-Zr-OGN"/>
+                                                                        </constraints>
                                                                     </imageView>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="u3d-9B-QLG" firstAttribute="leading" secondItem="ePQ-Ww-sAv" secondAttribute="leading" constant="16" id="4Th-m8-oqu"/>
+                                                                    <constraint firstItem="Kgc-BC-ti5" firstAttribute="centerY" secondItem="ePQ-Ww-sAv" secondAttribute="centerY" id="HIY-PO-ylh"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Kgc-BC-ti5" secondAttribute="trailing" constant="16" id="HwQ-3b-WGj"/>
+                                                                    <constraint firstItem="u3d-9B-QLG" firstAttribute="top" secondItem="ePQ-Ww-sAv" secondAttribute="top" constant="8" id="IUy-Pw-Eeb"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="u3d-9B-QLG" secondAttribute="bottom" constant="8" id="NZZ-Wc-lLL"/>
+                                                                </constraints>
                                                             </tableViewCellContentView>
                                                         </tableViewCell>
-                                                        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FourKmRuleDistanceCell" rowHeight="55" id="RXV-h7-uVT">
+                                                        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="FourKmRuleDistanceCell" rowHeight="55" id="RXV-h7-uVT">
                                                             <rect key="frame" x="0.0" y="72" width="600" height="55"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RXV-h7-uVT" id="pO1-Pc-w68">
                                                                 <rect key="frame" x="0.0" y="0.0" width="567" height="54"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Antal Km for 4-km reglen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-co-eMK">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal Km for 4-km reglen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-co-eMK">
                                                                         <rect key="frame" x="16" y="4" width="543" height="25"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="25" id="weL-Et-Nmg"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xh-Li-gPn">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xh-Li-gPn">
                                                                         <rect key="frame" x="16" y="25" width="543" height="21"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="21" id="3Fe-s6-WNt"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="z4G-co-eMK" secondAttribute="trailing" constant="8" id="Cz1-pj-pRX"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="0xh-Li-gPn" secondAttribute="bottom" constant="8" id="R2n-TG-ONg"/>
+                                                                    <constraint firstItem="0xh-Li-gPn" firstAttribute="leading" secondItem="pO1-Pc-w68" secondAttribute="leading" constant="16" id="cfA-yb-1vZ"/>
+                                                                    <constraint firstItem="z4G-co-eMK" firstAttribute="top" secondItem="pO1-Pc-w68" secondAttribute="top" constant="4" id="eeP-9n-JR8"/>
+                                                                    <constraint firstItem="z4G-co-eMK" firstAttribute="leading" secondItem="pO1-Pc-w68" secondAttribute="leading" constant="16" id="uVc-iP-XZk"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="0xh-Li-gPn" secondAttribute="trailing" constant="8" id="y6l-YY-egH"/>
+                                                                </constraints>
                                                             </tableViewCellContentView>
                                                         </tableViewCell>
                                                     </prototypes>
@@ -1331,10 +1356,13 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     </connections>
                                                 </tableView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0l2-pu-Lg5" firstAttribute="leading" secondItem="4aY-zV-qzL" secondAttribute="leading" id="088-TF-qyN"/>
+                                                <constraint firstItem="0l2-pu-Lg5" firstAttribute="top" secondItem="4aY-zV-qzL" secondAttribute="top" id="13c-Cv-wmc"/>
+                                                <constraint firstAttribute="bottom" secondItem="0l2-pu-Lg5" secondAttribute="bottom" id="VhU-AR-bG0"/>
+                                                <constraint firstAttribute="trailing" secondItem="0l2-pu-Lg5" secondAttribute="trailing" id="pbc-zJ-56h"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="wDv-lA-vQV" kind="show" identifier="EditFourKmRuleKmSegue" id="Fgi-oA-AuS"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="pof-Gd-GVr">
                                         <rect key="frame" x="0.0" y="541" width="600" height="60"/>
@@ -1400,6 +1428,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                     <navigationItem key="navigationItem" title="Afslut Kørsel" id="F1H-eF-zWp"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="FourKmTableView" destination="0l2-pu-Lg5" id="W9T-X0-u3d"/>
                         <outlet property="commentTextLabel" destination="fep-SP-cmS" id="XrT-mY-549"/>
                         <outlet property="dateLabel" destination="zIi-Kr-0FQ" id="Np4-4r-QfF"/>
                         <outlet property="endAtHomeCheckbox" destination="OHp-y7-Z0l" id="jr7-gU-b2T"/>
@@ -1419,7 +1448,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
         <!--Indsæt Km-->
         <scene sceneID="cW4-RE-7f2">
             <objects>
-                <viewController id="wDv-lA-vQV" customClass="EditFourKmRuleKmViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="EditFourKmRuleViewController" storyboardIdentifier="EditFourKmRuleViewController" id="wDv-lA-vQV" customClass="EditFourKmRuleKmViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dn1-lf-hg7"/>
                         <viewControllerLayoutGuide type="bottom" id="buZ-SB-X99"/>

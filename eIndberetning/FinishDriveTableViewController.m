@@ -31,11 +31,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTextLabel;
 @property (weak, nonatomic) IBOutlet CheckMarkImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet CheckMarkImageView *endAtHomeCheckbox;
-@property (weak, nonatomic) IBOutlet CheckMarkImageView *fourKmRuleCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *kmDrivenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userTextLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *uploadButton;
+@property (weak, nonatomic) IBOutlet UITableView *FourKmTableView;
 
 
 @property (strong, nonatomic) NSArray *rates;
@@ -48,7 +48,12 @@
 
 @property (strong, nonatomic) ErrorMsgViewController* errorMsg;
 @property (strong, nonatomic) ConfirmDeleteViewController* confirmPopup;
+
+@property (strong, nonatomic) CheckMarkImageView *fourKmCheckbox;
+@property (strong, nonatomic) UILabel *fourKmRuleKmLabel;
+
 @end
+
 
 @implementation FinishDriveTableViewController
 
@@ -111,7 +116,6 @@
 {
     [super viewWillAppear:animated];
     
-    
     //Fill in the selected data in the forms
     self.userTextLabel.text = [NSString stringWithFormat:@"Bruger: %@", self.info.name];
 
@@ -123,7 +127,6 @@
     
     [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
     [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
-    [self.fourKmRuleCheckbox setCheckMarkState:self.report.fourKmRule];
     
     //Set selected or default values
     self.purposeTextLabel.text = self.report.purpose.purpose;
@@ -142,6 +145,17 @@
         self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
     else
         self.organisationalPlaceTextLabel.text  = @"Vælg Placering";
+    
+    if (self.fourKmRuleKmLabel)
+    {
+        [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+    }
+    
+    NSIndexPath *indexPath = self.FourKmTableView.indexPathForSelectedRow;
+    if (indexPath)
+    {
+        [self.FourKmTableView deselectRowAtIndexPath:indexPath animated:animated];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -166,16 +180,23 @@
     if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
     {
         UITableViewCell *cell;
-        if (indexPath.row == 1)
+        if (indexPath.row == 0)
         {
             NSString *identifier = @"FourKmRuleCheckCell";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             
+            self.fourKmCheckbox = (CheckMarkImageView *)[cell viewWithTag:101];
+            
+            [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
         }
         else
         {
             NSString *identifier = @"FourKmRuleDistanceCell";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            
+            self.fourKmRuleKmLabel = (UILabel *)[cell viewWithTag:201];
+            
+            [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
         }
         return cell;
     }
@@ -243,32 +264,60 @@
     }
     else if([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
     {
-        if (indexPath.row == 1)
+        if (indexPath.row == 0)
         {
-            UITableViewCell *FourKmRuleCheckCell = [tableView cellForRowAtIndexPath:indexPath];
-            
-            NSIndexPath *kmIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
-            UITableViewCell *FourKmRuleDistanceCell = [tableView cellForRowAtIndexPath:kmIndexPath];
-            
             self.report.fourKmRule = !self.report.fourKmRule;
-            [self.fourKmRuleCheckbox setCheckMarkState:self.report.fourKmRule];
+            [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
             if (self.report.fourKmRule)
             {
-                [tableView setFrame:CGRectMake(tableView.frame.origin.x,
-                                               tableView.frame.origin.y,
-                                               tableView.frame.size.width,
-                                               FourKmRuleCheckCell.frame.size.height)];
+                [self.tableView beginUpdates];
+                [self.tableView endUpdates];
             }
             else if (!self.report.fourKmRule)
             {
-                [tableView setFrame:CGRectMake(tableView.frame.origin.x,
-                                               tableView.frame.origin.y,
-                                               tableView.frame.size.width,
-                                               FourKmRuleCheckCell.frame.size.height +
-                                               FourKmRuleDistanceCell.frame.size.height)];
+                [self.tableView beginUpdates];
+                [self.tableView endUpdates];
+            }
+        }
+        else if (indexPath.row == 1)
+        {
+            EditFourKmRuleKmViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"EditFourKmRuleViewController"];
+            vc.report = self.report;
+            
+            [self.navigationController pushViewController:vc animated:true];
+        }
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([tableView.restorationIdentifier isEqualToString:@"TableView"])
+    {
+        if (indexPath.row == 8)
+        {
+            if (self.report.fourKmRule)
+            {
+                return 105.0f;
+            }
+            else
+            {
+                return 50.0f;
             }
         }
     }
+    else if([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
+    {
+        if (indexPath.row == 0)
+        {
+            return 50.0;
+        }
+        else
+        {
+            return 55.0;
+        }
+    }
+    
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 - (IBAction)cancelAndDeleteButton:(id)sender
 {

@@ -28,7 +28,7 @@
     
     self.kmTextField.keyboardType = UIKeyboardTypeDecimalPad;
     
-    self.measuredKMLabel.text = [NSString stringWithFormat:@"Afmålte km: %.01f Km", [self.report.fourKmRuleKmDistance floatValue]];
+    self.measuredKMLabel.text = [NSString stringWithFormat:@"Afmålte km: %.01f Km", [self.report.fourKmRuleDistance floatValue]];
     
     [self.kmTextField becomeFirstResponder];
     
@@ -42,7 +42,7 @@
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
-    self.report.fourKmRuleKmDistance = [f numberFromString:self.kmTextField.text];
+    self.report.fourKmRuleDistance = [f numberFromString:self.kmTextField.text];
     
     [self.navigationController popViewControllerAnimated:true];
 }
