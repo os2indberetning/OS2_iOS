@@ -52,6 +52,8 @@
 @property (strong, nonatomic) CheckMarkImageView *fourKmCheckbox;
 @property (strong, nonatomic) UILabel *fourKmRuleKmLabel;
 
+@property (strong, nonatomic) NSNumber *tempFourKmRuleDistance;
+
 @end
 
 
@@ -270,11 +272,19 @@
             [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
             if (self.report.fourKmRule)
             {
+                self.report.fourKmRuleDistance = self.tempFourKmRuleDistance;
+                [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+                
                 [self.tableView beginUpdates];
                 [self.tableView endUpdates];
             }
             else if (!self.report.fourKmRule)
             {
+                self.tempFourKmRuleDistance = self.report.fourKmRuleDistance;
+
+                self.report.fourKmRuleDistance = 0;
+                [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+                
                 [self.tableView beginUpdates];
                 [self.tableView endUpdates];
             }
