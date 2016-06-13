@@ -13,6 +13,7 @@
 #import "ErrorMsgViewController.h"
 #import "ManualEntryViewController.h"
 #import "EditKmViewController.h"
+#import "EditFourKmRuleKmViewController.h"
 #import "eMobilityHTTPSClient.h"
 #import "SelectPurposeListTableViewController.h"
 #import "UserInfo.h"
@@ -143,61 +144,131 @@
         self.organisationalPlaceTextLabel.text  = @"Vælg Placering";
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
+    {
+        return 2;
+    }
+    else
+    {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
+    {
+        UITableViewCell *cell;
+        if (indexPath.row == 1)
+        {
+            NSString *identifier = @"FourKmRuleCheckCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            
+        }
+        else
+        {
+            NSString *identifier = @"FourKmRuleDistanceCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        }
+        return cell;
+    }
+    else
+    {
+        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    }
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 1)
+    if([tableView.restorationIdentifier isEqualToString:@"TableView"])
     {
-        SelectPurposeListTableViewController *vc=[[SelectPurposeListTableViewController alloc]initWithNibName:@"SelectPurposeListTableViewController" bundle:nil];
-        vc.report = self.report;
-        [self.navigationController pushViewController:vc animated:true];
-    }
-    else if(indexPath.row < 4)
-    {
-        SelectListTableViewController *vc=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
-        vc.report = self.report;
-        
-        switch (indexPath.row) {
-            case 2:
-            {
-                vc.listType = EmploymentList;
-                vc.items = self.employments;
-                vc.report = self.report;
-                break;
-            }
-            case 3:
-            {
-                vc.listType = RateList;
-                vc.items = self.rates;
-                vc.report = self.report;
-                break;
-            }
-            default:
-                break;
+        if(indexPath.row == 1)
+        {
+            SelectPurposeListTableViewController *vc=[[SelectPurposeListTableViewController alloc]initWithNibName:@"SelectPurposeListTableViewController" bundle:nil];
+            vc.report = self.report;
+            [self.navigationController pushViewController:vc animated:true];
         }
+        else if(indexPath.row < 4)
+        {
+            SelectListTableViewController *vc=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
+            vc.report = self.report;
+            
+            switch (indexPath.row) {
+                case 2:
+                {
+                    vc.listType = EmploymentList;
+                    vc.items = self.employments;
+                    vc.report = self.report;
+                    break;
+                }
+                case 3:
+                {
+                    vc.listType = RateList;
+                    vc.items = self.rates;
+                    vc.report = self.report;
+                    break;
+                }
+                default:
+                    break;
+            }
+            
+            [self.navigationController pushViewController:vc animated:true];
+        }
+        else if(indexPath.row == 4)
+        {
+            ManualEntryViewController *vc=[[ManualEntryViewController alloc]initWithNibName:@"ManualEntryViewController" bundle:nil];
+            vc.report = self.report;
+            [self.navigationController pushViewController:vc animated:true];
+        }
+        else if(indexPath.row == 6)
+        {
+            self.report.didstarthome = !self.report.didstarthome;
+            [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
+        }
+        else if(indexPath.row == 7)
+        {
+            self.report.didendhome = !self.report.didendhome;
+            [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
+        } else if(indexPath.row == 8)
+        {
         
-        [self.navigationController pushViewController:vc animated:true];
+        }
     }
-    else if(indexPath.row == 4)
+    else if([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
     {
-        ManualEntryViewController *vc=[[ManualEntryViewController alloc]initWithNibName:@"ManualEntryViewController" bundle:nil];
-        vc.report = self.report;
-        [self.navigationController pushViewController:vc animated:true];
+        if (indexPath.row == 1)
+        {
+            UITableViewCell *FourKmRuleCheckCell = [tableView cellForRowAtIndexPath:indexPath];
+            
+            NSIndexPath *kmIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+            UITableViewCell *FourKmRuleDistanceCell = [tableView cellForRowAtIndexPath:kmIndexPath];
+            
+            self.report.fourKmRule = !self.report.fourKmRule;
+            [self.fourKmRuleCheckbox setCheckMarkState:self.report.fourKmRule];
+            if (self.report.fourKmRule)
+            {
+                [tableView setFrame:CGRectMake(tableView.frame.origin.x,
+                                               tableView.frame.origin.y,
+                                               tableView.frame.size.width,
+                                               FourKmRuleCheckCell.frame.size.height)];
+            }
+            else if (!self.report.fourKmRule)
+            {
+                [tableView setFrame:CGRectMake(tableView.frame.origin.x,
+                                               tableView.frame.origin.y,
+                                               tableView.frame.size.width,
+                                               FourKmRuleCheckCell.frame.size.height +
+                                               FourKmRuleDistanceCell.frame.size.height)];
+            }
+        }
     }
-    else if(indexPath.row == 6)
-    {
-        self.report.didstarthome = !self.report.didstarthome;
-        [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
-    }
-    else if(indexPath.row == 7)
-    {
-        self.report.didendhome = !self.report.didendhome;
-        [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
-    } else if(indexPath.row == 8)
-    {
-        self.report.fourKmRule = !self.report.fourKmRule;
-        [self.fourKmRuleCheckbox setCheckMarkState:self.report.fourKmRule];
-    }
-    
 }
 - (IBAction)cancelAndDeleteButton:(id)sender
 {
@@ -288,6 +359,11 @@
         UploadDriveViewController *vc = [segue destinationViewController];
         vc.report = self.report;
         vc.delegate = self;
+    }
+    else if([[segue identifier] isEqualToString:@"EditFourKmRuleKmSegue"])
+    {
+        EditFourKmRuleKmViewController *vc = [segue destinationViewController];
+        vc.report = self.report;
     }
 }
 #pragma mark State Preservation

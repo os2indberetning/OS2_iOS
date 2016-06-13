@@ -439,7 +439,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oA4-ji-oTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="910.99999999999989"/>
+            <point key="canvasLocation" x="535" y="910"/>
         </scene>
         <!--Ny Kørsel-->
         <scene sceneID="BMT-jb-Rxk">
@@ -984,7 +984,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
         <scene sceneID="cFe-b4-CRB">
             <objects>
                 <tableViewController storyboardIdentifier="FinishDriveViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ck8-fh-DPc" customClass="FinishDriveTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="b1W-Vk-oiv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableView" delaysContentTouches="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="b1W-Vk-oiv">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1271,48 +1271,83 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="SJn-t5-GQA">
-                                        <rect key="frame" x="0.0" y="435" width="600" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SJn-t5-GQA" id="uJD-37-VmV">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="8r9-i3-YLr" customClass="CheckMarkImageView">
-                                                    <rect key="frame" x="559" y="12" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="4CI-pl-knm"/>
-                                                        <constraint firstAttribute="width" constant="25" id="Wpm-Tr-u0W"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jeg bruger 4-km reglen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uih-sM-xYU">
-                                                    <rect key="frame" x="16" y="8" width="194" height="33"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="8r9-i3-YLr" firstAttribute="centerY" secondItem="uJD-37-VmV" secondAttribute="centerYWithinMargins" id="97K-mE-eyF"/>
-                                                <constraint firstItem="uih-sM-xYU" firstAttribute="top" secondItem="uJD-37-VmV" secondAttribute="top" constant="8" id="ZT0-XD-c3t"/>
-                                                <constraint firstAttribute="trailing" secondItem="8r9-i3-YLr" secondAttribute="trailing" constant="16" id="c7H-mB-mXe"/>
-                                                <constraint firstAttribute="bottom" secondItem="uih-sM-xYU" secondAttribute="bottom" constant="8" id="x8R-YE-P46"/>
-                                                <constraint firstItem="uih-sM-xYU" firstAttribute="leading" secondItem="uJD-37-VmV" secondAttribute="leading" constant="16" id="zt6-WJ-hZ0"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Zzy-1U-Ntb">
-                                        <rect key="frame" x="0.0" y="485" width="600" height="60"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="106" id="Zzy-1U-Ntb">
+                                        <rect key="frame" x="0.0" y="435" width="600" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zzy-1U-Ntb" id="4aY-zV-qzL">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="FourKmRuleTableView" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0l2-pu-Lg5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <prototypes>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FourKmRuleCheckCell" rowHeight="50" id="LmR-G0-udj">
+                                                            <rect key="frame" x="0.0" y="22" width="600" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LmR-G0-udj" id="ePQ-Ww-sAv">
+                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jeg bruger 4-km reglen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3d-9B-QLG">
+                                                                        <rect key="frame" x="16" y="8" width="194" height="33"/>
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="Kgc-BC-ti5" customClass="CheckMarkImageView">
+                                                                        <rect key="frame" x="559" y="12" width="25" height="25"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </tableViewCellContentView>
+                                                        </tableViewCell>
+                                                        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FourKmRuleDistanceCell" rowHeight="55" id="RXV-h7-uVT">
+                                                            <rect key="frame" x="0.0" y="72" width="600" height="55"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RXV-h7-uVT" id="pO1-Pc-w68">
+                                                                <rect key="frame" x="0.0" y="0.0" width="567" height="54"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Antal Km for 4-km reglen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-co-eMK">
+                                                                        <rect key="frame" x="16" y="4" width="543" height="25"/>
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xh-Li-gPn">
+                                                                        <rect key="frame" x="16" y="25" width="543" height="21"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </tableViewCellContentView>
+                                                        </tableViewCell>
+                                                    </prototypes>
+                                                    <sections/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Ck8-fh-DPc" id="5Af-kN-Zz6"/>
+                                                        <outlet property="delegate" destination="Ck8-fh-DPc" id="a8r-5U-S4y"/>
+                                                    </connections>
+                                                </tableView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="wDv-lA-vQV" kind="show" identifier="EditFourKmRuleKmSegue" id="Fgi-oA-AuS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="pof-Gd-GVr">
+                                        <rect key="frame" x="0.0" y="541" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pof-Gd-GVr" id="Bzz-3R-95z">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJv-Sx-mnR">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAd-g3-j6e">
                                                     <rect key="frame" x="310" y="8" width="274" height="43"/>
                                                     <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="43" id="ddp-XK-JBd"/>
+                                                        <constraint firstAttribute="height" constant="43" id="thE-3Q-iFD"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1320,14 +1355,14 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="submitButton:" destination="Ck8-fh-DPc" eventType="touchUpInside" id="tC7-Mb-zNF"/>
+                                                        <action selector="submitButton:" destination="Ck8-fh-DPc" eventType="touchUpInside" id="Ktg-Vv-5uF"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-j1-WXp">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gq-a8-ztb">
                                                     <rect key="frame" x="16" y="8" width="274" height="43"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="43" id="zr0-n2-nS8"/>
+                                                        <constraint firstAttribute="height" constant="43" id="LM4-5R-2w8"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
                                                     <color key="tintColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1340,17 +1375,17 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="cancelAndDeleteButton:" destination="Ck8-fh-DPc" eventType="touchUpInside" id="fSz-Ja-rfF"/>
+                                                        <action selector="cancelAndDeleteButton:" destination="Ck8-fh-DPc" eventType="touchUpInside" id="GQv-8k-NFF"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="hZa-j1-WXp" secondAttribute="centerY" id="2OK-Wa-TPd"/>
-                                                <constraint firstItem="OJv-Sx-mnR" firstAttribute="width" secondItem="hZa-j1-WXp" secondAttribute="width" id="36Z-Cu-pbE"/>
-                                                <constraint firstItem="OJv-Sx-mnR" firstAttribute="leading" secondItem="hZa-j1-WXp" secondAttribute="trailing" constant="20" id="7T0-F8-ksv"/>
-                                                <constraint firstAttribute="trailing" secondItem="OJv-Sx-mnR" secondAttribute="trailing" constant="16" id="RWg-dU-CM0"/>
-                                                <constraint firstAttribute="centerY" secondItem="OJv-Sx-mnR" secondAttribute="centerY" id="nLM-og-wsa"/>
-                                                <constraint firstItem="hZa-j1-WXp" firstAttribute="leading" secondItem="4aY-zV-qzL" secondAttribute="leading" constant="16" id="sdc-sN-qrj"/>
+                                                <constraint firstItem="BAd-g3-j6e" firstAttribute="width" secondItem="8Gq-a8-ztb" secondAttribute="width" id="KzP-Zb-abH"/>
+                                                <constraint firstItem="BAd-g3-j6e" firstAttribute="leading" secondItem="8Gq-a8-ztb" secondAttribute="trailing" constant="20" id="M4X-07-mYy"/>
+                                                <constraint firstAttribute="centerY" secondItem="BAd-g3-j6e" secondAttribute="centerY" id="Rce-NS-202"/>
+                                                <constraint firstItem="8Gq-a8-ztb" firstAttribute="leading" secondItem="Bzz-3R-95z" secondAttribute="leading" constant="16" id="nCt-gy-LtQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="BAd-g3-j6e" secondAttribute="trailing" constant="16" id="xSA-k5-Htm"/>
+                                                <constraint firstAttribute="centerY" secondItem="8Gq-a8-ztb" secondAttribute="centerY" id="xSf-Op-qaX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1367,15 +1402,12 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                     <connections>
                         <outlet property="commentTextLabel" destination="fep-SP-cmS" id="XrT-mY-549"/>
                         <outlet property="dateLabel" destination="zIi-Kr-0FQ" id="Np4-4r-QfF"/>
-                        <outlet property="deleteButton" destination="hZa-j1-WXp" id="qaF-zd-v3j"/>
                         <outlet property="endAtHomeCheckbox" destination="OHp-y7-Z0l" id="jr7-gU-b2T"/>
-                        <outlet property="fourKmRuleCheckbox" destination="8r9-i3-YLr" id="I5R-rr-TZf"/>
                         <outlet property="kmDrivenLabel" destination="kyf-1u-ogh" id="Oxb-OB-E2n"/>
                         <outlet property="organisationalPlaceTextLabel" destination="7qg-mn-aeX" id="zJK-m6-TD2"/>
                         <outlet property="purposeTextLabel" destination="YCB-sy-Bgi" id="f2V-7s-8SC"/>
                         <outlet property="rateTextLabel" destination="FQQ-d6-mim" id="WFN-KS-Svl"/>
                         <outlet property="startAtHomeCheckbox" destination="7lI-NR-kBx" id="fQ6-1a-dYh"/>
-                        <outlet property="uploadButton" destination="OJv-Sx-mnR" id="bhJ-48-9bS"/>
                         <outlet property="userTextLabel" destination="9nq-AO-Xvk" id="6Ag-tk-yNT"/>
                         <segue destination="0bn-hB-d0x" kind="presentation" identifier="UploadDriveSegue" id="jDN-0C-tSe"/>
                     </connections>
@@ -1383,6 +1415,81 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAQ-h2-r7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1434" y="156"/>
+        </scene>
+        <!--Indsæt Km-->
+        <scene sceneID="cW4-RE-7f2">
+            <objects>
+                <viewController id="wDv-lA-vQV" customClass="EditFourKmRuleKmViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dn1-lf-hg7"/>
+                        <viewControllerLayoutGuide type="bottom" id="buZ-SB-X99"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="upV-pl-ige">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal km:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omk-7P-1px">
+                                <rect key="frame" x="16" y="72" width="568" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lwL-cb-KcA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="19" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lGd-PV-dQ7" userLabel="Km Text Field">
+                                <rect key="frame" x="16" y="120" width="280" height="180"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-Ld-KEo">
+                                <rect key="frame" x="304" y="120" width="280" height="180"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a4E-Ld-KEo" firstAttribute="leading" secondItem="lGd-PV-dQ7" secondAttribute="trailing" constant="8" id="5of-ku-Ggb"/>
+                            <constraint firstItem="a4E-Ld-KEo" firstAttribute="bottom" secondItem="upV-pl-ige" secondAttribute="centerY" id="84c-JZ-Snw"/>
+                            <constraint firstAttribute="trailing" secondItem="a4E-Ld-KEo" secondAttribute="trailing" constant="16" id="CpA-QB-G4L"/>
+                            <constraint firstItem="lGd-PV-dQ7" firstAttribute="leading" secondItem="upV-pl-ige" secondAttribute="leading" constant="16" id="D0Q-89-jD1"/>
+                            <constraint firstItem="omk-7P-1px" firstAttribute="top" secondItem="upV-pl-ige" secondAttribute="topMargin" constant="72" id="HRM-ZH-HXV"/>
+                            <constraint firstItem="lGd-PV-dQ7" firstAttribute="width" secondItem="a4E-Ld-KEo" secondAttribute="width" id="OHJ-cL-eiq"/>
+                            <constraint firstItem="a4E-Ld-KEo" firstAttribute="bottom" secondItem="upV-pl-ige" secondAttribute="centerY" id="QwC-4p-kvf"/>
+                            <constraint firstItem="a4E-Ld-KEo" firstAttribute="top" secondItem="omk-7P-1px" secondAttribute="bottom" constant="8" id="XLl-fT-nqf"/>
+                            <constraint firstItem="omk-7P-1px" firstAttribute="leading" secondItem="upV-pl-ige" secondAttribute="leading" constant="16" id="dUU-uv-ZcZ"/>
+                            <constraint firstAttribute="trailing" secondItem="omk-7P-1px" secondAttribute="trailing" constant="16" id="doE-kS-77X"/>
+                            <constraint firstItem="omk-7P-1px" firstAttribute="top" secondItem="Dn1-lf-hg7" secondAttribute="bottom" constant="8" id="nAD-Av-Qpc"/>
+                            <constraint firstItem="lGd-PV-dQ7" firstAttribute="height" secondItem="a4E-Ld-KEo" secondAttribute="height" id="yeP-Jg-ODQ"/>
+                            <constraint firstItem="a4E-Ld-KEo" firstAttribute="bottom" secondItem="upV-pl-ige" secondAttribute="centerY" id="ynU-B1-53b"/>
+                            <constraint firstItem="lGd-PV-dQ7" firstAttribute="top" secondItem="omk-7P-1px" secondAttribute="bottom" constant="8" id="zB5-We-Nmc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HRM-ZH-HXV"/>
+                                <exclude reference="QwC-4p-kvf"/>
+                                <exclude reference="ynU-B1-53b"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Indsæt Km" id="EoV-9b-ZcT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fGd-Jp-zXG">
+                            <connections>
+                                <action selector="saveBtnPressed:" destination="wDv-lA-vQV" id="6F8-Zv-EwJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="kmTextField" destination="lGd-PV-dQ7" id="mXz-jh-SHc"/>
+                        <outlet property="measuredKMLabel" destination="omk-7P-1px" id="rQf-ri-UA9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dEk-VK-Zjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260" y="893"/>
         </scene>
         <!--Rediger effektive Km-->
         <scene sceneID="emc-lI-ujd">
@@ -1396,15 +1503,6 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Afmålte km:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wk-Tm-cJ1">
-                                <rect key="frame" x="16" y="72" width="568" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="mMv-ND-IEN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="19" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oB5-mC-CPx">
                                 <rect key="frame" x="16" y="120" width="280" height="180"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
@@ -1413,6 +1511,15 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-EJ-7ZU">
                                 <rect key="frame" x="304" y="120" width="280" height="180"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Afmålte km:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wk-Tm-cJ1">
+                                <rect key="frame" x="16" y="72" width="568" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mMv-ND-IEN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
