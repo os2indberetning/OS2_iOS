@@ -21,6 +21,11 @@
         Employment* e = [[Employment alloc] init];
         e.employmentPosition = [[employment objectForKey:@"EmploymentPosition"] description];
         e.employmentId = @([[employment objectForKey:@"Id"] integerValue]);
+        e.manNr = [[employment objectForKey:@"ManNr"] description];
+        if ([e.manNr isEqualToString:@"<null>"] || [e.manNr isEqual:[NSNull null]]) {
+            e.manNr = nil;
+        }
+        
         [array insertObject:e atIndex:0];
     }
     
@@ -37,6 +42,7 @@
         
         emp.employmentPosition = CDe.employmentposition;
         emp.employmentId = CDe.employmentid;
+        emp.manNr = CDe.mannr;
         
         [array insertObject:emp atIndex:0];
     }
@@ -48,6 +54,7 @@
     //Encode properties, other class variables, etc
     [encoder encodeObject:self.employmentPosition forKey:@"employmentPosition"];
     [encoder encodeObject:self.employmentId forKey:@"employmentId"];
+    [encoder encodeObject:self.manNr forKey:@"manNr"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -55,12 +62,13 @@
         //decode properties, other class vars
         self.employmentPosition = [decoder decodeObjectForKey:@"employmentPosition"];
         self.employmentId = [decoder decodeObjectForKey:@"employmentId"];
+        self.manNr = [decoder decodeObjectForKey:@"manNr"];
     }
     return self;
 }
 
 - (BOOL)isEqual:(Employment*)object
 {
-    return([self.employmentPosition isEqualToString:object.employmentPosition] && [self.employmentId isEqualToNumber:object.employmentId] );
+    return([self.employmentPosition isEqualToString:object.employmentPosition] && [self.employmentId isEqualToNumber:object.employmentId] && [self.manNr isEqualToString:object.manNr]);
 }
 @end

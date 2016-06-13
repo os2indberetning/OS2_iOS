@@ -61,6 +61,7 @@
         
         CDe.employmentid = e.employmentId;
         CDe.employmentposition = e.employmentPosition;
+        CDe.mannr = e.manNr;
         
         [self.managedObjectContext insertObject:CDe];
     }
