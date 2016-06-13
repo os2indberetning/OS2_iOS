@@ -60,6 +60,8 @@
     
     [self.layer addSublayer:self.checkBoxLayer];
     [self.layer addSublayer:self.checkMarkLayer];
+    
+    [self setCheckMarkState:NO];
 }
 
 -(void)setCheckMarkState:(BOOL)isChecked

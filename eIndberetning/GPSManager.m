@@ -8,6 +8,7 @@
 //  eIndberetning
 //
 
+#include <UIKit/UIKit.h>
 #import "GPSManager.h"
 @import QuartzCore;
 
@@ -112,8 +113,16 @@ const double maxDistanceBetweenLocations = 200.0;
     // The user has not enabled any location services. Request background authorization.
     else if (status == kCLAuthorizationStatusNotDetermined) {
         NSLog(@"Not determined status number: %i", status);
-        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-            [self.locationManager requestAlwaysAuthorization];
+        float version = [[UIDevice currentDevice] systemVersion].floatValue;
+        if (version >= 8.0)
+        {
+            if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+                [self.locationManager requestAlwaysAuthorization];
+            }
+        }
+        else
+        {
+            [self.locationManager startUpdatingLocation];
         }
         return NO;
     }else if(status == kCLAuthorizationStatusAuthorized){

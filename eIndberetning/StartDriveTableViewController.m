@@ -221,9 +221,12 @@
         self.errorMsg = [[ErrorMsgViewController alloc] initWithNibName:@"ErrorMsgViewController" bundle:nil];
         [self.errorMsg showErrorMsg: @"Du mangler at vælge\net formål"];
     }
-    else if(!permission){
+    else if(!permission)
+    {
         [self showGPSPermissionDenied];
-    }else{
+    }
+    else
+    {
         [self performSegueWithIdentifier:@"DriveViewSegue" sender:self];
     }
 }
@@ -369,14 +372,31 @@
 -(void)showGPSPermissionDenied
 {
     NSString* title = @"Lokation er ikke tilgængelig";
-    NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig";
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:self
-                                              cancelButtonTitle:@"Afbryd"
-                                              otherButtonTitles:@"Indstillinger", nil];
-    [alertView show];
+    float version = [[UIDevice currentDevice] systemVersion].floatValue;
+    if (version >= 8.0)
+    {
+
+        NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig";
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                            message:message
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Afbryd"
+                                                  otherButtonTitles:@"Indstillinger", nil];
+        [alertView show];
+    }
+    else
+    {
+        NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig, gå derfor ind i indstillinger først";
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                            message:message
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil, nil];
+        [alertView show];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

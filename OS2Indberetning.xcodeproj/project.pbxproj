@@ -21,6 +21,7 @@
 		A7BCD3401BBB171400FC3DB1 /* QuestionDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BCD33E1BBB171400FC3DB1 /* QuestionDialogViewController.m */; };
 		A7BCD3411BBB171400FC3DB1 /* QuestionDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */; };
 		DC11F572710DF8FDA26523C6 /* libPods-eIndberetningTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A005CABB241D8A9545EDB /* libPods-eIndberetningTests.a */; };
+		DD9AEFF81D0AE10D0004B734 /* EditFourKmRuleKmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9AEFF71D0AE10D0004B734 /* EditFourKmRuleKmViewController.m */; };
 		EF2373911BE8FDD9003601DE /* Default-568h@2x.png.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */; };
 		EFB817871C74A635000B9FFB /* Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB817861C74A635000B9FFB /* Authorization.m */; };
 		EFECF1511C70CB1600DAB4A3 /* UserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFECF1501C70CB1600DAB4A3 /* UserLoginViewController.m */; };
@@ -167,6 +168,8 @@
 		A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDialogViewController.xib; sourceTree = "<group>"; };
 		B200ED93E597DB759452EDB9 /* Pods-eIndberetningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eIndberetningTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFCDD5DDA5410F88428A5138 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DD9AEFF61D0AE10D0004B734 /* EditFourKmRuleKmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFourKmRuleKmViewController.h; sourceTree = "<group>"; };
+		DD9AEFF71D0AE10D0004B734 /* EditFourKmRuleKmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFourKmRuleKmViewController.m; sourceTree = "<group>"; };
 		EF1C2A541C6372F600EB8A4B /* FourthLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FourthLocation.gpx; sourceTree = "<group>"; };
 		EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png.PNG"; sourceTree = "<group>"; };
 		EF9B6DB51BFA12E300347781 /* FirstLocationOS2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FirstLocationOS2.gpx; sourceTree = "<group>"; };
@@ -581,6 +584,8 @@
 				F58EC0B119FEBEFF0010AC96 /* ManualEntryViewController.xib */,
 				F5690EC219FFAE5D00B9C3B4 /* EditKmViewController.h */,
 				F5690EC319FFAE5D00B9C3B4 /* EditKmViewController.m */,
+				DD9AEFF61D0AE10D0004B734 /* EditFourKmRuleKmViewController.h */,
+				DD9AEFF71D0AE10D0004B734 /* EditFourKmRuleKmViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1000,6 +1005,7 @@
 				F559C7AA1B25765300594F56 /* CheckMarkImageView.m in Sources */,
 				F537B4E319FE530A00D06892 /* SelectListTableViewCell.m in Sources */,
 				F5D318111B22DACC00D09AD0 /* SelectMunicipalityViewController.m in Sources */,
+				DD9AEFF81D0AE10D0004B734 /* EditFourKmRuleKmViewController.m in Sources */,
 				F5AF892519E1C5CA00016826 /* FinishDriveTableViewController.m in Sources */,
 				A71D884B1BB8A4EB00F3415A /* SavedViewControllers.m in Sources */,
 				A7534B131BB991550042BB65 /* Settings.m in Sources */,

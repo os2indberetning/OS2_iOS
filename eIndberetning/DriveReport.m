@@ -30,6 +30,7 @@
                           @(self.didstarthome), @"StartsAtHome",
                           @(self.didendhome), @"EndsAtHome",
                           @(self.fourKmRule), @"FourKmRule",
+                          self.fourKmRuleDistance, @"FourKmRuleDistance",
                           [self.route transformToDictionary], @"Route",
                           self.employment.employmentId, @"EmploymentId",
                           self.profileId, @"ProfileId",
@@ -48,6 +49,7 @@
     
     [encoder encodeObject:@(self.didendhome) forKey:@"didendhome"];
     [encoder encodeObject:@(self.fourKmRule) forKey:@"fourkmrule"];
+    [encoder encodeObject:self.fourKmRuleDistance forKey:@"fourkmruledistance"];
     [encoder encodeObject:@(self.shouldReset) forKey:@"shouldReset"];
     [encoder encodeObject:self.profileId forKey:@"profileId"];
     
@@ -67,6 +69,7 @@
         
         self.didendhome = [[decoder decodeObjectForKey:@"didendhome"] boolValue];
         self.fourKmRule = [[decoder decodeObjectForKey:@"fourkmrule"] boolValue];
+        self.fourKmRuleDistance = [decoder decodeObjectForKey:@"fourkmruledistance"];
         self.shouldReset = [[decoder decodeObjectForKey:@"shouldReset"] boolValue];
         self.profileId = [decoder decodeObjectForKey:@"profileId"];
         
