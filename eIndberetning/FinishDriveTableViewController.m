@@ -53,6 +53,7 @@
 @property (strong, nonatomic) UILabel *fourKmRuleKmLabel;
 
 @property (strong, nonatomic) NSNumber *tempFourKmRuleDistance;
+@property (nonatomic) BOOL fourKmRuleAllowed;
 
 @end
 
@@ -143,8 +144,10 @@
     else
         self.commentTextLabel.text = @"Indtast Bemærkning";
     
-    if(self.report.employment)
+    if(self.report.employment) {
         self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
+        self.fourKmRuleAllowed = NO; //TODO: self.report.employment.manNr;
+    }
     else
         self.organisationalPlaceTextLabel.text  = @"Vælg Placering";
     
@@ -179,7 +182,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
+    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"] && self.fourKmRuleAllowed)
     {
         UITableViewCell *cell;
         if (indexPath.row == 0)
@@ -282,11 +285,12 @@
             {
                 self.tempFourKmRuleDistance = self.report.fourKmRuleDistance;
 
-                self.report.fourKmRuleDistance = 0;
                 [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
                 
                 [self.tableView beginUpdates];
                 [self.tableView endUpdates];
+                
+                self.report.fourKmRuleDistance = 0;
             }
         }
         else if (indexPath.row == 1)
@@ -305,13 +309,17 @@
     {
         if (indexPath.row == 8)
         {
-            if (self.report.fourKmRule)
+            if (self.report.fourKmRule && self.fourKmRuleAllowed)
             {
                 return 105.0f;
             }
-            else
+            else if (self.fourKmRuleAllowed)
             {
                 return 50.0f;
+            }
+            else
+            {
+                return 0;
             }
         }
     }

@@ -29,6 +29,9 @@
 
 - (void)setBaseUrl:(NSURL *)url
 {
+    // Testing on testserver
+    // self.sessionManager = [[AFHTTPSessionManager manager] initWithBaseURL:[NSURL URLWithString:@"http://os2indberetningmobil/api/"]];
+    
     self.sessionManager = [[AFHTTPSessionManager manager] initWithBaseURL:url];
     self.sessionManager.responseSerializer = [JSONResponseSerializerWithData serializer];
     self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
