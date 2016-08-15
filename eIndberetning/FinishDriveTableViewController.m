@@ -13,6 +13,7 @@
 #import "ErrorMsgViewController.h"
 #import "ManualEntryViewController.h"
 #import "EditKmViewController.h"
+#import "EditFourKmRuleKmViewController.h"
 #import "eMobilityHTTPSClient.h"
 #import "SelectPurposeListTableViewController.h"
 #import "UserInfo.h"
@@ -30,11 +31,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTextLabel;
 @property (weak, nonatomic) IBOutlet CheckMarkImageView *startAtHomeCheckbox;
 @property (weak, nonatomic) IBOutlet CheckMarkImageView *endAtHomeCheckbox;
-@property (weak, nonatomic) IBOutlet CheckMarkImageView *fourKmRuleCheckbox;
 @property (weak, nonatomic) IBOutlet UILabel *kmDrivenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userTextLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *uploadButton;
+@property (weak, nonatomic) IBOutlet UITableView *FourKmTableView;
 
 
 @property (strong, nonatomic) NSArray *rates;
@@ -47,7 +48,15 @@
 
 @property (strong, nonatomic) ErrorMsgViewController* errorMsg;
 @property (strong, nonatomic) ConfirmDeleteViewController* confirmPopup;
+
+@property (strong, nonatomic) CheckMarkImageView *fourKmCheckbox;
+@property (strong, nonatomic) UILabel *fourKmRuleKmLabel;
+
+@property (strong, nonatomic) NSNumber *tempFourKmRuleDistance;
+@property (nonatomic) BOOL fourKmRuleAllowed;
+
 @end
+
 
 @implementation FinishDriveTableViewController
 
@@ -110,7 +119,6 @@
 {
     [super viewWillAppear:animated];
     
-    
     //Fill in the selected data in the forms
     self.userTextLabel.text = [NSString stringWithFormat:@"Bruger: %@", self.info.name];
 
@@ -122,7 +130,6 @@
     
     [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
     [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
-    [self.fourKmRuleCheckbox setCheckMarkState:self.report.fourKmRule];
     
     //Set selected or default values
     self.purposeTextLabel.text = self.report.purpose.purpose;
@@ -137,67 +144,198 @@
     else
         self.commentTextLabel.text = @"Indtast Bemærkning";
     
-    if(self.report.employment)
+    if(self.report.employment) {
         self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
+        self.fourKmRuleAllowed = NO; //TODO: self.report.employment.manNr;
+    }
     else
         self.organisationalPlaceTextLabel.text  = @"Vælg Placering";
+    
+    if (self.fourKmRuleKmLabel)
+    {
+        [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+    }
+    
+    NSIndexPath *indexPath = self.FourKmTableView.indexPathForSelectedRow;
+    if (indexPath)
+    {
+        [self.FourKmTableView deselectRowAtIndexPath:indexPath animated:animated];
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
+    {
+        return 2;
+    }
+    else
+    {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"] && self.fourKmRuleAllowed)
+    {
+        UITableViewCell *cell;
+        if (indexPath.row == 0)
+        {
+            NSString *identifier = @"FourKmRuleCheckCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            
+            self.fourKmCheckbox = (CheckMarkImageView *)[cell viewWithTag:101];
+            
+            [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
+        }
+        else
+        {
+            NSString *identifier = @"FourKmRuleDistanceCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            
+            self.fourKmRuleKmLabel = (UILabel *)[cell viewWithTag:201];
+            
+            [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+        }
+        return cell;
+    }
+    else
+    {
+        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 1)
+    if([tableView.restorationIdentifier isEqualToString:@"TableView"])
     {
-        SelectPurposeListTableViewController *vc=[[SelectPurposeListTableViewController alloc]initWithNibName:@"SelectPurposeListTableViewController" bundle:nil];
-        vc.report = self.report;
-        [self.navigationController pushViewController:vc animated:true];
-    }
-    else if(indexPath.row < 4)
-    {
-        SelectListTableViewController *vc=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
-        vc.report = self.report;
-        
-        switch (indexPath.row) {
-            case 2:
-            {
-                vc.listType = EmploymentList;
-                vc.items = self.employments;
-                vc.report = self.report;
-                break;
-            }
-            case 3:
-            {
-                vc.listType = RateList;
-                vc.items = self.rates;
-                vc.report = self.report;
-                break;
-            }
-            default:
-                break;
+        if(indexPath.row == 1)
+        {
+            SelectPurposeListTableViewController *vc=[[SelectPurposeListTableViewController alloc]initWithNibName:@"SelectPurposeListTableViewController" bundle:nil];
+            vc.report = self.report;
+            [self.navigationController pushViewController:vc animated:true];
         }
+        else if(indexPath.row < 4)
+        {
+            SelectListTableViewController *vc=[[SelectListTableViewController alloc]initWithNibName:@"SelectListTableViewController" bundle:nil];
+            vc.report = self.report;
+            
+            switch (indexPath.row) {
+                case 2:
+                {
+                    vc.listType = EmploymentList;
+                    vc.items = self.employments;
+                    vc.report = self.report;
+                    break;
+                }
+                case 3:
+                {
+                    vc.listType = RateList;
+                    vc.items = self.rates;
+                    vc.report = self.report;
+                    break;
+                }
+                default:
+                    break;
+            }
+            
+            [self.navigationController pushViewController:vc animated:true];
+        }
+        else if(indexPath.row == 4)
+        {
+            ManualEntryViewController *vc=[[ManualEntryViewController alloc]initWithNibName:@"ManualEntryViewController" bundle:nil];
+            vc.report = self.report;
+            [self.navigationController pushViewController:vc animated:true];
+        }
+        else if(indexPath.row == 6)
+        {
+            self.report.didstarthome = !self.report.didstarthome;
+            [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
+        }
+        else if(indexPath.row == 7)
+        {
+            self.report.didendhome = !self.report.didendhome;
+            [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
+        } else if(indexPath.row == 8)
+        {
         
-        [self.navigationController pushViewController:vc animated:true];
+        }
     }
-    else if(indexPath.row == 4)
+    else if([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
     {
-        ManualEntryViewController *vc=[[ManualEntryViewController alloc]initWithNibName:@"ManualEntryViewController" bundle:nil];
-        vc.report = self.report;
-        [self.navigationController pushViewController:vc animated:true];
+        if (indexPath.row == 0)
+        {
+            self.report.fourKmRule = !self.report.fourKmRule;
+            [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
+            if (self.report.fourKmRule)
+            {
+                self.report.fourKmRuleDistance = self.tempFourKmRuleDistance;
+                [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+                
+                [self.tableView beginUpdates];
+                [self.tableView endUpdates];
+            }
+            else if (!self.report.fourKmRule)
+            {
+                self.tempFourKmRuleDistance = self.report.fourKmRuleDistance;
+
+                [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+                
+                [self.tableView beginUpdates];
+                [self.tableView endUpdates];
+                
+                self.report.fourKmRuleDistance = 0;
+            }
+        }
+        else if (indexPath.row == 1)
+        {
+            EditFourKmRuleKmViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"EditFourKmRuleViewController"];
+            vc.report = self.report;
+            
+            [self.navigationController pushViewController:vc animated:true];
+        }
     }
-    else if(indexPath.row == 6)
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([tableView.restorationIdentifier isEqualToString:@"TableView"])
     {
-        self.report.didstarthome = !self.report.didstarthome;
-        [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
+        if (indexPath.row == 8)
+        {
+            if (self.report.fourKmRule && self.fourKmRuleAllowed)
+            {
+                return 105.0f;
+            }
+            else if (self.fourKmRuleAllowed)
+            {
+                return 50.0f;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
-    else if(indexPath.row == 7)
+    else if([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
     {
-        self.report.didendhome = !self.report.didendhome;
-        [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
-    } else if(indexPath.row == 8)
-    {
-        self.report.fourKmRule = !self.report.fourKmRule;
-        [self.fourKmRuleCheckbox setCheckMarkState:self.report.fourKmRule];
+        if (indexPath.row == 0)
+        {
+            return 50.0;
+        }
+        else
+        {
+            return 55.0;
+        }
     }
     
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 - (IBAction)cancelAndDeleteButton:(id)sender
 {
@@ -288,6 +426,11 @@
         UploadDriveViewController *vc = [segue destinationViewController];
         vc.report = self.report;
         vc.delegate = self;
+    }
+    else if([[segue identifier] isEqualToString:@"EditFourKmRuleKmSegue"])
+    {
+        EditFourKmRuleKmViewController *vc = [segue destinationViewController];
+        vc.report = self.report;
     }
 }
 #pragma mark State Preservation
