@@ -26,7 +26,7 @@
 @property (nonatomic) BOOL shouldReset;
 
 @property (nonatomic, strong) NSNumber* profileId;
-@property (nonatomic, strong) NSNumber* fourKmRuleDistance;
+@property (nonatomic, strong) NSNumber* homeToBorderDistance;
 
 @property (nonatomic, strong) Rate* rate;
 @property (nonatomic, strong) Employment* employment;
