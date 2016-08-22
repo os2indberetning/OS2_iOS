@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSString * employmentposition;
 @property (nonatomic, retain) NSNumber * employmentid;
 @property (nonatomic, retain) NSString * mannr;
+@property (nonatomic) BOOL fourkmruleallowed;
 
 @end

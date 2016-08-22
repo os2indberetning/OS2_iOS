@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString* employmentPosition;
 @property (nonatomic, strong) NSNumber* employmentId;
 @property (nonatomic, strong) NSString* manNr;
+@property (nonatomic) BOOL fourKmRuleAllowed;
 
 + (NSArray *) initFromJsonDic:(NSDictionary*)dic;
 + (NSArray *) initFromCoreDataArray:(NSArray*)CDArray;
