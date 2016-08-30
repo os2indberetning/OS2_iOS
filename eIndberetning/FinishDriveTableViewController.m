@@ -134,26 +134,35 @@
     //Set selected or default values
     self.purposeTextLabel.text = self.report.purpose.purpose;
     
-    if(self.report.rate)
+    if(self.report.rate) {
         self.rateTextLabel.text = self.report.rate.rateDescription;
-    else
+    } else {
         self.rateTextLabel.text = @"Vælg Takst";
+    }
     
-    if(self.report.manuelentryremark)
+    if(self.report.manuelentryremark) {
         self.commentTextLabel.text = self.report.manuelentryremark;
-    else
+    } else {
         self.commentTextLabel.text = @"Indtast Bemærkning";
+    }
     
     if(self.report.employment) {
         self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
-        self.fourKmRuleAllowed = NO; //TODO: self.report.employment.manNr;
-    }
-    else
+        self.fourKmRuleAllowed = self.report.employment.fourKmRuleAllowed;
+    } else {
         self.organisationalPlaceTextLabel.text  = @"Vælg Placering";
+    }
     
-    if (self.fourKmRuleKmLabel)
-    {
-        [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+    self.report.fourKmRule = false;
+    
+    if (self.fourKmCheckbox) {
+        [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
+    }
+        
+    if (self.fourKmRuleKmLabel) {
+        NSUserDefaults * userdefaults = [NSUserDefaults standardUserDefaults];
+        self.report.homeToBorderDistance = [userdefaults objectForKey:[NSString stringWithFormat:@"hometoborderdistance-%@", self.info.authorization.guId]];
+        [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.homeToBorderDistance floatValue]]];
     }
     
     NSIndexPath *indexPath = self.FourKmTableView.indexPathForSelectedRow;
@@ -161,6 +170,8 @@
     {
         [self.FourKmTableView deselectRowAtIndexPath:indexPath animated:animated];
     }
+    
+    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -182,7 +193,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"] && self.fourKmRuleAllowed)
+    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
     {
         UITableViewCell *cell;
         if (indexPath.row == 0)
@@ -190,7 +201,9 @@
             NSString *identifier = @"FourKmRuleCheckCell";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             
-            self.fourKmCheckbox = (CheckMarkImageView *)[cell viewWithTag:101];
+            if (self.fourKmCheckbox == nil) {
+                self.fourKmCheckbox = (CheckMarkImageView *)[cell viewWithTag:101];
+            }
             
             [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
         }
@@ -201,7 +214,9 @@
             
             self.fourKmRuleKmLabel = (UILabel *)[cell viewWithTag:201];
             
-            [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+            NSUserDefaults * userdefaults = [NSUserDefaults standardUserDefaults];
+            self.report.homeToBorderDistance = [userdefaults objectForKey:[NSString stringWithFormat:@"hometoborderdistance-%@", self.info.authorization.guId]];
+            [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.homeToBorderDistance floatValue]]];
         }
         return cell;
     }
@@ -275,22 +290,19 @@
             [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
             if (self.report.fourKmRule)
             {
-                self.report.fourKmRuleDistance = self.tempFourKmRuleDistance;
-                [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+                self.report.homeToBorderDistance = self.tempFourKmRuleDistance;
+                [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.homeToBorderDistance floatValue]]];
                 
                 [self.tableView beginUpdates];
                 [self.tableView endUpdates];
             }
             else if (!self.report.fourKmRule)
             {
-                self.tempFourKmRuleDistance = self.report.fourKmRuleDistance;
-
-                [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.fourKmRuleDistance floatValue]]];
+                self.tempFourKmRuleDistance = self.report.homeToBorderDistance;
+                [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.homeToBorderDistance floatValue]]];
                 
                 [self.tableView beginUpdates];
                 [self.tableView endUpdates];
-                
-                self.report.fourKmRuleDistance = 0;
             }
         }
         else if (indexPath.row == 1)

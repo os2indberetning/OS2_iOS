@@ -16,5 +16,6 @@
 @dynamic employmentposition;
 @dynamic employmentid;
 @dynamic mannr;
+@dynamic fourkmruleallowed;
 
 @end

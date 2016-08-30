@@ -25,6 +25,7 @@
         if ([e.manNr isEqualToString:@"<null>"] || [e.manNr isEqual:[NSNull null]]) {
             e.manNr = nil;
         }
+        e.fourKmRuleAllowed = [[[employment objectForKey:@"OrgUnit"] objectForKey:@"FourKmRuleAllowed"] boolValue];
         
         [array insertObject:e atIndex:0];
     }
@@ -43,6 +44,7 @@
         emp.employmentPosition = CDe.employmentposition;
         emp.employmentId = CDe.employmentid;
         emp.manNr = CDe.mannr;
+        emp.fourKmRuleAllowed = CDe.fourkmruleallowed;
         
         [array insertObject:emp atIndex:0];
     }
@@ -55,6 +57,7 @@
     [encoder encodeObject:self.employmentPosition forKey:@"employmentPosition"];
     [encoder encodeObject:self.employmentId forKey:@"employmentId"];
     [encoder encodeObject:self.manNr forKey:@"manNr"];
+    [encoder encodeBool:self.fourKmRuleAllowed forKey:@"fourKmRuleAllowed"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -63,12 +66,13 @@
         self.employmentPosition = [decoder decodeObjectForKey:@"employmentPosition"];
         self.employmentId = [decoder decodeObjectForKey:@"employmentId"];
         self.manNr = [decoder decodeObjectForKey:@"manNr"];
+        self.fourKmRuleAllowed = [decoder decodeBoolForKey:@"fourKmRuleAllowed"];
     }
     return self;
 }
 
 - (BOOL)isEqual:(Employment*)object
 {
-    return([self.employmentPosition isEqualToString:object.employmentPosition] && [self.employmentId isEqualToNumber:object.employmentId] && [self.manNr isEqualToString:object.manNr]);
+    return([self.employmentPosition isEqualToString:object.employmentPosition] && [self.employmentId isEqualToNumber:object.employmentId] && [self.manNr isEqualToString:object.manNr] && self.fourKmRuleAllowed == object.fourKmRuleAllowed);
 }
 @end

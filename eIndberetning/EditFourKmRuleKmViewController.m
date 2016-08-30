@@ -8,6 +8,7 @@
 
 #import "EditFourKmRuleKmViewController.h"
 #import "UIViewController+BackButton.h"
+#import "UserInfo.h"
 
 @interface EditFourKmRuleKmViewController ()
 
@@ -28,7 +29,7 @@
     
     self.kmTextField.keyboardType = UIKeyboardTypeDecimalPad;
     
-    self.measuredKMLabel.text = [NSString stringWithFormat:@"Afmålte km: %.01f Km", [self.report.fourKmRuleDistance floatValue]];
+    self.measuredKMLabel.text = [NSString stringWithFormat:@"Afmålte km: %.01f Km", [self.report.homeToBorderDistance floatValue]];
     
     [self.kmTextField becomeFirstResponder];
     
@@ -42,7 +43,11 @@
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
-    self.report.fourKmRuleDistance = [f numberFromString:self.kmTextField.text];
+    NSNumber *distance = [f numberFromString:self.kmTextField.text];
+    
+    NSUserDefaults * userdefaults = [NSUserDefaults standardUserDefaults];
+    UserInfo* info = [UserInfo sharedManager];
+    [userdefaults setObject:distance forKey:[NSString stringWithFormat:@"hometoborderdistance-%@", info.authorization.guId]];
     
     [self.navigationController popViewControllerAnimated:true];
 }
