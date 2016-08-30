@@ -30,7 +30,7 @@
                           @(self.didstarthome), @"StartsAtHome",
                           @(self.didendhome), @"EndsAtHome",
                           @(self.fourKmRule), @"FourKmRule",
-                          self.homeToBorderDistance, @"hometoborderdistance",
+                          self.homeToBorderDistance, @"HomeToBorderDistance",
                           [self.route transformToDictionary], @"Route",
                           self.employment.employmentId, @"EmploymentId",
                           self.profileId, @"ProfileId",

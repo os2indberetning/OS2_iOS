@@ -134,26 +134,32 @@
     //Set selected or default values
     self.purposeTextLabel.text = self.report.purpose.purpose;
     
-    if(self.report.rate)
+    if(self.report.rate) {
         self.rateTextLabel.text = self.report.rate.rateDescription;
-    else
+    } else {
         self.rateTextLabel.text = @"Vælg Takst";
+    }
     
-    if(self.report.manuelentryremark)
+    if(self.report.manuelentryremark) {
         self.commentTextLabel.text = self.report.manuelentryremark;
-    else
+    } else {
         self.commentTextLabel.text = @"Indtast Bemærkning";
+    }
     
-    if(self.report.employment)
-    {
+    if(self.report.employment) {
         self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
         self.fourKmRuleAllowed = self.report.employment.fourKmRuleAllowed;
-    }
-    else
+    } else {
         self.organisationalPlaceTextLabel.text  = @"Vælg Placering";
+    }
     
-    if (self.fourKmRuleKmLabel)
-    {
+    self.report.fourKmRule = false;
+    
+    if (self.fourKmCheckbox) {
+        [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
+    }
+        
+    if (self.fourKmRuleKmLabel) {
         NSUserDefaults * userdefaults = [NSUserDefaults standardUserDefaults];
         self.report.homeToBorderDistance = [userdefaults objectForKey:[NSString stringWithFormat:@"hometoborderdistance-%@", self.info.authorization.guId]];
         [self.fourKmRuleKmLabel setText:[NSString stringWithFormat:@"%.01f Km", [self.report.homeToBorderDistance floatValue]]];
@@ -164,6 +170,8 @@
     {
         [self.FourKmTableView deselectRowAtIndexPath:indexPath animated:animated];
     }
+    
+    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -185,7 +193,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"] && self.fourKmRuleAllowed)
+    if ([tableView.restorationIdentifier isEqualToString:@"FourKmRuleTableView"])
     {
         UITableViewCell *cell;
         if (indexPath.row == 0)
@@ -193,7 +201,9 @@
             NSString *identifier = @"FourKmRuleCheckCell";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
             
-            self.fourKmCheckbox = (CheckMarkImageView *)[cell viewWithTag:101];
+            if (self.fourKmCheckbox == nil) {
+                self.fourKmCheckbox = (CheckMarkImageView *)[cell viewWithTag:101];
+            }
             
             [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
         }
