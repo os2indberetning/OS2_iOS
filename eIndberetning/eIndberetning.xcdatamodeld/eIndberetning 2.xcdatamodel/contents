@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
     <entity name="CDEmployment" representedClassName="CDEmployment" syncable="YES">
         <attribute name="employmentid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="employmentposition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fourkmruleallowed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="mannr" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CDPurpose" representedClassName="CDPurpose" syncable="YES">
@@ -15,7 +16,7 @@
         <attribute name="year" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDEmployment" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="CDEmployment" positionX="-54" positionY="9" width="128" height="105"/>
         <element name="CDPurpose" positionX="-63" positionY="-18" width="128" height="73"/>
         <element name="CDRate" positionX="-63" positionY="0" width="128" height="90"/>
     </elements>

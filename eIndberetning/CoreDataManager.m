@@ -62,6 +62,7 @@
         CDe.employmentid = e.employmentId;
         CDe.employmentposition = e.employmentPosition;
         CDe.mannr = e.manNr;
+        CDe.fourkmruleallowed = e.fourKmRuleAllowed;
         
         [self.managedObjectContext insertObject:CDe];
     }
