@@ -48,6 +48,9 @@
     NSUserDefaults * userdefaults = [NSUserDefaults standardUserDefaults];
     UserInfo* info = [UserInfo sharedManager];
     [userdefaults setObject:distance forKey:[NSString stringWithFormat:@"hometoborderdistance-%@", info.authorization.guId]];
+    [userdefaults synchronize];
+    
+    NSLog(@"HomeToBorderDistance = %@", [userdefaults objectForKey:[NSString stringWithFormat:@"hometoborderdistance-%@", info.authorization.guId]]);
     
     [self.navigationController popViewControllerAnimated:true];
 }

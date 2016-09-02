@@ -111,7 +111,6 @@ const double WAIT_TIME_S = 1.5;
 
 -(void)uploadReport
 {
-    
     UserInfo* info = [UserInfo sharedManager];
     eMobilityHTTPSClient* client = [eMobilityHTTPSClient sharedeMobilityHTTPSClient];
     self.spinner.hidden = NO;
