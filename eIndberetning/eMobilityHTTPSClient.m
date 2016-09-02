@@ -85,7 +85,7 @@
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:&err];
     NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"dic: %@", myString);
+    NSLog(@"final dic: %@", myString);
     [self.sessionManager POST:@"report" parameters:data success:succes failure:failure];
 }
 @end
