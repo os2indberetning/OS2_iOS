@@ -63,7 +63,7 @@ NSString* municipalityCell = @"MunicipalityCell";
         NSString *errorMessage = @"Der skete en fejl - prøv igen";
         
         if(!r.statusCode){
-            errorMessage = @"Ingen ingen internetforbindelse - prøv igen.";
+            errorMessage = @"Ingen internetforbindelse - prøv igen.";
         }
         
         [self.errorMsg showErrorMsg: errorMessage];
