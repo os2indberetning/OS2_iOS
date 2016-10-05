@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,32 +12,21 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rYn-rc-b6r">
-                    <rect key="frame" x="60" y="40" width="360" height="360"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="rYn-rc-b6r" secondAttribute="height" multiplier="1:1" id="kQB-7N-Fmg"/>
-                    </constraints>
-                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="rYn-rc-b6r"/>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="rYn-rc-b6r" secondAttribute="trailing" constant="60" id="90y-ss-OQL"/>
-                <constraint firstItem="rYn-rc-b6r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="ETO-3T-ge1"/>
-                <constraint firstItem="rYn-rc-b6r" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Gp5-jd-v9N"/>
-                <constraint firstItem="rYn-rc-b6r" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-20" id="TgR-VB-Dj7"/>
-                <constraint firstItem="rYn-rc-b6r" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yw9-Oo-Xor"/>
+                <constraint firstAttribute="trailing" secondItem="rYn-rc-b6r" secondAttribute="trailing" id="Gkd-iA-XP9"/>
+                <constraint firstItem="rYn-rc-b6r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="J70-NB-7W7"/>
+                <constraint firstAttribute="bottom" secondItem="rYn-rc-b6r" secondAttribute="bottom" id="RRP-Gg-cMu"/>
+                <constraint firstItem="rYn-rc-b6r" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xOP-Jf-xrp"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="Gp5-jd-v9N"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
     <resources>
-        <image name="LaunchScreenLogo" width="180" height="180"/>
+        <image name="LaunchScreenImage" width="375" height="667"/>
     </resources>
 </document>
