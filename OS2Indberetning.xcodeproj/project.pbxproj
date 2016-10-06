@@ -731,7 +731,8 @@
 					};
 					F56E0A1D19D2A40C00B6CA1F = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = B4CK3282G9;
+						DevelopmentTeam = B7695K65XQ;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1199,11 +1200,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = BBK78ULP2R;
 				INFOPLIST_FILE = eIndberetning/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.miracle.eIndberetning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1a208006-e6a4-4643-9ed1-f5424f3ddbbc";
+				PROVISIONING_PROFILE_SPECIFIER = OS2IndberetningDEV;
 			};
 			name = Debug;
 		};
@@ -1213,13 +1217,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = B7695K65XQ;
 				INFOPLIST_FILE = eIndberetning/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.miracle.eIndberetning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "44c6596e-93cd-4160-afdd-4fba278767bb";
+				PROVISIONING_PROFILE_SPECIFIER = EnterpriseAnyAppProfile;
 			};
 			name = Release;
 		};
