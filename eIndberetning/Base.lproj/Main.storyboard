@@ -1255,7 +1255,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                                 <frame key="frameInset" width="342" height="54"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal Km for 4-km reglen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-co-eMK">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal km fra kommunegrænse til bopæl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-co-eMK">
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="25" id="weL-Et-Nmg"/>
                                                                         </constraints>
