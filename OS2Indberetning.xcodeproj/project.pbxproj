@@ -1219,14 +1219,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = B7695K65XQ;
+				DEVELOPMENT_TEAM = BBK78ULP2R;
 				INFOPLIST_FILE = eIndberetning/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dk.miracle.eIndberetning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "44c6596e-93cd-4160-afdd-4fba278767bb";
-				PROVISIONING_PROFILE_SPECIFIER = EnterpriseAnyAppProfile;
+				PROVISIONING_PROFILE = "8942563f-4252-43d5-a6f4-b80a6d8ae2a1";
+				PROVISIONING_PROFILE_SPECIFIER = OS2IndberetningRELEASE;
 			};
 			name = Release;
 		};
