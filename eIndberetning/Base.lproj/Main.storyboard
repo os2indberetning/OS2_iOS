@@ -991,7 +991,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
             </objects>
             <point key="canvasLocation" x="633" y="163"/>
         </scene>
-        <!--Afslut Kørsel-->
+        <!--Afslut kørsel-->
         <scene sceneID="cFe-b4-CRB">
             <objects>
                 <tableViewController storyboardIdentifier="FinishDriveViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ck8-fh-DPc" customClass="FinishDriveTableViewController" sceneMemberID="viewController">
@@ -1433,7 +1433,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                             <outlet property="delegate" destination="Ck8-fh-DPc" id="KP6-bF-Qtu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Afslut Kørsel" id="F1H-eF-zWp"/>
+                    <navigationItem key="navigationItem" title="Afslut kørsel" id="F1H-eF-zWp"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="FourKmTableView" destination="0l2-pu-Lg5" id="W9T-X0-u3d"/>
