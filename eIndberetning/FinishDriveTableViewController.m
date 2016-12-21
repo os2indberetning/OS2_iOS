@@ -12,7 +12,6 @@
 #import "SelectListTableViewController.h"
 #import "ErrorMsgViewController.h"
 #import "ManualEntryViewController.h"
-#import "EditKmViewController.h"
 #import "EditFourKmRuleKmViewController.h"
 #import "eMobilityHTTPSClient.h"
 #import "SelectPurposeListTableViewController.h"
@@ -293,6 +292,10 @@
             vc.report = self.report;
             [self.navigationController pushViewController:vc animated:true];
         }
+        else if(indexPath.row == 5)
+        {
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
         else if(indexPath.row == 6)
         {
             self.report.didstarthome = !self.report.didstarthome;
@@ -451,14 +454,9 @@
 
 #pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"EditKmSegue"])
-    {
-        EditKmViewController *vc = [segue destinationViewController];
-        vc.route = self.report.route;
-    }
-    else if ([[segue identifier] isEqualToString:@"UploadDriveSegue"])
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{    
+    if ([[segue identifier] isEqualToString:@"UploadDriveSegue"])
     {
         UploadDriveViewController *vc = [segue destinationViewController];
         vc.report = self.report;
