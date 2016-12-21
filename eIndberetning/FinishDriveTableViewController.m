@@ -134,13 +134,13 @@
     [super viewWillAppear:animated];
     
     //Fill in the selected data in the forms
-    self.userTextLabel.text = [NSString stringWithFormat:@"Bruger: %@", self.info.name];
+    self.userTextLabel.text = self.info.name;
 
     self.kmDrivenLabel.text = [NSString stringWithFormat:@"%.01f Km", [self.report.route.totalDistanceEdit floatValue]];
     
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM-YY"];
-    self.dateLabel.text = [@"Dato: " stringByAppendingString:[formatter stringFromDate:self.report.date]];
+    self.dateLabel.text = [formatter stringFromDate:self.report.date];
     
     [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
     [self.endAtHomeCheckbox setCheckMarkState:self.report.didendhome];
