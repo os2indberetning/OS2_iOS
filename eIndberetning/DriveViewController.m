@@ -145,15 +145,15 @@ const double SETTLE_TIME_S = 5;
     {
         self.validateResume = YES;
         [self.gpsManager startGPS];
-        [self.pauseButton setTitle:@"Pause Kørsel" forState:UIControlStateNormal];
+        [self.pauseButton setTitle:NSLocalizedString(@"driving_view_pause", nil) forState:UIControlStateNormal];
     }
     else
     {
         [self markLastAsIsViaPoint];
         //self.locA = nil;
         [self.gpsManager stopGPS];
-        self.gpsAccuaryLabel.text = @"GPS sat på pause";
-        [self.pauseButton setTitle:@"Genoptag Kørsel" forState:UIControlStateNormal];
+        self.gpsAccuaryLabel.text = NSLocalizedString(@"driving_view_gpspause_label", nil);
+        [self.pauseButton setTitle:NSLocalizedString(@"driving_view_continue", nil) forState:UIControlStateNormal];
     }
     
     self.isPaused = !self.isPaused;

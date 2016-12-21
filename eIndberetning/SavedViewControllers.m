@@ -16,6 +16,8 @@
 
 @interface SavedViewControllers ()
 
+@property (weak, nonatomic) IBOutlet UINavigationItem *savedReportNavigationItem;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UITableView *mainTable;
 @property (strong) PopupSendDeleteViewController * popup;
 
@@ -29,6 +31,10 @@
     
     self.mainTable.delegate = self;
     self.mainTable.dataSource = self;
+    
+    self.savedReportNavigationItem.title = NSLocalizedString(@"saved_reports_view_title", nil);
+    self.descriptionLabel.text = NSLocalizedString(@"saved_reports_view_description", nil);
+    
     [self AddBackButton];
 }
 

@@ -865,7 +865,9 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                     </view>
                     <navigationItem key="navigationItem" title="Gemte rapporteringer" id="5L6-Xq-RIC"/>
                     <connections>
+                        <outlet property="descriptionLabel" destination="PZg-lo-7vs" id="F3h-S4-SDp"/>
                         <outlet property="mainTable" destination="3K4-Fc-wtW" id="QHv-aB-g7K"/>
+                        <outlet property="savedReportNavigationItem" destination="5L6-Xq-RIC" id="fT8-oJ-PEN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDa-0p-z26" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1525,13 +1527,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Antal km" id="EoV-9b-ZcT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fGd-Jp-zXG">
-                            <connections>
-                                <action selector="saveBtnPressed:" destination="wDv-lA-vQV" id="6F8-Zv-EwJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Antal km" id="EoV-9b-ZcT"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="hometoborderdistanceDescriptionLabel" destination="gOP-nX-dAX" id="EkY-K8-yf2"/>

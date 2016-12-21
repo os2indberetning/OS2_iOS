@@ -23,7 +23,7 @@
     [self AddBackButton];
 
     //Add save button
-    UIBarButtonItem *saveBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
+    UIBarButtonItem *saveBtn = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"comments_view_save", nil) style:UIBarButtonItemStylePlain target:self action:@selector(save)];
     self.navigationItem.rightBarButtonItem = saveBtn;
     
     self.navigationItem.title = NSLocalizedString(@"comments_view_title", nil);

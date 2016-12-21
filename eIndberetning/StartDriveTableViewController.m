@@ -486,20 +486,24 @@
 
 - (IBAction)logoutButtonPressed:(id)sender {
     _logoutButton.enabled = NO;
-    _logoutPopup = [QuestionDialogViewController setTextsWithTitle:@"Du er ved at logge ud" withMessage:@"Eventuelle indtastninger og gemte rapporter vil blive slettet, er du sikker?"
-      withNoButtonText:@"Nej" withNoCallback:^{
-          _logoutButton.enabled = YES;
-          [_logoutPopup removeAnimate];
-          
-          if(_shouldSync){
-              [self syncUserInfo];
-          }
-    } withYesText:@"Ok" withYesCallback:^{
-            _logoutButton.enabled = YES;
-        [_logoutPopup removeAnimate];
-        [self completeLogout];
-        
-    } inView:self.navigationController.view];
+    _logoutPopup = [QuestionDialogViewController
+                    setTextsWithTitle:NSLocalizedString(@"confirmation_logout_title", nil)
+                    withMessage:NSLocalizedString(@"confirmation_logout_description", nil)
+                    withNoButtonText:NSLocalizedString(@"confirmation_logout_cancel", nil)
+                    withNoCallback:^{
+                        _logoutButton.enabled = YES;
+                        [_logoutPopup removeAnimate];
+                        
+                        if(_shouldSync){
+                            [self syncUserInfo];
+                        }
+                    } withYesText:NSLocalizedString(@"confirmation_logout_accept", nil)
+                    withYesCallback:^{
+                        _logoutButton.enabled = YES;
+                        [_logoutPopup removeAnimate];
+                        [self completeLogout];
+                        
+                    } inView:self.navigationController.view];
 }
 
 -(void)completeLogout{
