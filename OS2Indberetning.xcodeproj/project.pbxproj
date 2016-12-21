@@ -21,6 +21,7 @@
 		A7BCD3401BBB171400FC3DB1 /* QuestionDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BCD33E1BBB171400FC3DB1 /* QuestionDialogViewController.m */; };
 		A7BCD3411BBB171400FC3DB1 /* QuestionDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */; };
 		DC11F572710DF8FDA26523C6 /* libPods-eIndberetningTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A005CABB241D8A9545EDB /* libPods-eIndberetningTests.a */; };
+		DD49D5981E0972D9009C4222 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD49D59A1E0972D9009C4222 /* Localizable.strings */; };
 		DD9AEFF81D0AE10D0004B734 /* EditFourKmRuleKmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9AEFF71D0AE10D0004B734 /* EditFourKmRuleKmViewController.m */; };
 		EF2373911BE8FDD9003601DE /* Default-568h@2x.png.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EF2373901BE8FDD9003601DE /* Default-568h@2x.png.PNG */; };
 		EFB817871C74A635000B9FFB /* Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB817861C74A635000B9FFB /* Authorization.m */; };
@@ -168,6 +169,7 @@
 		A7BCD33F1BBB171400FC3DB1 /* QuestionDialogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDialogViewController.xib; sourceTree = "<group>"; };
 		B200ED93E597DB759452EDB9 /* Pods-eIndberetningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eIndberetningTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eIndberetningTests/Pods-eIndberetningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFCDD5DDA5410F88428A5138 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DD49D5991E0972D9009C4222 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD9AEFF61D0AE10D0004B734 /* EditFourKmRuleKmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFourKmRuleKmViewController.h; sourceTree = "<group>"; };
 		DD9AEFF71D0AE10D0004B734 /* EditFourKmRuleKmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFourKmRuleKmViewController.m; sourceTree = "<group>"; };
 		EF1C2A541C6372F600EB8A4B /* FourthLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FourthLocation.gpx; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				F56E0A2819D2A40C00B6CA1F /* eIndberetning.xcdatamodeld */,
 				F56E0A2219D2A40C00B6CA1F /* Info.plist */,
 				F56E0A2319D2A40C00B6CA1F /* main.m */,
+				DD49D59A1E0972D9009C4222 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				F56E0A3019D2A40C00B6CA1F /* Main.storyboard in Resources */,
 				F56E0A3519D2A40C00B6CA1F /* LaunchScreen.xib in Resources */,
 				F58EC0B319FEBEFF0010AC96 /* ManualEntryViewController.xib in Resources */,
+				DD49D5981E0972D9009C4222 /* Localizable.strings in Resources */,
 				A7BCD3411BBB171400FC3DB1 /* QuestionDialogViewController.xib in Resources */,
 				F56E0A3219D2A40C00B6CA1F /* Images.xcassets in Resources */,
 				A7534B181BB9BAF40042BB65 /* PopupSendDeleteViewController.xib in Resources */,
@@ -1062,6 +1066,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DD49D59A1E0972D9009C4222 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD49D5991E0972D9009C4222 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F56E0A2E19D2A40C00B6CA1F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

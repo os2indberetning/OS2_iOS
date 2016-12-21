@@ -1,0 +1,38 @@
+/*
+ Localizable.strings
+ OS2Indberetning
+ 
+ Created by Jonas L on 20/12/2016.
+ Copyright © 2016 Miracle A/S. All rights reserved.
+ */
+
+"purpose_title" = "Formål med tjenestekørsel";
+"purpose_subtitle" = "Opret eller vælg formål";
+"purpose_view_title" = "Opret formål via + eller vælg";
+
+"organisationalplace_title" = "Stilling og ansættelsessted";
+"organisationalplace_subtitle" = "Vælg stilling og ansættelsessted";
+"organisationalplace_view_title" = "Vælg stilling og ansættelsessted";
+
+"totalkm_title" = "Antal kørte km";
+"totalkm_subtitle" = "";
+
+"rate_title" = "Takst";
+"rate_subtitle" = "Vælg takst";
+"rate_view_title" = "Vælg takst";
+
+"comments_title" = "Kommentarer";
+"comments_subtitle" = "Indtast eventuelle uddybende kommentarer";
+"comments_view_title" = "Indtast kommentarer";
+
+"start_home_title" = "Starter du hjemme?";
+
+"end_home_title" = "Slutter du hjemme?";
+
+"use_four_km_rule_title" = "Jeg bruger 4 km-regler";
+
+"hometoborderdistance_title" = "Afstand bopæl - kommunegrænse (4 km reglen)";
+"hometoborderdistance_subtitle" = "";
+"hometoborderdistance_view_title" = "Antal km";
+"hometoborderdistance_view_description" = "Angiv antal km mellem din bopæl og kommunegrænsen (hele km meter). OS2Indberetning fordobler automatisk afstanden, hvis du både er startet og stoppet hjemme.";
+

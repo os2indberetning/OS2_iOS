@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nf4-sF-hXJ">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nf4-sF-hXJ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -22,9 +25,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YpA-jw-KCg" userLabel="Pair Phone Background">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                 <color key="backgroundColor" red="0.042398300021886826" green="0.33029556274414062" blue="0.29965949058532715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bZ-Nv-7KL" userLabel="Pair Phone Button">
+                                <rect key="frame" x="16" y="537" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ozb-k2-wEi"/>
@@ -39,6 +44,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parring af Telefon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef9-6F-WQl" userLabel="Pair Phone Title">
+                                <rect key="frame" x="8" y="8" width="359" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RS9-Jh-pne"/>
                                 </constraints>
@@ -47,6 +53,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSa-uc-2zh">
+                                <rect key="frame" x="8" y="2" width="30" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="&lt;">
                                     <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,6 +63,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tast Parringskode" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-SB-gLn" userLabel="Pair Code Textfield">
+                                <rect key="frame" x="16" y="68" width="343" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="8Tw-AA-at4"/>
                                 </constraints>
@@ -63,6 +71,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4E-CS-dtX" userLabel="Info Text">
+                                <rect key="frame" x="16" y="131" width="343" height="390"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">For at bruge appen skal du parre din telefon med din bruger på OS2Indberetning.
 
@@ -135,19 +144,21 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="qlw-vs-C4Q">
-                                <rect key="frame" x="0.0" y="86" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qlw-vs-C4Q" id="TkO-LD-7mr">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bEy-BS-gtu">
+                                            <rect key="frame" x="347" y="12" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="9wX-Ot-Fvs"/>
                                                 <constraint firstAttribute="width" constant="20" id="qHo-z3-7cu"/>
                                             </constraints>
                                         </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henter Kommuner" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRP-J1-bKX">
+                                            <rect key="frame" x="16" y="12" width="323" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -163,14 +174,14 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MunicipalityCell" textLabel="LbR-lV-UFf" style="IBUITableViewCellStyleDefault" id="14e-mX-cmm">
-                                <rect key="frame" x="0.0" y="130" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="14e-mX-cmm" id="oUE-BS-wdg">
-                                    <frame key="frameInset" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Favrskov" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LbR-lV-UFf">
-                                            <frame key="frameInset" minX="15" width="325" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -224,6 +235,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1du-V2-pOq">
+                                <rect key="frame" x="16" y="109" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="edw-sf-xyp"/>
                                     <constraint firstAttribute="width" constant="97" id="idK-aV-jCX"/>
@@ -240,11 +252,13 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brugernavn:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okr-Ix-DXE">
+                                <rect key="frame" x="16" y="84" width="343" height="17"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rut-Y7-vqc">
+                                <rect key="frame" x="16" y="204" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="Ru7-EY-TtG"/>
                                     <constraint firstAttribute="height" constant="50" id="g4s-DY-moS"/>
@@ -261,6 +275,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onD-Nw-blY">
+                                <rect key="frame" x="16" y="274" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="dDF-nh-dBd"/>
@@ -274,14 +289,17 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kodeord:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsw-Vh-Vk4">
+                                <rect key="frame" x="16" y="179" width="343" height="17"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KrV-f5-sdg">
+                                <rect key="frame" x="169" y="332" width="37" height="37"/>
                                 <color key="color" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juS-Q6-fy4">
+                                <rect key="frame" x="16" y="377" width="343" height="253.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Du skal oprette et password for at logge ind på app'en.   Passwordet opretter du i OS2Indberetning under Personlige Indstillinger: Adgangskode til app.   Her finder du også dit brugernavn, som er dine initialer.</string>
                                 <color key="textColor" red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -289,6 +307,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLk-Am-mfc">
+                                <rect key="frame" x="24" y="638.5" width="327" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.72941176470588232" green="0.72941176470588232" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -367,6 +386,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzU-tt-c5h">
+                                <rect key="frame" x="50" y="604" width="275" height="43"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="1Mj-sc-OKR"/>
@@ -380,8 +400,11 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                     <action selector="tryAgianButtonPressed:" destination="GgH-KL-Jqi" eventType="touchUpInside" id="MIv-19-Z0s"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="soS-dm-bov"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="soS-dm-bov">
+                                <rect key="frame" x="50" y="60" width="275" height="313.5"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synkroniserer stamdata" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixG-OO-7EF">
+                                <rect key="frame" x="16" y="524" width="343" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="wO0-mQ-UPZ"/>
                                 </constraints>
@@ -390,6 +413,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CSu-cE-7au">
+                                <rect key="frame" x="169" y="479" width="37" height="37"/>
                                 <color key="color" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -433,13 +457,14 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                             <tableViewSection id="leF-AE-6qX">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="rW0-Ke-lWW" userLabel="DateCell">
-                                        <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rW0-Ke-lWW" id="L8Y-B3-xfV">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsM-Wa-eDH">
+                                                    <rect key="frame" x="8" y="8.5" width="359" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="01B-NZ-rbT"/>
                                                     </constraints>
@@ -456,13 +481,14 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="CAM-ZN-4Gq" userLabel="PurposeCell">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="44" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CAM-ZN-4Gq" id="GAS-r2-0EI">
-                                            <frame key="frameInset" width="342" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-sD-uU4" userLabel="PurposeText">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opret eller vælg formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-sD-uU4" userLabel="PurposeText">
+                                                    <rect key="frame" x="16" y="40.5" width="318" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Yvg-72-UTG"/>
                                                     </constraints>
@@ -470,7 +496,8 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1SY-4o-0Og" userLabel="PurposeTitle">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål med tjenestekørsel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1SY-4o-0Og" userLabel="PurposeTitle">
+                                                    <rect key="frame" x="16" y="8" width="318" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="eMF-z0-wqT"/>
                                                     </constraints>
@@ -490,13 +517,14 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="cSZ-XB-3In" userLabel="PositionCell">
-                                        <rect key="frame" x="0.0" y="178" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="114" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cSZ-XB-3In" id="0G4-Hp-U8s">
-                                            <frame key="frameInset" width="342" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organisatorisk placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgO-iO-HTE" userLabel="PositionTitle">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stilling og ansættelsested" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgO-iO-HTE" userLabel="PositionTitle">
+                                                    <rect key="frame" x="16" y="8" width="318" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="FnD-kN-4s0"/>
                                                     </constraints>
@@ -504,7 +532,8 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8e-Ea-PMP" userLabel="PositionText">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vælg stilling og anstættelsessted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8e-Ea-PMP" userLabel="PositionText">
+                                                    <rect key="frame" x="16" y="40.5" width="318" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="YpR-Fc-v7A"/>
                                                     </constraints>
@@ -524,13 +553,14 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="Dfo-xG-IYg" userLabel="RateCell">
-                                        <rect key="frame" x="0.0" y="248" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="184" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dfo-xG-IYg" id="nwl-Eg-RhR">
-                                            <frame key="frameInset" width="342" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H96-Gc-1ft" userLabel="RateTitle">
+                                                    <rect key="frame" x="16" y="8" width="318" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="4tc-pJ-rnB"/>
                                                     </constraints>
@@ -539,6 +569,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buc-cq-Bwh" userLabel="RateText">
+                                                    <rect key="frame" x="16" y="40.5" width="318" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="aY1-Nh-Mxd"/>
                                                     </constraints>
@@ -558,13 +589,14 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="120" id="klJ-mV-Ivz" userLabel="CommentCell">
-                                        <rect key="frame" x="0.0" y="318" width="375" height="120"/>
+                                        <rect key="frame" x="0.0" y="254" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="klJ-mV-Ivz" id="EZu-bm-QD1">
-                                            <frame key="frameInset" width="342" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ekstra Bemærkning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-QY-hmc" userLabel="CommentTitle">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kommentarer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-QY-hmc" userLabel="CommentTitle">
+                                                    <rect key="frame" x="16" y="8" width="318" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="tXx-Aj-b7F"/>
                                                     </constraints>
@@ -572,7 +604,8 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="onDrag" editable="NO" text="Indtast Bemærkning" translatesAutoresizingMaskIntoConstraints="NO" id="lkT-41-Etu" userLabel="CommentText">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="onDrag" editable="NO" text="Indtast eventuelle uddybende kommentarer" translatesAutoresizingMaskIntoConstraints="NO" id="lkT-41-Etu" userLabel="CommentText">
+                                                    <rect key="frame" x="12" y="33" width="322" height="78.5"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -591,19 +624,21 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="X4Z-aS-Mvh" userLabel="StartAtHomeCell">
-                                        <rect key="frame" x="0.0" y="438" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="374" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X4Z-aS-Mvh" id="cCc-kO-koM">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="Uiv-AI-pmf" customClass="CheckMarkImageView">
+                                                    <rect key="frame" x="334" y="9.5" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="JRN-ad-eft"/>
                                                         <constraint firstAttribute="height" constant="25" id="h2z-kS-UEf"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starter du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyS-ac-2mi" userLabel="StartAtHomeLabel">
+                                                    <rect key="frame" x="16" y="8" width="162" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -619,13 +654,14 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="fCQ-Q9-2MM" userLabel="StartDriveCell">
-                                        <rect key="frame" x="0.0" y="482" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="418" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fCQ-Q9-2MM" id="F2v-Hj-atZ">
-                                            <frame key="frameInset" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdb-Cw-iqX" userLabel="StartDriveButton">
+                                                    <rect key="frame" x="37.5" y="8" width="300" height="43"/>
                                                     <color key="backgroundColor" red="0.85882352941176465" green="0.50588235294117645" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="Pch-JV-pEj"/>
@@ -679,6 +715,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOx-gU-xCi">
+                                            <rect key="frame" x="17" y="3.5" width="26" height="26"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="26" id="6ol-ct-hCK"/>
                                                 <constraint firstAttribute="height" constant="26" id="isf-UT-sd6"/>
@@ -708,12 +745,17 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                     <connections>
                         <outlet property="MissingReportsLabel" destination="sOx-gU-xCi" id="4kL-hF-Gyb"/>
                         <outlet property="commentTextView" destination="lkT-41-Etu" id="hbH-pU-52G"/>
+                        <outlet property="commentsTitleLabel" destination="YUI-QY-hmc" id="vv5-4f-DVQ"/>
                         <outlet property="dateLabel" destination="wsM-Wa-eDH" id="Nbx-bN-33H"/>
                         <outlet property="logoutButton" destination="WZe-XT-2p3" id="l23-3S-2he"/>
                         <outlet property="organisationalPlaceTextField" destination="n8e-Ea-PMP" id="0tG-7O-eYb"/>
+                        <outlet property="organisationalPlaceTitleLabel" destination="KgO-iO-HTE" id="kXA-Ko-boZ"/>
                         <outlet property="purposeTextField" destination="Xo4-sD-uU4" id="zk8-Jy-stF"/>
+                        <outlet property="purposeTitleLabel" destination="1SY-4o-0Og" id="7DB-c3-Hjy"/>
+                        <outlet property="rateTitleLabel" destination="H96-Gc-1ft" id="Vly-q3-3n6"/>
                         <outlet property="startAtHomeCheckbox" destination="Uiv-AI-pmf" id="mnM-Y0-l8M"/>
                         <outlet property="startDriveButton" destination="wdb-Cw-iqX" id="Y0q-O8-Ye1"/>
+                        <outlet property="startHomeTitleLabel" destination="LyS-ac-2mi" id="wZl-bP-Tco"/>
                         <outlet property="taskTextField" destination="buc-cq-Bwh" id="N77-pt-5Tx"/>
                         <segue destination="sc4-T7-ILl" kind="show" identifier="DriveViewSegue" id="xs8-c1-WzO"/>
                     </connections>
@@ -735,31 +777,36 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="138" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3K4-Fc-wtW">
+                                <rect key="frame" x="0.0" y="150" width="375" height="517"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedReportsCelles" rowHeight="138" id="GlF-aK-1lf" customClass="SavedReportTableCellView">
-                                        <rect key="frame" x="0.0" y="86" width="375" height="138"/>
+                                        <rect key="frame" x="0.0" y="22" width="375" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GlF-aK-1lf" id="wcs-59-uLO">
-                                            <frame key="frameInset" width="375" height="137"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrL-AW-F6C">
+                                                    <rect key="frame" x="16" y="16" width="343" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVx-jz-We7">
+                                                    <rect key="frame" x="16" y="44.5" width="343" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNX-QL-r3A">
+                                                    <rect key="frame" x="16" y="73" width="343" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pw-7j-qQ1">
+                                                    <rect key="frame" x="16" y="101.5" width="343" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -790,6 +837,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Klik på rapporten for enten at sende eller slette den" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZg-lo-7vs">
+                                <rect key="frame" x="24" y="72" width="327" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="tVr-xD-PHS"/>
                                 </constraints>
@@ -837,6 +885,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8d-vQ-mgv" userLabel="EndDriveButton">
+                                <rect key="frame" x="50" y="512" width="275" height="55"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="Aos-r2-Sjj"/>
@@ -851,6 +900,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du har nu kørt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13h-xJ-JEK">
+                                <rect key="frame" x="16" y="134" width="343" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="cgK-7H-Ca2"/>
                                 </constraints>
@@ -859,6 +909,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1H-Cj-sDG" userLabel="KmLabel">
+                                <rect key="frame" x="16" y="176" width="343" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="2BB-9d-ihe"/>
                                 </constraints>
@@ -867,6 +918,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sidst opdateret kl 14.35.27" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayZ-zG-Phb" userLabel="LastUpdateLabel">
+                                <rect key="frame" x="16" y="218" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Wxt-fu-cta"/>
                                 </constraints>
@@ -875,6 +927,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venter på GPS signal..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkJ-wr-Tdv" userLabel="GPS Accuracy Label">
+                                <rect key="frame" x="16" y="105" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="zAz-Nh-l6Y"/>
                                 </constraints>
@@ -883,6 +936,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBg-tu-pRl" userLabel="PauseButton">
+                                <rect key="frame" x="50" y="441" width="275" height="55"/>
                                 <color key="backgroundColor" red="0.81793588399887085" green="0.42649608850479126" blue="0.1820036917924881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="Ufo-UB-v9X"/>
@@ -950,10 +1004,11 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nxk-pd-9SY" id="Npn-EQ-h8h">
-                                            <frame key="frameInset" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bruger:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nq-AO-Xvk">
+                                                    <rect key="frame" x="8" y="30.5" width="359" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="JRj-5w-rYg"/>
                                                     </constraints>
@@ -962,6 +1017,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dato:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIi-Kr-0FQ">
+                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="MpZ-Hw-PxA"/>
                                                     </constraints>
@@ -985,10 +1041,11 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         <rect key="frame" x="0.0" y="60" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AXX-xa-al9" id="vf4-Uo-scC">
-                                            <frame key="frameInset" width="342" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKu-jz-p6V">
+                                                    <rect key="frame" x="16" y="4" width="318" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="ChW-6o-AXD"/>
                                                     </constraints>
@@ -997,6 +1054,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formål" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCB-sy-Bgi">
+                                                    <rect key="frame" x="16" y="25.5" width="318" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="p9I-15-cKG"/>
                                                     </constraints>
@@ -1019,10 +1077,11 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         <rect key="frame" x="0.0" y="115" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5MM-5t-s3y" id="4Bs-5U-rNs">
-                                            <frame key="frameInset" width="342" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organisatorisk Placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaM-9J-wRf">
+                                                    <rect key="frame" x="16" y="4" width="318" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="J55-bg-JOO"/>
                                                     </constraints>
@@ -1031,6 +1090,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placering" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-mn-aeX">
+                                                    <rect key="frame" x="16" y="25.5" width="318" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="sfX-DB-uJc"/>
                                                     </constraints>
@@ -1053,10 +1113,11 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         <rect key="frame" x="0.0" y="170" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hud-Y5-0gl" id="Q5z-cf-7Dy">
-                                            <frame key="frameInset" width="342" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyE-rC-uL7">
+                                                    <rect key="frame" x="16" y="4" width="318" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="h6F-7e-1VD"/>
                                                     </constraints>
@@ -1065,6 +1126,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takst" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQQ-d6-mim">
+                                                    <rect key="frame" x="16" y="25.5" width="318" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="nHa-ax-qJz"/>
                                                     </constraints>
@@ -1087,10 +1149,11 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         <rect key="frame" x="0.0" y="225" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZKS-Vu-irq" id="gf0-0x-fPP">
-                                            <frame key="frameInset" width="342" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bemærkning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOh-Yn-zsf">
+                                                    <rect key="frame" x="16" y="4" width="318" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="6AO-ds-gvl"/>
                                                     </constraints>
@@ -1099,6 +1162,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bemærkning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fep-SP-cmS">
+                                                    <rect key="frame" x="16" y="25.5" width="318" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="aTU-YG-ypL"/>
                                                     </constraints>
@@ -1117,14 +1181,15 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="55" id="aQM-Gw-Hsm">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="aQM-Gw-Hsm">
                                         <rect key="frame" x="0.0" y="280" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aQM-Gw-Hsm" id="VRl-RD-Rgv">
-                                            <frame key="frameInset" width="342" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOe-GY-U5g">
+                                                    <rect key="frame" x="16" y="4" width="351" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="AzU-le-ByA"/>
                                                     </constraints>
@@ -1133,6 +1198,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyf-1u-ogh">
+                                                    <rect key="frame" x="16" y="26" width="351" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Upu-Sz-gc9"/>
                                                     </constraints>
@@ -1150,24 +1216,23 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                 <constraint firstAttribute="bottom" secondItem="kyf-1u-ogh" secondAttribute="bottom" constant="8" id="j8z-Ok-KEG"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="afb-k4-iXG" kind="show" identifier="EditKmSegue" id="abQ-ZL-WHR"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="pCA-lx-s3p">
                                         <rect key="frame" x="0.0" y="335" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pCA-lx-s3p" id="ZHU-TM-OAi">
-                                            <frame key="frameInset" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkMark" translatesAutoresizingMaskIntoConstraints="NO" id="7lI-NR-kBx" customClass="CheckMarkImageView">
+                                                    <rect key="frame" x="334" y="12.5" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="H1b-Va-f1I"/>
                                                         <constraint firstAttribute="width" constant="25" id="eb4-y5-r5F"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Startede du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mu-xR-RDv">
+                                                    <rect key="frame" x="16" y="8" width="175.5" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1186,16 +1251,18 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         <rect key="frame" x="0.0" y="385" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QwJ-jT-i7d" id="lDl-bV-lQT">
-                                            <frame key="frameInset" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="OHp-y7-Z0l" customClass="CheckMarkImageView">
+                                                    <rect key="frame" x="334" y="12.5" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="JdG-mM-Dqz"/>
                                                         <constraint firstAttribute="width" constant="25" id="nk6-6P-Cte"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sluttede du hjemme?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZF-2D-632">
+                                                    <rect key="frame" x="16" y="8" width="173.5" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1214,25 +1281,28 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         <rect key="frame" x="0.0" y="435" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zzy-1U-Ntb" id="4aY-zV-qzL">
-                                            <frame key="frameInset" width="375" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FourKmRuleTableView" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0l2-pu-Lg5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FourKmRuleCheckCell" rowHeight="50" id="LmR-G0-udj">
                                                             <rect key="frame" x="0.0" y="22" width="375" height="50"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LmR-G0-udj" id="ePQ-Ww-sAv">
-                                                                <frame key="frameInset" width="375" height="49"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jeg bruger 4-km reglen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3d-9B-QLG">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jeg bruger 4-km reglen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3d-9B-QLG">
+                                                                        <rect key="frame" x="16" y="8" width="194" height="33.5"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="Kgc-BC-ti5" customClass="CheckMarkImageView">
+                                                                        <rect key="frame" x="334" y="12.5" width="25" height="25"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="25" id="FB2-Ba-FF4"/>
                                                                             <constraint firstAttribute="height" constant="25" id="R6I-Zr-OGN"/>
@@ -1252,10 +1322,11 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                             <rect key="frame" x="0.0" y="72" width="375" height="55"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RXV-h7-uVT" id="pO1-Pc-w68">
-                                                                <frame key="frameInset" width="342" height="54"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="342" height="55"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal km fra kommunegrænse til bopæl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-co-eMK">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal km fra kommunegrænse til bopæl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4G-co-eMK">
+                                                                        <rect key="frame" x="16" y="4" width="318" height="25"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="25" id="weL-Et-Nmg"/>
                                                                         </constraints>
@@ -1264,6 +1335,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xh-Li-gPn">
+                                                                        <rect key="frame" x="16" y="25.5" width="318" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="3Fe-s6-WNt"/>
                                                                         </constraints>
@@ -1302,10 +1374,11 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                         <rect key="frame" x="0.0" y="541" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pof-Gd-GVr" id="Bzz-3R-95z">
-                                            <frame key="frameInset" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAd-g3-j6e">
+                                                    <rect key="frame" x="197.5" y="8.5" width="161.5" height="43"/>
                                                     <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="thE-3Q-iFD"/>
@@ -1320,6 +1393,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gq-a8-ztb">
+                                                    <rect key="frame" x="16" y="8.5" width="161.5" height="43"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="LM4-5R-2w8"/>
@@ -1362,13 +1436,20 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                     <connections>
                         <outlet property="FourKmTableView" destination="0l2-pu-Lg5" id="W9T-X0-u3d"/>
                         <outlet property="commentTextLabel" destination="fep-SP-cmS" id="XrT-mY-549"/>
+                        <outlet property="commentsTitleLabel" destination="DOh-Yn-zsf" id="W83-Vg-4dE"/>
                         <outlet property="dateLabel" destination="zIi-Kr-0FQ" id="Np4-4r-QfF"/>
                         <outlet property="endAtHomeCheckbox" destination="OHp-y7-Z0l" id="jr7-gU-b2T"/>
+                        <outlet property="endHomeTitleLabel" destination="PZF-2D-632" id="u0l-qW-y88"/>
                         <outlet property="kmDrivenLabel" destination="kyf-1u-ogh" id="Oxb-OB-E2n"/>
+                        <outlet property="kmDrivenTitleLabel" destination="aOe-GY-U5g" id="2h1-Xe-8TZ"/>
                         <outlet property="organisationalPlaceTextLabel" destination="7qg-mn-aeX" id="zJK-m6-TD2"/>
+                        <outlet property="organisationalPlaceTitleLabel" destination="iaM-9J-wRf" id="BJD-Jj-9Jo"/>
                         <outlet property="purposeTextLabel" destination="YCB-sy-Bgi" id="f2V-7s-8SC"/>
+                        <outlet property="purposeTitleLabel" destination="ZKu-jz-p6V" id="3jv-uU-cp7"/>
                         <outlet property="rateTextLabel" destination="FQQ-d6-mim" id="WFN-KS-Svl"/>
+                        <outlet property="rateTitleLabel" destination="kyE-rC-uL7" id="lPM-Ur-kGT"/>
                         <outlet property="startAtHomeCheckbox" destination="7lI-NR-kBx" id="fQ6-1a-dYh"/>
+                        <outlet property="startHomeTitleLabel" destination="1Mu-xR-RDv" id="UTd-54-d8n"/>
                         <outlet property="userTextLabel" destination="9nq-AO-Xvk" id="6Ag-tk-yNT"/>
                         <segue destination="0bn-hB-d0x" kind="presentation" identifier="UploadDriveSegue" id="jDN-0C-tSe"/>
                     </connections>
@@ -1377,7 +1458,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
             </objects>
             <point key="canvasLocation" x="1434" y="156"/>
         </scene>
-        <!--Indsæt Km-->
+        <!--Antal km-->
         <scene sceneID="cW4-RE-7f2">
             <objects>
                 <viewController restorationIdentifier="EditFourKmRuleViewController" storyboardIdentifier="EditFourKmRuleViewController" id="wDv-lA-vQV" customClass="EditFourKmRuleKmViewController" sceneMemberID="viewController">
@@ -1390,6 +1471,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Antal km:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omk-7P-1px">
+                                <rect key="frame" x="16" y="98" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="lwL-cb-KcA"/>
                                 </constraints>
@@ -1397,11 +1479,19 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Angiv antal km mellem din bopæl" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOP-nX-dAX">
+                                <rect key="frame" x="16" y="72" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="19" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lGd-PV-dQ7" userLabel="Km Text Field">
+                                <rect key="frame" x="16" y="238" width="167.5" height="60"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-Ld-KEo">
+                                <rect key="frame" x="191" y="238" width="167.5" height="60"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1410,19 +1500,22 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="a4E-Ld-KEo" firstAttribute="leading" secondItem="lGd-PV-dQ7" secondAttribute="trailing" constant="8" id="5of-ku-Ggb"/>
-                            <constraint firstItem="a4E-Ld-KEo" firstAttribute="bottom" secondItem="upV-pl-ige" secondAttribute="centerY" id="84c-JZ-Snw"/>
+                            <constraint firstItem="a4E-Ld-KEo" firstAttribute="bottom" secondItem="lGd-PV-dQ7" secondAttribute="bottom" id="5uU-vv-WCb"/>
+                            <constraint firstItem="gOP-nX-dAX" firstAttribute="top" secondItem="Dn1-lf-hg7" secondAttribute="bottom" constant="8" id="CBT-3K-mdG"/>
                             <constraint firstAttribute="trailing" secondItem="a4E-Ld-KEo" secondAttribute="trailing" constant="16" id="CpA-QB-G4L"/>
                             <constraint firstItem="lGd-PV-dQ7" firstAttribute="leading" secondItem="upV-pl-ige" secondAttribute="leading" constant="16" id="D0Q-89-jD1"/>
                             <constraint firstItem="omk-7P-1px" firstAttribute="top" secondItem="upV-pl-ige" secondAttribute="topMargin" constant="72" id="HRM-ZH-HXV"/>
                             <constraint firstItem="lGd-PV-dQ7" firstAttribute="width" secondItem="a4E-Ld-KEo" secondAttribute="width" id="OHJ-cL-eiq"/>
                             <constraint firstItem="a4E-Ld-KEo" firstAttribute="bottom" secondItem="upV-pl-ige" secondAttribute="centerY" id="QwC-4p-kvf"/>
-                            <constraint firstItem="a4E-Ld-KEo" firstAttribute="top" secondItem="omk-7P-1px" secondAttribute="bottom" constant="8" id="XLl-fT-nqf"/>
+                            <constraint firstItem="a4E-Ld-KEo" firstAttribute="top" secondItem="lGd-PV-dQ7" secondAttribute="top" id="T6B-Sb-Vj4"/>
+                            <constraint firstItem="gOP-nX-dAX" firstAttribute="leading" secondItem="upV-pl-ige" secondAttribute="leading" constant="16" id="WWI-rE-yR1"/>
+                            <constraint firstAttribute="trailing" secondItem="gOP-nX-dAX" secondAttribute="trailing" constant="16" id="cKn-yj-TTr"/>
                             <constraint firstItem="omk-7P-1px" firstAttribute="leading" secondItem="upV-pl-ige" secondAttribute="leading" constant="16" id="dUU-uv-ZcZ"/>
                             <constraint firstAttribute="trailing" secondItem="omk-7P-1px" secondAttribute="trailing" constant="16" id="doE-kS-77X"/>
-                            <constraint firstItem="omk-7P-1px" firstAttribute="top" secondItem="Dn1-lf-hg7" secondAttribute="bottom" constant="8" id="nAD-Av-Qpc"/>
+                            <constraint firstItem="omk-7P-1px" firstAttribute="top" secondItem="gOP-nX-dAX" secondAttribute="bottom" constant="8" id="sSg-bJ-YhU"/>
                             <constraint firstItem="lGd-PV-dQ7" firstAttribute="height" secondItem="a4E-Ld-KEo" secondAttribute="height" id="yeP-Jg-ODQ"/>
                             <constraint firstItem="a4E-Ld-KEo" firstAttribute="bottom" secondItem="upV-pl-ige" secondAttribute="centerY" id="ynU-B1-53b"/>
-                            <constraint firstItem="lGd-PV-dQ7" firstAttribute="top" secondItem="omk-7P-1px" secondAttribute="bottom" constant="8" id="zB5-We-Nmc"/>
+                            <constraint firstItem="lGd-PV-dQ7" firstAttribute="top" secondItem="omk-7P-1px" secondAttribute="bottom" constant="100" id="zB5-We-Nmc"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1432,7 +1525,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Indsæt Km" id="EoV-9b-ZcT">
+                    <navigationItem key="navigationItem" title="Antal km" id="EoV-9b-ZcT">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="fGd-Jp-zXG">
                             <connections>
                                 <action selector="saveBtnPressed:" destination="wDv-lA-vQV" id="6F8-Zv-EwJ"/>
@@ -1441,76 +1534,14 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="hometoborderdistanceDescriptionLabel" destination="gOP-nX-dAX" id="EkY-K8-yf2"/>
                         <outlet property="kmTextField" destination="lGd-PV-dQ7" id="mXz-jh-SHc"/>
                         <outlet property="measuredKMLabel" destination="omk-7P-1px" id="rQf-ri-UA9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEk-VK-Zjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260" y="893"/>
-        </scene>
-        <!--Rediger effektive Km-->
-        <scene sceneID="emc-lI-ujd">
-            <objects>
-                <viewController id="afb-k4-iXG" customClass="EditKmViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="S0T-uc-cSq"/>
-                        <viewControllerLayoutGuide type="bottom" id="3sg-zl-Kbb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="j40-yd-tRF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="19" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oB5-mC-CPx">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-EJ-7ZU">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Afmålte km:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wk-Tm-cJ1">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="mMv-ND-IEN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="p4c-EJ-7ZU" firstAttribute="height" secondItem="oB5-mC-CPx" secondAttribute="height" id="6mF-VK-KR2"/>
-                            <constraint firstItem="oB5-mC-CPx" firstAttribute="top" secondItem="4wk-Tm-cJ1" secondAttribute="bottom" constant="8" id="B3B-Cn-BVB"/>
-                            <constraint firstItem="4wk-Tm-cJ1" firstAttribute="leading" secondItem="j40-yd-tRF" secondAttribute="leading" constant="16" id="CCp-tc-gwt"/>
-                            <constraint firstItem="p4c-EJ-7ZU" firstAttribute="top" secondItem="4wk-Tm-cJ1" secondAttribute="bottom" constant="8" id="Ogd-au-vnM"/>
-                            <constraint firstItem="4wk-Tm-cJ1" firstAttribute="top" secondItem="S0T-uc-cSq" secondAttribute="bottom" constant="8" id="P8P-JW-MTq"/>
-                            <constraint firstItem="p4c-EJ-7ZU" firstAttribute="leading" secondItem="oB5-mC-CPx" secondAttribute="trailing" constant="8" id="Rrc-9S-6v8"/>
-                            <constraint firstAttribute="centerY" secondItem="p4c-EJ-7ZU" secondAttribute="bottom" id="a7Q-Ge-55B"/>
-                            <constraint firstItem="oB5-mC-CPx" firstAttribute="leading" secondItem="j40-yd-tRF" secondAttribute="leading" constant="16" id="a96-rx-e68"/>
-                            <constraint firstAttribute="trailing" secondItem="p4c-EJ-7ZU" secondAttribute="trailing" constant="16" id="kp4-Dp-5tg"/>
-                            <constraint firstItem="p4c-EJ-7ZU" firstAttribute="top" secondItem="4wk-Tm-cJ1" secondAttribute="bottom" constant="8" id="qPM-Dr-x4g"/>
-                            <constraint firstItem="p4c-EJ-7ZU" firstAttribute="width" secondItem="oB5-mC-CPx" secondAttribute="width" id="yKg-0p-DCu"/>
-                            <constraint firstAttribute="trailing" secondItem="4wk-Tm-cJ1" secondAttribute="trailing" constant="16" id="zkG-vE-khV"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Rediger effektive Km" id="JLV-PJ-EGh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1CB-Rw-NBz">
-                            <connections>
-                                <action selector="saveBtnPressed:" destination="afb-k4-iXG" id="BfR-pj-Gex"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="kmTextField" destination="oB5-mC-CPx" id="4tk-su-zHW"/>
-                        <outlet property="measuredKMLabel" destination="4wk-Tm-cJ1" id="Gho-eK-tZZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IFi-sE-psS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1941" y="910.99999999999989"/>
+            <point key="canvasLocation" x="1260" y="892.80359820089961"/>
         </scene>
         <!--Upload Drive View Controller-->
         <scene sceneID="3OM-Mb-ffe">
@@ -1525,9 +1556,11 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-ie-FcM">
+                                <rect key="frame" x="169" y="410" width="37" height="37"/>
                                 <color key="color" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBF-r1-WVN">
+                                <rect key="frame" x="50" y="604" width="275" height="43"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="Orx-DX-kPU"/>
@@ -1544,6 +1577,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploader kørselsdata" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJv-0m-tw9">
+                                <rect key="frame" x="16" y="455" width="343" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="fgR-ea-7qK"/>
                                 </constraints>
@@ -1552,11 +1586,13 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="749" image="FavreskovLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P3i-34-KuG">
+                                <rect key="frame" x="50" y="28" width="275" height="374"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Q5y-aB-tgB"/>
                                 </constraints>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fr-w8-qMh">
+                                <rect key="frame" x="50" y="553" width="275" height="43"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.50588235290000005" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="ZDp-Qh-znr"/>

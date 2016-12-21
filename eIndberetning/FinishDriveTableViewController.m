@@ -37,6 +37,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 @property (weak, nonatomic) IBOutlet UITableView *FourKmTableView;
 
+@property (weak, nonatomic) IBOutlet UILabel *purposeTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rateTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commentsTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *kmDrivenTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startHomeTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endHomeTitleLabel;
 
 @property (strong, nonatomic) NSArray *rates;
 @property (strong, nonatomic) NSArray *employments;
@@ -92,12 +99,8 @@
     [self.navigationItem setHidesBackButton:YES];
     self.tableView.rowHeight = 44;
     
- /*   self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self
-                            action:@selector(manualRefresh)
-                  forControlEvents:UIControlEventValueChanged];
+    [self SetupLocalizedStrings];
     
-    */
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     //Load employments and rates
@@ -110,6 +113,18 @@
         [self.errorMsg showErrorMsg:@"OBS!" errorString:@"Under turen har der været et eller flere udfald i GPS forbindelsen. Vær derfor særligt opmærksom på, om afstanden og ruten passer med det forventede."];
     }
 }
+
+- (void) SetupLocalizedStrings {
+    self.purposeTitleLabel.text = NSLocalizedString(@"purpose_title", nil);
+    self.organisationalPlaceTitleLabel.text = NSLocalizedString(@"organisationalplace_title", nil);;
+    self.rateTitleLabel.text = NSLocalizedString(@"rate_title", nil);;
+    self.commentsTitleLabel.text = NSLocalizedString(@"comments_title", nil);;
+    self.kmDrivenTitleLabel.text = NSLocalizedString(@"totalkm_title", nil);;
+    self.startHomeTitleLabel.text = NSLocalizedString(@"start_home_title", nil);;
+    self.endHomeTitleLabel.text = NSLocalizedString(@"end_home_title", nil);;
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -137,20 +152,20 @@
     if(self.report.rate) {
         self.rateTextLabel.text = self.report.rate.rateDescription;
     } else {
-        self.rateTextLabel.text = @"Vælg Takst";
+        self.rateTextLabel.text = NSLocalizedString(@"rate_subtitle", nil);
     }
     
     if(self.report.manuelentryremark) {
         self.commentTextLabel.text = self.report.manuelentryremark;
     } else {
-        self.commentTextLabel.text = @"Indtast Bemærkning";
+        self.commentTextLabel.text = NSLocalizedString(@"comments_subtitle", nil);
     }
     
     if(self.report.employment) {
         self.organisationalPlaceTextLabel.text = self.report.employment.employmentPosition;
         self.fourKmRuleAllowed = self.report.employment.fourKmRuleAllowed;
     } else {
-        self.organisationalPlaceTextLabel.text  = @"Vælg Placering";
+        self.organisationalPlaceTextLabel.text  = NSLocalizedString(@"organisationalplace_subtitle", nil); //@"Vælg Placering";
     }
     
     if (!self.report.employment.fourKmRuleAllowed) {
@@ -209,12 +224,18 @@
                 self.fourKmCheckbox = (CheckMarkImageView *)[cell viewWithTag:101];
             }
             
+            UILabel *fourKmRuleAllowed = (UILabel *)[cell viewWithTag:100];
+            fourKmRuleAllowed.text = NSLocalizedString(@"use_four_km_rule_title", nil);;
+            
             [self.fourKmCheckbox setCheckMarkState:self.report.fourKmRule];
         }
         else
         {
             NSString *identifier = @"FourKmRuleDistanceCell";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            
+            UILabel *homeToBorderTitleLabel = (UILabel *)[cell viewWithTag:200];
+            homeToBorderTitleLabel.text = NSLocalizedString(@"hometoborderdistance_title", nil);
             
             self.fourKmRuleKmLabel = (UILabel *)[cell viewWithTag:201];
             

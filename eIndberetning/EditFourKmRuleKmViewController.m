@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *measuredKMLabel;
 @property (weak, nonatomic) IBOutlet UITextField *kmTextField;
+@property (weak, nonatomic) IBOutlet UILabel *hometoborderdistanceDescriptionLabel;
 
 @end
 
@@ -29,12 +30,12 @@
     
     self.kmTextField.keyboardType = UIKeyboardTypeDecimalPad;
     
+    self.hometoborderdistanceDescriptionLabel.text = NSLocalizedString(@"hometoborderdistance_view_description", nil);
+    
     self.measuredKMLabel.text = [NSString stringWithFormat:@"Afmålte km: %.01f Km", [self.report.homeToBorderDistance floatValue]];
     
     [self.kmTextField becomeFirstResponder];
-    
-    //    self.kmTextField.text = [NSString stringWithFormat:@"%.01f", [self.route.totalDistanceEdit floatValue]];
-    
+        
     self.kmTextField.text = @"";
     
 }
