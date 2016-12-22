@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *measuredKMLabel;
 @property (weak, nonatomic) IBOutlet UITextField *kmTextField;
+@property (weak, nonatomic) IBOutlet UILabel *hometoborderdistanceDescriptionLabel;
 
 @end
 
@@ -24,22 +25,26 @@
     [super viewDidLoad];
     [self AddBackButton];
     
+    UIBarButtonItem *saveBtn = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"hometoborderdistance_view_save", nil) style:UIBarButtonItemStylePlain target:self action:@selector(save)];
+    self.navigationItem.rightBarButtonItem = saveBtn;
+    
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
     self.kmTextField.keyboardType = UIKeyboardTypeDecimalPad;
     
+    self.hometoborderdistanceDescriptionLabel.text = NSLocalizedString(@"hometoborderdistance_view_description", nil);
+    
     self.measuredKMLabel.text = [NSString stringWithFormat:@"Afmålte km: %.01f Km", [self.report.homeToBorderDistance floatValue]];
     
     [self.kmTextField becomeFirstResponder];
-    
-    //    self.kmTextField.text = [NSString stringWithFormat:@"%.01f", [self.route.totalDistanceEdit floatValue]];
-    
+        
     self.kmTextField.text = @"";
     
 }
 
-- (IBAction)saveBtnPressed:(id)sender {
+- (void)save
+{
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
@@ -53,6 +58,7 @@
     NSLog(@"HomeToBorderDistance = %@", [userdefaults objectForKey:[NSString stringWithFormat:@"hometoborderdistance-%@", info.authorization.guId]]);
     
     [self.navigationController popViewControllerAnimated:true];
+
 }
 
 - (void)didReceiveMemoryWarning {

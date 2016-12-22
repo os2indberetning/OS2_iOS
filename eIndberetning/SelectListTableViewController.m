@@ -28,12 +28,12 @@
     switch (self.listType ) {
         case RateList:
         {
-            self.navigationItem.title = @"Vælg Takst";
+            self.navigationItem.title = NSLocalizedString(@"rate_view_title", nil);
             break;
         }
         case EmploymentList:
         {
-            self.navigationItem.title = @"Vælg Organsatorisk Placering";
+            self.navigationItem.title = NSLocalizedString(@"organisationalplace_view_title", nil);
             break;
         }
         default:

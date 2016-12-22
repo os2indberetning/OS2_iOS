@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endHomeLabel;
 @property (weak, nonatomic) IBOutlet CheckMarkImageView *checkButtonImage;
 @end
 
@@ -32,9 +33,11 @@
     [self.okButton setTitleColor:info.appInfo.TextColor forState:UIControlStateNormal];
     self.okButton.layer.cornerRadius = 2.0f;
     
+    
     [self.cancelButton setBackgroundColor:info.appInfo.TextColor];
     [self.cancelButton setTitleColor:info.appInfo.SecondaryColor forState:UIControlStateNormal];
     self.cancelButton.layer.cornerRadius = 2.0f;
+    
     
     self.titleLabel.textColor = info.appInfo.TextColor;
     self.headerView.backgroundColor = info.appInfo.PrimaryColor;
@@ -44,7 +47,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.titleLabel.text = @"Afslut Kørsel?";
+    self.okButton.titleLabel.text = NSLocalizedString(@"driving_end_alert_accept", nil);
+    self.cancelButton.titleLabel.text = NSLocalizedString(@"driving_end_alert_cancel", nil);
+    self.titleLabel.text = NSLocalizedString(@"driving_end_alert_title", nil);
+    self.textLabel.text = NSLocalizedString(@"driving_end_alert_description", nil);
+    self.endHomeLabel.text = NSLocalizedString(@"driving_end_alert_end_home", nil);
+    
     [self.checkButtonImage setCheckMarkState:self.isSelected];
     [self setupVisuals];
 }

@@ -34,7 +34,7 @@
     
     self.isAddingPurpose = false;
     
-    self.navigationItem.title = @"Vælg Formål";
+    self.navigationItem.title = NSLocalizedString(@"purpose_view_title", nil);
     
     self.CDManager = [CoreDataManager sharedeCoreDataManager];
     self.items = [self.CDManager fetchPurposes];

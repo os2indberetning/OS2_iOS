@@ -42,8 +42,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.errorLabel.text = @"Kørslen vil ikke blive gemt";
-    self.titleLabel.text = @"Bekræft Sletning";
+    self.errorLabel.text = NSLocalizedString(@"confirmation_delete_drivereport_description", nil);
+    self.titleLabel.text = NSLocalizedString(@"confirmation_delete_drivereport_title", nil);
+    self.okButton.titleLabel.text = NSLocalizedString(@"confirmation_delete_drivereport_accept", nil);
+    self.cancelButton.titleLabel.text = NSLocalizedString(@"confirmation_delete_drivereport_cancel", nil);
+    
     self.errorLabel.numberOfLines = 2;
     [self setupVisuals];
 }
