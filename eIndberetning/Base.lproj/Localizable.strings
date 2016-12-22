@@ -50,7 +50,7 @@
 "confirmation_delete_drivereport_accept" = "Slet";
 
 "confirmation_logout_title" = "Du er ved at logge ud";
-"confirmation_logout_description" = "Envertuelle indtastninger og gemte rapporter vil blive slettet, er du sikker?";
+"confirmation_logout_description" = "Eventuelle indtastninger og gemte rapporter vil blive slettet, er du sikker?";
 "confirmation_logout_cancel" = "Nej";
 "confirmation_logout_accept" = "Ja";
 

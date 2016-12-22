@@ -445,7 +445,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
             </objects>
             <point key="canvasLocation" x="535" y="910"/>
         </scene>
-        <!--Ny Kørsel-->
+        <!--Ny kørsel-->
         <scene sceneID="BMT-jb-Rxk">
             <objects>
                 <tableViewController storyboardIdentifier="StartDriveViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k14-AB-31x" customClass="StartDriveTableViewController" sceneMemberID="viewController">
@@ -691,7 +691,7 @@ Herefter kan du se dit token, som du bare skal indtaste i feltet ovenfor, og der
                             <outlet property="delegate" destination="k14-AB-31x" id="tQS-G2-lzG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ny Kørsel" id="B2l-XC-zlS">
+                    <navigationItem key="navigationItem" title="Ny kørsel" id="B2l-XC-zlS">
                         <barButtonItem key="leftBarButtonItem" title="Log ud" id="WZe-XT-2p3">
                             <connections>
                                 <action selector="logoutButtonPressed:" destination="k14-AB-31x" id="mVA-BN-gdT"/>
