@@ -39,6 +39,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startDriveButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *purposeTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *organisationalPlaceTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rateTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commentsTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startHomeTitleLabel;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) QuestionDialogViewController *logoutPopup;
 @property (strong, nonatomic) QuestionDialogViewController *syncFailedPopup;
@@ -102,6 +108,8 @@
         return;
     }
     
+    [self SetupLocalizedStrings];
+    
     //Add listeners for sync
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(syncUserInfo) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setForceSync) name:UIApplicationDidEnterBackgroundNotification object:nil];
@@ -115,6 +123,15 @@
 
     [self setForceSync];
 }
+
+- (void) SetupLocalizedStrings {
+    self.purposeTitleLabel.text = NSLocalizedString(@"purpose_title", nil);
+    self.organisationalPlaceTitleLabel.text = NSLocalizedString(@"organisationalplace_title", nil);
+    self.rateTitleLabel.text = NSLocalizedString(@"rate_title", nil);
+    self.commentsTitleLabel.text = NSLocalizedString(@"comments_title", nil);
+    self.startHomeTitleLabel.text = NSLocalizedString(@"start_home_title", nil);
+}
+
 
 -(void)loadReport
 {
@@ -161,22 +178,22 @@
     if(self.report.purpose){
         self.purposeTextField.text = self.report.purpose.purpose;
     }else{
-        self.purposeTextField.text = @"Vælg Formål";
+        self.purposeTextField.text = NSLocalizedString(@"purpose_subtitle", nil);
     }
     if(self.report.rate){
         self.taskTextField.text = self.report.rate.rateDescription;
     }else{
-        self.taskTextField.text = @"Vælg Takst";
+        self.taskTextField.text = NSLocalizedString(@"rate_subtitle", nil);
     }
     if(self.report.manuelentryremark){
         self.commentTextView.text = self.report.manuelentryremark;
     } else {
-        self.commentTextView.text = @"Indtast Bemærkning";
+        self.commentTextView.text = NSLocalizedString(@"comments_subtitle", nil);
     }
     if(self.report.employment){
         self.organisationalPlaceTextField.text = self.report.employment.employmentPosition;
     }else{
-        self.organisationalPlaceTextField.text  = @"Vælg Placering";
+        self.organisationalPlaceTextField.text  = NSLocalizedString(@"organisationalplace_subtitle", nil);
     }
     [self.startAtHomeCheckbox setCheckMarkState:self.report.didstarthome];
     
@@ -469,20 +486,24 @@
 
 - (IBAction)logoutButtonPressed:(id)sender {
     _logoutButton.enabled = NO;
-    _logoutPopup = [QuestionDialogViewController setTextsWithTitle:@"Du er ved at logge ud" withMessage:@"Eventuelle indtastninger og gemte rapporter vil blive slettet, er du sikker?"
-      withNoButtonText:@"Nej" withNoCallback:^{
-          _logoutButton.enabled = YES;
-          [_logoutPopup removeAnimate];
-          
-          if(_shouldSync){
-              [self syncUserInfo];
-          }
-    } withYesText:@"Ok" withYesCallback:^{
-            _logoutButton.enabled = YES;
-        [_logoutPopup removeAnimate];
-        [self completeLogout];
-        
-    } inView:self.navigationController.view];
+    _logoutPopup = [QuestionDialogViewController
+                    setTextsWithTitle:NSLocalizedString(@"confirmation_logout_title", nil)
+                    withMessage:NSLocalizedString(@"confirmation_logout_description", nil)
+                    withNoButtonText:NSLocalizedString(@"confirmation_logout_cancel", nil)
+                    withNoCallback:^{
+                        _logoutButton.enabled = YES;
+                        [_logoutPopup removeAnimate];
+                        
+                        if(_shouldSync){
+                            [self syncUserInfo];
+                        }
+                    } withYesText:NSLocalizedString(@"confirmation_logout_accept", nil)
+                    withYesCallback:^{
+                        _logoutButton.enabled = YES;
+                        [_logoutPopup removeAnimate];
+                        [self completeLogout];
+                        
+                    } inView:self.navigationController.view];
 }
 
 -(void)completeLogout{

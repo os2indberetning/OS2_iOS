@@ -1,0 +1,63 @@
+/*
+ Localizable.strings
+ OS2Indberetning
+ 
+ Created by Jonas L on 20/12/2016.
+ Copyright © 2016 Miracle A/S. All rights reserved.
+ */
+
+"purpose_title" = "Formål med tjenestekørsel";
+"purpose_subtitle" = "Opret eller vælg formål";
+"purpose_view_title" = "Opret eller vælg formål";
+
+"organisationalplace_title" = "Stilling og ansættelsessted";
+"organisationalplace_subtitle" = "Vælg stilling og ansættelsessted";
+"organisationalplace_view_title" = "Vælg stilling og ansættelsessted";
+
+"totalkm_title" = "Antal kørte km";
+"totalkm_subtitle" = "";
+
+"rate_title" = "Takst";
+"rate_subtitle" = "Vælg takst";
+"rate_view_title" = "Vælg takst";
+
+"comments_title" = "Kommentarer";
+"comments_subtitle" = "Indtast eventuelle uddybende kommentarer";
+"comments_view_title" = "Indtast kommentarer";
+"comments_view_save" = "Gem";
+
+"start_home_title" = "Starter du hjemme?";
+
+"end_home_title" = "Slutter du hjemme?";
+
+"use_four_km_rule_title" = "Jeg bruger 4 km-reglen";
+
+"hometoborderdistance_title" = "Afstand bopæl - kommunegrænse (4 km reglen)";
+"hometoborderdistance_subtitle" = "";
+"hometoborderdistance_view_title" = "Antal km";
+"hometoborderdistance_view_description" = "Angiv antal km mellem din bopæl og kommunegrænsen (hele km, meter). OS2Indberetning fordobler automatisk afstanden, hvis du både er startet og stoppet hjemme.";
+"hometoborderdistance_view_save" = "Gem";
+
+"driving_end_alert_title" = "Afslut kørsel?";
+"driving_end_alert_description" = "Er du sikker på du vil afslutte kørslen?";
+"driving_end_alert_end_home" = "Kørsel slutter hjemme";
+"driving_end_alert_cancel" = "Nej";
+"driving_end_alert_accept" = "Ja";
+
+"confirmation_delete_drivereport_title" = "Bekræft sletning";
+"confirmation_delete_drivereport_description" = "Kørslen vil ikke blive gemt";
+"confirmation_delete_drivereport_cancel" = "Fortryd";
+"confirmation_delete_drivereport_accept" = "Slet";
+
+"confirmation_logout_title" = "Du er ved at logge ud";
+"confirmation_logout_description" = "Eventuelle indtastninger og gemte rapporter vil blive slettet, er du sikker?";
+"confirmation_logout_cancel" = "Nej";
+"confirmation_logout_accept" = "Ja";
+
+"saved_reports_view_title" = "Gemte rapporteringer";
+"saved_reports_view_description" = "Klik på rapporten for enten at sende eller slette den";
+
+"driving_view_pause" = "Pause kørsel";
+"driving_view_continue" = "Genoptag kørsel";
+"driving_view_end" = "Afslut kørsel";
+"driving_view_gpspause_label" = "GPS sat på pause";

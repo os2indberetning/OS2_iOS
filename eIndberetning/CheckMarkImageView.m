@@ -44,6 +44,9 @@
     UserInfo* info = [UserInfo sharedManager];
     [info loadInfo];
     
+    [self layoutIfNeeded];
+
+    
     NSLog(@"init CheckMarkView");
     self.checkBoxLayer = [CALayer layer];
     self.checkBoxLayer.frame = self.bounds;
