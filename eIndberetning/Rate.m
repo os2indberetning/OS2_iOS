@@ -40,7 +40,6 @@
 
 + (NSArray *) initFromCoreDataArray:(NSArray*)CDArray
 {
-    
     NSMutableArray* array = [[NSMutableArray alloc] initWithCapacity: CDArray.count];
  
     NSDateFormatter *ydf = [[NSDateFormatter alloc] init];
