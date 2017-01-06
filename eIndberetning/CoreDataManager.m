@@ -78,13 +78,6 @@
     
     //Save rates to coredata
     for (Rate* r in rates) {
-        
-        //Remove rates that are not used on mobile
-        if ([r.rateid intValue] == 13) {
-            NSLog(@"Not adding %@ to rates", r.rateDescription);
-            continue;
-        }
-        
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"CDRate" inManagedObjectContext:self.managedObjectContext];
         CDRate* CDr = [[CDRate alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
         
