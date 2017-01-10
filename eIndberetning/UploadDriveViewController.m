@@ -52,16 +52,12 @@ const double WAIT_TIME_S = 1.5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.infoText.numberOfLines = 2;
     
     [self setupVisuals];
     NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
     
     //Check report for needed changes before upload
-    [self checkForEmptyEntryRemark:self.report];
-    if (![self checkForManualKilometerEdit:self.report]) {
-        [self checkForOnlySingleCoordinate:self.report];
-    }
+    [self checkReportForNilOrEmpty:self.report];
     
     [dic setObject:[[self.report transformToDictionary] mutableCopy] forKey:@"DriveReport"];
     
@@ -81,31 +77,25 @@ const double WAIT_TIME_S = 1.5;
 
 // MARK: Reportcontent checker methods
 
--(void)checkForEmptyEntryRemark: (DriveReport*)report {
+-(void)checkReportForNilOrEmpty: (DriveReport*)report {
     if (report.manuelentryremark == nil || [report.manuelentryremark  isEqual: @""]) {
         //If there is no manual remark, change to default remark
+        NSLog(@"UploadDriveViewController - Report Comments is nil/empty, we create a default value");
         report.manuelentryremark = @"Ingen kommentar indtastet";
     }
-}
-
--(BOOL)checkForManualKilometerEdit: (DriveReport*)report {
-    Route* route = report.route;
     
-    if(route.distanceWasEdited){
-        //User edited distance -> remove all gpsPoint entries
-        route.coordinates = [[NSMutableArray alloc] init];
-        return true;
-    }else {
-        return false;
+    if (report.homeToBorderDistance == nil) {
+        // Will be nil if we are not using the 4 km rule
+        NSLog(@"UploadDriveViewController - Report HomeToBorderDistance is nil, we create a 0 value");
+        report.homeToBorderDistance = [NSNumber numberWithFloat:0.0f];
     }
-}
-
--(void)checkForOnlySingleCoordinate: (DriveReport*) report {
-    Route* route = report.route;
     
-    if (route.coordinates.count == 1) {
-        GpsCoordinates *coordinateToInsert = route.coordinates[0];
-        [route.coordinates insertObject:coordinateToInsert atIndex:0];
+    if (report.uuid == nil || [report.uuid isEqualToString:@""]) {
+        // sanity check, since we had some issues, where the uuid wasn't
+        // send to the backend.
+        NSLog(@"UploadDriveViewController - Report UUID is empty, we create a new one");
+        report.uuid = [[NSUUID UUID] UUIDString];
+        NSLog(@"UploadDriveViewController - New created Report UUID: %@", report.uuid);
     }
 }
 

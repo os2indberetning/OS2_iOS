@@ -142,6 +142,7 @@
     self.report = [[DriveReport alloc] init];
     
     self.report.uuid = [[NSUUID UUID] UUIDString];
+    NSLog(@"StartDriveTableViewController - Report UUID: %@", self.report.uuid);
     
     Route *route = [[Route alloc] init];
     self.report.route = route;

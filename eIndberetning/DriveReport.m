@@ -18,14 +18,6 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateString = [dateFormatter stringFromDate:self.date];
     
-    if (self.homeToBorderDistance == nil) {
-        self.homeToBorderDistance = [NSNumber numberWithFloat:0.0f];
-    }
-    
-    if (self.manuelentryremark == nil) {
-        self.manuelentryremark = @"";
-    }
-    
     NSDictionary *body = [NSMutableDictionary
                           dictionaryWithObjectsAndKeys:
                           self.uuid, @"Uuid",
