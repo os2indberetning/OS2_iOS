@@ -97,6 +97,27 @@ const double WAIT_TIME_S = 1.5;
         report.uuid = [[NSUUID UUID] UUIDString];
         NSLog(@"UploadDriveViewController - New created Report UUID: %@", report.uuid);
     }
+    
+    if (report.route.coordinates != nil || report.route.coordinates.count < 2) {
+        // If we close the drive too fast, and/or we don't move, we will only
+        // have 1 or no coordicates. We want to make sure we have two, otherwise
+        // it will not get synced into the database.
+        NSLog(@"UploadDriveViewController - Report route coordinates before sanity check: %lu", report.route.coordinates.count);
+        if (report.route.coordinates.count == 1) {
+            GpsCoordinates *cor = [[GpsCoordinates alloc] init];
+            cor = report.route.coordinates[0];
+            [report.route.coordinates addObject:cor];
+        }
+        else {
+            GpsCoordinates *cor1 = [[GpsCoordinates alloc] init];
+            cor1.loc = [[CLLocation alloc] initWithLatitude:0 longitude:0];
+            GpsCoordinates *cor2 = [[GpsCoordinates alloc] init];
+            cor2.loc = [[CLLocation alloc] initWithLatitude:0 longitude:0];
+            [report.route.coordinates addObject:cor1];
+            [report.route.coordinates addObject:cor2];
+        }
+        NSLog(@"UploadDriveViewController - Report route coordinates after sanity check: %lu", report.route.coordinates.count);
+    }
 }
 
 -(void)uploadReport
