@@ -18,6 +18,13 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateString = [dateFormatter stringFromDate:self.date];
     
+    NSString* homeToBorderDistance = @"";
+    if ([self.homeToBorderDistance doubleValue] < 0.1) {
+        homeToBorderDistance = @"0.0";
+    } else {
+        homeToBorderDistance = [self.homeToBorderDistance stringValue];
+    }
+    
     NSDictionary *body = [NSMutableDictionary
                           dictionaryWithObjectsAndKeys:
                           self.uuid, @"Uuid",
@@ -27,8 +34,8 @@
                           @(self.didstarthome), @"StartsAtHome",
                           @(self.didendhome), @"EndsAtHome",
                           @(self.fourKmRule), @"FourKmRule",
-                          self.homeToBorderDistance, @"HomeToBorderDistance",
-                          [self.route transformToDictionary], @"Route",
+                          homeToBorderDistance, @"HomeToBorderDistance",
+                          [self.route transformToDictionary], @"route",
                           self.employment.employmentId, @"EmploymentId",
                           self.profileId, @"ProfileId",
                           self.rate.rateid, @"RateId",

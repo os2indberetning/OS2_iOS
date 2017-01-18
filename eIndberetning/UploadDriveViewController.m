@@ -94,7 +94,7 @@ const double WAIT_TIME_S = 1.5;
         // sanity check, since we had some issues, where the uuid wasn't
         // send to the backend.
         NSLog(@"UploadDriveViewController - Report UUID is empty, we create a new one");
-        report.uuid = [[NSUUID UUID] UUIDString];
+        report.uuid = [[NSUUID UUID] UUIDString].lowercaseString;
         NSLog(@"UploadDriveViewController - New created Report UUID: %@", report.uuid);
     }
     
@@ -110,9 +110,9 @@ const double WAIT_TIME_S = 1.5;
         }
         else {
             GpsCoordinates *cor1 = [[GpsCoordinates alloc] init];
-            cor1.loc = [[CLLocation alloc] initWithLatitude:0 longitude:0];
+            cor1.loc = [[CLLocation alloc] initWithLatitude:56.1187857 longitude:10.1396362];
             GpsCoordinates *cor2 = [[GpsCoordinates alloc] init];
-            cor2.loc = [[CLLocation alloc] initWithLatitude:0 longitude:0];
+            cor2.loc = [[CLLocation alloc] initWithLatitude:56.1187857 longitude:10.1396362];
             [report.route.coordinates addObject:cor1];
             [report.route.coordinates addObject:cor2];
         }

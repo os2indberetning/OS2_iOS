@@ -30,9 +30,16 @@
         [gpsArray addObject:[g transformToDictionary]];
     }
     
+    NSString* totalDistanceEdit = @"";
+    if ([self.totalDistanceEdit doubleValue] < 0.1) {
+        totalDistanceEdit = @"0.0";
+    } else {
+        totalDistanceEdit = [self.totalDistanceEdit stringValue];
+    }
+    
     NSDictionary *body = [NSMutableDictionary
                                  dictionaryWithObjectsAndKeys:
-                                 self.totalDistanceEdit, @"TotalDistance",
+                                 totalDistanceEdit, @"TotalDistance",
                                  gpsArray, @"GPSCoordinates", nil];
     
     return body;
