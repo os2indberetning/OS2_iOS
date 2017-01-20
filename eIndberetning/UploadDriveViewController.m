@@ -98,7 +98,7 @@ const double WAIT_TIME_S = 1.5;
         NSLog(@"UploadDriveViewController - New created Report UUID: %@", report.uuid);
     }
     
-    if (report.route.coordinates != nil || report.route.coordinates.count < 2) {
+    if (report.route.coordinates == nil || report.route.coordinates.count < 2) {
         // If we close the drive too fast, and/or we don't move, we will only
         // have 1 or no coordicates. We want to make sure we have two, otherwise
         // it will not get synced into the database.
