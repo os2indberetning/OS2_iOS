@@ -390,44 +390,34 @@
 -(void)showGPSPermissionDenied
 {
     NSString* title = @"Lokation er ikke tilgængelig";
+    NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig";
     
-    float version = [[UIDevice currentDevice] systemVersion].floatValue;
-    if (version >= 8.0)
-    {
-
-        NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig";
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                            message:message
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Afbryd"
-                                                  otherButtonTitles:@"Indstillinger", nil];
-        [alertView show];
-    }
-    else
-    {
-        NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig, gå derfor ind i indstillinger først";
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                            message:message
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil, nil];
-        [alertView show];
-    }
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        // Send the user to the Settings for this app
-        NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-        [[UIApplication sharedApplication] openURL:settingsURL];
-    }
-    else
-    {
-        [self.navigationController popToRootViewControllerAnimated:true];
-    }
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:title
+                                          message:message
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Afbryd"
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       [self.navigationController popToRootViewControllerAnimated:true];
+                                   }];
+    
+    UIAlertAction *settingsAction = [UIAlertAction
+                                     actionWithTitle:@"Indstillinger"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction *action)
+                                     {
+                                         NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                         [[UIApplication sharedApplication] openURL:settingsURL];
+                                     }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:settingsAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 -(void)gotNewGPSCoordinate:(CLLocation *)location
