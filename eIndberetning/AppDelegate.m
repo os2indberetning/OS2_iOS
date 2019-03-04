@@ -20,9 +20,6 @@
 
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    
-    
     return YES;
 }
 
@@ -31,7 +28,6 @@
     [self chooseFirstView];
     
     [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [self.window makeKeyAndVisible];
     
