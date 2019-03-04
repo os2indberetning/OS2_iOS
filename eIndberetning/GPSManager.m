@@ -113,23 +113,15 @@ const double maxDistanceBetweenLocations = 200.0;
     // The user has not enabled any location services. Request background authorization.
     else if (status == kCLAuthorizationStatusNotDetermined) {
         NSLog(@"Not determined status number: %i", status);
-        float version = [[UIDevice currentDevice] systemVersion].floatValue;
-        if (version >= 8.0)
-        {
-            if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-                [self.locationManager requestAlwaysAuthorization];
-            }
+        
+        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+            [self.locationManager requestAlwaysAuthorization];
         }
-        else
-        {
-            [self.locationManager startUpdatingLocation];
-        }
+        
         return NO;
-    }else if(status == kCLAuthorizationStatusAuthorized){
-        NSLog(@"Authorized status number: %i", status);
-    }else if(status == kCLAuthorizationStatusAuthorizedAlways){
+    } else if (status == kCLAuthorizationStatusAuthorizedAlways) {
         NSLog(@"Auth Always status number: %i", status);
-    }else if(status == kCLAuthorizationStatusRestricted){
+    } else if(status == kCLAuthorizationStatusRestricted) {
         NSLog(@"Restricted status number: %i", status);
     }
     
