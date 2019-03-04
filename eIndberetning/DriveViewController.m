@@ -15,7 +15,7 @@
 #import "UserInfo.h"
 #import "QuestionDialogViewController.h"
 
-@interface DriveViewController ()  <CLLocationManagerDelegate, UIAlertViewDelegate>
+@interface DriveViewController ()  <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *distanceDrivenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
@@ -207,30 +207,38 @@ const double SETTLE_TIME_S = 5;
     NSString* title = @"Lokation er ikke tilgængelig";
     NSString *message = @"For at bruge appen, skal lokation gøres tilgængelig";
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:self
-                                              cancelButtonTitle:@"Afbryd"
-                                              otherButtonTitles:@"Indstillinger", nil];
-    [alertView show];
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:title
+                                          message:message
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Afbryd"
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       [self endDrive];
+                                   }];
+    
+    UIAlertAction *settingsAction = [UIAlertAction
+                                     actionWithTitle:@"Indstillinger"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction *action)
+                                     {
+                                         // Send the user to the Settings for this app
+                                         NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                         [[UIApplication sharedApplication] openURL:settingsURL];
+                                     }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:settingsAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 -(void)onGoingLocationDenied{
     [self togglePauseResume:NO];
     [self showGPSPermissionDenied];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        // Send the user to the Settings for this app
-        NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-        [[UIApplication sharedApplication] openURL:settingsURL];
-    }
-    else
-    {
-        [self endDrive];
-    }
 }
 
 -(void)didUpdatePrecision:(float)precision
