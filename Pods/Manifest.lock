@@ -20,6 +20,14 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AppCenter (1.12.0):
+    - AppCenter/Analytics (= 1.12.0)
+    - AppCenter/Crashes (= 1.12.0)
+  - AppCenter/Analytics (1.12.0):
+    - AppCenter/Core
+  - AppCenter/Core (1.12.0)
+  - AppCenter/Crashes (1.12.0):
+    - AppCenter/Core
   - KIF (3.2.3):
     - KIF/XCTest (= 3.2.3)
   - KIF/XCTest (3.2.3)
@@ -27,12 +35,23 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - AppCenter
   - KIF (~> 3.0)
   - XcodeCoverage (~> 1.0)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - AppCenter
+    - KIF
+    - XcodeCoverage
+
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AppCenter: 4d27bdafd74b1b3e90946b9989fd6011a7e39c5e
   KIF: a94bffe9c97e449e44f8fa481c53243d21309e1e
   XcodeCoverage: 46ab36f35da908cf70498a34610c95d24230303a
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 1656d242748909037db0d9645c964d1774ba7d90
+
+COCOAPODS: 1.5.3
