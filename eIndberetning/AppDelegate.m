@@ -8,10 +8,15 @@
 //  eIndberetning
 //
 
+@import AppCenter;
+@import AppCenterAnalytics;
+@import AppCenterCrashes;
+
 #import "AppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "UserInfo.h"
 #import "eMobilityHTTPSClient.h"
+
 @interface AppDelegate ()
 
 @end
@@ -24,6 +29,10 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [MSAppCenter start:@"{APP-CENTER-API-KEY}"
+          withServices:@[[MSAnalytics class],
+                         [MSCrashes class]]];
+    
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     [self chooseFirstView];
     
