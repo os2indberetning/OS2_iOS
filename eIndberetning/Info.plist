@@ -15,11 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.0</string>
+	<string>2.1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>39</string>
+	<string>42</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -27,8 +27,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Lokations-tracking er nødvendig for at opmåle ruter.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Lokations tracking er nødvendig for at opmåle ruter.</string>
+	<string>Lokations-tracking er nødvendig for at opmåle ruter.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Lokations-tracking er nødvendig for at opmåle ruter.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
@@ -44,6 +48,8 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<false/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -8,10 +8,15 @@
 //  eIndberetning
 //
 
+@import AppCenter;
+@import AppCenterAnalytics;
+@import AppCenterCrashes;
+
 #import "AppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "UserInfo.h"
 #import "eMobilityHTTPSClient.h"
+
 @interface AppDelegate ()
 
 @end
@@ -20,18 +25,18 @@
 
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    
-    
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [MSAppCenter start:@"{APP-CENTER-API-KEY}"
+          withServices:@[[MSAnalytics class],
+                         [MSCrashes class]]];
+    
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     [self chooseFirstView];
     
     [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [self.window makeKeyAndVisible];
     
@@ -183,7 +188,7 @@
     if (!coordinator) {
         return nil;
     }
-    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     return _managedObjectContext;
 }
