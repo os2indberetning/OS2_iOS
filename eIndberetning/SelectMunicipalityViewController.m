@@ -20,7 +20,7 @@
 @property (nonatomic, strong) ErrorMsgViewController* errorMsg;
 @end
 
-static NSString * const baseURL = @"https://ework.favrskov.dk/FavrskovMobilityAPI/api/";
+static NSString * const baseURL = @"https://www.os2indberetning.dk/";
 
 @implementation SelectMunicipalityViewController
 
@@ -46,7 +46,7 @@ NSString* municipalityCell = @"MunicipalityCell";
 
 -(void)fetchProviders{
     AFHTTPSessionManager* sessionManager = [[AFHTTPSessionManager manager] initWithBaseURL:[NSURL URLWithString:baseURL]];
-    [sessionManager GET:@"AppInfo" parameters:nil success:^(NSURLSessionDataTask *task, id resonseObject) {
+    [sessionManager GET:@"appinfo.json" parameters:nil success:^(NSURLSessionDataTask *task, id resonseObject) {
         
         self.isLoading = NO;
         self.municipalityList = [AppInfo initFromJsonDic:resonseObject];
