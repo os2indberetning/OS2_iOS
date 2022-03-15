@@ -64,6 +64,7 @@
     
     [self.navigationController.navigationBar setTranslucent:NO];
     [self.navigationController.navigationBar setBarTintColor:info.appInfo.PrimaryColor];
+    [self.navigationController.navigationBar setBackgroundColor:info.appInfo.PrimaryColor];
     [self.navigationController.navigationBar setTintColor:info.appInfo.SecondaryColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : info.appInfo.TextColor}];
